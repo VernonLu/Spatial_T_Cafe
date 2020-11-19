@@ -23,28 +23,31 @@ public class MainCameraSwitch : MonoBehaviour
 	}
 
 	public GameObject mainCam;
-	public GameObject transitionCamera;
+	public GameObject transitionCam;
 
-	void Start()
+	public Camera mainCamera;
+	public Camera transitionCamera;
+
+	private void Start()
 	{
-
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
+		SwitchOn();
 	}
 
 	public void SwitchOn()
 	{
-		mainCam.SetActive(true);
-		transitionCamera.SetActive(false);
+		// mainCam.SetActive(true);
+		mainCamera.enabled = true;
+		// transitionCam.SetActive(false);
+		transitionCamera.enabled = false;
+		TabListManager.Instance.ShowListPanel();
 	}
 	public void SwitchOff()
 	{
-		mainCam.SetActive(false);
-		transitionCamera.SetActive(true);
+		// mainCam.SetActive(false);
+		mainCamera.enabled = false;
+		// transitionCam.SetActive(true);
+		transitionCamera.enabled = true;
+		TabListManager.Instance.HideListPanel();
 
 	}
 }

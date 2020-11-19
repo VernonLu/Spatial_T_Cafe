@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TabListManager : MonoBehaviour
 {
@@ -20,9 +21,14 @@ public class TabListManager : MonoBehaviour
 		{
 			instance = this;
 		}
+		TryGetComponent(out canvasGroup);
+		Debug.Log(canvasGroup);
 	}
+	private CanvasGroup canvasGroup;
 
 	public List<TabManager> tabList = new List<TabManager>();
+
+	public TabManager currentTab;
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -48,6 +54,24 @@ public class TabListManager : MonoBehaviour
 		}
 	}
 
-	public TabManager currentTab;
+	/// <summary>
+	/// Hide Tab List Panel
+	/// </summary>
+	public void HideListPanel()
+	{
+		canvasGroup.alpha = 0;
+		canvasGroup.interactable = false;
+		canvasGroup.blocksRaycasts = false;
 
+	}
+
+	/// <summary>
+	/// Show Tab List Panel
+	/// </summary>
+	public void ShowListPanel()
+	{
+		canvasGroup.alpha = 1;
+		canvasGroup.interactable = true;
+		canvasGroup.blocksRaycasts = true;
+	}
 }

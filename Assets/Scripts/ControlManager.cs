@@ -113,7 +113,11 @@ public class ControlManager : MonoBehaviour
 
 	public void HideControlHint()
 	{
-		controller.SetActiveRotateHint(false);
+		if (controller)
+		{
+
+			controller.SetActiveRotateHint(false);
+		}
 		moveHint.SetActive(false);
 	}
 
