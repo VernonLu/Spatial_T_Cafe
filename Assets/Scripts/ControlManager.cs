@@ -203,6 +203,7 @@ public class ControlManager : MonoBehaviour
 	}
 	public void SaveAction(SavedActionType type, SubPartInfo subPart = null)
 	{
+		return;
 		Debug.Log("Save: " + type);
 		if (currentStep < actionList.Count - 1)
 		{

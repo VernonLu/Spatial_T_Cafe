@@ -19,9 +19,11 @@ public class WoodJoint : MonoBehaviour
 	[Header("Rotation Limitation")]
 	public Vector2 XRange = new Vector2(0, 360);
 
+	private new Collider collider;
+
 	void Start()
 	{
-
+		collider = GetComponent<Collider>();
 	}
 
 	private void Update()
@@ -69,6 +71,6 @@ public class WoodJoint : MonoBehaviour
 		subPart.SetActive(true);
 		// Disable currentItem
 		ControlManager.Instance.currentItem.gameObject.SetActive(false);
-
+		collider.enabled = false;
 	}
 }

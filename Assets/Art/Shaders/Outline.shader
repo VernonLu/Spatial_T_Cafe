@@ -1,388 +1,577 @@
-﻿// Unity built-in shader source. Copyright (c) 2016 Unity Technologies. MIT license (see license.txt)
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+// Unity built-in shader source. Copyright (c) 2016 Unity Technologies. MIT license (see license.txt)
 
 Shader "WoodJoint/Outline"
 {
-    Properties
-    {
-        _Color("Color", Color) = (1,1,1,1)
-        _MainTex("Albedo", 2D) = "white" {}
+	Properties
+	{
 
-        _Cutoff("Alpha Cutoff", Range(0.0, 1.0)) = 0.5
+		_Color("Color", Color) = (1,1,1,1)
+		_MainTex("Albedo", 2D) = "white" {}
 
-        _Glossiness("Smoothness", Range(0.0, 1.0)) = 0.5
-        _GlossMapScale("Smoothness Scale", Range(0.0, 1.0)) = 1.0
-        [Enum(Metallic Alpha,0,Albedo Alpha,1)] _SmoothnessTextureChannel ("Smoothness texture channel", Float) = 0
+		// Outline properties
+		_Outline("Outline Width", Range(0,0.01)) = 1
+		_OutlineColor("Outline Color", Color) = (1,1,1,1)
+		//
 
-        [Gamma] _Metallic("Metallic", Range(0.0, 1.0)) = 0.0
-        _MetallicGlossMap("Metallic", 2D) = "white" {}
+		_Cutoff("Alpha Cutoff", Range(0.0, 1.0)) = 0.5
 
-        [ToggleOff] _SpecularHighlights("Specular Highlights", Float) = 1.0
-        [ToggleOff] _GlossyReflections("Glossy Reflections", Float) = 1.0
+		_Glossiness("Smoothness", Range(0.0, 1.0)) = 0.5
+		_GlossMapScale("Smoothness Scale", Range(0.0, 1.0)) = 1.0
+		[Enum(Metallic Alpha,0,Albedo Alpha,1)] _SmoothnessTextureChannel ("Smoothness texture channel", Float) = 0
 
-        _BumpScale("Scale", Float) = 1.0
-        [Normal] _BumpMap("Normal Map", 2D) = "bump" {}
+		[Gamma] _Metallic("Metallic", Range(0.0, 1.0)) = 0.0
+		_MetallicGlossMap("Metallic", 2D) = "white" {}
 
-        _Parallax ("Height Scale", Range (0.005, 0.08)) = 0.02
-        _ParallaxMap ("Height Map", 2D) = "black" {}
+		[ToggleOff] _SpecularHighlights("Specular Highlights", Float) = 1.0
+		[ToggleOff] _GlossyReflections("Glossy Reflections", Float) = 1.0
 
-        _OcclusionStrength("Strength", Range(0.0, 1.0)) = 1.0
-        _OcclusionMap("Occlusion", 2D) = "white" {}
+		_BumpScale("Scale", Float) = 1.0
+		[Normal] _BumpMap("Normal Map", 2D) = "bump" {}
 
-        _EmissionColor("Color", Color) = (0,0,0)
-        _EmissionMap("Emission", 2D) = "white" {}
+		_Parallax ("Height Scale", Range (0.005, 0.08)) = 0.02
+		_ParallaxMap ("Height Map", 2D) = "black" {}
 
-        _DetailMask("Detail Mask", 2D) = "white" {}
+		_OcclusionStrength("Strength", Range(0.0, 1.0)) = 1.0
+		_OcclusionMap("Occlusion", 2D) = "white" {}
 
-        _DetailAlbedoMap("Detail Albedo x2", 2D) = "grey" {}
-        _DetailNormalMapScale("Scale", Float) = 1.0
-        [Normal] _DetailNormalMap("Normal Map", 2D) = "bump" {}
+		_EmissionColor("Color", Color) = (0,0,0)
+		_EmissionMap("Emission", 2D) = "white" {}
 
-        [Enum(UV0,0,UV1,1)] _UVSec ("UV Set for secondary textures", Float) = 0
+		_DetailMask("Detail Mask", 2D) = "white" {}
+
+		_DetailAlbedoMap("Detail Albedo x2", 2D) = "grey" {}
+		_DetailNormalMapScale("Scale", Float) = 1.0
+		[Normal] _DetailNormalMap("Normal Map", 2D) = "bump" {}
+
+		[Enum(UV0,0,UV1,1)] _UVSec ("UV Set for secondary textures", Float) = 0
 
 
-        // Blending state
-        [HideInInspector] _Mode ("__mode", Float) = 0.0
-        [HideInInspector] _SrcBlend ("__src", Float) = 1.0
-        [HideInInspector] _DstBlend ("__dst", Float) = 0.0
-        [HideInInspector] _ZWrite ("__zw", Float) = 1.0
-    }
-
-    CGINCLUDE
-        #define UNITY_SETUP_BRDF_INPUT MetallicSetup
-    ENDCG
-
-    SubShader
-    {
-        Tags { "RenderType"="Opaque" "PerformanceChecks"="False" }
-        LOD 300
-		Pass {
-			Stencil {
-				Ref 1
-				Comp NotEqual
-			}
+		// Blending state
+		[HideInInspector] _Mode ("__mode", Float) = 0.0
+		[HideInInspector] _SrcBlend ("__src", Float) = 1.0
+		[HideInInspector] _DstBlend ("__dst", Float) = 0.0
+		[HideInInspector] _ZWrite ("__zw", Float) = 1.0
 		
-			Cull Off
-			ZWrite Off
-	
+		
+	}
+
+	CGINCLUDE
+	#define UNITY_SETUP_BRDF_INPUT MetallicSetup
+	ENDCG
+
+
+	SubShader
+	{
+		Stencil
+		{
+			Ref 1
+			Comp Always
+			Pass Replace
+		}
+		// ------------------
+		// Outline Top Right
+		Pass{
+			//剔除正面，只渲染背面，对于大多数模型适用，不过如果需要背面的，就有问题了
+			Cull Front
 			CGPROGRAM
+
+			//include useful shader functions 
+			#include "UnityCG.cginc"
 			#pragma vertex vert
 			#pragma fragment frag
-			#include "UnityCG.cginc"
-			half _Size;
-			fixed4 _Outline;
-			struct v2f {
+			float _Outline;
+			fixed4 _OutlineColor;
+
+			//the data that's used to generate fragments and can be read by the fragment shader
+			struct v2f{
 				float4 pos : SV_POSITION;
 			};
-			v2f vert (appdata_base v) {
+
+			//the vertex shader
+			v2f vert(appdata_full v){
 				v2f o;
-				v.vertex.xyz += v.normal * _Size;
-				o.pos = UnityObjectToClipPos (v.vertex);
+
+				float3 viewUp = UNITY_MATRIX_IT_MV[1].xyz;
+				float3 viewDir = UNITY_MATRIX_IT_MV[2].xyz;
+				float3 viewRight = cross(viewDir, viewUp);
+				v.vertex.xyz += normalize((1) * viewRight + (1) * viewUp) * _Outline;
+				o.pos = UnityObjectToClipPos(v.vertex);
+
 				return o;
 			}
-			half4 frag (v2f i) : SV_Target
-			{
-				return _Outline;
+
+			//the fragment shader
+			fixed4 frag(v2f i) : SV_TARGET{
+				return _OutlineColor;
 			}
+
+			ENDCG
+		}
+		Stencil
+		{
+			Ref 1
+			Comp Always
+			Pass Replace
+		}
+		// Outline Top Left
+		Pass{
+			//剔除正面，只渲染背面，对于大多数模型适用，不过如果需要背面的，就有问题了
+			Cull Front
+			CGPROGRAM
+
+			//include useful shader functions 
+			#include "UnityCG.cginc"
+			#pragma vertex vert
+			#pragma fragment frag
+			float _Outline;
+			fixed4 _OutlineColor;
+
+			//the data that's used to generate fragments and can be read by the fragment shader
+			struct v2f{
+				float4 pos : SV_POSITION;
+			};
+
+			//the vertex shader
+			v2f vert(appdata_full v){
+				v2f o;
+
+				float3 viewUp = UNITY_MATRIX_IT_MV[1].xyz;
+				float3 viewDir = UNITY_MATRIX_IT_MV[2].xyz;
+				float3 viewRight = cross(viewDir, viewUp);
+				v.vertex.xyz += normalize((-1) * viewRight + (1) * viewUp) * _Outline;
+				o.pos = UnityObjectToClipPos(v.vertex);
+
+				return o;
+			}
+
+			//the fragment shader
+			fixed4 frag(v2f i) : SV_TARGET{
+				return _OutlineColor;
+			}
+
+			ENDCG
+		}
+
+		Stencil
+		{
+			Ref 1
+			Comp Always
+			Pass Replace
+		}
+		// Outline Bottom Right
+		Pass{
+			//剔除正面，只渲染背面，对于大多数模型适用，不过如果需要背面的，就有问题了
+			Cull Front
+			CGPROGRAM
+
+			//include useful shader functions 
+			#include "UnityCG.cginc"
+			#pragma vertex vert
+			#pragma fragment frag
+			float _Outline;
+			fixed4 _OutlineColor;
+
+			//the data that's used to generate fragments and can be read by the fragment shader
+			struct v2f{
+				float4 pos : SV_POSITION;
+			};
+
+			//the vertex shader
+			v2f vert(appdata_full v){
+				v2f o;
+
+				float3 viewUp = UNITY_MATRIX_IT_MV[1].xyz;
+				float3 viewDir = UNITY_MATRIX_IT_MV[2].xyz;
+				float3 viewRight = cross(viewDir, viewUp);
+				v.vertex.xyz += normalize((1) * viewRight + (-1) * viewUp) * _Outline;
+				o.pos = UnityObjectToClipPos(v.vertex);
+
+				return o;
+			}
+
+			//the fragment shader
+			fixed4 frag(v2f i) : SV_TARGET{
+				return _OutlineColor;
+			}
+
 			ENDCG
 		}
 		
-		Tags { "RenderType"="Opaque" }
-		LOD 200
-
-		// render model
-
-		Stencil {
+		Stencil
+		{
 			Ref 1
-			Comp always
-			Pass replace
+			Comp Always
+			Pass Replace
+		}
+		// Outline Bottom Left
+		Pass{
+			//剔除正面，只渲染背面，对于大多数模型适用，不过如果需要背面的，就有问题了
+			Cull Front
+			CGPROGRAM
+
+			//include useful shader functions 
+			#include "UnityCG.cginc"
+			#pragma vertex vert
+			#pragma fragment frag
+			float _Outline;
+			fixed4 _OutlineColor;
+
+			//the data that's used to generate fragments and can be read by the fragment shader
+			struct v2f{
+				float4 pos : SV_POSITION;
+			};
+
+			//the vertex shader
+			v2f vert(appdata_full v){
+				v2f o;
+
+				float3 viewUp = UNITY_MATRIX_IT_MV[1].xyz;
+				float3 viewDir = UNITY_MATRIX_IT_MV[2].xyz;
+				float3 viewRight = cross(viewDir, viewUp);
+				v.vertex.xyz += normalize((-1) * viewRight + (-1) * viewUp) * _Outline;
+				o.pos = UnityObjectToClipPos(v.vertex);
+
+				return o;
+			}
+
+			//the fragment shader
+			fixed4 frag(v2f i) : SV_TARGET{
+				return _OutlineColor;
+			}
+
+			ENDCG
+		}
+		// End outline
+		// --------------------------------
+
+	}
+
+
+	SubShader
+	{
+		Stencil
+		{
+			Ref 1
+			Comp equal
+		}
+		// ------------------------------------------------------------------
+		//  Base forward pass (directional light, emission, lightmaps, ...)
+		Pass
+		{
+			Name "FORWARD"
+			Tags { "LightMode" = "ForwardBase" }
+
+			Blend [_SrcBlend] [_DstBlend]
+			ZWrite [_ZWrite]
+
+			CGPROGRAM
+			#pragma target 3.0
+
+			// -------------------------------------
+
+			#pragma shader_feature_local _NORMALMAP
+			#pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
+			#pragma shader_feature _EMISSION
+			#pragma shader_feature_local _METALLICGLOSSMAP
+			#pragma shader_feature_local _DETAIL_MULX2
+			#pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+			#pragma shader_feature_local _SPECULARHIGHLIGHTS_OFF
+			#pragma shader_feature_local _GLOSSYREFLECTIONS_OFF
+			#pragma shader_feature_local _PARALLAXMAP
+
+			#pragma multi_compile_fwdbase
+			#pragma multi_compile_fog
+			#pragma multi_compile_instancing
+			// Uncomment the following line to enable dithering LOD crossfade. Note: there are more in the file to uncomment for other passes.
+			//#pragma multi_compile _ LOD_FADE_CROSSFADE
+
+			#pragma vertex vertBase
+			#pragma fragment fragBase
+			#include "UnityStandardCoreForward.cginc"
+
+			ENDCG
 		}
 
-        // ------------------------------------------------------------------
-        //  Base forward pass (directional light, emission, lightmaps, ...)
-        Pass
-        {
-            Name "FORWARD"
-            Tags { "LightMode" = "ForwardBase" }
+		Stencil
+		{
+			Ref 1
+			Comp equal
+		}
+		// ------------------------------------------------------------------
+		//  Additive forward pass (one light per pass)
+		Pass
+		{
+			Name "FORWARD_DELTA"
+			Tags { "LightMode" = "ForwardAdd" }
+			Blend [_SrcBlend] One
+			Fog { Color (0,0,0,0) } // in additive pass fog should be black
+			ZWrite Off
+			ZTest LEqual
 
-            Blend [_SrcBlend] [_DstBlend]
-            ZWrite [_ZWrite]
+			CGPROGRAM
+			#pragma target 3.0
 
-            CGPROGRAM
-            #pragma target 3.0
-
-            // -------------------------------------
-
-            #pragma shader_feature_local _NORMALMAP
-            #pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
-            #pragma shader_feature _EMISSION
-            #pragma shader_feature_local _METALLICGLOSSMAP
-            #pragma shader_feature_local _DETAIL_MULX2
-            #pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-            #pragma shader_feature_local _SPECULARHIGHLIGHTS_OFF
-            #pragma shader_feature_local _GLOSSYREFLECTIONS_OFF
-            #pragma shader_feature_local _PARALLAXMAP
-
-            #pragma multi_compile_fwdbase
-            #pragma multi_compile_fog
-            #pragma multi_compile_instancing
-            // Uncomment the following line to enable dithering LOD crossfade. Note: there are more in the file to uncomment for other passes.
-            //#pragma multi_compile _ LOD_FADE_CROSSFADE
-
-            #pragma vertex vertBase
-            #pragma fragment fragBase
-            #include "UnityStandardCoreForward.cginc"
-
-            ENDCG
-        }
-        // ------------------------------------------------------------------
-        //  Additive forward pass (one light per pass)
-        Pass
-        {
-            Name "FORWARD_DELTA"
-            Tags { "LightMode" = "ForwardAdd" }
-            Blend [_SrcBlend] One
-            Fog { Color (0,0,0,0) } // in additive pass fog should be black
-            ZWrite Off
-            ZTest LEqual
-
-            CGPROGRAM
-            #pragma target 3.0
-
-            // -------------------------------------
+			// -------------------------------------
 
 
-            #pragma shader_feature_local _NORMALMAP
-            #pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
-            #pragma shader_feature_local _METALLICGLOSSMAP
-            #pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-            #pragma shader_feature_local _SPECULARHIGHLIGHTS_OFF
-            #pragma shader_feature_local _DETAIL_MULX2
-            #pragma shader_feature_local _PARALLAXMAP
+			#pragma shader_feature_local _NORMALMAP
+			#pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
+			#pragma shader_feature_local _METALLICGLOSSMAP
+			#pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+			#pragma shader_feature_local _SPECULARHIGHLIGHTS_OFF
+			#pragma shader_feature_local _DETAIL_MULX2
+			#pragma shader_feature_local _PARALLAXMAP
 
-            #pragma multi_compile_fwdadd_fullshadows
-            #pragma multi_compile_fog
-            // Uncomment the following line to enable dithering LOD crossfade. Note: there are more in the file to uncomment for other passes.
-            //#pragma multi_compile _ LOD_FADE_CROSSFADE
+			#pragma multi_compile_fwdadd_fullshadows
+			#pragma multi_compile_fog
+			// Uncomment the following line to enable dithering LOD crossfade. Note: there are more in the file to uncomment for other passes.
+			//#pragma multi_compile _ LOD_FADE_CROSSFADE
 
-            #pragma vertex vertAdd
-            #pragma fragment fragAdd
-            #include "UnityStandardCoreForward.cginc"
+			#pragma vertex vertAdd
+			#pragma fragment fragAdd
+			#include "UnityStandardCoreForward.cginc"
 
-            ENDCG
-        }
-        // ------------------------------------------------------------------
-        //  Shadow rendering pass
-        Pass {
-            Name "ShadowCaster"
-            Tags { "LightMode" = "ShadowCaster" }
+			ENDCG
+		}
 
-            ZWrite On ZTest LEqual
+		Stencil
+		{
+			Ref 1
+			Comp equal
+		}
+		// ------------------------------------------------------------------
+		//  Shadow rendering pass
+		Pass {
+			Name "ShadowCaster"
+			Tags { "LightMode" = "ShadowCaster" }
 
-            CGPROGRAM
-            #pragma target 3.0
+			ZWrite On ZTest LEqual
 
-            // -------------------------------------
+			CGPROGRAM
+			#pragma target 3.0
 
-
-            #pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
-            #pragma shader_feature_local _METALLICGLOSSMAP
-            #pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-            #pragma shader_feature_local _PARALLAXMAP
-            #pragma multi_compile_shadowcaster
-            #pragma multi_compile_instancing
-            // Uncomment the following line to enable dithering LOD crossfade. Note: there are more in the file to uncomment for other passes.
-            //#pragma multi_compile _ LOD_FADE_CROSSFADE
-
-            #pragma vertex vertShadowCaster
-            #pragma fragment fragShadowCaster
-
-            #include "UnityStandardShadow.cginc"
-
-            ENDCG
-        }
-        // ------------------------------------------------------------------
-        //  Deferred pass
-        Pass
-        {
-            Name "DEFERRED"
-            Tags { "LightMode" = "Deferred" }
-
-            CGPROGRAM
-            #pragma target 3.0
-            #pragma exclude_renderers nomrt
+			// -------------------------------------
 
 
-            // -------------------------------------
+			#pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
+			#pragma shader_feature_local _METALLICGLOSSMAP
+			#pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+			#pragma shader_feature_local _PARALLAXMAP
+			#pragma multi_compile_shadowcaster
+			#pragma multi_compile_instancing
+			// Uncomment the following line to enable dithering LOD crossfade. Note: there are more in the file to uncomment for other passes.
+			//#pragma multi_compile _ LOD_FADE_CROSSFADE
 
-            #pragma shader_feature_local _NORMALMAP
-            #pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
-            #pragma shader_feature _EMISSION
-            #pragma shader_feature_local _METALLICGLOSSMAP
-            #pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-            #pragma shader_feature_local _SPECULARHIGHLIGHTS_OFF
-            #pragma shader_feature_local _DETAIL_MULX2
-            #pragma shader_feature_local _PARALLAXMAP
+			#pragma vertex vertShadowCaster
+			#pragma fragment fragShadowCaster
 
-            #pragma multi_compile_prepassfinal
-            #pragma multi_compile_instancing
-            // Uncomment the following line to enable dithering LOD crossfade. Note: there are more in the file to uncomment for other passes.
-            //#pragma multi_compile _ LOD_FADE_CROSSFADE
+			#include "UnityStandardShadow.cginc"
 
-            #pragma vertex vertDeferred
-            #pragma fragment fragDeferred
+			ENDCG
+		}
 
-            #include "UnityStandardCore.cginc"
+		Stencil
+		{
+			Ref 1
+			Comp equal
+		}
+		// ------------------------------------------------------------------
+		//  Deferred pass
+		Pass
+		{
+			Name "DEFERRED"
+			Tags { "LightMode" = "Deferred" }
 
-            ENDCG
-        }
-
-        // ------------------------------------------------------------------
-        // Extracts information for lightmapping, GI (emission, albedo, ...)
-        // This pass it not used during regular rendering.
-        Pass
-        {
-            Name "META"
-            Tags { "LightMode"="Meta" }
-
-            Cull Off
-
-            CGPROGRAM
-            #pragma vertex vert_meta
-            #pragma fragment frag_meta
-
-            #pragma shader_feature _EMISSION
-            #pragma shader_feature_local _METALLICGLOSSMAP
-            #pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-            #pragma shader_feature_local _DETAIL_MULX2
-            #pragma shader_feature EDITOR_VISUALIZATION
-
-            #include "UnityStandardMeta.cginc"
-            ENDCG
-        }
-    }
-
-    SubShader
-    {
-        Tags { "RenderType"="Opaque" "PerformanceChecks"="False" }
-        LOD 150
-
-        // ------------------------------------------------------------------
-        //  Base forward pass (directional light, emission, lightmaps, ...)
-        Pass
-        {
-            Name "FORWARD"
-            Tags { "LightMode" = "ForwardBase" }
-
-            Blend [_SrcBlend] [_DstBlend]
-            ZWrite [_ZWrite]
-
-            CGPROGRAM
-            #pragma target 2.0
-
-            #pragma shader_feature_local _NORMALMAP
-            #pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
-            #pragma shader_feature _EMISSION
-            #pragma shader_feature_local _METALLICGLOSSMAP
-            #pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-            #pragma shader_feature_local _SPECULARHIGHLIGHTS_OFF
-            #pragma shader_feature_local _GLOSSYREFLECTIONS_OFF
-            // SM2.0: NOT SUPPORTED shader_feature_local _DETAIL_MULX2
-            // SM2.0: NOT SUPPORTED shader_feature_local _PARALLAXMAP
-
-            #pragma skip_variants SHADOWS_SOFT DIRLIGHTMAP_COMBINED
-
-            #pragma multi_compile_fwdbase
-            #pragma multi_compile_fog
-
-            #pragma vertex vertBase
-            #pragma fragment fragBase
-            #include "UnityStandardCoreForward.cginc"
-
-            ENDCG
-        }
-        // ------------------------------------------------------------------
-        //  Additive forward pass (one light per pass)
-        Pass
-        {
-            Name "FORWARD_DELTA"
-            Tags { "LightMode" = "ForwardAdd" }
-            Blend [_SrcBlend] One
-            Fog { Color (0,0,0,0) } // in additive pass fog should be black
-            ZWrite Off
-            ZTest LEqual
-
-            CGPROGRAM
-            #pragma target 2.0
-
-            #pragma shader_feature_local _NORMALMAP
-            #pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
-            #pragma shader_feature_local _METALLICGLOSSMAP
-            #pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-            #pragma shader_feature_local _SPECULARHIGHLIGHTS_OFF
-            #pragma shader_feature_local _DETAIL_MULX2
-            // SM2.0: NOT SUPPORTED shader_feature_local _PARALLAXMAP
-            #pragma skip_variants SHADOWS_SOFT
-
-            #pragma multi_compile_fwdadd_fullshadows
-            #pragma multi_compile_fog
-
-            #pragma vertex vertAdd
-            #pragma fragment fragAdd
-            #include "UnityStandardCoreForward.cginc"
-
-            ENDCG
-        }
-        // ------------------------------------------------------------------
-        //  Shadow rendering pass
-        Pass {
-            Name "ShadowCaster"
-            Tags { "LightMode" = "ShadowCaster" }
-
-            ZWrite On ZTest LEqual
-
-            CGPROGRAM
-            #pragma target 2.0
-
-            #pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
-            #pragma shader_feature_local _METALLICGLOSSMAP
-            #pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-            #pragma skip_variants SHADOWS_SOFT
-            #pragma multi_compile_shadowcaster
-
-            #pragma vertex vertShadowCaster
-            #pragma fragment fragShadowCaster
-
-            #include "UnityStandardShadow.cginc"
-
-            ENDCG
-        }
-
-        // ------------------------------------------------------------------
-        // Extracts information for lightmapping, GI (emission, albedo, ...)
-        // This pass it not used during regular rendering.
-        Pass
-        {
-            Name "META"
-            Tags { "LightMode"="Meta" }
-
-            Cull Off
-
-            CGPROGRAM
-            #pragma vertex vert_meta
-            #pragma fragment frag_meta
-
-            #pragma shader_feature _EMISSION
-            #pragma shader_feature_local _METALLICGLOSSMAP
-            #pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-            #pragma shader_feature_local _DETAIL_MULX2
-            #pragma shader_feature EDITOR_VISUALIZATION
-
-            #include "UnityStandardMeta.cginc"
-            ENDCG
-        }
-    }
+			CGPROGRAM
+			#pragma target 3.0
+			#pragma exclude_renderers nomrt
 
 
-    FallBack "VertexLit"
-    CustomEditor "StandardShaderGUI"
+			// -------------------------------------
+
+			#pragma shader_feature_local _NORMALMAP
+			#pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
+			#pragma shader_feature _EMISSION
+			#pragma shader_feature_local _METALLICGLOSSMAP
+			#pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+			#pragma shader_feature_local _SPECULARHIGHLIGHTS_OFF
+			#pragma shader_feature_local _DETAIL_MULX2
+			#pragma shader_feature_local _PARALLAXMAP
+
+			#pragma multi_compile_prepassfinal
+			#pragma multi_compile_instancing
+			// Uncomment the following line to enable dithering LOD crossfade. Note: there are more in the file to uncomment for other passes.
+			//#pragma multi_compile _ LOD_FADE_CROSSFADE
+
+			#pragma vertex vertDeferred
+			#pragma fragment fragDeferred
+
+			#include "UnityStandardCore.cginc"
+
+			ENDCG
+		}
+
+		Stencil
+		{
+			Ref 1
+			Comp equal
+		}
+		// ------------------------------------------------------------------
+		// Extracts information for lightmapping, GI (emission, albedo, ...)
+		// This pass it not used during regular rendering.
+		Pass
+		{
+			Name "META"
+			Tags { "LightMode"="Meta" }
+
+			Cull Off
+
+			CGPROGRAM
+			#pragma vertex vert_meta
+			#pragma fragment frag_meta
+
+			#pragma shader_feature _EMISSION
+			#pragma shader_feature_local _METALLICGLOSSMAP
+			#pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+			#pragma shader_feature_local _DETAIL_MULX2
+			#pragma shader_feature EDITOR_VISUALIZATION
+
+			#include "UnityStandardMeta.cginc"
+			ENDCG
+		}
+	}
+
+
+	SubShader
+	{
+		Tags { "RenderType"="Opaque" "PerformanceChecks"="False" }
+		LOD 150
+
+		// ------------------------------------------------------------------
+		//  Base forward pass (directional light, emission, lightmaps, ...)
+		Pass
+		{
+			Name "FORWARD"
+			Tags { "LightMode" = "ForwardBase" }
+
+			Blend [_SrcBlend] [_DstBlend]
+			ZWrite [_ZWrite]
+
+			CGPROGRAM
+			#pragma target 2.0
+
+			#pragma shader_feature_local _NORMALMAP
+			#pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
+			#pragma shader_feature _EMISSION
+			#pragma shader_feature_local _METALLICGLOSSMAP
+			#pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+			#pragma shader_feature_local _SPECULARHIGHLIGHTS_OFF
+			#pragma shader_feature_local _GLOSSYREFLECTIONS_OFF
+			// SM2.0: NOT SUPPORTED shader_feature_local _DETAIL_MULX2
+			// SM2.0: NOT SUPPORTED shader_feature_local _PARALLAXMAP
+
+			#pragma skip_variants SHADOWS_SOFT DIRLIGHTMAP_COMBINED
+
+			#pragma multi_compile_fwdbase
+			#pragma multi_compile_fog
+
+			#pragma vertex vertBase
+			#pragma fragment fragBase
+			#include "UnityStandardCoreForward.cginc"
+
+			ENDCG
+		}
+		// ------------------------------------------------------------------
+		//  Additive forward pass (one light per pass)
+		Pass
+		{
+			Name "FORWARD_DELTA"
+			Tags { "LightMode" = "ForwardAdd" }
+			Blend [_SrcBlend] One
+			Fog { Color (0,0,0,0) } // in additive pass fog should be black
+			ZWrite Off
+			ZTest LEqual
+
+			CGPROGRAM
+			#pragma target 2.0
+
+			#pragma shader_feature_local _NORMALMAP
+			#pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
+			#pragma shader_feature_local _METALLICGLOSSMAP
+			#pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+			#pragma shader_feature_local _SPECULARHIGHLIGHTS_OFF
+			#pragma shader_feature_local _DETAIL_MULX2
+			// SM2.0: NOT SUPPORTED shader_feature_local _PARALLAXMAP
+			#pragma skip_variants SHADOWS_SOFT
+
+			#pragma multi_compile_fwdadd_fullshadows
+			#pragma multi_compile_fog
+
+			#pragma vertex vertAdd
+			#pragma fragment fragAdd
+			#include "UnityStandardCoreForward.cginc"
+
+			ENDCG
+		}
+		
+		// ------------------------------------------------------------------
+		//  Shadow rendering pass
+		Pass {
+			Name "ShadowCaster"
+			Tags { "LightMode" = "ShadowCaster" }
+
+			ZWrite On ZTest LEqual
+
+			CGPROGRAM
+			#pragma target 2.0
+
+			#pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
+			#pragma shader_feature_local _METALLICGLOSSMAP
+			#pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+			#pragma skip_variants SHADOWS_SOFT
+			#pragma multi_compile_shadowcaster
+
+			#pragma vertex vertShadowCaster
+			#pragma fragment fragShadowCaster
+
+			#include "UnityStandardShadow.cginc"
+
+			ENDCG
+		}
+		
+		Stencil
+		{
+			Ref 1
+			Comp equal
+		}
+		// ------------------------------------------------------------------
+		// Extracts information for lightmapping, GI (emission, albedo, ...)
+		// This pass it not used during regular rendering.
+		Pass
+		{
+			Name "META"
+			Tags { "LightMode"="Meta" }
+
+			Cull Off
+
+			CGPROGRAM
+			#pragma vertex vert_meta
+			#pragma fragment frag_meta
+
+			#pragma shader_feature _EMISSION
+			#pragma shader_feature_local _METALLICGLOSSMAP
+			#pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+			#pragma shader_feature_local _DETAIL_MULX2
+			#pragma shader_feature EDITOR_VISUALIZATION
+
+			#include "UnityStandardMeta.cginc"
+			ENDCG
+		}
+	}
+
+
+	FallBack "VertexLit"
+	// CustomEditor "StandardShaderGUI"
 }
