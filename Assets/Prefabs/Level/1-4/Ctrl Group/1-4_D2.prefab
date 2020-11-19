@@ -344,8 +344,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Straight Joint/-
   targetID: 
+  isActive: 0
   cameraFocusPivot: {fileID: 0}
   subPart: {fileID: 0}
+  dependencies: []
+  XRange: {x: 0, y: 360}
 --- !u!1 &2157544784078894532
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,7 +731,8 @@ MonoBehaviour:
   isOnScreen: 0
   defaultPos: {x: -0.3603669, y: 0.1356391, z: -1.913213}
   defaultRot: {x: 0, y: -90.00001, z: -90.00001}
-  jointList: []
+  jointList:
+  - {fileID: 2157544783969236565}
   savedActionList: []
   itemSlot: {fileID: 0}
 --- !u!114 &2157544784194914352
