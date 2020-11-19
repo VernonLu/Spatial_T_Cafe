@@ -1,19 +1,23 @@
 ﻿using UnityEngine;
+
 [System.Serializable]
 public class SavedAction
 {
-	public SavedAction(SavedActionType action, Transform state)
+	public SavedAction(SavedActionType type, Item item, ItemSlot slot, SubPartInfo subPart = null)
 	{
-		actionType = action;
-		savedState = state;
+		this.type = type;
+		this.item = item;
+		this.itemSlot = slot;
+		this.subPart = subPart;
 	}
-
-	public SavedActionType actionType;
-	public Transform savedState;
+	public SavedActionType type;
+	public Item item;
+	public ItemSlot itemSlot;
+	public SubPartInfo subPart;
 }
+
 public enum SavedActionType
 {
-	None,
-	Rotate,
-	Move,
+	Generate,
+	Assemble
 }

@@ -74,6 +74,8 @@ public class SubPartInfo : MonoBehaviour
 
 		ControlManager.Instance.SetCurrentItem(null);
 		CameraManager.Instance.SetRotateCamera(true);
+
+		ControlManager.Instance.SaveAction(SavedActionType.Assemble);
 	}
 
 	bool CheckMouseOnSelf()

@@ -381,6 +381,7 @@ MonoBehaviour:
   cameraFocusPivot: {fileID: 0}
   subPart: {fileID: 0}
   dependencies: []
+  XRange: {x: 0, y: 360}
 --- !u!65 &2071783278930389097
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -626,9 +627,9 @@ GameObject:
   - component: {fileID: 14257820448529758}
   - component: {fileID: 7681816921835014320}
   - component: {fileID: 2722813229128110344}
-  - component: {fileID: 3841373716270807172}
   - component: {fileID: 1584201200861647263}
   - component: {fileID: 2071783279413681315}
+  - component: {fileID: 5326272784457046550}
   m_Layer: 0
   m_Name: 1-4_M4_V
   m_TagString: Untagged
@@ -643,7 +644,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4457529442511948960}
-  m_LocalRotation: {x: 0.00000006657903, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.40463, y: 1.0869501, z: -3.30044}
   m_LocalScale: {x: 0.11887, y: 0.11887, z: 0.11887}
   m_Children:
@@ -699,20 +700,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &3841373716270807172
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4457529442511948960}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7978409531173776339, guid: 7299b61f296751a4695a4d9f74155565, type: 3}
 --- !u!114 &1584201200861647263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -753,3 +740,16 @@ MonoBehaviour:
     RequiredFingerCount: 0
     RequiredMouseButtons: 0
     RequiredSelectable: {fileID: 0}
+--- !u!65 &5326272784457046550
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4457529442511948960}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.35, y: 0.75, z: 0.35}
+  m_Center: {x: 0, y: 0, z: 0}

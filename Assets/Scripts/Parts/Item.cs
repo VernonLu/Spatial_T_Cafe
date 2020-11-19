@@ -36,40 +36,6 @@ public class Item : MonoBehaviour
 		transform.rotation = Quaternion.Euler(defaultRot);
 	}
 
-	public void SaveStep()
-	{
-		if ((savedActionList.Count - 1) > currentStep)
-		{
-			//Delete unused saved steps
-			savedActionList.RemoveRange(currentStep, savedActionList.Count);
-		}
-		// Sace current state
-		savedActionList.Add(new SavedAction(SavedActionType.None, transform));
-		++currentStep;
-	}
-
-	public void Undo()
-	{
-		if (currentStep <= 0) { return; }
-		GoToStep(--currentStep);
-	}
-
-	public void Redo()
-	{
-		if (currentStep >= savedActionList.Count) { return; }
-		GoToStep(++currentStep);
-	}
-
-	private void GoToStep(int step)
-	{
-		if (step < 0 || step >= savedActionList.Count) { return; }
-		// Load Saved state
-		var savedState = savedActionList[step].savedState;
-		transform.position = savedState.position;
-		transform.rotation = savedState.rotation;
-		currentStep = step;
-	}
-
 	public void BackToShelf()
 	{
 		Debug.Log("Back to Shelf");

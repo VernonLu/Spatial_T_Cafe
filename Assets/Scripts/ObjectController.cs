@@ -26,6 +26,8 @@ public class ObjectController : MonoBehaviour
 	Vector3 startPoint;
 	int currentUnit;
 	public int rotateAngle = 15;
+
+	private int screenDivision = 100;
 	public bool isControlling
 	{
 		get;
@@ -110,7 +112,7 @@ public class ObjectController : MonoBehaviour
 			// Debug.DrawLine(startPointWorldPos, startPointWorldPos + e, Color.green);
 			// Debug.DrawLine(startPointWorldPos + e, objScreenPos, Color.yellow);
 
-			int mouseUnit = Mathf.RoundToInt(e.magnitude / (Screen.height / 40));
+			int mouseUnit = Mathf.RoundToInt(e.magnitude / (Screen.height / screenDivision));
 			int unitChange = 0;
 			if (mouseUnit != currentUnit)
 			{

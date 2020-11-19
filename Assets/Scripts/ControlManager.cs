@@ -142,10 +142,19 @@ public class ControlManager : MonoBehaviour
 		}
 	}
 
+	public void RetriveObject()
+	{
+		if (null == currentItem) { return; }
+		HideControlHint();
+		currentItem.BackToShelf();
+		currentItem = null;
+	}
+
 	public void ResetObject()
 	{
 		if (null == currentItem) { return; }
 		currentItem.ResetObject();
+		ResetCamera();
 	}
 
 	public void UpdateMoveHintPos()
@@ -160,13 +169,13 @@ public class ControlManager : MonoBehaviour
 
 	public void Undo()
 	{
+		Debug.Log("Undo");
 		// if (null == currentItem) { return; }
 		// currentItem.Undo();
-
 		if (currentStep <= 0) { return; }
 		--currentStep;
-		Action action = actionList[currentStep];
-		if (action.type == ActionType.Generate)
+		SavedAction action = actionList[currentStep];
+		if (action.type == SavedActionType.Generate)
 		{
 			action.item.BackToShelf();
 		}
@@ -177,21 +186,31 @@ public class ControlManager : MonoBehaviour
 	}
 	public void Redo()
 	{
+		Debug.Log("Redo");
 		// if (null == currentItem) { return; }
 		// currentItem.Redo();
 		if (currentStep >= actionList.Count) { return; }
 		++currentStep;
-		Action action = actionList[currentStep];
-		if (action.type == ActionType.Generate)
+		SavedAction action = actionList[currentStep];
+		if (action.type == SavedActionType.Generate)
 		{
 			action.itemSlot.GenerateItem();
 		}
 		else
 		{
-			action.item.transform.position = action.savedTransform.position;
-			action.item.transform.rotation = action.savedTransform.rotation;
 			action.item.isAssembled = true;
 		}
+	}
+	public void SaveAction(SavedActionType type, SubPartInfo subPart = null)
+	{
+		Debug.Log("Save: " + type);
+		if (currentStep < actionList.Count - 1)
+		{
+			// List.RemoveRange(int index, int count)
+			actionList.RemoveRange(currentStep + 1, actionList.Count - currentStep);
+		}
+		actionList.Add(new SavedAction(type, currentItem, currentItem.itemSlot, subPart));
+
 	}
 
 	public PanCamera panCam;
@@ -208,30 +227,6 @@ public class ControlManager : MonoBehaviour
 		}
 	}
 
-	public void SaveAction(ActionType type)
-	{
-		actionList.Add(new Action(type, currentItem, currentItem.itemSlot, currentItem.transform));
-	}
-
-	public List<Action> actionList = new List<Action>();
+	public List<SavedAction> actionList = new List<SavedAction>();
 	public int currentStep;
-	public enum ActionType
-	{
-		Generate,
-		Assemble
-	}
-	public class Action
-	{
-		public Action(ActionType type, Item item, ItemSlot slot, Transform savedTransform = null)
-		{
-			this.type = type;
-			this.item = item;
-			this.itemSlot = slot;
-			this.savedTransform = savedTransform;
-		}
-		public ActionType type;
-		public Item item;
-		public ItemSlot itemSlot;
-		public Transform savedTransform;
-	}
 }

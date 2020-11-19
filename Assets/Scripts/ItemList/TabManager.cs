@@ -15,6 +15,7 @@ public class TabManager : MonoBehaviour
 	[Space]
 	public bool isLocked;
 	public Toggle tabToggle;
+	public bool checkDependencies = true;
 	public List<TabManager> dependencies = new List<TabManager>();
 
 	[Space]
@@ -53,13 +54,14 @@ public class TabManager : MonoBehaviour
 	{
 		transform.SetParent(isOn ? activePanel : deactivePanel);
 		tagText.text = isOn ? activeText : deactiveText;
-		baseObject.gameObject.SetActive(isOn);
 		if (statusAnimator) { statusAnimator.SetBool("isActive", isOn); }
 		if (isOn)
 		{
+			ControlManager.Instance.RetriveObject();
 			TabListManager.Instance.currentTab = this;
 			ControlManager.Instance.ResetCamera();
 		}
+		baseObject.gameObject.SetActive(isOn);
 	}
 
 	private void UpdateContentHeight()
@@ -86,11 +88,14 @@ public class TabManager : MonoBehaviour
 	{
 		// Check all dependencies
 		isLocked = false;
-		foreach (var tab in dependencies)
+		if (checkDependencies)
 		{
-			if (!tab.isFinished)
+			foreach (var tab in dependencies)
 			{
-				isLocked = true;
+				if (!tab.isFinished)
+				{
+					isLocked = true;
+				}
 			}
 		}
 

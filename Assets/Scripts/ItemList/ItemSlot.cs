@@ -30,6 +30,7 @@ public class ItemSlot : MonoBehaviour
 		ControlManager.Instance.SetCurrentItem(item);
 		item.itemSlot = this;
 		UpdateItemCount();
+		ControlManager.Instance.SaveAction(SavedActionType.Generate);
 
 	}
 
