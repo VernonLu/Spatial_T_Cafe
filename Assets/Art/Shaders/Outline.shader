@@ -62,17 +62,18 @@ Shader "WoodJoint/Outline"
 	ENDCG
 
 
+
 	SubShader
 	{
-		Stencil
-		{
-			Ref 1
-			Comp Always
-			Pass Replace
-		}
 		// ------------------
 		// Outline Top Right
 		Pass{
+			Stencil
+			{
+				Ref 1
+				Comp Always
+				Pass Replace
+			}
 			//剔除正面，只渲染背面，对于大多数模型适用，不过如果需要背面的，就有问题了
 			Cull Front
 			CGPROGRAM
@@ -109,14 +110,16 @@ Shader "WoodJoint/Outline"
 
 			ENDCG
 		}
-		Stencil
-		{
-			Ref 1
-			Comp Always
-			Pass Replace
-		}
+		
+		
 		// Outline Top Left
 		Pass{
+			Stencil
+			{
+				Ref 1
+				Comp Always
+				Pass Replace
+			}
 			//剔除正面，只渲染背面，对于大多数模型适用，不过如果需要背面的，就有问题了
 			Cull Front
 			CGPROGRAM
@@ -154,14 +157,14 @@ Shader "WoodJoint/Outline"
 			ENDCG
 		}
 
-		Stencil
-		{
-			Ref 1
-			Comp Always
-			Pass Replace
-		}
 		// Outline Bottom Right
 		Pass{
+			Stencil
+			{
+				Ref 1
+				Comp Always
+				Pass Replace
+			}
 			//剔除正面，只渲染背面，对于大多数模型适用，不过如果需要背面的，就有问题了
 			Cull Front
 			CGPROGRAM
@@ -199,14 +202,14 @@ Shader "WoodJoint/Outline"
 			ENDCG
 		}
 		
-		Stencil
-		{
-			Ref 1
-			Comp Always
-			Pass Replace
-		}
 		// Outline Bottom Left
 		Pass{
+			Stencil
+			{
+				Ref 1
+				Comp Always
+				Pass Replace
+			}
 			//剔除正面，只渲染背面，对于大多数模型适用，不过如果需要背面的，就有问题了
 			Cull Front
 			CGPROGRAM
@@ -246,20 +249,17 @@ Shader "WoodJoint/Outline"
 		// End outline
 		// --------------------------------
 
-	}
-
-
-	SubShader
-	{
-		Stencil
-		{
-			Ref 1
-			Comp equal
-		}
+		
+		
 		// ------------------------------------------------------------------
 		//  Base forward pass (directional light, emission, lightmaps, ...)
 		Pass
 		{
+			Stencil
+			{
+				Ref 1
+				Comp equal
+			}
 			Name "FORWARD"
 			Tags { "LightMode" = "ForwardBase" }
 
@@ -294,15 +294,16 @@ Shader "WoodJoint/Outline"
 			ENDCG
 		}
 
-		Stencil
-		{
-			Ref 1
-			Comp equal
-		}
+		
 		// ------------------------------------------------------------------
 		//  Additive forward pass (one light per pass)
 		Pass
 		{
+			Stencil
+			{
+				Ref 1
+				Comp equal
+			}
 			Name "FORWARD_DELTA"
 			Tags { "LightMode" = "ForwardAdd" }
 			Blend [_SrcBlend] One
@@ -336,14 +337,15 @@ Shader "WoodJoint/Outline"
 			ENDCG
 		}
 
-		Stencil
-		{
-			Ref 1
-			Comp equal
-		}
+		
 		// ------------------------------------------------------------------
 		//  Shadow rendering pass
 		Pass {
+			Stencil
+			{
+				Ref 1
+				Comp equal
+			}
 			Name "ShadowCaster"
 			Tags { "LightMode" = "ShadowCaster" }
 
@@ -372,15 +374,16 @@ Shader "WoodJoint/Outline"
 			ENDCG
 		}
 
-		Stencil
-		{
-			Ref 1
-			Comp equal
-		}
+		
 		// ------------------------------------------------------------------
 		//  Deferred pass
 		Pass
 		{
+			Stencil
+			{
+				Ref 1
+				Comp equal
+			}
 			Name "DEFERRED"
 			Tags { "LightMode" = "Deferred" }
 
@@ -413,16 +416,16 @@ Shader "WoodJoint/Outline"
 			ENDCG
 		}
 
-		Stencil
-		{
-			Ref 1
-			Comp equal
-		}
 		// ------------------------------------------------------------------
 		// Extracts information for lightmapping, GI (emission, albedo, ...)
 		// This pass it not used during regular rendering.
 		Pass
 		{
+			Stencil
+			{
+				Ref 1
+				Comp equal
+			}
 			Name "META"
 			Tags { "LightMode"="Meta" }
 
@@ -541,11 +544,6 @@ Shader "WoodJoint/Outline"
 			ENDCG
 		}
 		
-		Stencil
-		{
-			Ref 1
-			Comp equal
-		}
 		// ------------------------------------------------------------------
 		// Extracts information for lightmapping, GI (emission, albedo, ...)
 		// This pass it not used during regular rendering.
