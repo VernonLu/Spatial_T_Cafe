@@ -22,11 +22,12 @@ public class TabListManager : MonoBehaviour
 			instance = this;
 		}
 		TryGetComponent(out canvasGroup);
-		Debug.Log(canvasGroup);
 	}
 	private CanvasGroup canvasGroup;
 
 	public List<TabManager> tabList = new List<TabManager>();
+
+	public bool isControlGroup = true;
 
 	public TabManager currentTab;
 	// Start is called before the first frame update

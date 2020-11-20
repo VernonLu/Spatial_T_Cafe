@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1567511214009901559}
   - component: {fileID: 347538205784951410}
   - component: {fileID: 2796980692928589420}
+  - component: {fileID: 8310681199033481626}
   m_Layer: 0
   m_Name: 1-4_A1
   m_TagString: Untagged
@@ -114,6 +115,20 @@ MonoBehaviour:
   jointList: []
   savedActionList: []
   itemSlot: {fileID: 0}
+  isCurrentItem: 1
+  outlines: []
+--- !u!114 &8310681199033481626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915952424402839318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &999463077120590622
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,6 +184,8 @@ MonoBehaviour:
   jointList: []
   savedActionList: []
   itemSlot: {fileID: 0}
+  isCurrentItem: 0
+  outlines: []
 --- !u!54 &6436148427686549287
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -244,8 +261,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Joint Hinge P-
   targetID: Joint Hinge P+
+  isActive: 0
   cameraFocusPivot: {fileID: 1718553024065464610}
   subPart: {fileID: 0}
+  dependencies: []
+  XRange: {x: 0, y: 360}
 --- !u!1 &8412296098068357727
 GameObject:
   m_ObjectHideFlags: 0

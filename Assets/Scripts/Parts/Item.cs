@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Wootopia;
 
 public class Item : MonoBehaviour
 {
@@ -19,10 +21,18 @@ public class Item : MonoBehaviour
 	public List<SavedAction> savedActionList = new List<SavedAction>();
 
 	public ItemSlot itemSlot;
+
+	public bool isCurrentItem = true;
+	public List<Outline> outlines = new List<Outline>();
+
 	// Start is called before the first frame update
 	void Start()
 	{
-
+		outlines = GetComponentsInChildren<Outline>().ToList();
+		foreach (var outline in outlines)
+		{
+			outline.SetVisibility(isCurrentItem);
+		}
 	}
 
 	// Update is called once per frame
