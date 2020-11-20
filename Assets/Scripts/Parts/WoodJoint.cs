@@ -1,13 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class WoodJoint : MonoBehaviour
 {
 	public string ID;
 	public string targetID;
+	public WoodTenon targetTenon;
+	//position divided by 10 for more precision 
+	//don't change in realtime
+	public ToleranceDomin toleranceDomin;
 	[SerializeField]
 	protected bool isActive = false;
+
+
+	[Serializable]
+	public class ToleranceDomin
+    {
+		public Vector3 tolerancePositionStart;
+		public Vector3 tolerancePositionEnd;
+		//public Vector3 toleranceEularAngleStart;
+		public Vector3 toleranceEularAngleEnd;
+	}
 
 	public Transform cameraFocusPivot;
 
@@ -28,9 +43,31 @@ public class WoodJoint : MonoBehaviour
 
 	private void Update()
 	{
-		if (isActive) { return; }
-		isActive = CheckStatus();
-	}
+		//need optimize
+        if (!CheckStatus()) { return; }
+		//Item currentItem = ControlManager.Instance.currentItem;
+		//WoodJoint currentJoint = currentItem?.jointList.Count > 0 ? currentItem.jointList[0] : null;
+  //      if (targetID == currentJoint.ID)
+  //      {
+  //          targetTenon = currentJoint.GetComponent<WoodTenon>();
+  //      }
+        if (IsTenonInCorrectPose())
+        {
+            // Debug.Log("Paired");
+            targetTenon.transform.parent.TryGetComponent(out Item item);
+            item.isAssembled = true;
+            targetTenon.transform.parent.gameObject.SetActive(false);
+
+            // Move Camera to target position and rotation
+            MainCameraSwitch.Instance.SwitchOff();
+            TransitionCamera.Instance.SetTransform(cameraFocusPivot);
+
+            // Enable sub part control
+            subPart.SetActive(true);
+            // Disable currentItem
+            ControlManager.Instance.currentItem.gameObject.SetActive(false);
+        }
+    }
 
 	/// <summary>
 	/// Check All dependenies are assembled
@@ -49,28 +86,74 @@ public class WoodJoint : MonoBehaviour
 		return res;
 	}
 
+	private bool IsTenonInCorrectPose()
+    {
+		//calculate if target in tolerance position
+		Vector3 startPos = Vector3.Min(toleranceDomin.tolerancePositionStart, toleranceDomin.tolerancePositionEnd);
+		Vector3 endPos = Vector3.Max(toleranceDomin.tolerancePositionStart, toleranceDomin.tolerancePositionEnd);
+		Vector3 targetPos = targetTenon.transform.position;
+		bool isPositionCorrect = Vector3.Min(startPos, targetPos) == startPos && Vector3.Max(targetPos, endPos) == endPos;
+		//calculate if target in tolerance angle
+		//Vector3 startAngle = Vector3.Min(toleranceDomin.toleranceEularAngleStart, toleranceDomin.toleranceEularAngleEnd);
+		Vector3 endAngle = Vector3.Max(-toleranceDomin.toleranceEularAngleEnd, toleranceDomin.toleranceEularAngleEnd);
+		Vector3 targetAngle = targetTenon.transform.rotation.eulerAngles;
+		bool isAngleCorrect = /*Vector3.Min(startAngle, targetAngle) == startAngle && */Vector3.Max(targetAngle, endAngle) == endAngle;
+		//return if target in correct pose
+		print(isPositionCorrect && isAngleCorrect);
+		return isPositionCorrect && isAngleCorrect;
+    }
+
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if (!isActive) { return; }
 
-		// Debug.Log("Trigger Enter");
-		other.gameObject.TryGetComponent(out WoodJoint otherJoint);
-		if (null == otherJoint) { return; }
-		if (targetID != otherJoint.ID) { return; }
+		//// Debug.Log("Trigger Enter");
+		//other.gameObject.TryGetComponent(out WoodJoint otherJoint);
+		//if (null == otherJoint) { return; }
+		//if (targetID != otherJoint.ID) { return; }
 
-		// Debug.Log("Paired");
-		other.transform.parent.TryGetComponent(out Item item);
-		item.isAssembled = true;
-		other.transform.parent.gameObject.SetActive(false);
+		//// Debug.Log("Paired");
+		//other.transform.parent.TryGetComponent(out Item item);
+		//item.isAssembled = true;
+		//other.transform.parent.gameObject.SetActive(false);
 
-		// Move Camera to target position and rotation
-		MainCameraSwitch.Instance.SwitchOff();
-		TransitionCamera.Instance.SetTransform(cameraFocusPivot);
+		//// Move Camera to target position and rotation
+		//MainCameraSwitch.Instance.SwitchOff();
+		//TransitionCamera.Instance.SetTransform(cameraFocusPivot);
 
-		// Enable sub part control
-		subPart.SetActive(true);
-		// Disable currentItem
-		ControlManager.Instance.currentItem.gameObject.SetActive(false);
-		collider.enabled = false;
+		//// Enable sub part control
+		//subPart.SetActive(true);
+		//// Disable currentItem
+		//ControlManager.Instance.currentItem.gameObject.SetActive(false);
+
+	}
+
+
+    private void OnDrawGizmosSelected()
+    {
+		//Gizmos.color = Color.red;
+		//Gizmos.DrawLine(transform.position, transform.position + transform.right / 10);
+		//Gizmos.color = Color.green;
+		//Gizmos.DrawLine(transform.position, transform.position + transform.up / 10);
+		//Gizmos.color = Color.blue;
+		//Gizmos.DrawLine(transform.position, transform.position + transform.forward / 10); 
+		//convert local coord to world
+		Gizmos.matrix = transform.localToWorldMatrix;
+		Gizmos.color = Color.green;
+		Vector3 center = (toleranceDomin.tolerancePositionStart + toleranceDomin.tolerancePositionEnd) / 2 / 10;
+		Gizmos.DrawWireCube(center, (toleranceDomin.tolerancePositionStart - toleranceDomin.tolerancePositionEnd) / 10);
+		Gizmos.color = Color.red;
+		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(-toleranceDomin.toleranceEularAngleEnd.x, 0, 0) * Vector3.up / 10);
+		Gizmos.color = Color.red;
+		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(toleranceDomin.toleranceEularAngleEnd.x, 0, 0) * Vector3.up / 10);
+		Gizmos.color = Color.green;
+		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, -toleranceDomin.toleranceEularAngleEnd.y, 0) * Vector3.forward / 10);
+		Gizmos.color = Color.green;
+		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, toleranceDomin.toleranceEularAngleEnd.y, 0) * Vector3.forward / 10);
+		Gizmos.color = Color.blue;
+		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, -toleranceDomin.toleranceEularAngleEnd.z) * Vector3.right / 10);
+		Gizmos.color = Color.blue;
+		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, toleranceDomin.toleranceEularAngleEnd.z) * Vector3.right / 10);
 	}
 }
