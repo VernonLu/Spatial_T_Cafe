@@ -6562,6 +6562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 1005333493}
+  Target: {fileID: 573875130}
   screenDepth:
     Conversion: 0
     Camera: {fileID: 0}
@@ -6576,16 +6577,9 @@ MonoBehaviour:
     RequiredFingerCount: 0
     RequiredMouseButtons: 0
     RequiredSelectable: {fileID: 0}
-  zoom: 40
-  zoomDampening: -1
-  clamp: 1
-  clampMin: 20
-  clampMax: 80
-  relative: 0
-  ignoreZ: 0
-  currentZoom: 0
-  remainingTranslation: {x: 0, y: 0, z: 0}
-  zoomSpeedScale: 0.2
+  dampening: 10
+  zoomSpeedScale: 12
+  remainingDelta: {x: 0, y: 0, z: 0}
 --- !u!81 &1005333492
 AudioListener:
   m_ObjectHideFlags: 0
@@ -8552,8 +8546,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.19, y: 0.16916886, z: 0.2668867}
-  m_Center: {x: 0, y: 0.049584433, z: -0.103294134}
+  m_Size: {x: 0.19, y: 0.16916886, z: 0.234828}
+  m_Center: {x: 0, y: 0.049584433, z: -0.11932349}
 --- !u!114 &1245945670
 MonoBehaviour:
   m_ObjectHideFlags: 0
