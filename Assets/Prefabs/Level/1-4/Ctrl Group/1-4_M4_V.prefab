@@ -342,8 +342,9 @@ GameObject:
   - component: {fileID: 2071783278930389110}
   - component: {fileID: 2071783278930389096}
   - component: {fileID: 2071783278930389097}
+  - component: {fileID: 3272662118362650525}
   m_Layer: 0
-  m_Name: Wedge/+ v
+  m_Name: Wedge/+
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,7 +359,7 @@ Transform:
   m_GameObject: {fileID: 2071783278930389111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 8.412552, y: 8.412552, z: 8.412552}
   m_Children: []
   m_Father: {fileID: 14257820448529758}
   m_RootOrder: 0
@@ -370,12 +371,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071783278930389111}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d97afb5add06fc44d933d8f6735c4431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: Wedge/+ v
+  ID: Wedge/+
   targetID: 
   targetTenon: {fileID: 0}
   toleranceDomin:
@@ -396,10 +397,23 @@ BoxCollider:
   m_GameObject: {fileID: 2071783278930389111}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.7, z: 0.2}
+  m_Size: {x: 0.023774, y: 0.083209, z: 0.023774}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3272662118362650525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071783278930389111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5645eda57c5ba9f45a6249465cb331b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: Wedge/+
 --- !u!1 &2071783279302179657
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,7 +736,8 @@ MonoBehaviour:
   isOnScreen: 0
   defaultPos: {x: 4.54553, y: 1.08695, z: -3.30094}
   defaultRot: {x: 0, y: 0, z: 0}
-  tenonList: []
+  tenonList:
+  - {fileID: 3272662118362650525}
   savedActionList: []
   itemSlot: {fileID: 0}
   isCurrentItem: 1
