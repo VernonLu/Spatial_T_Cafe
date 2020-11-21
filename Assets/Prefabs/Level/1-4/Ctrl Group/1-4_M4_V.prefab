@@ -377,6 +377,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Wedge/+ v
   targetID: 
+  targetTenon: {fileID: 0}
+  toleranceDomin:
+    tolerancePositionStart: {x: 0, y: 0, z: 0}
+    tolerancePositionEnd: {x: 0, y: 0, z: 0}
+    toleranceEularAngleEnd: {x: 0, y: 0, z: 0}
   isActive: 0
   cameraFocusPivot: {fileID: 0}
   subPart: {fileID: 0}
@@ -717,8 +722,7 @@ MonoBehaviour:
   isOnScreen: 0
   defaultPos: {x: 4.54553, y: 1.08695, z: -3.30094}
   defaultRot: {x: 0, y: 0, z: 0}
-  jointList:
-  - {fileID: 2071783278930389096}
+  tenonList: []
   savedActionList: []
   itemSlot: {fileID: 0}
   isCurrentItem: 1
