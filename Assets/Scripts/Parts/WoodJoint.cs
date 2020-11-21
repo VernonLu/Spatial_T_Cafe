@@ -46,15 +46,14 @@ public class WoodJoint : MonoBehaviour
 		//need optimize
         if (!CheckStatus()) { return; }
         Item currentItem = ControlManager.Instance.currentItem;
-        WoodJoint currentJoint = currentItem?.jointList.Count > 0 ? currentItem.jointList[0] : null;
-		if(currentJoint == null)
-        {
-			print("current item =" + currentItem);
-			return;
-        }
-		if (targetID == currentJoint.ID)
+        WoodTenon currentTenon = currentItem?.tenonList.Count > 0 ? currentItem.tenonList[0] : null;
+		//if(currentTenon == null)
+  //      {
+		//	return;
+  //      }
+		if (currentTenon != null && targetID == currentTenon.ID)
 		{
-			targetTenon = currentJoint.GetComponent<WoodTenon>();
+			targetTenon = currentTenon;
 		}
         if (IsTenonInCorrectPose())
         {
@@ -98,17 +97,18 @@ public class WoodJoint : MonoBehaviour
 			return false;
         }
 		//calculate if target in tolerance position
-		Vector3 startPos = Vector3.Min(toleranceDomin.tolerancePositionStart, toleranceDomin.tolerancePositionEnd);
-		Vector3 endPos = Vector3.Max(toleranceDomin.tolerancePositionStart, toleranceDomin.tolerancePositionEnd);
-		Vector3 targetPos = targetTenon.transform.position;
-		bool isPositionCorrect = Vector3.Min(startPos, targetPos) == startPos && Vector3.Max(targetPos, endPos) == endPos;
+		Vector3 startPos = Vector3.Min(toleranceDomin.tolerancePositionStart, toleranceDomin.tolerancePositionEnd) / 10;
+		Vector3 endPos = Vector3.Max(toleranceDomin.tolerancePositionStart, toleranceDomin.tolerancePositionEnd) / 10;
+		Vector3 deltaPos = targetTenon.transform.position - transform.position;
+		bool isPositionCorrect = Vector3.Min(startPos, deltaPos) == startPos && Vector3.Max(deltaPos, endPos) == endPos;
 		//calculate if target in tolerance angle
 		//Vector3 startAngle = Vector3.Min(toleranceDomin.toleranceEularAngleStart, toleranceDomin.toleranceEularAngleEnd);
 		Vector3 endAngle = Vector3.Max(-toleranceDomin.toleranceEularAngleEnd, toleranceDomin.toleranceEularAngleEnd);
-		Vector3 targetAngle = targetTenon.transform.rotation.eulerAngles;
-		bool isAngleCorrect = /*Vector3.Min(startAngle, targetAngle) == startAngle && */Vector3.Max(targetAngle, endAngle) == endAngle;
+		Vector3 deltaAngle = targetTenon.transform.rotation.eulerAngles - transform.rotation.eulerAngles;
+		bool isAngleCorrect = /*Vector3.Min(startAngle, targetAngle) == startAngle && */Vector3.Max(deltaAngle, endAngle) == endAngle;
 		//return if target in correct pose
-		print(isPositionCorrect && isAngleCorrect);
+		print("pos: " + isPositionCorrect);
+		print("angle: " + isAngleCorrect);
 		return isPositionCorrect && isAngleCorrect;
     }
 

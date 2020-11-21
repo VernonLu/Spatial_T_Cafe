@@ -16,7 +16,7 @@ public class Item : MonoBehaviour
 
 	// public int maxStep;
 	private int currentStep;
-	public List<WoodJoint> jointList = new List<WoodJoint>();
+	public List<WoodTenon> tenonList = new List<WoodTenon>();
 
 	public List<SavedAction> savedActionList = new List<SavedAction>();
 
