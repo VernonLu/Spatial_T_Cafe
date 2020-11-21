@@ -59,6 +59,10 @@ public class WoodJoint : MonoBehaviour
         {
             // Debug.Log("Paired");
             targetTenon.transform.parent.TryGetComponent(out Item item);
+			if (item.isAssembled)
+			{
+				return;
+			}
             item.isAssembled = true;
             targetTenon.transform.parent.gameObject.SetActive(false);
 
@@ -69,7 +73,7 @@ public class WoodJoint : MonoBehaviour
             // Enable sub part control
             subPart.SetActive(true);
             // Disable currentItem
-            ControlManager.Instance.currentItem.gameObject.SetActive(false);
+            ControlManager.Instance.currentItem?.gameObject.SetActive(false);
         }
     }
 
