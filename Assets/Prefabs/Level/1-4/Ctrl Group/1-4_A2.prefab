@@ -339,6 +339,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Joint Hinge P+
   targetID: Joint Hinge P0
+  targetTenon: {fileID: 0}
+  toleranceDomin:
+    tolerancePositionStart: {x: -1.22, y: -11.93, z: -1.17}
+    tolerancePositionEnd: {x: 0.97, y: -4.8, z: 1.24}
+    toleranceEularAngleEnd: {x: 10, y: 180, z: 10}
   isActive: 0
   cameraFocusPivot: {fileID: 0}
   subPart: {fileID: 0}
@@ -438,6 +443,50 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &7442393821041167042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8411283802691806932}
+  - component: {fileID: 2413664919659921873}
+  m_Layer: 0
+  m_Name: Joint Hinge P+
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8411283802691806932
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7442393821041167042}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.08665623, y: -0.04552721, z: -0.0178305}
+  m_LocalScale: {x: 0.11887, y: 0.11887, z: 0.11887}
+  m_Children: []
+  m_Father: {fileID: 8457529655286330562}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &2413664919659921873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7442393821041167042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5645eda57c5ba9f45a6249465cb331b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: Joint Hinge P+
 --- !u!1 &7847838477317053557
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,6 +553,7 @@ Transform:
   - {fileID: 2950337228102782352}
   - {fileID: 3571675031402290354}
   - {fileID: 2120379838871207394}
+  - {fileID: 8411283802691806932}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90.242004, z: 0}
@@ -524,10 +574,11 @@ MonoBehaviour:
   isOnScreen: 0
   defaultPos: {x: 0.1157, y: -0.04359999, z: -0.2968}
   defaultRot: {x: 0, y: 90.242, z: 0}
-  jointList:
-  - {fileID: 2439820858144543674}
+  tenonList:
+  - {fileID: 2413664919659921873}
   savedActionList: []
   itemSlot: {fileID: 0}
+  isCurrentItem: 1
   outlines: []
 --- !u!114 &8457529655286330560
 MonoBehaviour:

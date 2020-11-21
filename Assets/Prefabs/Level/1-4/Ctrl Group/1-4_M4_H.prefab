@@ -101,8 +101,8 @@ MonoBehaviour:
   isOnScreen: 0
   defaultPos: {x: 4.54553, y: 1.08695, z: -3.30094}
   defaultRot: {x: 90, y: 0, z: 0}
-  jointList:
-  - {fileID: 8965653548467169988}
+  tenonList:
+  - {fileID: 7057081669278323451}
   savedActionList: []
   itemSlot: {fileID: 0}
   isCurrentItem: 1
@@ -703,8 +703,9 @@ GameObject:
   - component: {fileID: 8965653548467170010}
   - component: {fileID: 8965653548467169988}
   - component: {fileID: 8965653548467169989}
+  - component: {fileID: 7057081669278323451}
   m_Layer: 0
-  m_Name: Wedge/+ h
+  m_Name: Wedge/+
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -719,7 +720,7 @@ Transform:
   m_GameObject: {fileID: 8965653548467170011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 8.412552, y: 8.412552, z: 8.412552}
   m_Children: []
   m_Father: {fileID: 6962198773476712434}
   m_RootOrder: 0
@@ -731,13 +732,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8965653548467170011}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d97afb5add06fc44d933d8f6735c4431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: Wedge/+ h
+  ID: Wedge/+
   targetID: 
+  targetTenon: {fileID: 0}
+  toleranceDomin:
+    tolerancePositionStart: {x: 0, y: 0, z: 0}
+    tolerancePositionEnd: {x: 0, y: 0, z: 0}
+    toleranceEularAngleEnd: {x: 0, y: 0, z: 0}
   isActive: 0
   cameraFocusPivot: {fileID: 0}
   subPart: {fileID: 0}
@@ -752,7 +758,20 @@ BoxCollider:
   m_GameObject: {fileID: 8965653548467170011}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.7, z: 0.2}
+  m_Size: {x: 0.023774, y: 0.083209, z: 0.023774}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7057081669278323451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8965653548467170011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5645eda57c5ba9f45a6249465cb331b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: Wedge/+

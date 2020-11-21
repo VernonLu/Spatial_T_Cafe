@@ -14,6 +14,8 @@ public class SubPartInfo : MonoBehaviour
 	private Vector3 mouseStartPoint;
 	private Vector3 mouseWorldPoint;
 
+	public WoodJoint joint2Disable;
+
 	public List<WoodJoint> jointList = new List<WoodJoint>();
 
 	void Start()
@@ -67,6 +69,10 @@ public class SubPartInfo : MonoBehaviour
 		foreach (var joint in jointList)
 		{
 			joint.enabled = true;
+		}
+		if (joint2Disable)
+		{
+			joint2Disable.enabled = false;
 		}
 		MainCameraSwitch.Instance.SwitchOn();
 		TransitionCamera.Instance.Release();

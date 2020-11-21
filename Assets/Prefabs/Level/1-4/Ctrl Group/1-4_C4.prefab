@@ -346,6 +346,50 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &5229875807812201745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8413968176496777425}
+  - component: {fileID: 4676639411065739367}
+  m_Layer: 0
+  m_Name: Tenon_Groove/+ 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8413968176496777425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229875807812201745}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.1853, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8422984901619542546}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4676639411065739367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229875807812201745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5645eda57c5ba9f45a6249465cb331b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: Groove/+ 1
 --- !u!1 &5265113984329148035
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,6 +630,7 @@ Transform:
   - {fileID: 8735499467647958819}
   - {fileID: 8735499466913976856}
   - {fileID: 4249077186385510365}
+  - {fileID: 8413968176496777425}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -606,10 +651,12 @@ MonoBehaviour:
   isOnScreen: 0
   defaultPos: {x: 9.484449, y: 0.02525, z: -0.301869}
   defaultRot: {x: 0, y: 0, z: 0}
-  jointList:
-  - {fileID: 8735499467647958829}
+  tenonList:
+  - {fileID: 4676639411065739367}
   savedActionList: []
   itemSlot: {fileID: 0}
+  isCurrentItem: 1
+  outlines: []
 --- !u!114 &8422984901619542551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -844,6 +891,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Groove/+ 1
   targetID: 
+  targetTenon: {fileID: 0}
+  toleranceDomin:
+    tolerancePositionStart: {x: 0, y: 0, z: 0}
+    tolerancePositionEnd: {x: 0, y: 0, z: 0}
+    toleranceEularAngleEnd: {x: 0, y: 0, z: 0}
   isActive: 0
   cameraFocusPivot: {fileID: 0}
   subPart: {fileID: 0}
