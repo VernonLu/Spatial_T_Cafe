@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9017177273111513
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7896997724205073524}
+  - component: {fileID: 2018632236394739342}
+  m_Layer: 0
+  m_Name: Tenon_Straight Joint/-
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7896997724205073524
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9017177273111513}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.101, y: -0.059, z: -0.014}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2665970245134529921}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2018632236394739342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9017177273111513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5645eda57c5ba9f45a6249465cb331b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: Straight Joint/-
 --- !u!1 &2665970245134529926
 GameObject:
   m_ObjectHideFlags: 0
@@ -34,6 +78,7 @@ Transform:
   - {fileID: 2665970245158279379}
   - {fileID: 8312865608917838148}
   - {fileID: 8312865608250525334}
+  - {fileID: 7896997724205073524}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -87,10 +132,12 @@ MonoBehaviour:
   isOnScreen: 0
   defaultPos: {x: 9.32559, y: 0.35456, z: -0.0166419}
   defaultRot: {x: 0, y: 0, z: 0}
-  jointList:
-  - {fileID: 2665970245158279378}
+  tenonList:
+  - {fileID: 2018632236394739342}
   savedActionList: []
   itemSlot: {fileID: 0}
+  isCurrentItem: 1
+  outlines: []
 --- !u!1 &2665970245158279376
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,6 +197,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Straight Joint/-
   targetID: 
+  targetTenon: {fileID: 0}
+  toleranceDomin:
+    tolerancePositionStart: {x: 0, y: 0, z: 0}
+    tolerancePositionEnd: {x: 0, y: 0, z: 0}
+    toleranceEularAngleEnd: {x: 0, y: 0, z: 0}
   isActive: 0
   cameraFocusPivot: {fileID: 0}
   subPart: {fileID: 0}

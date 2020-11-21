@@ -101,8 +101,8 @@ public class WoodJoint : MonoBehaviour
 			return false;
         }
 		//calculate if target in tolerance position
-		Vector3 startPos = Vector3.Min(toleranceDomin.tolerancePositionStart, toleranceDomin.tolerancePositionEnd) / 10;
-		Vector3 endPos = Vector3.Max(toleranceDomin.tolerancePositionStart, toleranceDomin.tolerancePositionEnd) / 10;
+		Vector3 startPos = Vector3.Min(toleranceDomin.tolerancePositionStart, toleranceDomin.tolerancePositionEnd) / 10;	//formlize
+		Vector3 endPos = Vector3.Max(toleranceDomin.tolerancePositionStart, toleranceDomin.tolerancePositionEnd) / 10;	//formlize
 		Vector3 deltaPos = targetTenon.transform.position - transform.position;
 		bool isPositionCorrect = Vector3.Min(startPos, deltaPos) == startPos && Vector3.Max(deltaPos, endPos) == endPos;
 		//calculate if target in tolerance angle
@@ -156,17 +156,26 @@ public class WoodJoint : MonoBehaviour
 		Gizmos.color = Color.green;
 		Vector3 center = (toleranceDomin.tolerancePositionStart + toleranceDomin.tolerancePositionEnd) / 2 / 10;
 		Gizmos.DrawWireCube(center, (toleranceDomin.tolerancePositionStart - toleranceDomin.tolerancePositionEnd) / 10);
-		Gizmos.color = Color.red;
-		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(-toleranceDomin.toleranceEularAngleEnd.x, 0, 0) * Vector3.up / 10);
-		Gizmos.color = Color.red;
-		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(toleranceDomin.toleranceEularAngleEnd.x, 0, 0) * Vector3.up / 10);
-		Gizmos.color = Color.green;
-		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, -toleranceDomin.toleranceEularAngleEnd.y, 0) * Vector3.forward / 10);
-		Gizmos.color = Color.green;
-		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, toleranceDomin.toleranceEularAngleEnd.y, 0) * Vector3.forward / 10);
-		Gizmos.color = Color.blue;
-		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, -toleranceDomin.toleranceEularAngleEnd.z) * Vector3.right / 10);
-		Gizmos.color = Color.blue;
-		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, toleranceDomin.toleranceEularAngleEnd.z) * Vector3.right / 10);
+		if(toleranceDomin.toleranceEularAngleEnd.x != 0)
+        {
+			Gizmos.color = Color.red;
+			Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(-toleranceDomin.toleranceEularAngleEnd.x, 0, 0) * Vector3.up / 10);
+			Gizmos.color = Color.red;
+			Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(toleranceDomin.toleranceEularAngleEnd.x, 0, 0) * Vector3.up / 10);
+        }
+		if(toleranceDomin.toleranceEularAngleEnd.y != 0)
+        {
+			Gizmos.color = Color.green;
+			Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, -toleranceDomin.toleranceEularAngleEnd.y, 0) * Vector3.forward / 10);
+			Gizmos.color = Color.green;
+			Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, toleranceDomin.toleranceEularAngleEnd.y, 0) * Vector3.forward / 10);
+        }
+		if(toleranceDomin.toleranceEularAngleEnd.z != 0)
+        {
+			Gizmos.color = Color.blue;
+			Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, -toleranceDomin.toleranceEularAngleEnd.z) * Vector3.right / 10);
+			Gizmos.color = Color.blue;
+			Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, toleranceDomin.toleranceEularAngleEnd.z) * Vector3.right / 10);
+        }
 	}
 }

@@ -344,6 +344,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Straight Joint/-
   targetID: 
+  targetTenon: {fileID: 0}
+  toleranceDomin:
+    tolerancePositionStart: {x: 0, y: 0, z: 0}
+    tolerancePositionEnd: {x: 0, y: 0, z: 0}
+    toleranceEularAngleEnd: {x: 0, y: 0, z: 0}
   isActive: 0
   cameraFocusPivot: {fileID: 0}
   subPart: {fileID: 0}
@@ -650,6 +655,7 @@ Transform:
   m_Children:
   - {fileID: 2157544783969236562}
   - {fileID: 2157544783281456637}
+  - {fileID: 5629185638327438733}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
@@ -731,10 +737,12 @@ MonoBehaviour:
   isOnScreen: 0
   defaultPos: {x: -0.3603669, y: 0.1356391, z: -1.913213}
   defaultRot: {x: 0, y: -90.00001, z: -90.00001}
-  jointList:
-  - {fileID: 2157544783969236565}
+  tenonList:
+  - {fileID: 25798120946160971}
   savedActionList: []
   itemSlot: {fileID: 0}
+  isCurrentItem: 1
+  outlines: []
 --- !u!114 &2157544784194914352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -755,3 +763,47 @@ MonoBehaviour:
     RequiredFingerCount: 0
     RequiredMouseButtons: 0
     RequiredSelectable: {fileID: 0}
+--- !u!1 &6042888789417224617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5629185638327438733}
+  - component: {fileID: 25798120946160971}
+  m_Layer: 0
+  m_Name: Tenon_Straight Joint/-
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5629185638327438733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6042888789417224617}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 0.45, y: -1.53, z: 0}
+  m_LocalScale: {x: 8.371914, y: 8.371914, z: 8.371914}
+  m_Children: []
+  m_Father: {fileID: 5525409195747791322}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &25798120946160971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6042888789417224617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5645eda57c5ba9f45a6249465cb331b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: Straight Joint/-
