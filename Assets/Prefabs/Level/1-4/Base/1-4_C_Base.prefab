@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0.2518, z: 0}
   canMove: 1
+  joint2Disable: {fileID: 0}
   jointList: []
 --- !u!65 &1476070498552194504
 BoxCollider:
@@ -230,6 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0.025, z: 0}
   canMove: 1
+  joint2Disable: {fileID: 0}
   jointList: []
 --- !u!1 &5037616748652529407
 GameObject:
@@ -340,6 +342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0.2518, z: 0}
   canMove: 1
+  joint2Disable: {fileID: 0}
   jointList: []
 --- !u!114 &5037616748652529402
 MonoBehaviour:
@@ -918,6 +921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: -0.03555039, y: 0, z: 0}
   canMove: 1
+  joint2Disable: {fileID: 0}
   jointList: []
 --- !u!114 &6586145486065815692
 MonoBehaviour:
@@ -1219,12 +1223,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6994507483103240525}
-  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -0.005637, y: 0.13138, z: -0.0013318}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: -0.5}
+  m_LocalPosition: {x: 0.005637169, y: 0.13138, z: 0.0013318006}
   m_LocalScale: {x: 0.11887, y: 0.11887, z: 0.11887}
   m_Children: []
   m_Father: {fileID: 7863932272890945929}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 180, y: 90, z: 270}
 --- !u!33 &8732122699141346184
 MeshFilter:
@@ -1299,8 +1303,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a05812f125cdba46ab76ee21566dd87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0.035550386, y: 0, z: 0}
+  offset: {x: -0.03555039, y: 0, z: 0}
   canMove: 1
+  joint2Disable: {fileID: 0}
   jointList: []
 --- !u!114 &6994507483103240522
 MonoBehaviour:
@@ -1984,15 +1989,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7863932272890945928}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.13399982, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4149698374484466477}
   - {fileID: 7863932273698547264}
+  - {fileID: 4149698374484466477}
   m_Father: {fileID: 7863932271981242414}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!65 &7863932272890945926
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2019,7 +2024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: Dovetail(V) 1/+ 2
-  targetID: Dovetail(V) 1/+ 2
+  targetID: Dovetail(V) 1/+
   targetTenon: {fileID: 0}
   toleranceDomin:
     tolerancePositionStart: {x: -0.21, y: -0.14, z: -0.25}
@@ -2121,7 +2126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: Dovetail(V) 1/+ 1
-  targetID: Dovetail(V) 1/+ 1
+  targetID: Dovetail(V) 1/+
   targetTenon: {fileID: 0}
   toleranceDomin:
     tolerancePositionStart: {x: -0.31, y: -0.21, z: -0.24}
@@ -2738,12 +2743,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7863932273698547267}
-  m_LocalRotation: {x: -0.09699074, y: -0.33567557, z: -0.036722522, w: 0.93625116}
-  m_LocalPosition: {x: -0.12800026, y: 0.033, z: -0.009}
+  m_LocalRotation: {x: 0.036722522, y: -0.93625116, z: -0.09699074, w: -0.33567557}
+  m_LocalPosition: {x: 0.12800026, y: 0.033, z: 0.009}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7863932272890945929}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7863932273970419242
 GameObject:
