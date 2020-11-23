@@ -169,8 +169,6 @@ MonoBehaviour:
   moveHint: {fileID: 2077948483}
   currentItem: {fileID: 0}
   panCam: {fileID: 573875133}
-  actionList: []
-  currentStep: 0
 --- !u!4 &45706902
 Transform:
   m_ObjectHideFlags: 0
@@ -645,7 +643,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 200.73116
+      value: 200.73126
       objectReference: {fileID: 0}
     - target: {fileID: 8666254429465518370, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -3589,7 +3587,7 @@ PrefabInstance:
     - target: {fileID: 4257100493766258295, guid: 73fbb2bb784194643a03ee1d36b44e49,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 200.73116
+      value: 200.73126
       objectReference: {fileID: 0}
     - target: {fileID: 4257100494056725156, guid: 73fbb2bb784194643a03ee1d36b44e49,
         type: 3}
@@ -3889,13 +3887,13 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 934324452}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 45706901}
-        m_MethodName: ResetObject
+      - m_Target: {fileID: 1584098621}
+        m_MethodName: Undo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4904,7 +4902,6 @@ MonoBehaviour:
   defaultPos: {x: 0, y: 0, z: 0}
   defaultRot: {x: 0, y: 0, z: 0}
   tenonList: []
-  savedActionList: []
   itemSlot: {fileID: 0}
   isCurrentItem: 1
   outlines: []
@@ -6836,13 +6833,13 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1427612086}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 45706901}
-        m_MethodName: ResetObject
+      - m_Target: {fileID: 1584098621}
+        m_MethodName: Redo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7579,6 +7576,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581944824}
   m_CullTransparentMesh: 0
+--- !u!1 &1584098620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1584098622}
+  - component: {fileID: 1584098621}
+  m_Layer: 0
+  m_Name: Undo Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1584098621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584098620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2bac1b68d92d0542ac0422ac2fded58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStep: 0
+  maxStackCount: 0
+  undoStack: []
+--- !u!4 &1584098622
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584098620}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.6431055, y: -0.0046661794, z: -0.12528557}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1630172850
 GameObject:
   m_ObjectHideFlags: 0

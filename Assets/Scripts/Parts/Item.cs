@@ -18,7 +18,7 @@ public class Item : MonoBehaviour
 	private int currentStep;
 	public List<WoodTenon> tenonList = new List<WoodTenon>();
 
-	public List<SavedAction> savedActionList = new List<SavedAction>();
+	// public List<Action> savedActionList = new List<Action>();
 
 	public ItemSlot itemSlot;
 
@@ -48,7 +48,7 @@ public class Item : MonoBehaviour
 
 	public void BackToShelf()
 	{
-		Debug.Log("Back to Shelf");
+		// Debug.Log("Back to Shelf");
 		if (null == itemSlot) { return; }
 		itemSlot.RetriveObject();
 		Destroy(gameObject);

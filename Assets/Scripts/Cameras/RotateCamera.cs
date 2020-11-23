@@ -218,7 +218,7 @@ public class RotateCamera : MonoBehaviour
 
 	public void SetRotateCamera(bool status)
 	{
-		Debug.Log("FK " + status);
+		// Debug.Log("FK " + status);
 		canRotate = status;
 	}
 }

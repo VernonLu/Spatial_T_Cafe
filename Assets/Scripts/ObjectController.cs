@@ -189,8 +189,7 @@ public class ObjectController : MonoBehaviour
 					break;
 				};
 				ControlManager.Instance.SwitchControlMode(currentCtrlMode == CtrlMode.None ? CtrlMode.Move : currentCtrlMode);
-				Debug.Log("Switch Control Mode");
-				Debug.Log(currentCtrlMode);
+				Debug.Log("Switch Control Mode: " + currentCtrlMode);
 				return true;
 			}
 		}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Wootopia;
 
 public enum CtrlPanelType
 {
@@ -167,53 +168,6 @@ public class ControlManager : MonoBehaviour
 		}
 	}
 
-	public void Undo()
-	{
-		Debug.Log("Undo");
-		// if (null == currentItem) { return; }
-		// currentItem.Undo();
-		if (currentStep <= 0) { return; }
-		--currentStep;
-		SavedAction action = actionList[currentStep];
-		if (action.type == SavedActionType.Generate)
-		{
-			action.item.BackToShelf();
-		}
-		else
-		{
-			action.item.ResetObject();
-		}
-	}
-	public void Redo()
-	{
-		Debug.Log("Redo");
-		// if (null == currentItem) { return; }
-		// currentItem.Redo();
-		if (currentStep >= actionList.Count) { return; }
-		++currentStep;
-		SavedAction action = actionList[currentStep];
-		if (action.type == SavedActionType.Generate)
-		{
-			action.itemSlot.GenerateItem();
-		}
-		else
-		{
-			action.item.isAssembled = true;
-		}
-	}
-	public void SaveAction(SavedActionType type, SubPartInfo subPart = null)
-	{
-		return;
-		Debug.Log("Save: " + type);
-		if (currentStep < actionList.Count - 1)
-		{
-			// List.RemoveRange(int index, int count)
-			actionList.RemoveRange(currentStep + 1, actionList.Count - currentStep);
-		}
-		actionList.Add(new SavedAction(type, currentItem, currentItem.itemSlot, subPart));
-
-	}
-
 	public PanCamera panCam;
 	public void ResetCamera()
 	{
@@ -227,7 +181,4 @@ public class ControlManager : MonoBehaviour
 			panCam.transform.position = TabListManager.Instance.currentTab.baseObject.position;
 		}
 	}
-
-	public List<SavedAction> actionList = new List<SavedAction>();
-	public int currentStep;
 }

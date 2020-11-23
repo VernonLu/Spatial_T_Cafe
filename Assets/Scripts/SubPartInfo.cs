@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Wootopia;
 
 public class SubPartInfo : MonoBehaviour
 {
@@ -78,10 +79,10 @@ public class SubPartInfo : MonoBehaviour
 		TransitionCamera.Instance.Release();
 		TabListManager.Instance.UpdateTabList();
 
+		UndoManager.Instance.SaveAction(ActionType.Assemble, this, joint2Disable);
+
 		ControlManager.Instance.SetCurrentItem(null);
 		CameraManager.Instance.SetRotateCamera(true);
-
-		ControlManager.Instance.SaveAction(SavedActionType.Assemble);
 	}
 
 	bool CheckMouseOnSelf()

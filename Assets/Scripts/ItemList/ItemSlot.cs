@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Wootopia;
 
 public class ItemSlot : MonoBehaviour
 {
@@ -30,8 +31,8 @@ public class ItemSlot : MonoBehaviour
 		ControlManager.Instance.SetCurrentItem(item);
 		item.itemSlot = this;
 		UpdateItemCount();
-		ControlManager.Instance.SaveAction(SavedActionType.Generate);
 
+		UndoManager.Instance.SaveAction(ActionType.Generate);
 	}
 
 	public void RetriveObject(int number = 1)
