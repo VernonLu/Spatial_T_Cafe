@@ -79,7 +79,7 @@ public class ObjectController : MonoBehaviour
 				offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, screenPosition.z));
 				startPoint = Input.mousePosition;
 				currentUnit = 0;
-				ControlManager.Instance.ToggleControlPanel(CtrlPanelType.Object);
+				ControlManager.Instance.ToggleControlPanelType(CtrlPanelType.Object);
 			}
 		}
 
@@ -192,11 +192,10 @@ public class ObjectController : MonoBehaviour
 				Debug.Log("Switch Control Mode: " + currentCtrlMode);
 				return true;
 			}
-		}
-		else
-		{
-
-			ControlManager.Instance.ToggleControlPanel(CtrlPanelType.World);
+			else
+			{
+				ControlManager.Instance.ToggleControlPanelType(CtrlPanelType.World);
+			}
 		}
 
 		currentAxis = Axis.None;

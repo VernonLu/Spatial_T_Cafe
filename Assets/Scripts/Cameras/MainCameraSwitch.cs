@@ -48,6 +48,7 @@ public class MainCameraSwitch : MonoBehaviour
 		// transitionCam.SetActive(true);
 		transitionCamera.enabled = true;
 		TabListManager.Instance.HideListPanel();
+		ControlManager.Instance.HideControlHint();
 
 	}
 }

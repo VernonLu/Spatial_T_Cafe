@@ -44,7 +44,7 @@ public class ControlManager : MonoBehaviour
 
 	void Start()
 	{
-		ToggleControlPanel(CtrlPanelType.World);
+		ToggleControlPanelType(CtrlPanelType.World);
 	}
 
 	void Update()
@@ -61,7 +61,7 @@ public class ControlManager : MonoBehaviour
 		}
 		if (null == item)
 		{
-			ToggleControlPanel(CtrlPanelType.World);
+			ToggleControlPanelType(CtrlPanelType.World);
 			currentItem = null;
 			return;
 		}
@@ -71,11 +71,11 @@ public class ControlManager : MonoBehaviour
 		{
 			SwitchControlMode(ObjectController.CtrlMode.Move);
 		}
-		ToggleControlPanel(CtrlPanelType.Object);
+		ToggleControlPanelType(CtrlPanelType.Object);
 		ResetCamera();
 	}
 
-	public void ToggleControlPanel(CtrlPanelType type)
+	public void ToggleControlPanelType(CtrlPanelType type)
 	{
 		switch (type)
 		{
@@ -91,6 +91,17 @@ public class ControlManager : MonoBehaviour
 			objectControlPanel.SetActive(false);
 			HideControlHint();
 			break;
+		}
+	}
+	public void ToggleCtrlPanelVisibility(bool visible)
+	{
+		if (visible)
+		{
+			ShowContorlHint();
+		}
+		else
+		{
+			HideControlHint();
 		}
 	}
 
@@ -116,7 +127,6 @@ public class ControlManager : MonoBehaviour
 	{
 		if (controller)
 		{
-
 			controller.SetActiveRotateHint(false);
 		}
 		moveHint.SetActive(false);

@@ -244,6 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0.0251112, z: 0}
   canMove: 1
+  joint2Disable: {fileID: 0}
   jointList: []
 --- !u!1 &7026930956731383624
 GameObject:
@@ -306,7 +307,7 @@ MonoBehaviour:
   targetID: Dovetail(V) 1/-
   targetTenon: {fileID: 0}
   toleranceDomin:
-    tolerancePositionStart: {x: -0.3, y: -0.1, z: -0.3}
+    tolerancePositionStart: {x: -0.3, y: -0.23, z: -0.3}
     tolerancePositionEnd: {x: 0.3, y: 0.3, z: 0.3}
     toleranceEularAngleEnd: {x: 4, y: 4, z: 4}
   isActive: 0
@@ -384,7 +385,6 @@ MonoBehaviour:
   defaultPos: {x: 0, y: 0, z: 0}
   defaultRot: {x: 0, y: 0, z: 0}
   tenonList: []
-  savedActionList: []
   itemSlot: {fileID: 0}
   isCurrentItem: 0
   outlines: []
