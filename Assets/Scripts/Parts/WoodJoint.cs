@@ -111,8 +111,8 @@ public class WoodJoint : MonoBehaviour
 		Vector3 deltaAngle = targetTenon.transform.rotation.eulerAngles - transform.rotation.eulerAngles;
 		bool isAngleCorrect = /*Vector3.Min(startAngle, targetAngle) == startAngle && */Vector3.Max(deltaAngle, endAngle) == endAngle;
 		//return if target in correct pose
-		print("pos: " + isPositionCorrect);
-		print("angle: " + isAngleCorrect);
+		//print("pos: " + isPositionCorrect);
+		//print("angle: " + isAngleCorrect);
 		return isPositionCorrect && isAngleCorrect;
     }
 
