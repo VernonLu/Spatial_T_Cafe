@@ -62,4 +62,15 @@ public class ZoomCamera : MonoBehaviour
 		zoomSpeedScale = speed;
 	}
 
+	public Vector3 CalculateCameraPosition()
+	{
+		Vector3 targetPosition = new Vector3();
+		Transform currentItem = ControlManager.Instance.currentItem.transform;
+		Transform baseObject = TabListManager.Instance.currentTab.baseObject;
+
+		Vector3 center = (currentItem.position + baseObject.position) / 2;
+		Vector3 forward = transform.forward;
+		return targetPosition;
+	}
+
 }

@@ -42,7 +42,7 @@ public class ResetCamera : MonoBehaviour
 		{
 			return;
 		}
-
+		Debug.Log(finger.TapCount);
 		if (RequiredTapCount > 0 && finger.TapCount != RequiredTapCount)
 		{
 			return;

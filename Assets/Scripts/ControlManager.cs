@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Wootopia;
 
 public enum CtrlPanelType
 {
@@ -43,7 +44,7 @@ public class ControlManager : MonoBehaviour
 
 	void Start()
 	{
-		ToggleControlPanel(CtrlPanelType.World);
+		ToggleControlPanelType(CtrlPanelType.World);
 	}
 
 	void Update()
@@ -60,7 +61,7 @@ public class ControlManager : MonoBehaviour
 		}
 		if (null == item)
 		{
-			ToggleControlPanel(CtrlPanelType.World);
+			ToggleControlPanelType(CtrlPanelType.World);
 			currentItem = null;
 			return;
 		}
@@ -70,11 +71,11 @@ public class ControlManager : MonoBehaviour
 		{
 			SwitchControlMode(ObjectController.CtrlMode.Move);
 		}
-		ToggleControlPanel(CtrlPanelType.Object);
+		ToggleControlPanelType(CtrlPanelType.Object);
 		ResetCamera();
 	}
 
-	public void ToggleControlPanel(CtrlPanelType type)
+	public void ToggleControlPanelType(CtrlPanelType type)
 	{
 		switch (type)
 		{
@@ -90,6 +91,17 @@ public class ControlManager : MonoBehaviour
 			objectControlPanel.SetActive(false);
 			HideControlHint();
 			break;
+		}
+	}
+	public void ToggleCtrlPanelVisibility(bool visible)
+	{
+		if (visible)
+		{
+			ShowContorlHint();
+		}
+		else
+		{
+			HideControlHint();
 		}
 	}
 
@@ -115,7 +127,6 @@ public class ControlManager : MonoBehaviour
 	{
 		if (controller)
 		{
-
 			controller.SetActiveRotateHint(false);
 		}
 		moveHint.SetActive(false);
@@ -167,53 +178,6 @@ public class ControlManager : MonoBehaviour
 		}
 	}
 
-	public void Undo()
-	{
-		Debug.Log("Undo");
-		// if (null == currentItem) { return; }
-		// currentItem.Undo();
-		if (currentStep <= 0) { return; }
-		--currentStep;
-		SavedAction action = actionList[currentStep];
-		if (action.type == SavedActionType.Generate)
-		{
-			action.item.BackToShelf();
-		}
-		else
-		{
-			action.item.ResetObject();
-		}
-	}
-	public void Redo()
-	{
-		Debug.Log("Redo");
-		// if (null == currentItem) { return; }
-		// currentItem.Redo();
-		if (currentStep >= actionList.Count) { return; }
-		++currentStep;
-		SavedAction action = actionList[currentStep];
-		if (action.type == SavedActionType.Generate)
-		{
-			action.itemSlot.GenerateItem();
-		}
-		else
-		{
-			action.item.isAssembled = true;
-		}
-	}
-	public void SaveAction(SavedActionType type, SubPartInfo subPart = null)
-	{
-		return;
-		Debug.Log("Save: " + type);
-		if (currentStep < actionList.Count - 1)
-		{
-			// List.RemoveRange(int index, int count)
-			actionList.RemoveRange(currentStep + 1, actionList.Count - currentStep);
-		}
-		actionList.Add(new SavedAction(type, currentItem, currentItem.itemSlot, subPart));
-
-	}
-
 	public PanCamera panCam;
 	public void ResetCamera()
 	{
@@ -227,7 +191,4 @@ public class ControlManager : MonoBehaviour
 			panCam.transform.position = TabListManager.Instance.currentTab.baseObject.position;
 		}
 	}
-
-	public List<SavedAction> actionList = new List<SavedAction>();
-	public int currentStep;
 }
