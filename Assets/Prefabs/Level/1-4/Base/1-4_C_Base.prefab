@@ -1223,12 +1223,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6994507483103240525}
-  m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: -0.5}
-  m_LocalPosition: {x: 0.005637169, y: 0.13138, z: 0.0013318006}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 0.12836266, y: 0.13138, z: -0.0013318006}
   m_LocalScale: {x: 0.11887, y: 0.11887, z: 0.11887}
   m_Children: []
-  m_Father: {fileID: 7863932272890945929}
-  m_RootOrder: 1
+  m_Father: {fileID: 7863932271981242414}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 180, y: 90, z: 270}
 --- !u!33 &8732122699141346184
 MeshFilter:
@@ -1303,7 +1303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a05812f125cdba46ab76ee21566dd87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: -0.03555039, y: 0, z: 0}
+  offset: {x: 0.03555039, y: 0, z: 0}
   canMove: 1
   joint2Disable: {fileID: 0}
   jointList: []
@@ -1442,6 +1442,7 @@ Transform:
   m_Children:
   - {fileID: 7863932273013770117}
   - {fileID: 7863932272890945929}
+  - {fileID: 4149698374484466477}
   - {fileID: 7863932272717522606}
   - {fileID: 7863932273668215964}
   - {fileID: 7863932273273705497}
@@ -1830,7 +1831,7 @@ Transform:
   - {fileID: 7863932273169772075}
   - {fileID: 1476070498552194506}
   m_Father: {fileID: 7863932271981242414}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7863932272717522604
 BoxCollider:
@@ -1993,7 +1994,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7863932273698547264}
-  - {fileID: 4149698374484466477}
   m_Father: {fileID: 7863932271981242414}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -2198,7 +2198,7 @@ Transform:
   - {fileID: 7863932272530969112}
   - {fileID: 4215398211884834234}
   m_Father: {fileID: 7863932271981242414}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7863932273273705495
 MonoBehaviour:
@@ -2678,7 +2678,7 @@ Transform:
   - {fileID: 7863932271983493237}
   - {fileID: 3171595435227820157}
   m_Father: {fileID: 7863932271981242414}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7863932273668215962
 BoxCollider:
@@ -2875,7 +2875,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7863932271981242414}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!33 &3723878330492812005
 MeshFilter:
