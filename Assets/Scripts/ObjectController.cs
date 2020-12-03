@@ -27,7 +27,7 @@ public class ObjectController : MonoBehaviour
 	int currentUnit;
 	public int rotateAngle = 15;
 
-	private int screenDivision = 100;
+	private int screenDivision = 200;
 	public bool isControlling
 	{
 		get;
@@ -40,7 +40,10 @@ public class ObjectController : MonoBehaviour
 
 	void Start()
 	{
-		currentCtrlMode = CtrlMode.Move;
+		if (ControlManager.Instance.isMoveDisabled && currentCtrlMode == CtrlMode.Move)
+		{
+			currentCtrlMode = CtrlMode.Rotate;
+		}
 	}
 
 	void Update()

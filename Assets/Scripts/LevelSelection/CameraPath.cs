@@ -7,6 +7,14 @@ public class CameraPath : MonoBehaviour
 {
 	protected LineRenderer path;
 
+	public int Count
+	{
+		get
+		{
+			return path ? path.positionCount : 0;
+		}
+	}
+
 	public Stage from;
 	public Stage dest;
 

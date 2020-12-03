@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TabListManager : MonoBehaviour
@@ -27,10 +28,10 @@ public class TabListManager : MonoBehaviour
 
 	public List<TabManager> tabList = new List<TabManager>();
 
-	public bool isControlGroup = true;
-
 	public TabManager currentTab;
-	// Start is called before the first frame update
+
+	public bool isFinished = false;
+
 	void Start()
 	{
 		tabList = GetComponentsInChildren<TabManager>().ToList();
@@ -44,14 +45,22 @@ public class TabListManager : MonoBehaviour
 
 	public void UpdateTabList()
 	{
-		// Check finish status of all tabs before checking lock status
+		isFinished = true;
 		foreach (var tab in tabList)
 		{
 			tab.UpdateIsFinished();
+			if (!tab.isFinished)
+			{
+				isFinished = false;
+			}
 		}
 		foreach (var tab in tabList)
 		{
 			tab.UpdateIsLocked();
+		}
+		if (isFinished)
+		{
+			LevelManager.Instance.ShowEndGame();
 		}
 	}
 

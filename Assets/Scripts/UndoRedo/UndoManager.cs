@@ -90,6 +90,7 @@ public class UndoManager : MonoBehaviour
 			action.item.ResetObject();
 
 			action.subPart.canMove = true;
+			action.subPart.transform.localPosition = action.subPart.transform.localPosition + action.subPart.offset;
 			action.subPart.gameObject.SetActive(false);
 			action.woodJoint.enabled = true;
 			break;

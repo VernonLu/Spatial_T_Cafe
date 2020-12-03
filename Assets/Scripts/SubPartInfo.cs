@@ -19,8 +19,17 @@ public class SubPartInfo : MonoBehaviour
 
 	public List<WoodJoint> jointList = new List<WoodJoint>();
 
+	public AudioClip enabledClip;
+	public AudioClip finishedClip;
+
+	private new AudioSource audio;
+
 	void Start()
 	{
+		audio = GameObject.Find("AudioSource").GetComponent<AudioSource>();
+
+		if (audio && enabledClip) { audio.PlayOneShot(enabledClip); }
+
 		localPos = transform.localPosition;
 		if (canMove) transform.localPosition = localPos + offset;
 	}
@@ -65,6 +74,7 @@ public class SubPartInfo : MonoBehaviour
 	}
 	public void CompleteMove()
 	{
+		if (audio && finishedClip) { audio.PlayOneShot(finishedClip); }
 		canMove = false;
 		isControlling = false;
 		foreach (var joint in jointList)

@@ -93,16 +93,17 @@ public class LevelSelectionCamera : MonoBehaviour
 
 	public float rotateSpeedScale = 1.0f;
 
-	/// <summary>This method resets the Pitch and Yaw values to the DefaultRotation value.</summary>
-	[ContextMenu("Reset Rotation ")]
-	public virtual void ResetRotation()
-	{
-		pitch = defaultRotation.x;
-		yaw = defaultRotation.y;
-	}
+	[Header("Path")]
+	public CameraPath path;
+	public Stage stage;
+	public Stage nextStage;
+
+	private float currentTime;
 
 	protected virtual void Start()
 	{
+		pitch = defaultRotation.x;
+		yaw = defaultRotation.y;
 		currentPitch = pitch;
 		currentYaw = yaw;
 	}
@@ -135,14 +136,13 @@ public class LevelSelectionCamera : MonoBehaviour
 				break;
 			}
 
-			var sensitivity = GetSensitivity();
 			if (yawEnabled)
 			{
-				yaw += finalDelta.x * yawSensitivity * sensitivity * rotateSpeedScale;
+				yaw += finalDelta.x * yawSensitivity * rotateSpeedScale;
 			}
 			if (pitchEnabled)
 			{
-				pitch -= finalDelta.y * pitchSensitivity * sensitivity * rotateSpeedScale;
+				pitch -= finalDelta.y * pitchSensitivity * rotateSpeedScale;
 			}
 
 		}
@@ -168,19 +168,28 @@ public class LevelSelectionCamera : MonoBehaviour
 		transform.localRotation = Quaternion.Euler(currentPitch, currentYaw, 0.0f);
 	}
 
-	private float GetSensitivity()
+	private List<CameraPath> pathList;
+	private CameraPath FindPath(Stage from, Stage dest)
 	{
-		// Has a camera been set?
-		if (Camera != null)
+		foreach (var path in pathList)
 		{
-			// Adjust sensitivity by FOV?
-			if (Camera.orthographic == false)
+			if (path.from == from && path.dest == dest)
 			{
-				return Camera.fieldOfView / 90.0f;
+				return path;
 			}
 		}
-
-		return 1.0f;
+		return null;
 	}
 
+	private void UpdatePosition()
+	{
+
+	}
+	// private IEnumerator MoveTo(Stage nextStage)
+	// {
+	// 	var path = FindPath(stage, nextStage);
+	// 	int count = path.Count;
+
+	// 	yield return null;
+	// }
 }

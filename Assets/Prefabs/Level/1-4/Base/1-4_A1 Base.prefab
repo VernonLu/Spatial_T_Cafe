@@ -93,8 +93,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: -0.0203, y: 0, z: 0}
   canMove: 1
+  joint2Disable: {fileID: 7015131698913320073}
   jointList:
   - {fileID: 7006857230995856913}
+  enabledClip: {fileID: 0}
+  finishedClip: {fileID: 0}
 --- !u!1 &2609969131173912394
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +158,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: -0.156379, z: 0}
   canMove: 1
+  joint2Disable: {fileID: 7006857230995856913}
   jointList: []
+  enabledClip: {fileID: 0}
+  finishedClip: {fileID: 0}
 --- !u!1 &6365739772817881166
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,7 +364,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6941604176222466903}
-  m_Mesh: {fileID: -206797742041388759, guid: 7299b61f296751a4695a4d9f74155565, type: 3}
+  m_Mesh: {fileID: -206797742041388759, guid: ecb865adbf750ab48a9a938888c6f97c, type: 3}
 --- !u!23 &8728960124446291382
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -484,8 +490,8 @@ MonoBehaviour:
   targetID: Joint Bulge P0
   targetTenon: {fileID: 0}
   toleranceDomin:
-    tolerancePositionStart: {x: -0.1, y: -1.2, z: -0.1}
-    tolerancePositionEnd: {x: 0.1, y: -0.5, z: 0.1}
+    tolerancePositionStart: {x: -0.2, y: -1.2, z: -0.2}
+    tolerancePositionEnd: {x: 0.2, y: -0.5, z: 0.2}
     toleranceEularAngleEnd: {x: 0, y: 0, z: 0}
   isActive: 0
   cameraFocusPivot: {fileID: 7006857231908862767}
@@ -576,7 +582,6 @@ MonoBehaviour:
   defaultPos: {x: 0, y: 0, z: 0}
   defaultRot: {x: 0, y: 0, z: 0}
   tenonList: []
-  savedActionList: []
   itemSlot: {fileID: 0}
   isCurrentItem: 0
   outlines: []

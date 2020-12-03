@@ -22,7 +22,9 @@ public class VolumeController : MonoBehaviour
 	}
 	public void SetSFX(float sliderValue)
 	{
-		mixer.SetFloat("SFX", Mathf.Log10(sliderValue) * 20);
+		Debug.Log(sliderValue * (100 / 6) - 80);
+		mixer.SetFloat("SFX", sliderValue * (100 / 6) - 80);
+		// mixer.SetFloat("SFX", Mathf.Log10(sliderValue) * 20);
 	}
 
 	private void Save(string tag, float value)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Wootopia;
 
 public enum CtrlPanelType
@@ -38,12 +39,21 @@ public class ControlManager : MonoBehaviour
 	public GameObject objectControlPanel;
 	public GameObject worldControlPanel;
 
+	[Header("Move")]
+	public Toggle moveButton;
+	public bool isMoveDisabled = false;
 	public GameObject moveHint;
+
+	[Header("Rotate")]
+	public Toggle rotateButton;
 
 	public Item currentItem;
 
 	void Start()
 	{
+		isMoveDisabled = !moveButton.interactable;
+		moveButton.isOn = !isMoveDisabled;
+		rotateButton.isOn = isMoveDisabled;
 		ToggleControlPanelType(CtrlPanelType.World);
 	}
 
@@ -69,7 +79,11 @@ public class ControlManager : MonoBehaviour
 		controller = currentItem.GetObjectController();
 		if (controller.currentCtrlMode == ObjectController.CtrlMode.None)
 		{
-			SwitchControlMode(ObjectController.CtrlMode.Move);
+			SwitchControlMode(isMoveDisabled ? ObjectController.CtrlMode.Rotate : ObjectController.CtrlMode.Move);
+		}
+		else
+		{
+			SwitchControlMode(controller.currentCtrlMode);
 		}
 		ToggleControlPanelType(CtrlPanelType.Object);
 		ResetCamera();
@@ -83,7 +97,7 @@ public class ControlManager : MonoBehaviour
 			// SwitchControlMode(ObjectController.CtrlMode.Move);
 			objectControlPanel.SetActive(true);
 			worldControlPanel.SetActive(false);
-			ShowContorlHint();
+			ShowControlHint();
 			break;
 		case CtrlPanelType.World:
 			// SwitchControlMode(ObjectController.CtrlMode.None);
@@ -97,7 +111,7 @@ public class ControlManager : MonoBehaviour
 	{
 		if (visible)
 		{
-			ShowContorlHint();
+			ShowControlHint();
 		}
 		else
 		{
@@ -120,7 +134,7 @@ public class ControlManager : MonoBehaviour
 	{
 		if (!controller) { return; }
 		controller.currentCtrlMode = mode;
-		ShowContorlHint();
+		ShowControlHint();
 	}
 
 	public void HideControlHint()
@@ -132,7 +146,7 @@ public class ControlManager : MonoBehaviour
 		moveHint.SetActive(false);
 	}
 
-	public void ShowContorlHint()
+	public void ShowControlHint()
 	{
 		switch (controller.currentCtrlMode)
 		{
