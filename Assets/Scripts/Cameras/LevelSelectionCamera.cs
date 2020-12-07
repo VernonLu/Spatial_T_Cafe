@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class LevelSelectionCamera : MonoBehaviour
 {
+	[SerializeField]
+	private bool controllable = true;
 	public enum CoordinateType
 	{
 		ScaledPixels,
@@ -97,8 +99,11 @@ public class LevelSelectionCamera : MonoBehaviour
 	public CameraPath path;
 	public Stage stage;
 	public Stage nextStage;
+	private Transform target;
+	public float moveSpeed;
+	private int currentIndex;
 
-	private float currentTime;
+	private Vector3 targetPosition;
 
 	protected virtual void Start()
 	{
@@ -113,7 +118,7 @@ public class LevelSelectionCamera : MonoBehaviour
 		// Get an initial list of fingers
 		var fingers = fingerFilter.GetFingers();
 
-		if (fingers.Count == 1)
+		if (controllable && fingers.Count == 1)
 		{
 			// Debug.Log("Controlling Camera!!!");
 			// Get delta
@@ -166,30 +171,87 @@ public class LevelSelectionCamera : MonoBehaviour
 
 		// Rotate to pitch and yaw values
 		transform.localRotation = Quaternion.Euler(currentPitch, currentYaw, 0.0f);
+		UpdatePosition();
 	}
 
-	private List<CameraPath> pathList;
-	private CameraPath FindPath(Stage from, Stage dest)
+	/// <summary>
+	/// Set Camera can be controlled by the player or not
+	/// </summary>
+	/// <param name="value"></param>
+	public void SetPlayerControllable(bool value)
 	{
-		foreach (var path in pathList)
+		controllable = value;
+	}
+
+	public void SetYaw(float yaw)
+	{
+		this.yaw = yaw;
+	}
+
+	public void MoveTo(Stage stage)
+	{
+		SetTargetStage(stage);
+	}
+	public void SetTargetStage(Stage stage)
+	{
+		nextStage = stage;
+		path = CameraPathManager.Instance.FindPath(this.stage, nextStage);
+		if (path == null)
 		{
-			if (path.from == from && path.dest == dest)
-			{
-				return path;
-			}
+			Debug.LogWarning("No Path Found!");
+			return;
 		}
-		return null;
+		Debug.Log("Path Found: " + path.gameObject.name);
+
+		currentIndex = 0;
+		target = nextStage.transform;
+		targetPosition = path[currentIndex];
 	}
 
 	private void UpdatePosition()
 	{
+		// if (!target) { return; }
+
+		if (!path) { return; }
+		if (transform.position == targetPosition)
+		{
+			++currentIndex;
+			if (currentIndex >= path.Count)
+			{
+				targetPosition = nextStage.transform.position;
+			}
+			else
+			{
+				targetPosition = path[currentIndex];
+				targetPosition = path.GetVertPosition(stage, currentIndex);
+			}
+
+			float y = (targetPosition - transform.position).y;
+			Quaternion look = Quaternion.LookRotation(targetPosition - transform.position);
+
+			SetYaw(look.eulerAngles.y);
+		}
+
+		float distance = Vector3.Distance(targetPosition, transform.position);
+		float deltaDistance = moveSpeed * Time.deltaTime;
+		float factor = deltaDistance / distance;
+
+		factor = Mathf.Clamp(factor, 0, 1);
+
+		transform.position = Vector3.Lerp(transform.position, targetPosition, factor);
+
+		if (transform.position == target.transform.position)
+		{
+			target = null;
+			path = null;
+			SetCurrentStage(nextStage);
+		}
 
 	}
-	// private IEnumerator MoveTo(Stage nextStage)
-	// {
-	// 	var path = FindPath(stage, nextStage);
-	// 	int count = path.Count;
 
-	// 	yield return null;
-	// }
+	public void SetCurrentStage(Stage stage)
+	{
+
+	}
+
 }

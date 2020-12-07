@@ -54,7 +54,7 @@ public class ControlManager : MonoBehaviour
 		isMoveDisabled = !moveButton.interactable;
 		moveButton.isOn = !isMoveDisabled;
 		rotateButton.isOn = isMoveDisabled;
-		ToggleControlPanelType(CtrlPanelType.World);
+		// ToggleControlPanelType(CtrlPanelType.World);
 	}
 
 	void Update()
@@ -69,13 +69,11 @@ public class ControlManager : MonoBehaviour
 			currentItem.BackToShelf();
 			controller = null;
 		}
-		if (null == item)
-		{
-			ToggleControlPanelType(CtrlPanelType.World);
-			currentItem = null;
-			return;
-		}
+
 		currentItem = item;
+
+		if (currentItem == null) { return; }
+
 		controller = currentItem.GetObjectController();
 		if (controller.currentCtrlMode == ObjectController.CtrlMode.None)
 		{
@@ -101,8 +99,10 @@ public class ControlManager : MonoBehaviour
 			break;
 		case CtrlPanelType.World:
 			// SwitchControlMode(ObjectController.CtrlMode.None);
-			worldControlPanel.SetActive(true);
-			objectControlPanel.SetActive(false);
+			// worldControlPanel.SetActive(true);
+			// objectControlPanel.SetActive(false);
+			objectControlPanel.SetActive(true);
+			worldControlPanel.SetActive(false);
 			HideControlHint();
 			break;
 		}

@@ -89,7 +89,7 @@ public class SubPartInfo : MonoBehaviour
 		TransitionCamera.Instance.Release();
 		TabListManager.Instance.UpdateTabList();
 
-		UndoManager.Instance.SaveAction(ActionType.Assemble, this, joint2Disable);
+		// UndoManager.Instance.SaveAction(ActionType.Assemble, this, joint2Disable);
 
 		ControlManager.Instance.SetCurrentItem(null);
 		CameraManager.Instance.SetRotateCamera(true);

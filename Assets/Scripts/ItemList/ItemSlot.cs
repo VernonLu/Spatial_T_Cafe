@@ -32,7 +32,7 @@ public class ItemSlot : MonoBehaviour
 		item.itemSlot = this;
 		UpdateItemCount();
 
-		UndoManager.Instance.SaveAction(ActionType.Generate);
+		// UndoManager.Instance.SaveAction(ActionType.Generate);
 	}
 
 	public void RetriveObject(int number = 1)

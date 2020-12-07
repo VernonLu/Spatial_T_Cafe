@@ -16,14 +16,15 @@ public class VolumeController : MonoBehaviour
 	}
 	public void SetBGM(float sliderValue)
 	{
-		Debug.Log(sliderValue * (100 / 6) - 80);
-		mixer.SetFloat("BGM", sliderValue * (100 / 6) - 80);
-		// mixer.SetFloat("BGM", Mathf.Log10(sliderValue) * 20);
+		// Debug.Log(sliderValue * (100 / 6) - 80);
+		// mixer.SetFloat("BGM", sliderValue * (100 / 6) - 80);
+		float val = (9999f / 60000f) * sliderValue + 0.0001f;
+		mixer.SetFloat("BGM", Mathf.Log10(val) * 20);
 	}
 	public void SetSFX(float sliderValue)
 	{
-		Debug.Log(sliderValue * (100 / 6) - 80);
-		mixer.SetFloat("SFX", sliderValue * (100 / 6) - 80);
+		float val = (9999f / 60000f) * sliderValue + 0.0001f;
+		mixer.SetFloat("SFX", Mathf.Log10(val) * 20);
 		// mixer.SetFloat("SFX", Mathf.Log10(sliderValue) * 20);
 	}
 

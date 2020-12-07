@@ -2,15 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using Wootopia;
 public class Level : MonoBehaviour
 {
+	public string levelName;
 	public bool isFinished;
 	public GameObject packagingBox;
 	public GameObject finishedObject;
-	public string levelName;
-	public List<Outline> outlines;
+
+	private List<Outline> outlines;
+
+	[Space]
+	public UnityEvent selectEvent;
+
+	[Space]
+	public UnityEvent finishEvent;
 
 	void Start()
 	{

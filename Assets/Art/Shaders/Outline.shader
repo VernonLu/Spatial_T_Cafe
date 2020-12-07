@@ -11,7 +11,7 @@ Shader "WoodJoint/Outline"
 		_MainTex("Albedo", 2D) = "white" {}
 
 		// Outline properties
-		_Outline("Outline Width", Range(0,0.01)) = 1
+		_Outline("Outline Width", Range(0,0.1)) = 0.01
 		_OutlineColor("Outline Color", Color) = (1,1,1,1)
 		//
 
@@ -66,24 +66,24 @@ Shader "WoodJoint/Outline"
 	SubShader
 	{
 
-			// ------------------------------------------------------------------
-			//  Base forward pass (directional light, emission, lightmaps, ...)
-			Pass
+		// ------------------------------------------------------------------
+		//  Base forward pass (directional light, emission, lightmaps, ...)
+		Pass
+		{
+			Name "FORWARD"
+			Tags { "LightMode" = "ForwardBase" }
+
+			Blend[_SrcBlend][_DstBlend]
+			ZWrite[_ZWrite]
+
+			Stencil
 			{
-				Name "FORWARD"
-				Tags { "LightMode" = "ForwardBase" }
-
-				Blend[_SrcBlend][_DstBlend]
-				ZWrite[_ZWrite]
-
-				Stencil
-				{
-					Ref 1
-					Comp Always
-					Pass Replace
-				}
-				CGPROGRAM
-				#pragma target 3.0
+				Ref 1
+				Comp Always
+				Pass Replace
+			}
+			CGPROGRAM
+			#pragma target 3.0
 
 			// -------------------------------------
 
@@ -111,25 +111,25 @@ Shader "WoodJoint/Outline"
 		}
 
 
-			// ------------------------------------------------------------------
-			//  Additive forward pass (one light per pass)
-			Pass
-			{
-				Name "FORWARD_DELTA"
-				Tags { "LightMode" = "ForwardAdd" }
-				Blend[_SrcBlend] One
-				Fog { Color(0,0,0,0) } // in additive pass fog should be black
-				ZWrite Off
-				ZTest LEqual
+		// ------------------------------------------------------------------
+		//  Additive forward pass (one light per pass)
+		Pass
+		{
+			Name "FORWARD_DELTA"
+			Tags { "LightMode" = "ForwardAdd" }
+			Blend[_SrcBlend] One
+			Fog { Color(0,0,0,0) } // in additive pass fog should be black
+			ZWrite Off
+			ZTest LEqual
 
-				Stencil
-				{
-					Ref 1
-					Comp Always
-					Pass Replace
-				}
-				CGPROGRAM
-				#pragma target 3.0
+			Stencil
+			{
+				Ref 1
+				Comp Always
+				Pass Replace
+			}
+			CGPROGRAM
+			#pragma target 3.0
 
 			// -------------------------------------
 
@@ -155,22 +155,22 @@ Shader "WoodJoint/Outline"
 		}
 
 
-			// ------------------------------------------------------------------
-			//  Shadow rendering pass
-			Pass {
-				Name "ShadowCaster"
-				Tags { "LightMode" = "ShadowCaster" }
+		// ------------------------------------------------------------------
+		//  Shadow rendering pass
+		Pass {
+			Name "ShadowCaster"
+			Tags { "LightMode" = "ShadowCaster" }
 
-				ZWrite On ZTest LEqual
+			ZWrite On ZTest LEqual
 
-				Stencil
-				{
-					Ref 1
-					Comp Always
-					Pass Replace
-				}
-				CGPROGRAM
-				#pragma target 3.0
+			Stencil
+			{
+				Ref 1
+				Comp Always
+				Pass Replace
+			}
+			CGPROGRAM
+			#pragma target 3.0
 
 			// -------------------------------------
 
@@ -193,22 +193,22 @@ Shader "WoodJoint/Outline"
 		}
 
 
-			// ------------------------------------------------------------------
-			//  Deferred pass
-			Pass
-			{
-				Name "DEFERRED"
-				Tags { "LightMode" = "Deferred" }
+		// ------------------------------------------------------------------
+		//  Deferred pass
+		Pass
+		{
+			Name "DEFERRED"
+			Tags { "LightMode" = "Deferred" }
 
-				Stencil
-				{
-					Ref 1
-					Comp Always
-					Pass Replace
-				}
-				CGPROGRAM
-				#pragma target 3.0
-				#pragma exclude_renderers nomrt
+			Stencil
+			{
+				Ref 1
+				Comp Always
+				Pass Replace
+			}
+			CGPROGRAM
+			#pragma target 3.0
+			#pragma exclude_renderers nomrt
 
 
 			// -------------------------------------
@@ -235,35 +235,35 @@ Shader "WoodJoint/Outline"
 			ENDCG
 		}
 
-			// ------------------------------------------------------------------
-			// Extracts information for lightmapping, GI (emission, albedo, ...)
-			// This pass it not used during regular rendering.
-			Pass
+		// ------------------------------------------------------------------
+		// Extracts information for lightmapping, GI (emission, albedo, ...)
+		// This pass it not used during regular rendering.
+		Pass
+		{
+			Name "META"
+			Tags { "LightMode" = "Meta" }
+
+			Cull Off
+
+			Stencil
 			{
-				Name "META"
-				Tags { "LightMode" = "Meta" }
-
-				Cull Off
-
-				Stencil
-				{
-					Ref 1
-					Comp Always
-					Pass Replace
-				}
-				CGPROGRAM
-				#pragma vertex vert_meta
-				#pragma fragment frag_meta
-
-				#pragma shader_feature _EMISSION
-				#pragma shader_feature_local _METALLICGLOSSMAP
-				#pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-				#pragma shader_feature_local _DETAIL_MULX2
-				#pragma shader_feature EDITOR_VISUALIZATION
-
-				#include "UnityStandardMeta.cginc"
-				ENDCG
+				Ref 1
+				Comp Always
+				Pass Replace
 			}
+			CGPROGRAM
+			#pragma vertex vert_meta
+			#pragma fragment frag_meta
+
+			#pragma shader_feature _EMISSION
+			#pragma shader_feature_local _METALLICGLOSSMAP
+			#pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+			#pragma shader_feature_local _DETAIL_MULX2
+			#pragma shader_feature EDITOR_VISUALIZATION
+
+			#include "UnityStandardMeta.cginc"
+			ENDCG
+		}
 		// ------------------
 		// Outline Top Right
 		Pass{
