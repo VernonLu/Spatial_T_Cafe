@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Wootopia;
 
+[System.Serializable]
 public enum CtrlPanelType
 {
 	Object,
@@ -41,7 +42,7 @@ public class ControlManager : MonoBehaviour
 
 	[Header("Move")]
 	public Toggle moveButton;
-	public bool isMoveDisabled = false;
+
 	public GameObject moveHint;
 
 	[Header("Rotate")]
@@ -51,10 +52,7 @@ public class ControlManager : MonoBehaviour
 
 	void Start()
 	{
-		isMoveDisabled = !moveButton.interactable;
-		moveButton.isOn = !isMoveDisabled;
-		rotateButton.isOn = isMoveDisabled;
-		// ToggleControlPanelType(CtrlPanelType.World);
+
 	}
 
 	void Update()
@@ -64,6 +62,9 @@ public class ControlManager : MonoBehaviour
 
 	public void SetCurrentItem(Item item)
 	{
+		//
+		HideHighlight();
+
 		if (null != currentItem && !currentItem.isAssembled)
 		{
 			currentItem.BackToShelf();
@@ -77,7 +78,7 @@ public class ControlManager : MonoBehaviour
 		controller = currentItem.GetObjectController();
 		if (controller.currentCtrlMode == ObjectController.CtrlMode.None)
 		{
-			SwitchControlMode(isMoveDisabled ? ObjectController.CtrlMode.Rotate : ObjectController.CtrlMode.Move);
+			SwitchControlMode(ObjectController.CtrlMode.Move);
 		}
 		else
 		{
@@ -134,6 +135,7 @@ public class ControlManager : MonoBehaviour
 	{
 		if (!controller) { return; }
 		controller.currentCtrlMode = mode;
+
 		ShowControlHint();
 	}
 
@@ -203,6 +205,26 @@ public class ControlManager : MonoBehaviour
 		else
 		{
 			panCam.transform.position = TabListManager.Instance.currentTab.baseObject.position;
+		}
+	}
+
+	public GameObject highlightObject;
+	public void ShowHighlight(GameObject highlight)
+	{
+		if (highlightObject)
+		{
+			HideHighlight();
+		}
+		highlightObject = highlight;
+		highlightObject.SetActive(true);
+	}
+	public void HideHighlight()
+	{
+		// Debug.Log(highlightObject.name);
+		if (highlightObject)
+		{
+			highlightObject.SetActive(false);
+			highlightObject = null;
 		}
 	}
 }

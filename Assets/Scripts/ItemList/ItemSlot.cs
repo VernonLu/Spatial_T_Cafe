@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using Wootopia;
 
@@ -9,6 +10,8 @@ public class ItemSlot : MonoBehaviour
 	public GameObject itemPrefab;
 	public int itemCount;
 	public Text itemCountBadge;
+
+	public UnityEvent generateItemEvent;
 
 	// Start is called before the first frame update
 	void Start()
@@ -31,6 +34,7 @@ public class ItemSlot : MonoBehaviour
 		ControlManager.Instance.SetCurrentItem(item);
 		item.itemSlot = this;
 		UpdateItemCount();
+		generateItemEvent.Invoke();
 
 		// UndoManager.Instance.SaveAction(ActionType.Generate);
 	}

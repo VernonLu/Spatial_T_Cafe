@@ -81,7 +81,9 @@ public class CameraPath : MonoBehaviour
 	/// <returns>Vertex Position</returns>
 	public Vector3 GetVertPosition(Stage from, int index)
 	{
-		return lineRenderer.GetPosition(from == this.from? index: (Count - 1 - index));
+		int currentIndex = from == this.from? index: (Count - 1 - index);
+		Debug.Log("Index: " + currentIndex);
+		return lineRenderer.GetPosition(currentIndex);
 	}
 
 }

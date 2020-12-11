@@ -1,19 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Wootopia;
 public class StageSwitchButton : MonoBehaviour
 {
 	public Stage stage;
+
+	public WoCanvasGroup button;
+
+	public bool isActive = false;
+
 	void Start()
 	{
-
+		SetActive(isActive);
 	}
 
-	// Update is called once per frame
-	void LateUpdate()
+	public void SetActive(bool active)
 	{
-		// transform.LookAt(stage.transform);
-		transform.LookAt(stage.transform, Vector3.up);
+		isActive = active;
+		if (isActive)
+		{
+			button.Show();
+		}
+		else
+		{
+			button.Hide();
+		}
 	}
 }

@@ -97,8 +97,8 @@ public class LevelSelectionCamera : MonoBehaviour
 
 	[Header("Path")]
 	public CameraPath path;
-	public Stage stage;
-	public Stage nextStage;
+	public Stage currentStage;
+	public Stage targetStage;
 	private Transform target;
 	public float moveSpeed;
 	private int currentIndex;
@@ -194,8 +194,10 @@ public class LevelSelectionCamera : MonoBehaviour
 	}
 	public void SetTargetStage(Stage stage)
 	{
-		nextStage = stage;
-		path = CameraPathManager.Instance.FindPath(this.stage, nextStage);
+		currentStage.cameraLeave.Invoke();
+
+		targetStage = stage;
+		path = CameraPathManager.Instance.FindPath(this.currentStage, targetStage);
 		if (path == null)
 		{
 			Debug.LogWarning("No Path Found!");
@@ -204,8 +206,8 @@ public class LevelSelectionCamera : MonoBehaviour
 		Debug.Log("Path Found: " + path.gameObject.name);
 
 		currentIndex = 0;
-		target = nextStage.transform;
-		targetPosition = path[currentIndex];
+		target = targetStage.transform;
+		targetPosition = path.GetVertPosition(this.currentStage, currentIndex);
 	}
 
 	private void UpdatePosition()
@@ -218,18 +220,18 @@ public class LevelSelectionCamera : MonoBehaviour
 			++currentIndex;
 			if (currentIndex >= path.Count)
 			{
-				targetPosition = nextStage.transform.position;
+				targetPosition = targetStage.transform.position;
 			}
 			else
 			{
 				targetPosition = path[currentIndex];
-				targetPosition = path.GetVertPosition(stage, currentIndex);
+				targetPosition = path.GetVertPosition(currentStage, currentIndex);
 			}
 
-			float y = (targetPosition - transform.position).y;
 			Quaternion look = Quaternion.LookRotation(targetPosition - transform.position);
-
-			SetYaw(look.eulerAngles.y);
+			float y = look.eulerAngles.y;
+			float altY = y - 360;
+			SetYaw(Mathf.Abs(y - yaw) > Mathf.Abs(altY - yaw) ? altY : y);
 		}
 
 		float distance = Vector3.Distance(targetPosition, transform.position);
@@ -244,14 +246,16 @@ public class LevelSelectionCamera : MonoBehaviour
 		{
 			target = null;
 			path = null;
-			SetCurrentStage(nextStage);
+			SetCurrentStage(targetStage);
 		}
 
 	}
 
 	public void SetCurrentStage(Stage stage)
 	{
+		this.currentStage = stage;
 
+		currentStage.cameraEnter.Invoke();
 	}
 
 }

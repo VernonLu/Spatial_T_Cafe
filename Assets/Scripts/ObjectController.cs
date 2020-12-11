@@ -40,10 +40,8 @@ public class ObjectController : MonoBehaviour
 
 	void Start()
 	{
-		if (ControlManager.Instance.isMoveDisabled && currentCtrlMode == CtrlMode.Move)
-		{
-			currentCtrlMode = CtrlMode.Rotate;
-		}
+		currentCtrlMode = currentCtrlMode == CtrlMode.None ? CtrlMode.Move : currentCtrlMode;
+		ControlManager.Instance.SwitchControlMode(currentCtrlMode);
 	}
 
 	void Update()
