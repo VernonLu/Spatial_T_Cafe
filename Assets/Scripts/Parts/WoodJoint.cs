@@ -14,7 +14,6 @@ public class WoodJoint : MonoBehaviour
 	[SerializeField]
 	protected bool isActive = false;
 
-
 	[Serializable]
 	public class ToleranceDomin
     {
@@ -109,11 +108,15 @@ public class WoodJoint : MonoBehaviour
 		//Vector3 startAngle = Vector3.Min(toleranceDomin.toleranceEularAngleStart, toleranceDomin.toleranceEularAngleEnd);
 		Vector3 endAngle = Vector3.Max(-toleranceDomin.toleranceEularAngleEnd, toleranceDomin.toleranceEularAngleEnd);
 		Vector3 deltaAngle = targetTenon.transform.rotation.eulerAngles - transform.rotation.eulerAngles;
-		bool isAngleCorrect = /*Vector3.Min(startAngle, targetAngle) == startAngle && */Vector3.Max(deltaAngle, endAngle) == endAngle;
-		//return if target in correct pose
-		//print("pos: " + isPositionCorrect);
-		//print("angle: " + isAngleCorrect);
-		return isPositionCorrect && isAngleCorrect;
+        deltaAngle.x = Math.Abs(deltaAngle.x);
+        deltaAngle.y = Math.Abs(deltaAngle.y);
+        deltaAngle.z = Math.Abs(deltaAngle.z);
+        bool isAngleCorrect = /*Vector3.Min(startAngle, targetAngle) == startAngle && */Vector3.Max(deltaAngle, endAngle) == endAngle;
+        //return if target in correct pose
+        //print("pos: " + isPositionCorrect);
+  //      print("angle: " + isAngleCorrect + ", " + deltaAngle);
+		//print("targetAngle: " + targetTenon.transform.rotation.eulerAngles + "currentAngle: " + transform.rotation.eulerAngles);
+        return isPositionCorrect && isAngleCorrect;
     }
 
 
