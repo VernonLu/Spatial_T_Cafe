@@ -33,6 +33,7 @@ namespace Wootopia
 			canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, isActive? 1 : 0, time / fadeDuration);
 		}
 
+		[ContextMenu("Hide")]
 		public void Hide()
 		{
 			// canvasGroup.alpha = 0;
@@ -42,6 +43,7 @@ namespace Wootopia
 			time = 0;
 		}
 
+		[ContextMenu("Show")]
 		public void Show()
 		{
 			// canvasGroup.alpha = 1;

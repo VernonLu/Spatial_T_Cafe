@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TransitionCamera : MonoBehaviour
 {
@@ -31,6 +32,10 @@ public class TransitionCamera : MonoBehaviour
 	protected Vector3 targetPosition;
 	protected Quaternion targetRotation;
 
+	public UnityEvent onEnable;
+
+	public UnityEvent onDisable;
+
 	public float speed = 1.0f;
 	/*
 	public float moveSpeed;
@@ -43,12 +48,14 @@ public class TransitionCamera : MonoBehaviour
 		// transform.position = target.position;
 		// transform.rotation = target.rotation;
 		isActive = true;
+		onEnable.Invoke();
 	}
 
 	public void Release()
 	{
 		isActive = false;
 		targetTransform = null;
+		onDisable.Invoke();
 	}
 	private void UpdateTransform()
 	{

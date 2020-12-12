@@ -9,7 +9,7 @@ namespace Wootopia
 	public class Outline : MonoBehaviour
 	{
 		private Shader shader;
-		private string shaderName = "WoodJoint/Outline";
+		private string shaderName = "Wootopia/Outline";
 		// Renderer component attached to this gameobject
 		protected new Renderer renderer;
 
