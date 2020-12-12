@@ -81,6 +81,8 @@ public class ObjectController : MonoBehaviour
 				startPoint = Input.mousePosition;
 				currentUnit = 0;
 				ControlManager.Instance.ToggleControlPanelType(CtrlPanelType.Object);
+				LocationHintBox.Instance.ShowAxisHintBox();
+				LocationHintBox.Instance.targetTransform2 = transform;
 			}
 		}
 
@@ -88,6 +90,7 @@ public class ObjectController : MonoBehaviour
 		{
 			isControlling = false;
 			CameraManager.Instance.SetRotateCamera(true);
+			LocationHintBox.Instance.HideAxisHintBox();
 		}
 
 		if (isControlling && currentCtrlMode == CtrlMode.Move)

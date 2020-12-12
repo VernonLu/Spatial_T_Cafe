@@ -73,6 +73,7 @@ public class WoodJoint : MonoBehaviour
 			subPart.SetActive(true);
 			// Disable currentItem
 			ControlManager.Instance.currentItem?.gameObject.SetActive(false);
+			LocationHintBox.Instance.HideAxisHintBox();
 		}
 	}
 

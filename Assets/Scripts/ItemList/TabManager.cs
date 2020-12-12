@@ -62,6 +62,7 @@ public class TabManager : MonoBehaviour
 			ControlManager.Instance.ResetCamera();
 		}
 		baseObject.gameObject.SetActive(isOn);
+		LocationHintBox.Instance.targetTransform1 = isOn ? baseObject : LocationHintBox.Instance.targetTransform1;
 	}
 
 	private void UpdateContentHeight()
