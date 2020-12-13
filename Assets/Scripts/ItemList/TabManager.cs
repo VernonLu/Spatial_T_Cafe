@@ -82,6 +82,7 @@ public class TabManager : MonoBehaviour
 		float contentHeight = (cellSizeY + spacingY) * itemSlotList.Count + paddingY;
 		//Set content sizecontent
 		contentRect.sizeDelta = new Vector2(contentRect.sizeDelta.x, contentHeight);
+		contentRect.position = Vector3.zero;
 	}
 
 	// Check all the depend tab is finished

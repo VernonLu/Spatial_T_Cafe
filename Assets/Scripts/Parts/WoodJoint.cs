@@ -30,9 +30,6 @@ public class WoodJoint : MonoBehaviour
 
 	public List<SubPartInfo> dependencies = new List<SubPartInfo>();
 
-	[Header("Rotation Limitation")]
-	public Vector2 XRange = new Vector2(0, 360);
-
 	private new Collider collider;
 
 	void Start()
