@@ -31,9 +31,6 @@ public class MainMenu : MonoBehaviour
 	[Header("Exit")]
 	public CanvasGroup exitConfirm;
 
-	[Header("Instruction")]
-	public CanvasGroup instruction;
-
 	void Start()
 	{
 		// hasSavedGame = PlayerPrefs.GetInt("HasSavedGame") == 1;
@@ -42,7 +39,6 @@ public class MainMenu : MonoBehaviour
 		Hide(settingMenu);
 		Hide(aboutPage);
 		Hide(exitConfirm);
-		ShowInstruction();
 	}
 
 	private void Update()
@@ -104,7 +100,9 @@ public class MainMenu : MonoBehaviour
 	{
 		Debug.Log("Clear Saved data");
 		PlayerPrefs.SetInt("HasSavedGame", 0);
+		PlayerPrefs.SetInt("Scene_Level_1-0", 0);
 		PlayerPrefs.SetInt("Scene_Vernon - Experimental Group", 0);
+		PlayerPrefs.SetInt("Scene_Level_2-1", 0);
 		Load(levelSelectionSceneName);
 	}
 #endregion
@@ -159,18 +157,6 @@ public class MainMenu : MonoBehaviour
 	public void ConfirmExit()
 	{
 		Application.Quit();
-	}
-#endregion
-#region Instuction
-	public void ShowInstruction()
-	{
-		Show(instruction);
-		cancelDelegate = HideInstruction;
-	}
-	public void HideInstruction()
-	{
-		Hide(instruction);
-		cancelDelegate = Exit;
 	}
 #endregion
 

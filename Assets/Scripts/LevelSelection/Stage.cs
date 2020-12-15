@@ -19,6 +19,15 @@ public class Stage : MonoBehaviour
 
 	void Start()
 	{
+		foreach (var level in levels)
+		{
+			level.LoadData();
+		}
+		foreach (var level in levels)
+		{
+			level.CheckDependencies();
+		}
+		UpdateFinishState();
 
 	}
 
@@ -49,8 +58,4 @@ public class Stage : MonoBehaviour
 		}
 	}
 
-	public void CheckDependecies()
-	{
-
-	}
 }

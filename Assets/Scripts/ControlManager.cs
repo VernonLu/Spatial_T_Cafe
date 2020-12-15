@@ -218,6 +218,7 @@ public class ControlManager : MonoBehaviour
 		highlightObject = highlight;
 		highlightObject.SetActive(true);
 	}
+
 	public void HideHighlight()
 	{
 		// Debug.Log(highlightObject.name);

@@ -32,6 +32,8 @@ public class TabListManager : MonoBehaviour
 
 	public bool isFinished = false;
 
+	public List<AddonPart> addonParts;
+
 	void Start()
 	{
 		tabList = GetComponentsInChildren<TabManager>().ToList();
@@ -58,10 +60,7 @@ public class TabListManager : MonoBehaviour
 		{
 			tab.UpdateIsLocked();
 		}
-		if (isFinished)
-		{
-			LevelManager.Instance.ShowEndGame();
-		}
+		Complete();
 	}
 
 	/// <summary>
@@ -83,5 +82,26 @@ public class TabListManager : MonoBehaviour
 		canvasGroup.alpha = 1;
 		canvasGroup.interactable = true;
 		canvasGroup.blocksRaycasts = true;
+	}
+
+	public bool CheckAddons()
+	{
+		if (addonParts.Count == 0) { return true; }
+		bool res = true;
+		foreach (var addon in addonParts)
+		{
+			if (!addon.isFinished)
+			{
+				res = false;
+			}
+		}
+		return res;
+	}
+	public void Complete()
+	{
+		if (isFinished && CheckAddons())
+		{
+			LevelManager.Instance.ShowEndGame();
+		}
 	}
 }

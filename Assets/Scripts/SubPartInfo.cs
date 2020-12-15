@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Wootopia;
 
 public class SubPartInfo : MonoBehaviour
@@ -19,11 +20,18 @@ public class SubPartInfo : MonoBehaviour
 
 	public List<WoodJoint> jointList = new List<WoodJoint>();
 
+	public UnityEvent onEnable;
+	public UnityEvent onFinish;
+
 	public AudioClip enabledClip;
 	public AudioClip finishedClip;
 
 	private new AudioSource audio;
 
+	private void OnEnable()
+	{
+		onEnable.Invoke();
+	}
 	void Start()
 	{
 		audio = GameObject.Find("AudioSource").GetComponent<AudioSource>();
@@ -32,6 +40,7 @@ public class SubPartInfo : MonoBehaviour
 
 		localPos = transform.localPosition;
 		if (canMove) transform.localPosition = localPos + offset;
+
 	}
 
 	void Update()
@@ -51,6 +60,10 @@ public class SubPartInfo : MonoBehaviour
 		if (isControlling && Input.GetMouseButtonUp(0))
 		{
 			isControlling = false;
+			if (transform.localPosition != localPos)
+			{
+				transform.localPosition = localPos + offset;
+			}
 		}
 
 		if (isControlling)
@@ -93,6 +106,7 @@ public class SubPartInfo : MonoBehaviour
 
 		ControlManager.Instance.SetCurrentItem(null);
 		CameraManager.Instance.SetRotateCamera(true);
+		onFinish.Invoke();
 	}
 
 	bool CheckMouseOnSelf()

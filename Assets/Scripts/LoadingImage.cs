@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class LoadingImage : MonoBehaviour
 {
 	public CanvasGroup canvasGroup;
@@ -11,6 +11,8 @@ public class LoadingImage : MonoBehaviour
 	private float time;
 
 	private bool isDestroying = false;
+
+	public UnityEvent onDestroy;
 
 	void Start()
 	{
@@ -34,6 +36,7 @@ public class LoadingImage : MonoBehaviour
 	private void AutoDestroy()
 	{
 		isDestroying = true;
+		onDestroy.Invoke();
 		Destroy(this.gameObject);
 	}
 }

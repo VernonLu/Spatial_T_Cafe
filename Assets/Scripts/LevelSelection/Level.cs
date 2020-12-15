@@ -9,6 +9,9 @@ using Wootopia;
 public class Level : MonoBehaviour
 {
 	public string levelName;
+
+	public bool isActive = false;
+	public List<Level> dependencies = new List<Level>();
 	public bool isFinished;
 	public GameObject packagingBox;
 	public GameObject finishedObject;
@@ -24,12 +27,25 @@ public class Level : MonoBehaviour
 	void Start()
 	{
 		// PlayerPrefs.SetInt(levelName, 0);
-		isFinished = PlayerPrefs.GetInt(levelName, 0) == 1;
-		packagingBox.SetActive(!isFinished);
-		finishedObject.SetActive(isFinished);
-		GetComponent<Collider>().enabled = !isFinished;
+
+	}
+
+	public void Init()
+	{
+
+		packagingBox.SetActive(isActive && !isFinished);
+		finishedObject.SetActive(isActive && isFinished);
+		GetComponent<Collider>().enabled = isActive && !isFinished;
 		outlines = GetComponentsInChildren<Outline>().ToList();
-		ShowOutline();
+
+		if (isActive)
+		{
+			ShowOutline();
+		}
+		else
+		{
+			HideOutline();
+		}
 	}
 	public void ShowOutline()
 	{
@@ -48,5 +64,25 @@ public class Level : MonoBehaviour
 	public void LoadLevel()
 	{
 		SceneManager.LoadScene(levelName);
+	}
+
+	public void LoadData()
+	{
+		// PlayerPrefs.SetInt(levelName, 0);
+		isFinished = PlayerPrefs.GetInt(levelName, 0) == 1;
+	}
+	public void CheckDependencies()
+	{
+		// Debug.Log(this.name);
+		isActive = true;
+		foreach (var level in dependencies)
+		{
+			if (!level.isFinished)
+			{
+				// Debug.Log(level.name + " " + isFinished);
+				isActive = false;
+			}
+		}
+		Init();
 	}
 }

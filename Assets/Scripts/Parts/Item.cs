@@ -58,4 +58,17 @@ public class Item : MonoBehaviour
 	{
 		return transform.GetComponent<ObjectController>();
 	}
+
+	[ContextMenu("GetTenons")]
+	public void GetTenons()
+	{
+		tenonList = GetComponentsInChildren<WoodTenon>().ToList();
+	}
+
+	[ContextMenu("SetDefaultPosAndRot")]
+	public void SetDefaultPosAndRot()
+	{
+		defaultPos = transform.position;
+		defaultRot = transform.rotation.eulerAngles;
+	}
 }

@@ -54,14 +54,15 @@ public class TabManager : MonoBehaviour
 	{
 		transform.SetParent(isOn ? activePanel : deactivePanel);
 		tagText.text = isOn ? activeText : deactiveText;
+		baseObject.gameObject.SetActive(isOn);
 		if (statusAnimator) { statusAnimator.SetBool("isActive", isOn); }
 		if (isOn)
 		{
 			ControlManager.Instance.RetriveObject();
 			TabListManager.Instance.currentTab = this;
 			ControlManager.Instance.ResetCamera();
+			// GameObject.Find("DebugText").GetComponent<Text>().text += this.name + ": isOn " + isOn + "\r\n";
 		}
-		baseObject.gameObject.SetActive(isOn);
 		LocationHintBox.Instance.targetTransform1 = isOn ? baseObject : LocationHintBox.Instance.targetTransform1;
 	}
 

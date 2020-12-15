@@ -11,7 +11,7 @@ Shader "Wootopia/Outline"
 		_MainTex("Albedo", 2D) = "white" {}
 
 		// Outline properties
-		_Outline("Outline Width", Range(0,0.1)) = 0.01
+		_Outline("Outline Width", Range(0,1)) = 0.01
 		_OutlineColor("Outline Color", Color) = (1,1,1,1)
 		//
 
