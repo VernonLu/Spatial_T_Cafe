@@ -66,10 +66,11 @@ public class SubPartRotate : MonoBehaviour
 		{
 			currStatus = SubPartStatus.Moving;
 			transform.localPosition = localPos + offset;
-			if (canRotate)
-			{
-				transform.localEulerAngles = localAngle + rotateOffset;
-			}
+
+		}
+		if (canRotate)
+		{
+			transform.localEulerAngles = localAngle + rotateOffset;
 		}
 	}
 
