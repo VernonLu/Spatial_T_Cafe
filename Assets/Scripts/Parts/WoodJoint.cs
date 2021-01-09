@@ -5,24 +5,24 @@ using UnityEngine;
 
 public class WoodJoint : MonoBehaviour
 {
+	[Header("PROPERTY")]
 	public string ID;
 	public string targetID;
-	public WoodTenon targetTenon;
 	//position divided by 10 for more precision 
 	//don't change in realtime
 	public ToleranceDomin toleranceDomin;
-	[SerializeField]
-	protected bool isActive = false;
 
 	[Serializable]
 	public class ToleranceDomin
 	{
 		public Vector3 tolerancePositionStart;
 		public Vector3 tolerancePositionEnd;
-		//public Vector3 toleranceEularAngleStart;
-		public Vector3 toleranceEularAngleEnd;
+        public Vector3 toleranceEularAngleStart;
+        public Vector3 toleranceEularAngleEnd;
 	}
 
+	[Header("DEPENDENCY")]
+	public WoodTenon targetTenon;
 	public Transform cameraFocusPivot;
 
 	// Activate sub part when
@@ -31,6 +31,14 @@ public class WoodJoint : MonoBehaviour
 	public List<SubPartInfo> dependencies = new List<SubPartInfo>();
 
 	private new Collider collider;
+
+	[Header("DEBUG")]
+	[SerializeField]
+	protected bool isActive = false;
+	[SerializeField]
+	private bool showPositionDebugInfo;
+	[SerializeField]
+	private bool showAngleDebugInfo;
 
 	void Start()
 	{
@@ -103,18 +111,19 @@ public class WoodJoint : MonoBehaviour
 		Vector3 deltaPos = targetTenon.transform.position - transform.position;
 		bool isPositionCorrect = Vector3.Min(startPos, deltaPos) == startPos && Vector3.Max(deltaPos, endPos) == endPos;
 		//calculate if target in tolerance angle
-		//Vector3 startAngle = Vector3.Min(toleranceDomin.toleranceEularAngleStart, toleranceDomin.toleranceEularAngleEnd);
-		Vector3 endAngle = Vector3.Max(-toleranceDomin.toleranceEularAngleEnd, toleranceDomin.toleranceEularAngleEnd);
+		Vector3 startAngle = Vector3.Min(toleranceDomin.toleranceEularAngleStart, toleranceDomin.toleranceEularAngleEnd);
+		Vector3 endAngle = Vector3.Max(toleranceDomin.toleranceEularAngleStart, toleranceDomin.toleranceEularAngleEnd);
 		Vector3 deltaAngle = targetTenon.transform.rotation.eulerAngles - transform.rotation.eulerAngles;
-		deltaAngle.x = Math.Abs(deltaAngle.x);
-		deltaAngle.y = Math.Abs(deltaAngle.y);
-		deltaAngle.z = Math.Abs(deltaAngle.z);
-		bool isAngleCorrect = /*Vector3.Min(startAngle, targetAngle) == startAngle && */ Vector3.Max(deltaAngle, endAngle) == endAngle;
+		deltaAngle.x = deltaAngle.x > 180 ? deltaAngle.x - 360 : deltaAngle.x;
+		deltaAngle.y = deltaAngle.y > 180 ? deltaAngle.y - 360 : deltaAngle.y;
+		deltaAngle.z = deltaAngle.z > 180 ? deltaAngle.z - 360 : deltaAngle.z;
+		bool isAngleCorrect = Vector3.Min(startAngle, deltaAngle) == startAngle && Vector3.Max(deltaAngle, endAngle) == endAngle;
 		//return if target in correct pose
-		//print("pos: " + isPositionCorrect);
-		// print("angle: " + isAngleCorrect + ", " + deltaAngle);
-		// print("targetAngle: " + targetTenon.transform.rotation.eulerAngles + "currentAngle: " + transform.rotation.eulerAngles);
-		return isPositionCorrect && isAngleCorrect;
+		if (showPositionDebugInfo)
+		{ print("pos: " + isPositionCorrect); }
+        if (showAngleDebugInfo)
+		{ print("angle: " + isAngleCorrect + ", " + deltaAngle); }
+        return isPositionCorrect && isAngleCorrect;
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -144,37 +153,34 @@ public class WoodJoint : MonoBehaviour
 
 	private void OnDrawGizmos()
 	{
-		//Gizmos.color = Color.red;
-		//Gizmos.DrawLine(transform.position, transform.position + transform.right / 10);
-		//Gizmos.color = Color.green;
-		//Gizmos.DrawLine(transform.position, transform.position + transform.up / 10);
-		//Gizmos.color = Color.blue;
-		//Gizmos.DrawLine(transform.position, transform.position + transform.forward / 10); 
-		//convert local coord to world
-		Gizmos.matrix = transform.localToWorldMatrix;
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawLine(transform.position, transform.position + transform.right / 10);
+        //Gizmos.color = Color.green;
+        //Gizmos.DrawLine(transform.position, transform.position + transform.up / 10);
+        //Gizmos.color = Color.blue;
+        //Gizmos.DrawLine(transform.position, transform.position + transform.forward / 10); 
+        //convert local coord to world
+        #region draw box
+        Gizmos.matrix = transform.localToWorldMatrix;
 		Gizmos.color = Color.green;
 		Vector3 center = (toleranceDomin.tolerancePositionStart + toleranceDomin.tolerancePositionEnd) / 2 / 10;
 		Gizmos.DrawWireCube(center, (toleranceDomin.tolerancePositionStart - toleranceDomin.tolerancePositionEnd) / 10);
-		if (toleranceDomin.toleranceEularAngleEnd.x != 0)
-		{
-			Gizmos.color = Color.red;
-			Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(-toleranceDomin.toleranceEularAngleEnd.x, 0, 0) * Vector3.up / 10);
-			Gizmos.color = Color.red;
-			Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(toleranceDomin.toleranceEularAngleEnd.x, 0, 0) * Vector3.up / 10);
-		}
-		if (toleranceDomin.toleranceEularAngleEnd.y != 0)
-		{
-			Gizmos.color = Color.green;
-			Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, -toleranceDomin.toleranceEularAngleEnd.y, 0) * Vector3.forward / 10);
-			Gizmos.color = Color.green;
-			Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, toleranceDomin.toleranceEularAngleEnd.y, 0) * Vector3.forward / 10);
-		}
-		if (toleranceDomin.toleranceEularAngleEnd.z != 0)
-		{
-			Gizmos.color = Color.blue;
-			Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, -toleranceDomin.toleranceEularAngleEnd.z) * Vector3.right / 10);
-			Gizmos.color = Color.blue;
-			Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, toleranceDomin.toleranceEularAngleEnd.z) * Vector3.right / 10);
-		}
-	}
+        #endregion
+
+        #region draw angle
+        Gizmos.color = Color.red;
+		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(toleranceDomin.toleranceEularAngleStart.x, 0, 0) * Vector3.up / 10);
+		Gizmos.color = Color.green;
+		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, toleranceDomin.toleranceEularAngleStart.y, 0) * Vector3.forward / 10);
+		Gizmos.color = Color.blue;
+		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, toleranceDomin.toleranceEularAngleStart.z) * Vector3.right / 10);
+
+		Gizmos.color = Color.red;
+		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(toleranceDomin.toleranceEularAngleEnd.x, 0, 0) * Vector3.up / 10);
+		Gizmos.color = Color.green;
+		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, toleranceDomin.toleranceEularAngleEnd.y, 0) * Vector3.forward / 10);
+		Gizmos.color = Color.blue;
+		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, toleranceDomin.toleranceEularAngleEnd.z) * Vector3.right / 10);
+        #endregion
+    }
 }
