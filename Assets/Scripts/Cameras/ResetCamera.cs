@@ -20,6 +20,7 @@ public class ResetCamera : MonoBehaviour
 	/// /// 0 = Every time (e.g. a setting of 2 means OnTap will get called when you tap 2 times, 4 times, 6, 8, 10, etc).</summary>
 	public int RequiredTapInterval;
 
+	public PanCamera panCamera;
 	protected virtual void OnEnable()
 	{
 		LeanTouch.OnFingerTap += HandleFingerTap;
@@ -54,6 +55,13 @@ public class ResetCamera : MonoBehaviour
 		}
 
 		ControlManager.Instance.ResetCamera();
+		if (null != panCamera)
+		{
+			Vector3 pos = panCamera.transform.localPosition;
+			pos.x = 0;
+			pos.y = 0;
+			panCamera.transform.localPosition = pos;
+		}
 
 	}
 }
