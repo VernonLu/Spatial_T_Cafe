@@ -5,6 +5,11 @@ using UnityEngine.EventSystems;
 
 public class ObjectController : MonoBehaviour
 {
+	public enum MoveMethod
+	{
+		Translate,
+		Velocity,
+	}
 	public enum CtrlMode
 	{
 		None,
@@ -18,6 +23,7 @@ public class ObjectController : MonoBehaviour
 		Z,
 		None
 	}
+	public MoveMethod moveMethod = MoveMethod.Translate;
 	public CtrlMode currentCtrlMode;
 	private Axis currentAxis;
 	private Vector3 axisNormal;
@@ -97,7 +103,16 @@ public class ObjectController : MonoBehaviour
 		{
 			Vector3 currentScreenSpace = new Vector3(mousePos.x, mousePos.y, screenPosition.z);
 			Vector3 currentPosition = Camera.main.ScreenToWorldPoint(currentScreenSpace) + offset;
-			transform.position = currentPosition;
+			switch (moveMethod)
+			{
+			case MoveMethod.Translate:
+				transform.position = currentPosition;
+				break;
+
+			case MoveMethod.Velocity:
+				GetComponent<Rigidbody>().velocity = (currentPosition - transform.position) * 10;
+				break;
+			}
 		}
 
 		if (isControlling && currentCtrlMode == CtrlMode.Rotate)
