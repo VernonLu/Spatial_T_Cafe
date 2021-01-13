@@ -281,9 +281,7 @@ Shader "Wootopia/NormalOutline"
 		
 
 	}
-
-
-
+	
 	FallBack "VertexLit"
 	// CustomEditor "StandardShaderGUI"
 }

@@ -22,7 +22,7 @@ public class Item : MonoBehaviour
 
 	public ItemSlot itemSlot;
 
-	public bool isCurrentItem = true;
+	public bool isCurrentItem = false;
 	public List<Outline> outlines = new List<Outline>();
 
 	// Start is called before the first frame update
