@@ -151,20 +151,12 @@ public class WoodJoint : MonoBehaviour
 
 	private void OnDrawGizmos()
 	{
-		//Gizmos.color = Color.red;
-		//Gizmos.DrawLine(transform.position, transform.position + transform.right / 10);
-		//Gizmos.color = Color.green;
-		//Gizmos.DrawLine(transform.position, transform.position + transform.up / 10);
-		//Gizmos.color = Color.blue;
-		//Gizmos.DrawLine(transform.position, transform.position + transform.forward / 10); 
-		//convert local coord to world
 #region draw box
 		Gizmos.matrix = transform.localToWorldMatrix;
 		Gizmos.color = Color.green;
 		Vector3 center = (toleranceDomin.tolerancePositionStart + toleranceDomin.tolerancePositionEnd) / 2 / 10;
 		Gizmos.DrawWireCube(center, (toleranceDomin.tolerancePositionStart - toleranceDomin.tolerancePositionEnd) / 10);
 #endregion
-
 #region draw angle
 		Gizmos.color = Color.red;
 		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(toleranceDomin.toleranceEularAngleStart.x, 0, 0) * Vector3.up);
