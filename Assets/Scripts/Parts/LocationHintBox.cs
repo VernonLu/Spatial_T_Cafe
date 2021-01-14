@@ -19,6 +19,8 @@ public class LocationHintBox : MonoBehaviour
     public Transform targetTransform2;
     public Vector3 targetPos1;
     public Vector3 targetPos2;
+    public Vector3 pos1Offset;
+    public Vector3 pos2Offset;
     public Material material;
 
     bool enableLocationHint = false;
@@ -53,18 +55,19 @@ public class LocationHintBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (targetTransform1 != null && targetTransform2 != null)
-        {
-            targetPos1 = targetTransform1.position;
-            targetPos2 = targetTransform2.position;
-        }
+        if (targetTransform1 != null)
+        { targetPos1 = targetTransform1.position; }
+        if (targetTransform2 != null)
+        { targetPos2 = targetTransform2.position; }
         if (enableLocationHint)
         {
-            hintBox.transform.position = (targetPos1 + targetPos2) / 2;
+            var p1 = targetPos1 + pos1Offset;
+            var p2 = targetPos2 + pos2Offset;
+            hintBox.transform.position = (p1 + p2) / 2;
             Vector3 scale;
-            scale.x = (targetPos1.x - targetPos2.x);
-            scale.y = (targetPos1.y - targetPos2.y);
-            scale.z = (targetPos1.z - targetPos2.z);
+            scale.x = (p1.x - p2.x);
+            scale.y = (p1.y - p2.y);
+            scale.z = (p1.z - p2.z);
             hintBox.transform.localScale = scale;
         }
     }

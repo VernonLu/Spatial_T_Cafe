@@ -89,6 +89,7 @@ public class ObjectController : MonoBehaviour
 				ControlManager.Instance.ToggleControlPanelType(CtrlPanelType.Object);
 				LocationHintBox.Instance.ShowAxisHintBox();
 				LocationHintBox.Instance.targetTransform2 = transform;
+				LocationHintBox.Instance.targetPos1 = transform.position;
 			}
 		}
 
@@ -209,6 +210,8 @@ public class ObjectController : MonoBehaviour
 				};
 				ControlManager.Instance.SwitchControlMode(currentCtrlMode == CtrlMode.None ? CtrlMode.Move : currentCtrlMode);
 				Debug.Log("Switch Control Mode: " + currentCtrlMode);
+				LocationHintBox.Instance.pos1Offset = hitInfo.point - transform.position;
+				LocationHintBox.Instance.pos2Offset = hitInfo.point - transform.position;
 				return true;
 			}
 			else

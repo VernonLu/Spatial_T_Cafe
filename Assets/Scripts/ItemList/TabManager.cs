@@ -63,7 +63,7 @@ public class TabManager : MonoBehaviour
 			ControlManager.Instance.ResetCamera();
 			// GameObject.Find("DebugText").GetComponent<Text>().text += this.name + ": isOn " + isOn + "\r\n";
 		}
-		LocationHintBox.Instance.targetTransform1 = isOn ? baseObject : LocationHintBox.Instance.targetTransform1;
+		//LocationHintBox.Instance.targetTransform1 = isOn ? baseObject : LocationHintBox.Instance.targetTransform1;
 	}
 
 	private void UpdateContentHeight()
