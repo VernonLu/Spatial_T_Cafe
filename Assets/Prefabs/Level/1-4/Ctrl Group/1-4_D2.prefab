@@ -344,16 +344,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: Straight Joint/-
   targetID: 
-  targetTenon: {fileID: 0}
   toleranceDomin:
     tolerancePositionStart: {x: 0, y: 0, z: 0}
     tolerancePositionEnd: {x: 0, y: 0, z: 0}
+    toleranceEularAngleStart: {x: 0, y: 0, z: 0}
     toleranceEularAngleEnd: {x: 0, y: 0, z: 0}
-  isActive: 0
+  targetTenon: {fileID: 0}
   cameraFocusPivot: {fileID: 0}
   subPart: {fileID: 0}
   dependencies: []
-  XRange: {x: 0, y: 360}
+  isActive: 0
+  showPositionDebugInfo: 0
+  showAngleDebugInfo: 0
 --- !u!1 &2157544784078894532
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,7 +741,6 @@ MonoBehaviour:
   defaultRot: {x: 0, y: -90.00001, z: -90.00001}
   tenonList:
   - {fileID: 25798120946160971}
-  savedActionList: []
   itemSlot: {fileID: 0}
   isCurrentItem: 1
   outlines: []
@@ -755,8 +756,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5382f9219b02647970a12c1fc910e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveMethod: 0
   currentCtrlMode: 0
   rotateAngle: 15
+  currentHintRing: {fileID: 0}
   fingerFilter:
     Filter: 0
     IgnoreStartedOverGui: 0

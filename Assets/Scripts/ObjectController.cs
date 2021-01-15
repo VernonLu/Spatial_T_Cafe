@@ -32,6 +32,7 @@ public class ObjectController : MonoBehaviour
 	Vector3 startPoint;
 	int currentUnit;
 	public int rotateAngle = 15;
+	public RotateHintRing currentHintRing;
 
 	private int screenDivision = 200;
 	public bool isControlling
@@ -147,15 +148,18 @@ public class ObjectController : MonoBehaviour
 			{
 			case Axis.X:
 				transform.Rotate(unitChange * rotateAngle * mag, 0, 0, Space.Self);
+				currentHintRing.currentDir = transform.up;
 				break;
 			case Axis.Y:
 				transform.Rotate(0, unitChange * rotateAngle * mag, 0, Space.Self);
+				currentHintRing.currentDir = transform.forward;
 				break;
 			case Axis.Z:
 				transform.Rotate(0, 0, unitChange * rotateAngle * mag, Space.Self);
+				currentHintRing.currentDir = transform.right;
 				break;
-			}
-		}
+            }
+        }
 	}
 
 	bool CheckMouseOnSelf()
@@ -195,17 +199,27 @@ public class ObjectController : MonoBehaviour
 				case "rotateX":
 					currentAxis = Axis.X;
 					axisNormal = hitInfo.collider.transform.right;
+					currentHintRing = hitInfo.collider.GetComponent<RotateHintRing>();
+					currentHintRing.startDir = transform.up;
+					currentHintRing.rotateAxis = transform.right;
 					break;
 				case "rotateY":
 					currentAxis = Axis.Y;
 					axisNormal = hitInfo.collider.transform.up;
+					currentHintRing = hitInfo.collider.GetComponent<RotateHintRing>();
+					currentHintRing.startDir = transform.forward;
+					currentHintRing.rotateAxis = transform.up;
 					break;
 				case "rotateZ":
 					currentAxis = Axis.Z;
 					axisNormal = hitInfo.collider.transform.forward;
+					currentHintRing = hitInfo.collider.GetComponent<RotateHintRing>();
+					currentHintRing.startDir = transform.right;
+					currentHintRing.rotateAxis = transform.forward;
 					break;
 				default:
 					currentAxis = Axis.None;
+					currentHintRing = null;
 					break;
 				};
 				ControlManager.Instance.SwitchControlMode(currentCtrlMode == CtrlMode.None ? CtrlMode.Move : currentCtrlMode);
