@@ -33,7 +33,7 @@ public class MainMenu : MonoBehaviour
 
 	void Start()
 	{
-		// hasSavedGame = PlayerPrefs.GetInt("HasSavedGame") == 1;
+		hasSavedGame = PlayerPrefs.GetInt("HasSavedGame") == 1;
 		continueBtn.SetActive(hasSavedGame);
 		Hide(newgameConfirm);
 		Hide(settingMenu);
@@ -80,7 +80,11 @@ public class MainMenu : MonoBehaviour
 	{
 		// 
 		if (hasSavedGame) { ShowNewGameConfirm(); }
-		else { Load(levelSelectionSceneName); }
+		else
+		{
+			PlayerPrefs.SetInt("HasSavedGame", 1);
+			Load(levelSelectionSceneName);
+		}
 	}
 
 	private void ShowNewGameConfirm()
