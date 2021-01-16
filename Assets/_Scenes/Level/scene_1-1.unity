@@ -176,6 +176,7 @@ MonoBehaviour:
   cameraFocusPivot: {fileID: 968908103}
   subPart: {fileID: 1920557729}
   dependencies: []
+  requiredSubPartList: []
   isActive: 0
   showPositionDebugInfo: 0
   showAngleDebugInfo: 0
@@ -589,6 +590,7 @@ GameObject:
   - component: {fileID: 45712728}
   - component: {fileID: 45712727}
   - component: {fileID: 45712725}
+  - component: {fileID: 45712726}
   m_Layer: 0
   m_Name: Sub 1-1_C3
   m_TagString: Untagged
@@ -624,20 +626,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8a5d755fc11a439eb6754c2e28fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 2.5546, z: 0}
   canMove: 1
-  joint2Disable: {fileID: 0}
-  jointList: []
-  enabledClip: {fileID: 0}
-  finishedClip: {fileID: 0}
+  offset: {x: 0, y: 2.5546, z: 0}
   canRotate: 0
   rotateAxis: 0
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
+  joint2Disable: {fileID: 0}
+  conflictJointList: []
+  jointList: []
+  enabledClip: {fileID: 0}
+  finishedClip: {fileID: 0}
   onFinish:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &45712726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45712723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &45712727
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -806,6 +821,7 @@ GameObject:
   - component: {fileID: 66111248}
   - component: {fileID: 66111247}
   - component: {fileID: 66111245}
+  - component: {fileID: 66111246}
   m_Layer: 0
   m_Name: Sub 1-1_C2_Right
   m_TagString: Untagged
@@ -841,20 +857,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8a5d755fc11a439eb6754c2e28fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0.4774, y: 0, z: 0}
   canMove: 1
-  joint2Disable: {fileID: 0}
-  jointList: []
-  enabledClip: {fileID: 0}
-  finishedClip: {fileID: 0}
+  offset: {x: 0.4774, y: 0, z: 0}
   canRotate: 0
   rotateAxis: 0
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
+  joint2Disable: {fileID: 0}
+  conflictJointList: []
+  jointList: []
+  enabledClip: {fileID: 0}
+  finishedClip: {fileID: 0}
   onFinish:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &66111246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66111243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &66111247
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1654,6 +1683,7 @@ GameObject:
   - component: {fileID: 123472934}
   - component: {fileID: 123472933}
   - component: {fileID: 123472932}
+  - component: {fileID: 123472931}
   m_Layer: 0
   m_Name: Sub 1-1_A2
   m_TagString: Untagged
@@ -1676,6 +1706,18 @@ Transform:
   m_Father: {fileID: 2048884458}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &123472931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123472929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &123472932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1688,17 +1730,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8a5d755fc11a439eb6754c2e28fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: -0.448, y: 0, z: 0}
   canMove: 1
-  joint2Disable: {fileID: 0}
-  jointList: []
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
-  canRotate: 1
+  offset: {x: -0.448, y: 0, z: 0}
+  canRotate: 0
   rotateAxis: 0
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 30
+  joint2Disable: {fileID: 0}
+  conflictJointList: []
+  jointList: []
+  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
+  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onFinish:
     m_PersistentCalls:
       m_Calls: []
@@ -1775,6 +1818,7 @@ GameObject:
   - component: {fileID: 136277060}
   - component: {fileID: 136277059}
   - component: {fileID: 136277058}
+  - component: {fileID: 136277057}
   m_Layer: 0
   m_Name: Sub 1-1_A3
   m_TagString: Untagged
@@ -1796,6 +1840,18 @@ Transform:
   m_Father: {fileID: 1839432594}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &136277057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136277055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &136277058
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2241,6 +2297,7 @@ GameObject:
   - component: {fileID: 171262824}
   - component: {fileID: 171262823}
   - component: {fileID: 171262822}
+  - component: {fileID: 171262825}
   m_Layer: 0
   m_Name: Sub 1-1_A3
   m_TagString: Untagged
@@ -2323,6 +2380,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171262820}
   m_Mesh: {fileID: -6268817219781679942, guid: 724e81b2bef77d54882726d7933dfe7c, type: 3}
+--- !u!114 &171262825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171262820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &172898972
 GameObject:
   m_ObjectHideFlags: 0
@@ -2372,17 +2441,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8a5d755fc11a439eb6754c2e28fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
   canMove: 0
-  joint2Disable: {fileID: 0}
-  jointList: []
-  enabledClip: {fileID: 0}
-  finishedClip: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
   canRotate: 0
   rotateAxis: 0
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 30
+  joint2Disable: {fileID: 0}
+  conflictJointList: []
+  jointList: []
+  enabledClip: {fileID: 0}
+  finishedClip: {fileID: 0}
   onFinish:
     m_PersistentCalls:
       m_Calls: []
@@ -2411,10 +2481,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveMethod: 0
+  lockedControlMode: 0
   currentCtrlMode: 0
   rotateAngle: 15
   currentHintRing: {fileID: 0}
-  lockedControlMode: 0
   fingerFilter:
     Filter: 0
     IgnoreStartedOverGui: 0
@@ -2893,12 +2963,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 145.94592
-      objectReference: {fileID: 0}
-    - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.4597168
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -3705,7 +3770,7 @@ GameObject:
   - component: {fileID: 235326858}
   - component: {fileID: 235326857}
   - component: {fileID: 235326856}
-  - component: {fileID: 235326855}
+  - component: {fileID: 235326853}
   m_Layer: 0
   m_Name: Sub 1-1_B1
   m_TagString: Untagged
@@ -3729,7 +3794,7 @@ Transform:
   m_Father: {fileID: 1982286490}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -120, y: 90, z: 90}
---- !u!114 &235326855
+--- !u!114 &235326853
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3738,18 +3803,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 235326851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bc813d6f685f14ba11ff64d4d6feb9, type: 3}
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  isAssembled: 0
-  isOnScreen: 0
-  defaultPos: {x: -0.54852, y: 0.023893, z: -0.0025766}
-  defaultRot: {x: 300, y: 270, z: 270}
-  tenonList: []
-  itemSlot: {fileID: 0}
-  isCurrentItem: 1
-  outlines: []
 --- !u!64 &235326856
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4394,6 +4450,8 @@ MonoBehaviour:
   subPart: {fileID: 1248193788}
   dependencies:
   - {fileID: 604344082}
+  requiredSubPartList:
+  - {fileID: 1796829318}
   isActive: 0
   showPositionDebugInfo: 0
   showAngleDebugInfo: 0
@@ -4489,6 +4547,7 @@ GameObject:
   - component: {fileID: 374341547}
   - component: {fileID: 374341546}
   - component: {fileID: 374341549}
+  - component: {fileID: 374341550}
   m_Layer: 0
   m_Name: Sub 1-1_A3
   m_TagString: Untagged
@@ -4584,20 +4643,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8a5d755fc11a439eb6754c2e28fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: -1.615, z: 0}
   canMove: 1
-  joint2Disable: {fileID: 0}
-  jointList: []
-  enabledClip: {fileID: 0}
-  finishedClip: {fileID: 0}
+  offset: {x: 0, y: -1.615, z: 0}
   canRotate: 0
   rotateAxis: 0
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 30
+  joint2Disable: {fileID: 0}
+  conflictJointList: []
+  jointList: []
+  enabledClip: {fileID: 0}
+  finishedClip: {fileID: 0}
   onFinish:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &374341550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374341544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &379847773
 GameObject:
   m_ObjectHideFlags: 0
@@ -4760,6 +4832,9 @@ MonoBehaviour:
   subPart: {fileID: 2011992845}
   dependencies:
   - {fileID: 604344082}
+  requiredSubPartList:
+  - {fileID: 891007836}
+  - {fileID: 687105566}
   isActive: 0
   showPositionDebugInfo: 0
   showAngleDebugInfo: 0
@@ -5265,6 +5340,7 @@ MonoBehaviour:
   cameraFocusPivot: {fileID: 1081944115}
   subPart: {fileID: 1796829316}
   dependencies: []
+  requiredSubPartList: []
   isActive: 1
   showPositionDebugInfo: 0
   showAngleDebugInfo: 0
@@ -5426,6 +5502,7 @@ MonoBehaviour:
   cameraFocusPivot: {fileID: 1192761002}
   subPart: {fileID: 1091199788}
   dependencies: []
+  requiredSubPartList: []
   isActive: 0
   showPositionDebugInfo: 0
   showAngleDebugInfo: 0
@@ -6789,18 +6866,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 643281814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bc813d6f685f14ba11ff64d4d6feb9, type: 3}
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  isAssembled: 0
-  isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
-  tenonList: []
-  itemSlot: {fileID: 0}
-  isCurrentItem: 1
-  outlines: []
 --- !u!64 &643281817
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7058,9 +7126,8 @@ GameObject:
   - component: {fileID: 687105571}
   - component: {fileID: 687105570}
   - component: {fileID: 687105569}
-  - component: {fileID: 687105568}
-  - component: {fileID: 687105567}
   - component: {fileID: 687105566}
+  - component: {fileID: 687105567}
   m_Layer: 0
   m_Name: Sub 1-1_M4_R
   m_TagString: Untagged
@@ -7095,17 +7162,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8a5d755fc11a439eb6754c2e28fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0.88, z: 0}
   canMove: 1
-  joint2Disable: {fileID: 0}
-  jointList: []
-  enabledClip: {fileID: 0}
-  finishedClip: {fileID: 0}
+  offset: {x: 0, y: 0.88, z: 0}
   canRotate: 0
   rotateAxis: 0
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 30
+  joint2Disable: {fileID: 0}
+  conflictJointList:
+  - {fileID: 1780739313}
+  jointList: []
+  enabledClip: {fileID: 0}
+  finishedClip: {fileID: 0}
   onFinish:
     m_PersistentCalls:
       m_Calls: []
@@ -7118,41 +7187,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 687105564}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee5382f9219b02647970a12c1fc910e0, type: 3}
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveMethod: 0
-  currentCtrlMode: 0
-  rotateAngle: 15
-  currentHintRing: {fileID: 0}
-  lockedControlMode: 0
-  fingerFilter:
-    Filter: 0
-    IgnoreStartedOverGui: 0
-    RequiredFingerCount: 0
-    RequiredMouseButtons: 0
-    RequiredSelectable: {fileID: 0}
---- !u!114 &687105568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 687105564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bc813d6f685f14ba11ff64d4d6feb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 
-  isAssembled: 0
-  isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
-  tenonList: []
-  itemSlot: {fileID: 0}
-  isCurrentItem: 1
-  outlines: []
 --- !u!64 &687105569
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7598,9 +7635,8 @@ GameObject:
   - component: {fileID: 735025057}
   - component: {fileID: 735025056}
   - component: {fileID: 735025055}
-  - component: {fileID: 735025054}
-  - component: {fileID: 735025053}
   - component: {fileID: 735025052}
+  - component: {fileID: 735025053}
   m_Layer: 0
   m_Name: Sub 1-1_M4_D
   m_TagString: Untagged
@@ -7635,17 +7671,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8a5d755fc11a439eb6754c2e28fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0.831, z: 0}
   canMove: 1
-  joint2Disable: {fileID: 0}
-  jointList: []
-  enabledClip: {fileID: 0}
-  finishedClip: {fileID: 0}
+  offset: {x: 0, y: 0.831, z: 0}
   canRotate: 0
   rotateAxis: 0
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 30
+  joint2Disable: {fileID: 0}
+  conflictJointList:
+  - {fileID: 937043288}
+  jointList: []
+  enabledClip: {fileID: 0}
+  finishedClip: {fileID: 0}
   onFinish:
     m_PersistentCalls:
       m_Calls: []
@@ -7658,41 +7696,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 735025050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee5382f9219b02647970a12c1fc910e0, type: 3}
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveMethod: 0
-  currentCtrlMode: 0
-  rotateAngle: 15
-  currentHintRing: {fileID: 0}
-  lockedControlMode: 0
-  fingerFilter:
-    Filter: 0
-    IgnoreStartedOverGui: 0
-    RequiredFingerCount: 0
-    RequiredMouseButtons: 0
-    RequiredSelectable: {fileID: 0}
---- !u!114 &735025054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 735025050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bc813d6f685f14ba11ff64d4d6feb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 
-  isAssembled: 0
-  isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
-  tenonList: []
-  itemSlot: {fileID: 0}
-  isCurrentItem: 1
-  outlines: []
 --- !u!64 &735025055
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7949,12 +7955,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 145.94594
-      objectReference: {fileID: 0}
-    - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.000015258789
+      value: 0.45973206
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -8268,6 +8269,7 @@ GameObject:
   - component: {fileID: 755345977}
   - component: {fileID: 755345976}
   - component: {fileID: 755345975}
+  - component: {fileID: 755345978}
   m_Layer: 0
   m_Name: Sub 1-1_C2_Right
   m_TagString: Untagged
@@ -8350,6 +8352,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755345973}
   m_Mesh: {fileID: 3338098159304656718, guid: 4bb0ff0765c3c7a4d96614b2863c18a1, type: 3}
+--- !u!114 &755345978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755345973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &756598414
 GameObject:
   m_ObjectHideFlags: 0
@@ -9212,6 +9226,7 @@ MonoBehaviour:
   cameraFocusPivot: {fileID: 95125118}
   subPart: {fileID: 66111243}
   dependencies: []
+  requiredSubPartList: []
   isActive: 0
   showPositionDebugInfo: 0
   showAngleDebugInfo: 0
@@ -9649,6 +9664,7 @@ GameObject:
   - component: {fileID: 867494931}
   - component: {fileID: 867494930}
   - component: {fileID: 867494929}
+  - component: {fileID: 867494928}
   m_Layer: 0
   m_Name: Sub 1-1_A2
   m_TagString: Untagged
@@ -9670,6 +9686,18 @@ Transform:
   m_Father: {fileID: 1839432594}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &867494928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867494926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &867494929
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9780,6 +9808,7 @@ GameObject:
   - component: {fileID: 885420673}
   - component: {fileID: 885420672}
   - component: {fileID: 885420671}
+  - component: {fileID: 885420674}
   m_Layer: 0
   m_Name: 1-1_A1
   m_TagString: Untagged
@@ -9862,6 +9891,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885420669}
   m_Mesh: {fileID: -6111491903354086577, guid: 20604a648c8240c4cb9556b4bae89b2c, type: 3}
+--- !u!114 &885420674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885420669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &890464352
 GameObject:
   m_ObjectHideFlags: 0
@@ -9871,8 +9912,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 890464353}
-  - component: {fileID: 890464356}
-  - component: {fileID: 890464355}
   - component: {fileID: 890464354}
   m_Layer: 0
   m_Name: Sub 1-1_M3
@@ -9914,57 +9953,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8a5d755fc11a439eb6754c2e28fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
   canMove: 1
-  joint2Disable: {fileID: 0}
-  jointList: []
-  enabledClip: {fileID: 0}
-  finishedClip: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
   canRotate: 0
   rotateAxis: 0
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 30
+  joint2Disable: {fileID: 0}
+  conflictJointList: []
+  jointList: []
+  enabledClip: {fileID: 0}
+  finishedClip: {fileID: 0}
   onFinish:
     m_PersistentCalls:
       m_Calls: []
---- !u!54 &890464355
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 890464352}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &890464356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 890464352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bc813d6f685f14ba11ff64d4d6feb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 
-  isAssembled: 0
-  isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
-  tenonList: []
-  itemSlot: {fileID: 0}
-  isCurrentItem: 0
-  outlines: []
 --- !u!1 &891007834
 GameObject:
   m_ObjectHideFlags: 0
@@ -9977,9 +9980,8 @@ GameObject:
   - component: {fileID: 891007841}
   - component: {fileID: 891007840}
   - component: {fileID: 891007839}
-  - component: {fileID: 891007838}
-  - component: {fileID: 891007837}
   - component: {fileID: 891007836}
+  - component: {fileID: 891007837}
   m_Layer: 0
   m_Name: Sub 1-1_M4_L
   m_TagString: Untagged
@@ -10014,17 +10016,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8a5d755fc11a439eb6754c2e28fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0.8143, z: 0}
   canMove: 1
-  joint2Disable: {fileID: 0}
-  jointList: []
-  enabledClip: {fileID: 0}
-  finishedClip: {fileID: 0}
+  offset: {x: 0, y: 0.8143, z: 0}
   canRotate: 0
   rotateAxis: 0
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 30
+  joint2Disable: {fileID: 0}
+  conflictJointList:
+  - {fileID: 1355613104}
+  jointList: []
+  enabledClip: {fileID: 0}
+  finishedClip: {fileID: 0}
   onFinish:
     m_PersistentCalls:
       m_Calls: []
@@ -10037,41 +10041,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 891007834}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee5382f9219b02647970a12c1fc910e0, type: 3}
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveMethod: 0
-  currentCtrlMode: 0
-  rotateAngle: 15
-  currentHintRing: {fileID: 0}
-  lockedControlMode: 0
-  fingerFilter:
-    Filter: 0
-    IgnoreStartedOverGui: 0
-    RequiredFingerCount: 0
-    RequiredMouseButtons: 0
-    RequiredSelectable: {fileID: 0}
---- !u!114 &891007838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 891007834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bc813d6f685f14ba11ff64d4d6feb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 
-  isAssembled: 0
-  isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
-  tenonList: []
-  itemSlot: {fileID: 0}
-  isCurrentItem: 1
-  outlines: []
 --- !u!64 &891007839
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10344,6 +10316,7 @@ GameObject:
   - component: {fileID: 927040565}
   - component: {fileID: 927040564}
   - component: {fileID: 927040563}
+  - component: {fileID: 927040566}
   m_Layer: 0
   m_Name: Sub 1-1_C2_Left
   m_TagString: Untagged
@@ -10426,6 +10399,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927040561}
   m_Mesh: {fileID: 3338098159304656718, guid: 4bb0ff0765c3c7a4d96614b2863c18a1, type: 3}
+--- !u!114 &927040566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927040561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &937043286
 GameObject:
   m_ObjectHideFlags: 0
@@ -10481,6 +10466,8 @@ MonoBehaviour:
   subPart: {fileID: 735025050}
   dependencies:
   - {fileID: 604344082}
+  requiredSubPartList:
+  - {fileID: 1796829318}
   isActive: 0
   showPositionDebugInfo: 0
   showAngleDebugInfo: 0
@@ -10604,8 +10591,8 @@ GameObject:
   - component: {fileID: 952986222}
   - component: {fileID: 952986221}
   - component: {fileID: 952986220}
-  - component: {fileID: 952986219}
   - component: {fileID: 952986223}
+  - component: {fileID: 952986219}
   m_Layer: 0
   m_Name: 1-1_D4
   m_TagString: Untagged
@@ -10636,18 +10623,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 952986217}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bc813d6f685f14ba11ff64d4d6feb9, type: 3}
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  isAssembled: 0
-  isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
-  tenonList: []
-  itemSlot: {fileID: 0}
-  isCurrentItem: 1
-  outlines: []
 --- !u!64 &952986220
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11710,6 +11688,7 @@ GameObject:
   - component: {fileID: 1091199794}
   - component: {fileID: 1091199793}
   - component: {fileID: 1091199791}
+  - component: {fileID: 1091199790}
   m_Layer: 0
   m_Name: Sub 1-1_D2
   m_TagString: Untagged
@@ -11732,6 +11711,18 @@ Transform:
   m_Father: {fileID: 1200347857}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
+--- !u!114 &1091199790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091199788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1091199791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11744,17 +11735,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8a5d755fc11a439eb6754c2e28fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 1.24, z: 0}
   canMove: 1
-  joint2Disable: {fileID: 0}
-  jointList: []
-  enabledClip: {fileID: 0}
-  finishedClip: {fileID: 0}
+  offset: {x: 0, y: 1.24, z: 0}
   canRotate: 0
   rotateAxis: 0
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
+  joint2Disable: {fileID: 0}
+  conflictJointList: []
+  jointList: []
+  enabledClip: {fileID: 0}
+  finishedClip: {fileID: 0}
   onFinish:
     m_PersistentCalls:
       m_Calls: []
@@ -12266,7 +12258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: Dovetail(V) 1/+
-  targetID: Dovetail(V) 1/+
+  targetID: Dovetail(V) 1/-
   toleranceDomin:
     tolerancePositionStart: {x: -0.3, y: -0.23, z: -0.3}
     tolerancePositionEnd: {x: 0.3, y: 0.3, z: 0.3}
@@ -12276,6 +12268,7 @@ MonoBehaviour:
   cameraFocusPivot: {fileID: 1194707206}
   subPart: {fileID: 1816788972}
   dependencies: []
+  requiredSubPartList: []
   isActive: 0
   showPositionDebugInfo: 0
   showAngleDebugInfo: 0
@@ -13429,6 +13422,7 @@ GameObject:
   - component: {fileID: 1205618126}
   - component: {fileID: 1205618125}
   - component: {fileID: 1205618124}
+  - component: {fileID: 1205618123}
   m_Layer: 0
   m_Name: 1-1_A1
   m_TagString: Untagged
@@ -13450,6 +13444,18 @@ Transform:
   m_Father: {fileID: 1839432594}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1205618123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205618121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &1205618124
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13845,6 +13851,9 @@ MonoBehaviour:
   cameraFocusPivot: {fileID: 507245642}
   subPart: {fileID: 45712723}
   dependencies: []
+  requiredSubPartList:
+  - {fileID: 1920557731}
+  - {fileID: 66111245}
   isActive: 0
   showPositionDebugInfo: 0
   showAngleDebugInfo: 0
@@ -13949,9 +13958,8 @@ GameObject:
   - component: {fileID: 1248193795}
   - component: {fileID: 1248193794}
   - component: {fileID: 1248193793}
-  - component: {fileID: 1248193792}
-  - component: {fileID: 1248193791}
   - component: {fileID: 1248193790}
+  - component: {fileID: 1248193791}
   m_Layer: 0
   m_Name: Sub 1-1_M4_T
   m_TagString: Untagged
@@ -13986,17 +13994,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8a5d755fc11a439eb6754c2e28fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0.83, z: 0}
   canMove: 1
-  joint2Disable: {fileID: 0}
-  jointList: []
-  enabledClip: {fileID: 0}
-  finishedClip: {fileID: 0}
+  offset: {x: 0, y: 0.83, z: 0}
   canRotate: 0
   rotateAxis: 0
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 30
+  joint2Disable: {fileID: 0}
+  conflictJointList:
+  - {fileID: 357191731}
+  jointList: []
+  enabledClip: {fileID: 0}
+  finishedClip: {fileID: 0}
   onFinish:
     m_PersistentCalls:
       m_Calls: []
@@ -14009,41 +14019,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1248193788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee5382f9219b02647970a12c1fc910e0, type: 3}
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveMethod: 0
-  currentCtrlMode: 0
-  rotateAngle: 15
-  currentHintRing: {fileID: 0}
-  lockedControlMode: 0
-  fingerFilter:
-    Filter: 0
-    IgnoreStartedOverGui: 0
-    RequiredFingerCount: 0
-    RequiredMouseButtons: 0
-    RequiredSelectable: {fileID: 0}
---- !u!114 &1248193792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1248193788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bc813d6f685f14ba11ff64d4d6feb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 
-  isAssembled: 0
-  isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
-  tenonList: []
-  itemSlot: {fileID: 0}
-  isCurrentItem: 1
-  outlines: []
 --- !u!64 &1248193793
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14432,18 +14410,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1275316669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bc813d6f685f14ba11ff64d4d6feb9, type: 3}
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  isAssembled: 0
-  isOnScreen: 0
-  defaultPos: {x: -0.54852, y: 0.023893, z: -0.0025766}
-  defaultRot: {x: 300, y: 270, z: 270}
-  tenonList: []
-  itemSlot: {fileID: 0}
-  isCurrentItem: 1
-  outlines: []
 --- !u!64 &1275316672
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15219,6 +15188,8 @@ MonoBehaviour:
   subPart: {fileID: 891007834}
   dependencies:
   - {fileID: 604344082}
+  requiredSubPartList:
+  - {fileID: 1796829318}
   isActive: 0
   showPositionDebugInfo: 0
   showAngleDebugInfo: 0
@@ -15265,23 +15236,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1369019501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66e8a5d755fc11a439eb6754c2e28fcc, type: 3}
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 1.24, z: 0}
-  canMove: 1
-  joint2Disable: {fileID: 0}
-  jointList: []
-  enabledClip: {fileID: 0}
-  finishedClip: {fileID: 0}
-  canRotate: 0
-  rotateAxis: 0
-  rotateOffset: {x: 0, y: 0, z: 0}
-  localAngle: {x: 0, y: 0, z: 0}
-  rotateAngle: 15
-  onFinish:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!64 &1369019505
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15672,6 +15629,8 @@ MonoBehaviour:
   cameraFocusPivot: {fileID: 617845302}
   subPart: {fileID: 374341544}
   dependencies: []
+  requiredSubPartList:
+  - {fileID: 123472932}
   isActive: 0
   showPositionDebugInfo: 0
   showAngleDebugInfo: 0
@@ -16189,6 +16148,7 @@ GameObject:
   - component: {fileID: 1485115921}
   - component: {fileID: 1485115920}
   - component: {fileID: 1485115919}
+  - component: {fileID: 1485115923}
   m_Layer: 0
   m_Name: '1-1_C1 '
   m_TagString: Untagged
@@ -16292,6 +16252,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485115917}
   m_Mesh: {fileID: -8727502400218476186, guid: c050ff1bbe721c74784e052002c97780, type: 3}
+--- !u!114 &1485115923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485115917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1493822096
 GameObject:
   m_ObjectHideFlags: 0
@@ -16656,6 +16628,7 @@ GameObject:
   - component: {fileID: 1525595044}
   - component: {fileID: 1525595043}
   - component: {fileID: 1525595042}
+  - component: {fileID: 1525595045}
   m_Layer: 0
   m_Name: Sub 1-1_C3
   m_TagString: Untagged
@@ -16739,6 +16712,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1525595040}
   m_Mesh: {fileID: 483295911029073099, guid: 2e5af6c85ce1f8b4f829677b4089eefa, type: 3}
+--- !u!114 &1525595045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525595040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1526545900
 GameObject:
   m_ObjectHideFlags: 0
@@ -16829,6 +16814,9 @@ MonoBehaviour:
   cameraFocusPivot: {fileID: 1743217730}
   subPart: {fileID: 1839432593}
   dependencies: []
+  requiredSubPartList:
+  - {fileID: 1920557731}
+  - {fileID: 66111245}
   isActive: 0
   showPositionDebugInfo: 0
   showAngleDebugInfo: 0
@@ -16938,6 +16926,7 @@ GameObject:
   - component: {fileID: 1534815497}
   - component: {fileID: 1534815496}
   - component: {fileID: 1534815495}
+  - component: {fileID: 1534815498}
   m_Layer: 0
   m_Name: Sub 1-1_A2
   m_TagString: Untagged
@@ -17020,6 +17009,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1534815493}
   m_Mesh: {fileID: 1050279163569049125, guid: 23c136eafe831434791b4d7b5ee4f610, type: 3}
+--- !u!114 &1534815498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534815493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1544964443
 GameObject:
   m_ObjectHideFlags: 0
@@ -17220,12 +17221,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 145.9459
-      objectReference: {fileID: 0}
-    - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.000015258789
+      value: 0.45970154
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -17447,18 +17443,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1567170057}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bc813d6f685f14ba11ff64d4d6feb9, type: 3}
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  isAssembled: 0
-  isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
-  tenonList: []
-  itemSlot: {fileID: 0}
-  isCurrentItem: 1
-  outlines: []
 --- !u!64 &1567170060
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18368,12 +18355,7 @@ PrefabInstance:
     - target: {fileID: 4257100493766258295, guid: 73fbb2bb784194643a03ee1d36b44e49,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 145.94592
-      objectReference: {fileID: 0}
-    - target: {fileID: 4257100493766258295, guid: 73fbb2bb784194643a03ee1d36b44e49,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.4597168
       objectReference: {fileID: 0}
     - target: {fileID: 4257100493838265109, guid: 73fbb2bb784194643a03ee1d36b44e49,
         type: 3}
@@ -19417,6 +19399,7 @@ MonoBehaviour:
   cameraFocusPivot: {fileID: 850227836}
   subPart: {fileID: 123472929}
   dependencies: []
+  requiredSubPartList: []
   isActive: 1
   showPositionDebugInfo: 0
   showAngleDebugInfo: 0
@@ -19520,12 +19503,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 145.9459
-      objectReference: {fileID: 0}
-    - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.000015258789
+      value: 0.45970154
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -20284,6 +20262,8 @@ MonoBehaviour:
   subPart: {fileID: 687105564}
   dependencies:
   - {fileID: 604344082}
+  requiredSubPartList:
+  - {fileID: 1796829318}
   isActive: 0
   showPositionDebugInfo: 0
   showAngleDebugInfo: 0
@@ -20550,17 +20530,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8a5d755fc11a439eb6754c2e28fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: -3.2514}
   canMove: 1
-  joint2Disable: {fileID: 0}
-  jointList: []
-  enabledClip: {fileID: 0}
-  finishedClip: {fileID: 0}
+  offset: {x: 0, y: 0, z: -3.2514}
   canRotate: 0
   rotateAxis: 0
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 30
+  joint2Disable: {fileID: 0}
+  conflictJointList: []
+  jointList: []
+  enabledClip: {fileID: 0}
+  finishedClip: {fileID: 0}
   onFinish:
     m_PersistentCalls:
       m_Calls: []
@@ -20665,18 +20646,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1807747937}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bc813d6f685f14ba11ff64d4d6feb9, type: 3}
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  isAssembled: 0
-  isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
-  tenonList: []
-  itemSlot: {fileID: 0}
-  isCurrentItem: 1
-  outlines: []
 --- !u!64 &1807747940
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20829,6 +20801,7 @@ GameObject:
   - component: {fileID: 1816788978}
   - component: {fileID: 1816788977}
   - component: {fileID: 1816788974}
+  - component: {fileID: 1816788975}
   m_Layer: 0
   m_Name: Sub 1-1_B1
   m_TagString: Untagged
@@ -20863,20 +20836,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8a5d755fc11a439eb6754c2e28fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0.1411, z: 0}
   canMove: 1
-  joint2Disable: {fileID: 0}
-  jointList: []
-  enabledClip: {fileID: 0}
-  finishedClip: {fileID: 0}
+  offset: {x: 0, y: 0.1411, z: 0}
   canRotate: 0
   rotateAxis: 0
   rotateOffset: {x: 0, y: 0.476107, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
+  joint2Disable: {fileID: 0}
+  conflictJointList: []
+  jointList: []
+  enabledClip: {fileID: 0}
+  finishedClip: {fileID: 0}
   onFinish:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1816788975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816788972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &1816788977
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21103,8 +21089,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1839432594}
-  - component: {fileID: 1839432597}
-  - component: {fileID: 1839432596}
   - component: {fileID: 1839432595}
   m_Layer: 0
   m_Name: Sub 1-1_C4
@@ -21143,57 +21127,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8a5d755fc11a439eb6754c2e28fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 2.5562, z: 0}
   canMove: 1
-  joint2Disable: {fileID: 0}
-  jointList: []
-  enabledClip: {fileID: 0}
-  finishedClip: {fileID: 0}
+  offset: {x: 0, y: 2.5562, z: 0}
   canRotate: 0
   rotateAxis: 0
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
+  joint2Disable: {fileID: 0}
+  conflictJointList: []
+  jointList: []
+  enabledClip: {fileID: 0}
+  finishedClip: {fileID: 0}
   onFinish:
     m_PersistentCalls:
       m_Calls: []
---- !u!54 &1839432596
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839432593}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &1839432597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839432593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bc813d6f685f14ba11ff64d4d6feb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 
-  isAssembled: 0
-  isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
-  tenonList: []
-  itemSlot: {fileID: 0}
-  isCurrentItem: 0
-  outlines: []
 --- !u!1001 &1842400540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21780,18 +21728,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1914539333}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bc813d6f685f14ba11ff64d4d6feb9, type: 3}
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  isAssembled: 0
-  isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
-  tenonList: []
-  itemSlot: {fileID: 0}
-  isCurrentItem: 1
-  outlines: []
 --- !u!64 &1914539336
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21866,6 +21805,7 @@ GameObject:
   - component: {fileID: 1920557734}
   - component: {fileID: 1920557733}
   - component: {fileID: 1920557731}
+  - component: {fileID: 1920557732}
   m_Layer: 0
   m_Name: Sub 1-1_C2_Left
   m_TagString: Untagged
@@ -21901,20 +21841,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8a5d755fc11a439eb6754c2e28fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: -0.4992, y: 0, z: 0}
   canMove: 1
-  joint2Disable: {fileID: 3438094}
-  jointList: []
-  enabledClip: {fileID: 0}
-  finishedClip: {fileID: 0}
+  offset: {x: -0.4992, y: 0, z: 0}
   canRotate: 0
   rotateAxis: 0
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
+  joint2Disable: {fileID: 3438094}
+  conflictJointList: []
+  jointList: []
+  enabledClip: {fileID: 0}
+  finishedClip: {fileID: 0}
   onFinish:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1920557732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920557729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &1920557733
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22019,18 +21972,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1924077939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bc813d6f685f14ba11ff64d4d6feb9, type: 3}
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  isAssembled: 0
-  isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
-  tenonList: []
-  itemSlot: {fileID: 0}
-  isCurrentItem: 1
-  outlines: []
 --- !u!64 &1924077942
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22357,18 +22301,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1943627585}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bc813d6f685f14ba11ff64d4d6feb9, type: 3}
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  isAssembled: 0
-  isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
-  tenonList: []
-  itemSlot: {fileID: 0}
-  isCurrentItem: 1
-  outlines: []
 --- !u!64 &1943627588
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23216,17 +23151,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8a5d755fc11a439eb6754c2e28fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0.6294, z: 0}
   canMove: 1
-  joint2Disable: {fileID: 0}
-  jointList: []
-  enabledClip: {fileID: 0}
-  finishedClip: {fileID: 0}
+  offset: {x: 0, y: 0.6294, z: 0}
   canRotate: 0
   rotateAxis: 0
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
+  joint2Disable: {fileID: 0}
+  conflictJointList: []
+  jointList: []
+  enabledClip: {fileID: 0}
+  finishedClip: {fileID: 0}
   onFinish:
     m_PersistentCalls:
       m_Calls: []
@@ -24289,6 +24225,11 @@ MonoBehaviour:
   - {fileID: 1800194386}
   - {fileID: 1212269662}
   - {fileID: 1823235757}
+  requiredSubPartList:
+  - {fileID: 1920557731}
+  - {fileID: 66111245}
+  - {fileID: 1839432595}
+  - {fileID: 45712725}
   isActive: 0
   showPositionDebugInfo: 0
   showAngleDebugInfo: 0
@@ -24376,8 +24317,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2141580715}
-  - component: {fileID: 2141580717}
-  - component: {fileID: 2141580716}
   m_Layer: 0
   m_Name: Sub 1-1_C4
   m_TagString: Untagged
@@ -24402,43 +24341,6 @@ Transform:
   m_Father: {fileID: 890464353}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2141580716
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141580714}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &2141580717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141580714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bc813d6f685f14ba11ff64d4d6feb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 
-  isAssembled: 0
-  isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
-  tenonList: []
-  itemSlot: {fileID: 0}
-  isCurrentItem: 0
-  outlines: []
 --- !u!1 &2144667884
 GameObject:
   m_ObjectHideFlags: 0
@@ -24658,6 +24560,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7206557281046559784, guid: ec900b76742d67a449cb32a9dde3618e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec900b76742d67a449cb32a9dde3618e, type: 3}
 --- !u!1 &919132147534990550
@@ -24742,10 +24649,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveMethod: 0
+  lockedControlMode: 0
   currentCtrlMode: 0
   rotateAngle: 15
   currentHintRing: {fileID: 0}
-  lockedControlMode: 0
   fingerFilter:
     Filter: 0
     IgnoreStartedOverGui: 0
@@ -24795,18 +24702,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 919132147996670809}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bc813d6f685f14ba11ff64d4d6feb9, type: 3}
+  m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 
-  isAssembled: 0
-  isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
-  tenonList: []
-  itemSlot: {fileID: 0}
-  isCurrentItem: 1
-  outlines: []
 --- !u!1 &919132148048798153
 GameObject:
   m_ObjectHideFlags: 0
@@ -24957,10 +24855,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveMethod: 0
+  lockedControlMode: 0
   currentCtrlMode: 0
   rotateAngle: 30
   currentHintRing: {fileID: 0}
-  lockedControlMode: 0
   fingerFilter:
     Filter: 0
     IgnoreStartedOverGui: 0
@@ -25032,6 +24930,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1166265401}
     m_Modifications:
+    - target: {fileID: 77674930588006895, guid: 9cff95e5698808646bc68e6ecee1d2b9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 104173154166744483, guid: 9cff95e5698808646bc68e6ecee1d2b9,
         type: 3}
       propertyPath: rotateAngle
@@ -25185,6 +25088,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834094246966267902, guid: 07c6c4c68670ad0459354407749b0379,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2198268596734421702, guid: 07c6c4c68670ad0459354407749b0379,
         type: 3}
@@ -25355,6 +25263,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6978733591115242418, guid: 55f443aa2db29b64f80f15abe8b505aa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55f443aa2db29b64f80f15abe8b505aa, type: 3}
 --- !u!1001 &1659070571024755369
@@ -25447,6 +25360,11 @@ PrefabInstance:
     - target: {fileID: 1659070569418668591, guid: b2b9d0b5a8d63d748bd7bcc88a0ef0ea,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197920743109628497, guid: b2b9d0b5a8d63d748bd7bcc88a0ef0ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -25658,11 +25576,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1985840923561434829, guid: 2d74e494c21c151418a78536ff1a10fe,
-        type: 3}
-      propertyPath: rotateAngle
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 1985840923561434836, guid: 2d74e494c21c151418a78536ff1a10fe,
         type: 3}
       propertyPath: m_Name
@@ -25856,6 +25769,11 @@ PrefabInstance:
         type: 3}
       propertyPath: isCurrentItem
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6907586699660665834, guid: 68a411f01df9d804b9d66ecda35e26f8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68a411f01df9d804b9d66ecda35e26f8, type: 3}
@@ -26095,6 +26013,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6498407123986924498, guid: f35e87e8f4506f64f99a29157be905f2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300440479711052055, guid: f35e87e8f4506f64f99a29157be905f2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f35e87e8f4506f64f99a29157be905f2, type: 3}
 --- !u!1001 &5315809430994316971
@@ -26237,6 +26165,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rotateAngle
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077661132189635257, guid: ad1162be12608b5499b0e63420ed687c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3506005011106210836, guid: ad1162be12608b5499b0e63420ed687c,
         type: 3}

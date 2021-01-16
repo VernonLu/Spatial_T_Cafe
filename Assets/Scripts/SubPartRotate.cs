@@ -20,26 +20,21 @@ public class SubPartRotate : MonoBehaviour
 		Done
 	}
 
+	[Header("STATUS")]
+	private bool isControlling;
+	private SubPartStatus currStatus;
+
+	[Header("MOVE")]
+	public bool canMove;
 	[SerializeField]
 	public Vector3 offset;
-	public bool canMove;
 	private Vector3 localPos;
-	private bool isControlling;
 	private Vector3 screenPosition;
 	private float cameraOffset;
 	private Vector3 mouseStartPoint;
 	private Vector3 mouseWorldPoint;
 
-	public WoodJoint joint2Disable;
-
-	public List<WoodJoint> jointList = new List<WoodJoint>();
-
-	public AudioClip enabledClip;
-	public AudioClip finishedClip;
-
-	private new AudioSource audio;
-
-	private SubPartStatus currStatus;
+	[Header("ROTATE")]
 
 	public bool canRotate;
 	public RotateAxis rotateAxis;
@@ -47,8 +42,25 @@ public class SubPartRotate : MonoBehaviour
 	public Vector3 localAngle;
 	public int rotateAngle = 15;
 	private GameObject rotateHint;
-	private int currentUnit;
 	private Vector3 axisNormal;
+
+	[Header("DEPENDENCY")]
+	/// <summary>
+	/// 弃用
+	/// </summary>
+	public WoodJoint joint2Disable;
+	public List<WoodJoint> conflictJointList = new List<WoodJoint>();
+
+	/// <summary>
+	/// 弃用
+	/// </summary>
+	public List<WoodJoint> jointList = new List<WoodJoint>();
+
+	[Header("AUDIO")]
+	public AudioClip enabledClip;
+	public AudioClip finishedClip;
+	private new AudioSource audio;
+	private int currentUnit;
 
 	public UnityEvent onFinish;
 
@@ -208,10 +220,17 @@ public class SubPartRotate : MonoBehaviour
 		{
 			joint.enabled = true;
 		}
+
+		//Disable conflict joints
 		if (joint2Disable)
 		{
 			joint2Disable.enabled = false;
 		}
+		foreach (var joint in conflictJointList)
+		{
+			joint.enabled = false;
+		}
+
 		MainCameraSwitch.Instance.SwitchOn();
 		TransitionCamera.Instance.Release();
 		TabListManager.Instance.UpdateTabList();
@@ -221,6 +240,11 @@ public class SubPartRotate : MonoBehaviour
 		ControlManager.Instance.SetCurrentItem(null);
 		CameraManager.Instance.SetRotateCamera(true);
 		onFinish.Invoke();
+	}
+
+	public bool IsDone()
+	{
+		return currStatus == SubPartStatus.Done;
 	}
 
 	bool CheckMouseOnSelf()
@@ -233,7 +257,7 @@ public class SubPartRotate : MonoBehaviour
 
 		if (Physics.Raycast(ray.origin, ray.direction * 10, out hitInfo))
 		{
-			if (hitInfo.collider.transform == transform || hitInfo.collider.transform.parent.parent == transform)
+			if (hitInfo.collider.transform == transform || hitInfo.collider.transform.parent == transform || hitInfo.collider.transform.parent.parent == transform)
 			{
 				return true;
 			}

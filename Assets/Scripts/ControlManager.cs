@@ -52,7 +52,10 @@ public class ControlManager : MonoBehaviour
 
 	public CtrlMode currentCtrlMode = CtrlMode.None;
 
-	void Start() { }
+	void Start()
+	{
+		HideControlHint();
+	}
 
 	void Update()
 	{
@@ -261,6 +264,7 @@ public class ControlManager : MonoBehaviour
 		{
 			panCam.transform.position = TabListManager.Instance.currentTab.baseObject.position;
 		}
+		CameraManager.Instance.Reset();
 	}
 
 	public GameObject highlightObject;

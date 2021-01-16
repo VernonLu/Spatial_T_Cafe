@@ -25,12 +25,14 @@ public class WoodJoint : MonoBehaviour
 	public WoodTenon targetTenon;
 	public Transform cameraFocusPivot;
 
-	// Activate sub part when
+	// Activate sub part when part is assembled
 	public GameObject subPart;
-
+	/// <summary>
+	/// 弃用
+	/// </summary>
 	public List<SubPartInfo> dependencies = new List<SubPartInfo>();
 
-	private new Collider collider;
+	public List<SubPartRotate> requiredSubPartList = new List<SubPartRotate>();
 
 	[Header("DEBUG")]
 	[SerializeField]
@@ -40,10 +42,7 @@ public class WoodJoint : MonoBehaviour
 	[SerializeField]
 	private bool showAngleDebugInfo;
 
-	void Start()
-	{
-		collider = GetComponent<Collider>();
-	}
+	void Start() { }
 
 	private void Update()
 	{
@@ -92,6 +91,14 @@ public class WoodJoint : MonoBehaviour
 		foreach (var subPart in dependencies)
 		{
 			if (subPart.canMove)
+			{
+				res = false;
+			}
+		}
+
+		foreach (var subPart in requiredSubPartList)
+		{
+			if (!subPart.IsDone())
 			{
 				res = false;
 			}

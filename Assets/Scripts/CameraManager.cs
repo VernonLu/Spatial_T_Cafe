@@ -62,6 +62,11 @@ public class CameraManager : MonoBehaviour
 		rotateCamera.SetRotateCamera(canRotate);
 	}
 
+	public void Reset()
+	{
+
+	}
+
 }
 public enum CameraType
 {
