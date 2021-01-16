@@ -71,8 +71,8 @@ public class MainMenu : MonoBehaviour
 	// Co
 	public void Continue()
 	{
-		Load(continueSceneName);
-		// Load(levelSelectionSceneName);
+		// Load(continueSceneName);
+		Load(levelSelectionSceneName);
 	}
 
 #region New Game
@@ -82,8 +82,9 @@ public class MainMenu : MonoBehaviour
 		if (hasSavedGame) { ShowNewGameConfirm(); }
 		else
 		{
-			PlayerPrefs.SetInt("HasSavedGame", 1);
-			Load(levelSelectionSceneName);
+			// PlayerPrefs.SetInt("HasSavedGame", 1);
+			ConfirmNewGame();
+			// Load(levelSelectionSceneName);
 		}
 	}
 
@@ -103,10 +104,8 @@ public class MainMenu : MonoBehaviour
 	public void ConfirmNewGame()
 	{
 		Debug.Log("Clear Saved data");
-		PlayerPrefs.SetInt("HasSavedGame", 0);
-		PlayerPrefs.SetInt("Scene_Level_1-0", 0);
-		PlayerPrefs.SetInt("Scene_Vernon - Experimental Group", 0);
-		PlayerPrefs.SetInt("Scene_Level_2-1", 0);
+		PlayerPrefs.SetInt("HasSavedGame", 1);
+		ClearData();
 		Load(levelSelectionSceneName);
 	}
 #endregion
@@ -164,4 +163,12 @@ public class MainMenu : MonoBehaviour
 	}
 #endregion
 
+	public void ClearData()
+	{
+
+		// PlayerPrefs.SetInt("HasSavedGame", 1);
+		PlayerPrefs.SetInt("Scene_Level_1-0", 0);
+		PlayerPrefs.SetInt("Scene_Vernon - Experimental Group", 0);
+		PlayerPrefs.SetInt("Scene_Level_2-1", 0);
+	}
 }

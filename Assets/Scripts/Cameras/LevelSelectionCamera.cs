@@ -111,6 +111,7 @@ public class LevelSelectionCamera : MonoBehaviour
 		yaw = defaultRotation.y;
 		currentPitch = pitch;
 		currentYaw = yaw;
+		SetCurrentStage(currentStage);
 	}
 
 	protected virtual void LateUpdate()
@@ -253,9 +254,10 @@ public class LevelSelectionCamera : MonoBehaviour
 
 	public void SetCurrentStage(Stage stage)
 	{
-		this.currentStage = stage;
+		currentStage = stage;
 
 		currentStage.cameraEnter.Invoke();
+		StageManager.Instance.UpdateCurrentStage(currentStage);
 	}
 
 }

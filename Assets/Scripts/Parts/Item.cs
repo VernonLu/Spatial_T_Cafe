@@ -29,6 +29,7 @@ public class Item : MonoBehaviour
 	void Start()
 	{
 		outlines = GetComponentsInChildren<Outline>().ToList();
+		isCurrentItem = ControlManager.Instance.currentItem == this;
 		foreach (var outline in outlines)
 		{
 			outline.SetVisibility(isCurrentItem);

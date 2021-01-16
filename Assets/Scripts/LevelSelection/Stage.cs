@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -17,7 +18,7 @@ public class Stage : MonoBehaviour
 	public UnityEvent cameraEnter;
 	public UnityEvent cameraLeave;
 
-	void Start()
+	private void Start()
 	{
 		foreach (var level in levels)
 		{
@@ -31,9 +32,10 @@ public class Stage : MonoBehaviour
 
 	}
 
-	public void Init()
+	[ContextMenu("Update Level List")]
+	private void UpdateLevelList()
 	{
-		// Load 
+		levels = GetComponentsInChildren<Level>().ToList();
 	}
 
 	public void UpdateFinishState()
@@ -55,6 +57,16 @@ public class Stage : MonoBehaviour
 		if (isFinished)
 		{
 			finishedEvent.Invoke();
+		}
+	}
+
+	public void ToggleCurrentStage(bool isCurrentStage)
+	{
+		Debug.Log(this.gameObject.name + ": Update");
+		Debug.Log(isCurrentStage);
+		foreach (var level in levels)
+		{
+			level.TogglePackageVisibility(isCurrentStage);
 		}
 	}
 

@@ -33,7 +33,8 @@ public class Level : MonoBehaviour
 	public void Init()
 	{
 
-		packagingBox.SetActive(isActive && !isFinished);
+		TogglePackageVisibility(isActive && !isFinished);
+
 		finishedObject.SetActive(isActive && isFinished);
 		GetComponent<Collider>().enabled = isActive && !isFinished;
 		outlines = GetComponentsInChildren<Outline>().ToList();
@@ -84,5 +85,15 @@ public class Level : MonoBehaviour
 			}
 		}
 		Init();
+	}
+
+	/// <summary>
+	/// Hide / Show Package
+	/// </summary>
+	/// <param name="visible"></param>
+	public void TogglePackageVisibility(bool visible)
+	{
+		Debug.Log(this.gameObject.name + ": Update");
+		packagingBox.SetActive(visible);
 	}
 }
