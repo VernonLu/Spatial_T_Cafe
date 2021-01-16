@@ -68,14 +68,14 @@
                     bool onRight = cross(float3(i.localPos.x, i.localPos.y, 0), float3(0, 1, 0)).z > 0;
                     bool correctRadian = acos(dot(normalize(float2(i.localPos.x, i.localPos.y)), float2(0, 1))) < radian;
                     lineMask = _Angle > 180 ? !correctRadian || onRight : correctRadian && onRight;
-                    lineMask = lineMask && distance(0.5, i.uv.y) < width * 1.5;
+                    lineMask = lineMask && distance(0.5, i.uv.y) < width * 3;
                 }
                 else 
                 {
                     bool onRight = cross(float3(i.localPos.x, i.localPos.y, 0), float3(0, 1, 0)).z > 0;
                     bool correctRadian = acos(dot(normalize(float2(i.localPos.x, i.localPos.y)), float2(0, 1))) < radian;
                     lineMask = _Angle > 180 ? !correctRadian || !onRight : correctRadian && !onRight;
-                    lineMask = lineMask && distance(0.5, i.uv.y) < width * 1.5;
+                    lineMask = lineMask && distance(0.5, i.uv.y) < width * 3;
                 }
                 bool dotMask = distance(0.5, i.uv.y) < width && uv.x > 0.5;
                 bool degreeMask = (degreeUV.x > 0.98 || degreeUV.x < 0.02) && degreeUV.y < 0.5 + width;
