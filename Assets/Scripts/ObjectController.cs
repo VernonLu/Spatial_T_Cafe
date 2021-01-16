@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Wootopia;
 
 public class ObjectController : MonoBehaviour
 {
@@ -41,6 +42,9 @@ public class ObjectController : MonoBehaviour
 		private set;
 	}
 	private GameObject rotateHint;
+
+	[SerializeField]
+	private ControlMode lockedControlMode = ControlMode.None;
 
 	[HideInInspector]
 	public Lean.Touch.LeanFingerFilter fingerFilter;
@@ -158,8 +162,8 @@ public class ObjectController : MonoBehaviour
 				transform.Rotate(0, 0, unitChange * rotateAngle * mag, Space.Self);
 				currentHintRing.currentDir = transform.right;
 				break;
-            }
-        }
+			}
+		}
 	}
 
 	bool CheckMouseOnSelf()
@@ -191,7 +195,7 @@ public class ObjectController : MonoBehaviour
 
 		if (Physics.Raycast(ray.origin, ray.direction * 10, out hitInfo))
 		{
-			if (hitInfo.collider.transform == transform || hitInfo.collider.transform.parent.parent == transform)
+			if (hitInfo.collider.transform == transform || hitInfo.collider.transform.parent == transform || hitInfo.collider.transform.parent.parent == transform)
 			{
 				Debug.Log("Hit Collider Name: " + hitInfo.collider.name);
 				switch (hitInfo.collider.name)
@@ -242,5 +246,10 @@ public class ObjectController : MonoBehaviour
 	{
 		transform.Find("RotateHint").gameObject.SetActive(flag);
 
+	}
+
+	public ControlMode GetLockedMode()
+	{
+		return lockedControlMode;
 	}
 }
