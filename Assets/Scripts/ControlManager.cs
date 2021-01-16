@@ -50,10 +50,7 @@ public class ControlManager : MonoBehaviour
 
 	public Item currentItem;
 
-	void Start()
-	{
-
-	}
+	void Start() { }
 
 	void Update()
 	{
@@ -84,6 +81,9 @@ public class ControlManager : MonoBehaviour
 		{
 			SwitchControlMode(controller.currentCtrlMode);
 		}
+
+		UpdateLockedControlMode(controller.GetLockedMode());
+
 		ToggleControlPanelType(CtrlPanelType.Object);
 		ResetCamera();
 	}
@@ -228,4 +228,26 @@ public class ControlManager : MonoBehaviour
 			highlightObject = null;
 		}
 	}
+
+	private void UpdateLockedControlMode(ControlMode controlMode)
+	{
+		switch (controlMode)
+		{
+		case ControlMode.None:
+			moveButton.interactable = true;
+			rotateButton.interactable = true;
+			break;
+		case ControlMode.Move:
+			moveButton.interactable = false;
+			rotateButton.interactable = true;
+			break;
+
+		case ControlMode.Rotate:
+			moveButton.interactable = true;
+			rotateButton.interactable = false;
+			break;
+
+		}
+	}
+
 }

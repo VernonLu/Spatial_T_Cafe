@@ -11,6 +11,7 @@ namespace Wootopia
 		[SerializeField]
 		private CanvasGroup canvasGroup;
 
+		[SerializeField]
 		private bool isActive = true;
 
 		public float fadeDuration = 0.2f;
@@ -23,7 +24,14 @@ namespace Wootopia
 		}
 		private void Start()
 		{
-
+			if (isActive)
+			{
+				Show();
+			}
+			else
+			{
+				Hide();
+			}
 		}
 
 		private void Update()
