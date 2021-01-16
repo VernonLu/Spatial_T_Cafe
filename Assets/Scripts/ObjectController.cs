@@ -101,6 +101,7 @@ public class ObjectController : MonoBehaviour
 		if (isControlling && Input.GetMouseButtonUp(0))
 		{
 			isControlling = false;
+			currentHintRing.currentDir = currentHintRing.startDir;
 			CameraManager.Instance.SetRotateCamera(true);
 			LocationHintBox.Instance.HideAxisHintBox();
 		}

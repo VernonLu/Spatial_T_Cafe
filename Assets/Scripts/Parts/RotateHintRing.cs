@@ -33,7 +33,7 @@ public class RotateHintRing : MonoBehaviour
         else
         { hintRingMat.SetFloat("_Angle", 0); }
 
-        if (deltaAngle <= 30 && lastFrameDeltaAngle < deltaAngle)
+        if (deltaAngle <= 45 && lastFrameDeltaAngle < deltaAngle)
         {
             isRingOnClockWise = isOnRight;
             hintRingMat.SetFloat("_isClockWise", isRingOnClockWise ? 1 : 0);
@@ -42,8 +42,4 @@ public class RotateHintRing : MonoBehaviour
         lastFrameDeltaAngle = deltaAngle;
     }
 
-    private void OnMouseUp()
-    {
-        currentDir = startDir;
-    }
 }
