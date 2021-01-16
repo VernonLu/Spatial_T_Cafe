@@ -101,7 +101,10 @@ public class ObjectController : MonoBehaviour
 		if (isControlling && Input.GetMouseButtonUp(0))
 		{
 			isControlling = false;
-			currentHintRing.currentDir = currentHintRing.startDir;
+			if (currentHintRing)
+			{
+				currentHintRing.currentDir = currentHintRing.startDir;
+			}
 			CameraManager.Instance.SetRotateCamera(true);
 			LocationHintBox.Instance.HideAxisHintBox();
 		}
@@ -196,7 +199,7 @@ public class ObjectController : MonoBehaviour
 
 		if (Physics.Raycast(ray.origin, ray.direction * 10, out hitInfo))
 		{
-			if (hitInfo.collider.transform == transform || hitInfo.collider.transform.parent == transform || hitInfo.collider.transform.parent.parent == transform)
+			if (hitInfo.collider.transform == transform || hitInfo.collider.transform.parent.parent == transform)
 			{
 				Debug.Log("Hit Collider Name: " + hitInfo.collider.name);
 				switch (hitInfo.collider.name)
