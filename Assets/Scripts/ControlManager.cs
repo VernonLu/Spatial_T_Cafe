@@ -50,11 +50,13 @@ public class ControlManager : MonoBehaviour
 
 	public Item currentItem;
 
+	public CtrlMode currentCtrlMode = CtrlMode.None;
+
 	void Start() { }
 
 	void Update()
 	{
-		if (controller && controller.currentCtrlMode == ObjectController.CtrlMode.Move) UpdateMoveHintPos();
+		if (controller && controller.currentCtrlMode == CtrlMode.Move) UpdateMoveHintPos();
 	}
 
 	public void SetCurrentItem(Item item)
@@ -73,16 +75,46 @@ public class ControlManager : MonoBehaviour
 		if (currentItem == null) { return; }
 
 		controller = currentItem.GetObjectController();
-		if (controller.currentCtrlMode == ObjectController.CtrlMode.None)
+
+		CtrlMode lockedMode = controller.GetLockedMode();
+		UpdateLockedControlMode(lockedMode);
+
+		currentCtrlMode = controller.currentCtrlMode;
+
+		// Set control mode to Move when it's not assigned
+		if (currentCtrlMode == CtrlMode.None)
 		{
-			SwitchControlMode(ObjectController.CtrlMode.Move);
-		}
-		else
-		{
-			SwitchControlMode(controller.currentCtrlMode);
+			currentCtrlMode = CtrlMode.Move;
 		}
 
-		UpdateLockedControlMode(controller.GetLockedMode());
+		// Change control mode when it conflicts with locked mode
+		if (currentCtrlMode == lockedMode)
+		{
+			switch (currentCtrlMode)
+			{
+			case CtrlMode.Move:
+				currentCtrlMode = CtrlMode.Rotate;
+				break;
+			case CtrlMode.Rotate:
+				currentCtrlMode = CtrlMode.Move;
+				break;
+			}
+		}
+		Debug.Log("Init Control Mode: " + currentCtrlMode);
+
+		// Update Object control mode
+		SwitchControlMode(currentCtrlMode);
+
+		// Update control UI
+		switch (currentCtrlMode)
+		{
+		case CtrlMode.Move:
+			moveButton.isOn = true;
+			break;
+		case CtrlMode.Rotate:
+			rotateButton.isOn = true;
+			break;
+		}
 
 		ToggleControlPanelType(CtrlPanelType.Object);
 		ResetCamera();
@@ -120,25 +152,47 @@ public class ControlManager : MonoBehaviour
 		}
 	}
 
+	private void UpdateLockedControlMode(CtrlMode controlMode)
+	{
+		switch (controlMode)
+		{
+		case CtrlMode.None:
+			moveButton.interactable = true;
+			rotateButton.interactable = true;
+			break;
+		case CtrlMode.Move:
+			moveButton.interactable = false;
+			rotateButton.interactable = true;
+			break;
+
+		case CtrlMode.Rotate:
+			moveButton.interactable = true;
+			rotateButton.interactable = false;
+			break;
+
+		}
+	}
+#region UI -> Object
 	public void SwitchToMoveMode(bool isOn)
 	{
 		if (!isOn) { return; }
-		SwitchControlMode(ObjectController.CtrlMode.Move);
+		SwitchControlMode(CtrlMode.Move);
 	}
 	public void SwitchToRotateMode(bool isOn)
 	{
 		if (!isOn) { return; }
-		SwitchControlMode(ObjectController.CtrlMode.Rotate);
+		SwitchControlMode(CtrlMode.Rotate);
 	}
-
-	public void SwitchControlMode(ObjectController.CtrlMode mode)
+	public void SwitchControlMode(CtrlMode mode)
 	{
 		if (!controller) { return; }
 		controller.currentCtrlMode = mode;
 
 		ShowControlHint();
 	}
+#endregion
 
+#region Control Hint
 	public void HideControlHint()
 	{
 		if (controller)
@@ -152,22 +206,33 @@ public class ControlManager : MonoBehaviour
 	{
 		switch (controller.currentCtrlMode)
 		{
-		case ObjectController.CtrlMode.None:
+		case CtrlMode.None:
 			controller.SetActiveRotateHint(false);
 			moveHint.SetActive(false);
 			break;
 
-		case ObjectController.CtrlMode.Move:
+		case CtrlMode.Move:
 			controller.SetActiveRotateHint(false);
 			moveHint.SetActive(true);
 			break;
 
-		case ObjectController.CtrlMode.Rotate:
+		case CtrlMode.Rotate:
 			controller.SetActiveRotateHint(true);
 			moveHint.SetActive(false);
 			break;
 		}
 	}
+
+	public void UpdateMoveHintPos()
+	{
+		// Debug.Log(currentItem);
+		if (currentItem)
+		{
+			Vector3 objPos = currentItem.GetComponent<Transform>().position;
+			moveHint.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(objPos);
+		}
+	}
+#endregion
 
 	public void RetriveObject()
 	{
@@ -182,16 +247,6 @@ public class ControlManager : MonoBehaviour
 		if (null == currentItem) { return; }
 		currentItem.ResetObject();
 		ResetCamera();
-	}
-
-	public void UpdateMoveHintPos()
-	{
-		// Debug.Log(currentItem);
-		if (currentItem)
-		{
-			Vector3 objPos = currentItem.GetComponent<Transform>().position;
-			moveHint.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(objPos);
-		}
 	}
 
 	public PanCamera panCam;
@@ -226,27 +281,6 @@ public class ControlManager : MonoBehaviour
 		{
 			highlightObject.SetActive(false);
 			highlightObject = null;
-		}
-	}
-
-	private void UpdateLockedControlMode(ControlMode controlMode)
-	{
-		switch (controlMode)
-		{
-		case ControlMode.None:
-			moveButton.interactable = true;
-			rotateButton.interactable = true;
-			break;
-		case ControlMode.Move:
-			moveButton.interactable = false;
-			rotateButton.interactable = true;
-			break;
-
-		case ControlMode.Rotate:
-			moveButton.interactable = true;
-			rotateButton.interactable = false;
-			break;
-
 		}
 	}
 

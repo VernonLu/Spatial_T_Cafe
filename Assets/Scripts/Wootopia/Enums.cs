@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Wootopia
 {
 	[System.Serializable]
-	public enum ControlMode
+	public enum CtrlMode
 	{
 		None,
 		Move,

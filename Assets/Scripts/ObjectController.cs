@@ -11,12 +11,7 @@ public class ObjectController : MonoBehaviour
 		Translate,
 		Velocity,
 	}
-	public enum CtrlMode
-	{
-		None,
-		Move,
-		Rotate,
-	}
+
 	public enum Axis
 	{
 		X,
@@ -25,6 +20,10 @@ public class ObjectController : MonoBehaviour
 		None
 	}
 	public MoveMethod moveMethod = MoveMethod.Translate;
+
+	[SerializeField]
+	private CtrlMode lockedControlMode = CtrlMode.None;
+
 	public CtrlMode currentCtrlMode;
 	private Axis currentAxis;
 	private Vector3 axisNormal;
@@ -42,9 +41,6 @@ public class ObjectController : MonoBehaviour
 		private set;
 	}
 	private GameObject rotateHint;
-
-	[SerializeField]
-	private ControlMode lockedControlMode = ControlMode.None;
 
 	[HideInInspector]
 	public Lean.Touch.LeanFingerFilter fingerFilter;
@@ -199,7 +195,7 @@ public class ObjectController : MonoBehaviour
 
 		if (Physics.Raycast(ray.origin, ray.direction * 10, out hitInfo))
 		{
-			if (hitInfo.collider.transform == transform || hitInfo.collider.transform.parent.parent == transform)
+			if (hitInfo.collider.transform == transform || hitInfo.collider.transform.parent == transform || hitInfo.collider.transform.parent.parent == transform)
 			{
 				Debug.Log("Hit Collider Name: " + hitInfo.collider.name);
 				switch (hitInfo.collider.name)
@@ -252,7 +248,7 @@ public class ObjectController : MonoBehaviour
 
 	}
 
-	public ControlMode GetLockedMode()
+	public CtrlMode GetLockedMode()
 	{
 		return lockedControlMode;
 	}
