@@ -167,12 +167,10 @@ public class ControlManager : MonoBehaviour
 			moveButton.interactable = false;
 			rotateButton.interactable = true;
 			break;
-
 		case CtrlMode.Rotate:
 			moveButton.interactable = true;
 			rotateButton.interactable = false;
 			break;
-
 		}
 	}
 #region UI -> Object
@@ -190,7 +188,7 @@ public class ControlManager : MonoBehaviour
 	{
 		if (!controller) { return; }
 		controller.currentCtrlMode = mode;
-
+		Debug.Log("Current Mode:" + mode);
 		ShowControlHint();
 	}
 #endregion

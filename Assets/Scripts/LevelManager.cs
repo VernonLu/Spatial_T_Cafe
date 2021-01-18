@@ -34,8 +34,25 @@ public class LevelManager : MonoBehaviour
 
 	public void Back2Menu()
 	{
+		SceneManager.LoadScene("Level Selection");
+	}
+
+	/// <summary>
+	/// Save Player progress when the level is finished
+	/// </summary>
+	public void SaveProgress()
+	{
 		Scene scene = SceneManager.GetActiveScene();
 		PlayerPrefs.SetInt(scene.name, 1);
-		SceneManager.LoadScene("Level Selection");
+	}
+
+	public void TestFunc(int value)
+	{
+		Debug.Log(value);
+	}
+
+	public void Flip(GameObject go)
+	{
+		go.transform.rotation = Quaternion.Euler(0, 180, 0);
 	}
 }

@@ -50,10 +50,7 @@ public class WoodJoint : MonoBehaviour
 		if (!CheckStatus()) { return; }
 		Item currentItem = ControlManager.Instance.currentItem;
 		WoodTenon currentTenon = currentItem?.tenonList.Count > 0 ? currentItem.tenonList[0] : null;
-		//if(currentTenon == null)
-		//      {
-		//	return;
-		//      }
+
 		if (currentTenon != null && targetID == currentTenon.ID)
 		{
 			targetTenon = currentTenon;
@@ -98,11 +95,12 @@ public class WoodJoint : MonoBehaviour
 
 		foreach (var subPart in requiredSubPartList)
 		{
-			if (!subPart.IsDone())
+			if (!subPart.IsDone)
 			{
 				res = false;
 			}
 		}
+
 		return res;
 	}
 

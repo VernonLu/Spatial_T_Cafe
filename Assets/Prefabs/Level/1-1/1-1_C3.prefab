@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7881901620102577147
 Transform:
   m_ObjectHideFlags: 0
@@ -278,8 +278,6 @@ GameObject:
   - component: {fileID: 848217505975457129}
   - component: {fileID: 848217505975457128}
   - component: {fileID: 848217505975457135}
-  - component: {fileID: 848217505975457134}
-  - component: {fileID: 848217505975457133}
   m_Layer: 0
   m_Name: 1-1_M4
   m_TagString: Untagged
@@ -362,50 +360,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2683855408221842657, guid: e7485765e0eaf89498751828e7fb9359, type: 3}
---- !u!114 &848217505975457134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848217505975457107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bc813d6f685f14ba11ff64d4d6feb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 
-  isAssembled: 0
-  isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
-  tenonList: []
-  itemSlot: {fileID: 0}
-  isCurrentItem: 1
-  outlines: []
---- !u!114 &848217505975457133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848217505975457107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee5382f9219b02647970a12c1fc910e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveMethod: 0
-  lockedControlMode: 0
-  currentCtrlMode: 0
-  rotateAngle: 15
-  currentHintRing: {fileID: 0}
-  fingerFilter:
-    Filter: 0
-    IgnoreStartedOverGui: 0
-    RequiredFingerCount: 0
-    RequiredMouseButtons: 0
-    RequiredSelectable: {fileID: 0}
 --- !u!1 &3405489803815793655
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &728613362055167753
 Transform:
   m_ObjectHideFlags: 0
@@ -685,7 +639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7206557281046559784
 Transform:
   m_ObjectHideFlags: 0

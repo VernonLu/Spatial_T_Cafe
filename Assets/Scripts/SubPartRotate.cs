@@ -24,6 +24,12 @@ public class SubPartRotate : MonoBehaviour
 	private bool isControlling;
 	private SubPartStatus currStatus;
 
+	[SerializeField]
+	public bool IsDone
+	{
+		get { return currStatus == SubPartStatus.Done; }
+	}
+
 	[Header("MOVE")]
 	public bool canMove;
 	[SerializeField]
@@ -240,11 +246,6 @@ public class SubPartRotate : MonoBehaviour
 		ControlManager.Instance.SetCurrentItem(null);
 		CameraManager.Instance.SetRotateCamera(true);
 		onFinish.Invoke();
-	}
-
-	public bool IsDone()
-	{
-		return currStatus == SubPartStatus.Done;
 	}
 
 	bool CheckMouseOnSelf()
