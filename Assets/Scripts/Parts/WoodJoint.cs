@@ -51,6 +51,36 @@ public class WoodJoint : MonoBehaviour
 		Item currentItem = ControlManager.Instance.currentItem;
 		WoodTenon currentTenon = currentItem?.tenonList.Count > 0 ? currentItem.tenonList[0] : null;
 
+		if(currentItem?.tenonList.Count > 0)
+        {
+			foreach(var tenon in currentItem.tenonList)
+            {
+				if (tenon != null && targetID == tenon.ID)
+				{
+					targetTenon = tenon;
+					if (!IsTenonInCorrectPose())
+					{ continue; }
+					// Debug.Log("Paired");
+					targetTenon.transform.parent.TryGetComponent(out Item item);
+					if (item.isAssembled)
+					{ return; }
+					item.isAssembled = true;
+					targetTenon.transform.parent.gameObject.SetActive(false);
+
+					// Move Camera to target position and rotation
+					MainCameraSwitch.Instance.SwitchOff();
+					TransitionCamera.Instance.SetTransform(cameraFocusPivot);
+
+					// Enable sub part control
+					subPart.SetActive(true);
+					// Disable currentItem
+					ControlManager.Instance.currentItem?.gameObject.SetActive(false);
+					LocationHintBox.Instance.HideAxisHintBox();
+					break;                    
+				}
+			}
+        }
+
 		if (currentTenon != null && targetID == currentTenon.ID)
 		{
 			targetTenon = currentTenon;
