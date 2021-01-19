@@ -18,12 +18,6 @@ public class Level : MonoBehaviour
 
 	private List<Outline> outlines;
 
-	[Space]
-	public UnityEvent selectEvent;
-
-	[Space]
-	public UnityEvent finishEvent;
-
 	void Start()
 	{
 		// PlayerPrefs.SetInt(levelName, 0);
