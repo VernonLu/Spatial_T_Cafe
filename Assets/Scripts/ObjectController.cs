@@ -202,14 +202,14 @@ public class ObjectController : MonoBehaviour
 				{
 				case "rotateX":
 					currentAxis = Axis.X;
-					axisNormal = hitInfo.collider.transform.right;
+					axisNormal = hitInfo.collider.transform.forward;
 					currentHintRing = hitInfo.collider.GetComponent<RotateHintRing>();
 					currentHintRing.startDir = transform.up;
 					currentHintRing.rotateAxis = transform.right;
 					break;
 				case "rotateY":
 					currentAxis = Axis.Y;
-					axisNormal = hitInfo.collider.transform.up;
+					axisNormal = hitInfo.collider.transform.forward;
 					currentHintRing = hitInfo.collider.GetComponent<RotateHintRing>();
 					currentHintRing.startDir = transform.forward;
 					currentHintRing.rotateAxis = transform.up;

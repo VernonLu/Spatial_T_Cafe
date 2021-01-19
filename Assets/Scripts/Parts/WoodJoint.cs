@@ -133,7 +133,6 @@ public class WoodJoint : MonoBehaviour
 
 		return res;
 	}
-
 	private bool IsTenonInCorrectPose()
 	{
 		if (targetTenon == null)

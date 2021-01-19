@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Wootopia;
-
 public class LevelManager : MonoBehaviour
 {
+#region Singleton
+
 	private static LevelManager instance;
 	public static LevelManager Instance { get { return instance; } }
 	private void Awake()
@@ -20,6 +22,10 @@ public class LevelManager : MonoBehaviour
 			instance = this;
 		}
 	}
+#endregion
+	public UnityEvent onStart;
+
+	public UnityEvent onFinished;
 
 	public WoCanvasGroup endGamePanel;
 	void Start()
