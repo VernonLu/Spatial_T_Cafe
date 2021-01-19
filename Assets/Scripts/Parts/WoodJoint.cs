@@ -49,7 +49,6 @@ public class WoodJoint : MonoBehaviour
 		//need optimize
 		if (!CheckStatus()) { return; }
 		Item currentItem = ControlManager.Instance.currentItem;
-		WoodTenon currentTenon = currentItem?.tenonList.Count > 0 ? currentItem.tenonList[0] : null;
 
 		if(currentItem?.tenonList.Count > 0)
         {
@@ -80,32 +79,6 @@ public class WoodJoint : MonoBehaviour
 				}
 			}
         }
-
-		if (currentTenon != null && targetID == currentTenon.ID)
-		{
-			targetTenon = currentTenon;
-		}
-		if (IsTenonInCorrectPose())
-		{
-			// Debug.Log("Paired");
-			targetTenon.transform.parent.TryGetComponent(out Item item);
-			if (item.isAssembled)
-			{
-				return;
-			}
-			item.isAssembled = true;
-			targetTenon.transform.parent.gameObject.SetActive(false);
-
-			// Move Camera to target position and rotation
-			MainCameraSwitch.Instance.SwitchOff();
-			TransitionCamera.Instance.SetTransform(cameraFocusPivot);
-
-			// Enable sub part control
-			subPart.SetActive(true);
-			// Disable currentItem
-			ControlManager.Instance.currentItem?.gameObject.SetActive(false);
-			LocationHintBox.Instance.HideAxisHintBox();
-		}
 	}
 
 	/// <summary>
