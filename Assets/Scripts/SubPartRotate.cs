@@ -67,9 +67,14 @@ public class SubPartRotate : MonoBehaviour
 	public AudioClip finishedClip;
 	private new AudioSource audio;
 	private int currentUnit;
-
+	[Header("EVENTS")]
+	public UnityEvent onEnable;
 	public UnityEvent onFinish;
 
+	private void OnEnable()
+	{
+		onEnable.Invoke();
+	}
 	void Start()
 	{
 		currStatus = SubPartStatus.Rotating;

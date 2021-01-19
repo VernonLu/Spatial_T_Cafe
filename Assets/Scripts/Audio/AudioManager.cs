@@ -5,24 +5,19 @@ using FMODUnity;
 public class AudioManager : MonoBehaviour
 {
   [SerializeField]
-  private Data_Sounds gameSounds;
-  [SerializeField]
-  private Data_Sounds uiSounds;
-
   private Data_Sounds dataSounds;
 
   [SerializeField]
   private AudioEmitter levelBGM;
 
+  private FMOD.Studio.Bus masterBus;
+
   void Start()
   {
-    dataSounds = new Data_Sounds();
-    dataSounds.Combine(gameSounds);
-    dataSounds.Combine(uiSounds);
+    masterBus = FMODUnity.RuntimeManager.GetBus("bus:/");
 		dataSounds.InitLoopSounds();
 
     if(levelBGM) PlaySound(levelBGM);
-    PauseLoops();
   }
 
   public void PlaySound(AudioEmitter emitter)
@@ -93,5 +88,10 @@ public class AudioManager : MonoBehaviour
     {
       loopSound.Resume();
     }
+  }
+
+  public void SetMasterVolume(float volume)
+  {
+    masterBus.setVolume(volume);
   }
 }

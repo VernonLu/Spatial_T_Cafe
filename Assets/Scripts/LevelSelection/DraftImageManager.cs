@@ -24,19 +24,13 @@ public class DraftImageManager : MonoBehaviour
 		}
 	}
 
-	public delegate void LoadSceneDelegate(string sceneName);
-	public LoadSceneDelegate loadScene;
-
 	public Image draftImage;
 
-	public string sceneName;
+	[SerializeField]
+	private string sceneName;
 	public WoCanvasGroup canvasGroup;
 
-	private float startTime = 0;
-
-	public float fadeInTime = 0.2f;
-
-	public CanvasGroup sticker;
+	public LoadingCanvas loadingCanvas;
 
 	void Start()
 	{
@@ -64,31 +58,13 @@ public class DraftImageManager : MonoBehaviour
 	{
 		if (canvasGroup)
 		{
-			canvasGroup.Hide();
+			canvasGroup?.Hide();
 		}
 	}
 
 	public void LoadScene()
 	{
-		// SceneManager.LoadScene(sceneName);
-		StartCoroutine(LoadAsyncScene());
-	}
-
-	IEnumerator LoadAsyncScene()
-	{
 		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
-
-		startTime = Time.time;
-
-		float factor = 0;
-
-		while (factor < 1 && !asyncLoad.isDone)
-		{
-			factor = (Time.time - startTime) / fadeInTime;
-
-			sticker.alpha = factor;
-
-			yield return null;
-		}
+		loadingCanvas?.Show();
 	}
 }
