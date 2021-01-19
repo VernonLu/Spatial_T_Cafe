@@ -34,7 +34,7 @@ public class ObjectController : MonoBehaviour
 	public int rotateAngle = 15;
 	public RotateHintRing currentHintRing;
 
-	private int screenDivision = 200;
+	private int screenDivision = 100;
 	public bool isControlling
 	{
 		get;
