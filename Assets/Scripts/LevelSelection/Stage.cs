@@ -8,28 +8,64 @@ public class Stage : MonoBehaviour
 {
 
 	public int stageIndex;
+	private bool initialized = false;
+#region isFinished
+	private bool isFinished = false;
+	public bool IsFinished
+	{
+		get
+		{
+			Init();
+			return isFinished;
+		}
+	}
+#endregion
 
-	public bool isFinished = false;
-
+#region isLocked
+	private bool isLocked = true;
+	public bool IsLocked
+	{
+		get
+		{
+			Init();
+			return isLocked;
+		}
+	}
+#endregion
 	public List<Level> levels = new List<Level>();
-	public List<Stage> dependencies = new List<Stage>();
+	public List<Stage> preStages = new List<Stage>();
+
+	public List<StageSwitchButton> stageSwitchButtons = new List<StageSwitchButton>();
 
 	public UnityEvent finishedEvent;
 	public UnityEvent cameraEnter;
 	public UnityEvent cameraLeave;
 
-	private void Start()
+	private void Start() { }
+
+	private void Init()
 	{
+		if (initialized) { return; }
+		// Two steps (Load data & Update status) are seperated to prevent 
 		foreach (var level in levels)
 		{
+			// Load saved data
 			level.LoadData();
 		}
+
 		foreach (var level in levels)
 		{
-			level.CheckDependencies();
+			// Update level status
+			level.UpdateStatus();
 		}
-		UpdateFinishState();
 
+		// Check if all levels belonging to this stage are finished
+		isFinished = levels.All((Level level) => level.IsFinished);
+		// Debug.Log(this.gameObject.name);
+
+		// Check if any pre-stage is not finished
+		isLocked = preStages.Exists((Stage stage) => !stage.IsFinished);
+		UpdateFinishState();
 	}
 
 	[ContextMenu("Update Level List")]
@@ -48,7 +84,7 @@ public class Stage : MonoBehaviour
 		isFinished = true;
 		foreach (var level in levels)
 		{
-			if (!level.isFinished)
+			if (!level.IsFinished)
 			{
 				isFinished = false;
 			}
@@ -62,11 +98,10 @@ public class Stage : MonoBehaviour
 
 	public void ToggleCurrentStage(bool isCurrentStage)
 	{
-		Debug.Log(this.gameObject.name + ": Update");
-		Debug.Log(isCurrentStage);
+
 		foreach (var level in levels)
 		{
-			level.TogglePackageVisibility(isCurrentStage);
+			level.ToggleCurrentStage(isCurrentStage);
 		}
 	}
 

@@ -10,84 +10,93 @@ public class Level : MonoBehaviour
 {
 	public string levelName;
 
-	public bool isActive = false;
-	public List<Level> dependencies = new List<Level>();
-	public bool isFinished;
+	private bool isLoaded = false;
+
+	private bool isLocked = false;
+	public bool IsLocked
+	{
+		get
+		{
+			LoadData();
+			return isLocked;
+		}
+	}
+
+	private bool isFinished = false;
+	public bool IsFinished
+	{
+		get
+		{
+			LoadData();
+			return isFinished;
+		}
+	}
+	public List<Level> preLevels = new List<Level>();
 	public GameObject packagingBox;
 	public GameObject finishedObject;
 
 	private List<Outline> outlines;
 
-	void Start()
-	{
-		// PlayerPrefs.SetInt(levelName, 0);
+	void Start() { }
 
-	}
-
-	public void Init()
-	{
-
-		TogglePackageVisibility(isActive && !isFinished);
-
-		finishedObject.SetActive(isActive && isFinished);
-		GetComponent<Collider>().enabled = isActive && !isFinished;
-		outlines = GetComponentsInChildren<Outline>().ToList();
-
-		if (isActive)
-		{
-			ShowOutline();
-		}
-		else
-		{
-			HideOutline();
-		}
-	}
-	public void ShowOutline()
-	{
-		foreach (var outline in outlines)
-		{
-			outline.SetVisibility(true);
-		}
-	}
-	public void HideOutline()
-	{
-		foreach (var outline in outlines)
-		{
-			outline.SetVisibility(false);
-		}
-	}
-	public void LoadLevel()
-	{
-		SceneManager.LoadScene(levelName);
-	}
-
+	/// <summary>
+	/// Load saved data from PlayerPrefs
+	/// </summary>
 	public void LoadData()
 	{
-		// PlayerPrefs.SetInt(levelName, 0);
+		if (isLoaded) { return; }
+		// Check if this level is finished
 		isFinished = PlayerPrefs.GetInt(levelName, 0) == 1;
+		isLocked = preLevels.Any((Level level) => !level.IsFinished);
+		isLoaded = true;
+
 	}
-	public void CheckDependencies()
+
+	public void UpdateStatus()
 	{
 		// Debug.Log(this.name);
-		isActive = true;
-		foreach (var level in dependencies)
+		// isActive = true;
+		// foreach (var level in preLevels)
+		// {
+		// 	if (!level.isFinished)
+		// 	{
+		// 		// Debug.Log(level.name + " " + isFinished);
+		// 		isActive = false;
+		// 	}
+		// }
+
+		TogglePackageVisibility(!IsLocked && !isFinished);
+
+		outlines = GetComponentsInChildren<Outline>().ToList();
+
+		ToggleOutline(!IsLocked && !isFinished);
+
+		finishedObject.SetActive(!IsLocked && IsFinished);
+
+		GetComponent<Collider>().enabled = !IsLocked && !IsFinished;
+
+	}
+
+	private void ToggleOutline(bool visible)
+	{
+		foreach (var outline in outlines)
 		{
-			if (!level.isFinished)
-			{
-				// Debug.Log(level.name + " " + isFinished);
-				isActive = false;
-			}
+			outline.SetVisibility(visible);
 		}
-		Init();
 	}
 
 	/// <summary>
 	/// Hide / Show Package
 	/// </summary>
 	/// <param name="visible"></param>
-	public void TogglePackageVisibility(bool visible)
+	private void TogglePackageVisibility(bool visible)
 	{
-		Debug.Log(this.gameObject.name + ": Update");
 		packagingBox.SetActive(visible);
+	}
+
+	public void ToggleCurrentStage(bool isCurrentStage)
+	{
+		bool visible = !IsLocked && !IsFinished && isCurrentStage;
+		TogglePackageVisibility(visible);
 	}
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using Wootopia;
 public class StageSwitchButton : MonoBehaviour
 {
-	public Stage stage;
+	public Stage targetStage;
 
 	public WoCanvasGroup button;
 
@@ -17,7 +17,7 @@ public class StageSwitchButton : MonoBehaviour
 
 	public void SetActive(bool active)
 	{
-		isActive = active;
+		isActive = active && !targetStage.IsLocked;
 		if (isActive)
 		{
 			button.Show();
