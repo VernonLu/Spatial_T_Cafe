@@ -27,10 +27,6 @@ public class WoodJoint : MonoBehaviour
 
 	// Activate sub part when part is assembled
 	public GameObject subPart;
-	/// <summary>
-	/// 弃用
-	/// </summary>
-	public List<SubPartInfo> dependencies = new List<SubPartInfo>();
 
 	public List<SubPartRotate> requiredSubPartList = new List<SubPartRotate>();
 
@@ -50,19 +46,17 @@ public class WoodJoint : MonoBehaviour
 		if (!CheckStatus()) { return; }
 		Item currentItem = ControlManager.Instance.currentItem;
 
-		if(currentItem?.tenonList.Count > 0)
-        {
-			foreach(var tenon in currentItem.tenonList)
-            {
+		if (currentItem?.tenonList.Count > 0)
+		{
+			foreach (var tenon in currentItem.tenonList)
+			{
 				if (tenon != null && targetID == tenon.ID)
 				{
 					targetTenon = tenon;
-					if (!IsTenonInCorrectPose())
-					{ continue; }
+					if (!IsTenonInCorrectPose()) { continue; }
 					// Debug.Log("Paired");
 					targetTenon.transform.parent.TryGetComponent(out Item item);
-					if (item.isAssembled)
-					{ return; }
+					if (item.isAssembled) { return; }
 					item.isAssembled = true;
 					targetTenon.transform.parent.gameObject.SetActive(false);
 
@@ -75,10 +69,10 @@ public class WoodJoint : MonoBehaviour
 					// Disable currentItem
 					ControlManager.Instance.currentItem?.gameObject.SetActive(false);
 					LocationHintBox.Instance.HideAxisHintBox();
-					break;                    
+					break;
 				}
 			}
-        }
+		}
 	}
 
 	/// <summary>
@@ -88,13 +82,6 @@ public class WoodJoint : MonoBehaviour
 	private bool CheckStatus()
 	{
 		bool res = true;
-		foreach (var subPart in dependencies)
-		{
-			if (subPart.canMove)
-			{
-				res = false;
-			}
-		}
 
 		foreach (var subPart in requiredSubPartList)
 		{

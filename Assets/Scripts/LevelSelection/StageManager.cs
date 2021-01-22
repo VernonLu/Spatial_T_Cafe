@@ -37,6 +37,17 @@ public class StageManager : MonoBehaviour
 			UpdateStageList();
 		}
 	}
+	public void ManualInit()
+	{
+		if (null == stageList)
+		{
+			UpdateStageList();
+		}
+		foreach (var stage in stageList)
+		{
+			stage.ManualInit();
+		}
+	}
 
 	[ContextMenu("Update Stage List")]
 	private void UpdateStageList()
@@ -46,11 +57,16 @@ public class StageManager : MonoBehaviour
 
 	public void UpdateCurrentStage(Stage currentStage)
 	{
-		Debug.Log(this.gameObject.name + ": Update");
 		foreach (var stage in stageList)
 		{
+			// Debug.Log(stage.gameObject.name + ": Update");
 			stage.ToggleCurrentStage(stage == currentStage);
 		}
+	}
+
+	public Stage GetStageByIndex(int index)
+	{
+		return stageList.Find(stage => stage.stageIndex == index);
 	}
 
 }

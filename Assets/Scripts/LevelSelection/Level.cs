@@ -12,6 +12,8 @@ public class Level : MonoBehaviour
 
 	private bool isLoaded = false;
 
+	private bool isCurrentStage = false;
+
 	private bool isLocked = false;
 	public bool IsLocked
 	{
@@ -71,7 +73,7 @@ public class Level : MonoBehaviour
 
 		ToggleOutline(!IsLocked && !isFinished);
 
-		finishedObject.SetActive(!IsLocked && IsFinished);
+		finishedObject.SetActive(IsFinished && !IsLocked);
 
 		GetComponent<Collider>().enabled = !IsLocked && !IsFinished;
 
@@ -91,12 +93,22 @@ public class Level : MonoBehaviour
 	/// <param name="visible"></param>
 	private void TogglePackageVisibility(bool visible)
 	{
+		// Debug.Log(gameObject.name + " Package " + visible);
 		packagingBox.SetActive(visible);
 	}
 
 	public void ToggleCurrentStage(bool isCurrentStage)
 	{
+		// Debug.Log(gameObject.name);
+		// Debug.Log("IsLocked" + IsLocked);
+		// Debug.Log("IsFinished" + IsFinished); 
+		// Debug.Log("isCurrentStage" + isCurrentStage);
+
+		// Lock this stage if 
+		this.isCurrentStage = isCurrentStage;
 		bool visible = !IsLocked && !IsFinished && isCurrentStage;
 		TogglePackageVisibility(visible);
+
+		// finishedObject.SetActive(IsFinished || !IsLocked);
 	}
 }

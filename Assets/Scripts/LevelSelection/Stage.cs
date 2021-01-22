@@ -43,6 +43,10 @@ public class Stage : MonoBehaviour
 
 	private void Start() { }
 
+	public void ManualInit()
+	{
+		Init();
+	}
 	private void Init()
 	{
 		if (initialized) { return; }
@@ -60,12 +64,13 @@ public class Stage : MonoBehaviour
 		}
 
 		// Check if all levels belonging to this stage are finished
-		isFinished = levels.All((Level level) => level.IsFinished);
+		CheckFinished();
 		// Debug.Log(this.gameObject.name);
 
 		// Check if any pre-stage is not finished
 		isLocked = preStages.Exists((Stage stage) => !stage.IsFinished);
-		UpdateFinishState();
+
+		initialized = true;
 	}
 
 	[ContextMenu("Update Level List")]
@@ -74,21 +79,14 @@ public class Stage : MonoBehaviour
 		levels = GetComponentsInChildren<Level>().ToList();
 	}
 
-	public void UpdateFinishState()
+	private void CheckFinished()
 	{
 		if (isFinished)
 		{
 			return;
 		}
 
-		isFinished = true;
-		foreach (var level in levels)
-		{
-			if (!level.IsFinished)
-			{
-				isFinished = false;
-			}
-		}
+		isFinished = levels.All((Level level) => level.IsFinished);
 
 		if (isFinished)
 		{
@@ -98,9 +96,9 @@ public class Stage : MonoBehaviour
 
 	public void ToggleCurrentStage(bool isCurrentStage)
 	{
-
 		foreach (var level in levels)
 		{
+			// Debug.Log(level.gameObject.name + " isCurrentLevel " + isCurrentStage);
 			level.ToggleCurrentStage(isCurrentStage);
 		}
 	}

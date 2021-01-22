@@ -26,6 +26,10 @@ public class LoadingCanvas : MonoBehaviour
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
 		Debug.Log(SceneManager.GetActiveScene().name);
+		// if (scene.name.Equals("Main Menu"))
+		// {
+		// 	AutoDestroy();
+		// }
 		button.interactable = true;
 	}
 

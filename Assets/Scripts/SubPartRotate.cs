@@ -51,16 +51,7 @@ public class SubPartRotate : MonoBehaviour
 	private Vector3 axisNormal;
 
 	[Header("DEPENDENCY")]
-	/// <summary>
-	/// 弃用
-	/// </summary>
-	public WoodJoint joint2Disable;
 	public List<WoodJoint> conflictJointList = new List<WoodJoint>();
-
-	/// <summary>
-	/// 弃用
-	/// </summary>
-	public List<WoodJoint> jointList = new List<WoodJoint>();
 
 	[Header("AUDIO")]
 	public AudioClip enabledClip;
@@ -224,19 +215,11 @@ public class SubPartRotate : MonoBehaviour
 
 	public void Done()
 	{
+		if (currStatus == SubPartStatus.Done) { return; }
 		if (audio && finishedClip) { audio.PlayOneShot(finishedClip); }
 		currStatus = SubPartStatus.Done;
 		isControlling = false;
-		foreach (var joint in jointList)
-		{
-			joint.enabled = true;
-		}
 
-		//Disable conflict joints
-		if (joint2Disable)
-		{
-			joint2Disable.enabled = false;
-		}
 		foreach (var joint in conflictJointList)
 		{
 			joint.enabled = false;

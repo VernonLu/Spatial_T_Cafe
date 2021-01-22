@@ -7,9 +7,16 @@ public class LevelSelectionManager : MonoBehaviour
 {
 	public WoCanvasGroup canvasGroup;
 
+	public LevelSelectionCamera levelSelectionCamera;
+
 	private void Start()
 	{
 		canvasGroup.Hide();
+		StageManager.Instance.ManualInit();
+		int stageIndex = PlayerPrefs.GetInt("CurStage", 1);
+		Stage stage = StageManager.Instance.GetStageByIndex(stageIndex);
+		levelSelectionCamera.transform.position = stage.transform.position;
+		levelSelectionCamera.SetCurrentStage(stage);
 	}
 
 	public void ShowPopUp()

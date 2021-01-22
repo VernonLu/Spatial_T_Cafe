@@ -167,8 +167,9 @@ public class MainMenu : MonoBehaviour
 	{
 
 		// PlayerPrefs.SetInt("HasSavedGame", 1);
+		PlayerPrefs.SetInt("CurStage", 1);
 		PlayerPrefs.SetInt("scene_1-0", 0);
 		PlayerPrefs.SetInt("scene_1-1", 0);
-		PlayerPrefs.SetInt("Scene_Level_2-1", 0);
+		PlayerPrefs.SetInt("scene_2-1", 0);
 	}
 }
