@@ -145,14 +145,15 @@ public class WoodJoint : MonoBehaviour
 
 	private void OnDrawGizmos()
 	{
-        Gizmos.matrix = transform.localToWorldMatrix;
         #region draw box
         Gizmos.color = Color.green;
 		Vector3 center = (toleranceDomin.tolerancePositionStart + toleranceDomin.tolerancePositionEnd ) / 2 / 10;
 		Vector3 size = (toleranceDomin.tolerancePositionStart - toleranceDomin.tolerancePositionEnd) / 10;
-		center = transform.rotation * center;
-		Gizmos.DrawWireCube(center, size);
+		//center = transform.rotation * center;
+        center += transform.position;
+        Gizmos.DrawWireCube(center, size);
 #endregion
+        Gizmos.matrix = transform.localToWorldMatrix;
 #region draw angle
 		Gizmos.color = Color.red;
 		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(toleranceDomin.toleranceEularAngleStart.x, 0, 0) * Vector3.up);
