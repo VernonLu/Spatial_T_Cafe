@@ -145,11 +145,13 @@ public class WoodJoint : MonoBehaviour
 
 	private void OnDrawGizmos()
 	{
-#region draw box
-		Gizmos.matrix = transform.localToWorldMatrix;
-		Gizmos.color = Color.green;
-		Vector3 center = (toleranceDomin.tolerancePositionStart + toleranceDomin.tolerancePositionEnd) / 2 / 10;
-		Gizmos.DrawWireCube(center, (toleranceDomin.tolerancePositionStart - toleranceDomin.tolerancePositionEnd) / 10);
+        Gizmos.matrix = transform.localToWorldMatrix;
+        #region draw box
+        Gizmos.color = Color.green;
+		Vector3 center = (toleranceDomin.tolerancePositionStart + toleranceDomin.tolerancePositionEnd ) / 2 / 10;
+		Vector3 size = (toleranceDomin.tolerancePositionStart - toleranceDomin.tolerancePositionEnd) / 10;
+		center = transform.rotation * center;
+		Gizmos.DrawWireCube(center, size);
 #endregion
 #region draw angle
 		Gizmos.color = Color.red;
