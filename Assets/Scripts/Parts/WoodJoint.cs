@@ -142,18 +142,42 @@ public class WoodJoint : MonoBehaviour
 		//ControlManager.Instance.currentItem.gameObject.SetActive(false);
 
 	}
-
+	// 	private void OnDrawGizmos()
+	// 	{
+	// 		Gizmos.matrix = transform.localToWorldMatrix;
+	// #region draw box
+	// 		Gizmos.color = Color.green;
+	// 		Vector3 center = (toleranceDomin.tolerancePositionStart + toleranceDomin.tolerancePositionEnd) / 2 / 10;
+	// 		Vector3 size = (toleranceDomin.tolerancePositionStart - toleranceDomin.tolerancePositionEnd) / 10;
+	// 		center = transform.rotation * center;
+	// 		Gizmos.DrawWireCube(center, size);
+	// #endregion
+	// #region draw angle
+	// 		Gizmos.color = Color.red;
+	// 		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(toleranceDomin.toleranceEularAngleStart.x, 0, 0) * Vector3.up);
+	// 		Gizmos.color = Color.green;
+	// 		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, toleranceDomin.toleranceEularAngleStart.y, 0) * Vector3.forward);
+	// 		Gizmos.color = Color.blue;
+	// 		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, toleranceDomin.toleranceEularAngleStart.z) * Vector3.right);
+	// 		Gizmos.color = Color.red;
+	// 		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(toleranceDomin.toleranceEularAngleEnd.x, 0, 0) * Vector3.up);
+	// 		Gizmos.color = Color.green;
+	// 		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, toleranceDomin.toleranceEularAngleEnd.y, 0) * Vector3.forward);
+	// 		Gizmos.color = Color.blue;
+	// 		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, toleranceDomin.toleranceEularAngleEnd.z) * Vector3.right);
+	// #endregion
+	// 	}
 	private void OnDrawGizmos()
 	{
-        #region draw box
-        Gizmos.color = Color.green;
-		Vector3 center = (toleranceDomin.tolerancePositionStart + toleranceDomin.tolerancePositionEnd ) / 2 / 10;
+#region draw box
+		Gizmos.color = Color.green;
+		Vector3 center = (toleranceDomin.tolerancePositionStart + toleranceDomin.tolerancePositionEnd) / 2 / 10;
 		Vector3 size = (toleranceDomin.tolerancePositionStart - toleranceDomin.tolerancePositionEnd) / 10;
 		//center = transform.rotation * center;
-        center += transform.position;
-        Gizmos.DrawWireCube(center, size);
+		center += transform.position;
+		Gizmos.DrawWireCube(center, size);
 #endregion
-        Gizmos.matrix = transform.localToWorldMatrix;
+		Gizmos.matrix = transform.localToWorldMatrix;
 #region draw angle
 		Gizmos.color = Color.red;
 		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(toleranceDomin.toleranceEularAngleStart.x, 0, 0) * Vector3.up);
@@ -170,4 +194,5 @@ public class WoodJoint : MonoBehaviour
 		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, toleranceDomin.toleranceEularAngleEnd.z) * Vector3.right);
 #endregion
 	}
+
 }
