@@ -7,15 +7,32 @@ using Wootopia;
 
 public class LoadingCanvas : MonoBehaviour
 {
-	public Button button;
-	public Image blueprintImage;
+	public bool autoDestroy = false;
+	public float minInterival = 1.0f;
+	private float time = 0;
+	[Header("Blueprint")]
+	public Animator anim;
 	public WoCanvasGroup canvasGroup;
+
+	[Header("Continue Button")]
+	public Button button;
 
 	private void Start()
 	{
 		DontDestroyOnLoad(this.gameObject);
-		button.interactable = false;
+		if (button)
+		{
+			button.interactable = false;
+		}
+		else
+		{
+			autoDestroy = true;
+		}
 		SceneManager.sceneLoaded += OnSceneLoaded;
+	}
+	private void Update()
+	{
+		time += Time.deltaTime;
 	}
 
 	/// <summary>
@@ -26,28 +43,15 @@ public class LoadingCanvas : MonoBehaviour
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
 		Debug.Log(SceneManager.GetActiveScene().name);
-		// if (scene.name.Equals("Main Menu"))
-		// {
-		// 	AutoDestroy();
-		// }
-		button.interactable = true;
-	}
 
-	/// <summary>
-	/// Change the sprite of blueprint
-	/// </summary>
-	/// <param name="sprite"></param>
-	public void SetBlueprintSprite(Sprite sprite)
-	{
-		blueprintImage.sprite = sprite;
-	}
+		autoDestroy |= scene.name.Equals("Main Menu");
+		Debug.Log("AutoDestroy" + autoDestroy);
 
-	/// <summary>
-	/// Show loading panel
-	/// </summary>
-	public void Show()
-	{
-		canvasGroup.Show();
+		float timeRemaining = minInterival < time ? 0 : minInterival - time;
+
+		Invoke((autoDestroy? "AutoDestroy": "ShowButton"), timeRemaining);
+
+		// ShowButton();
 	}
 
 	/// <summary>
@@ -59,4 +63,23 @@ public class LoadingCanvas : MonoBehaviour
 		canvasGroup.Hide();
 		Destroy(this.gameObject, canvasGroup.fadeDuration);
 	}
+
+	private void ShowButton()
+	{
+		if (button)
+		{
+			button.interactable = true;
+		}
+	}
+
+	/// <summary>
+	/// Show loading panel
+	/// </summary>
+	public void Show()
+	{
+		canvasGroup.Show();
+		anim?.SetTrigger("Trigger");
+		time = 0;
+	}
+
 }

@@ -31,6 +31,7 @@ public class LevelManager : MonoBehaviour
 	void Start()
 	{
 		endGamePanel.Hide();
+		onStart.Invoke();
 	}
 
 	public void ShowEndGame()

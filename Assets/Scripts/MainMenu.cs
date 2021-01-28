@@ -65,7 +65,7 @@ public class MainMenu : MonoBehaviour
 
 	private void Load(string sceneName)
 	{
-		SceneManager.LoadScene(sceneName);
+		SceneManager.LoadSceneAsync(sceneName);
 	}
 
 	// Co
