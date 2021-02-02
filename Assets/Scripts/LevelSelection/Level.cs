@@ -99,10 +99,10 @@ public class Level : MonoBehaviour
 
 	public void ToggleCurrentStage(bool isCurrentStage)
 	{
-		// Debug.Log(gameObject.name);
+		Debug.Log(gameObject.name);
 		// Debug.Log("IsLocked" + IsLocked);
 		// Debug.Log("IsFinished" + IsFinished); 
-		// Debug.Log("isCurrentStage" + isCurrentStage);
+		Debug.Log("isCurrentStage" + isCurrentStage);
 
 		// Lock this stage if 
 		this.isCurrentStage = isCurrentStage;

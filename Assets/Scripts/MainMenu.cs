@@ -165,7 +165,6 @@ public class MainMenu : MonoBehaviour
 
 	public void ClearData()
 	{
-
 		// PlayerPrefs.SetInt("HasSavedGame", 1);
 		PlayerPrefs.SetInt("CurStage", 1);
 		PlayerPrefs.SetInt("scene_1-0", 0);
@@ -173,5 +172,6 @@ public class MainMenu : MonoBehaviour
 		PlayerPrefs.SetInt("scene_2-1", 0);
 		PlayerPrefs.SetInt("scene_2-2", 0);
 		PlayerPrefs.SetInt("scene_2-3", 0);
+		PlayerPrefs.SetInt("scene_3-1", 0);
 	}
 }

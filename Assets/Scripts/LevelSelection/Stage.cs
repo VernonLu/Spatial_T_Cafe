@@ -96,6 +96,7 @@ public class Stage : MonoBehaviour
 
 	public void ToggleCurrentStage(bool isCurrentStage)
 	{
+		print(gameObject.name + " : " + isCurrentStage);
 		foreach (var level in levels)
 		{
 			// Debug.Log(level.gameObject.name + " isCurrentLevel " + isCurrentStage);

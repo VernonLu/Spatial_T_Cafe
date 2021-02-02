@@ -33,6 +33,19 @@ public class AudioManager : MonoBehaviour
     }
   }
 
+  public void PlayOneShot2D(string id)
+  {
+    Sound sound = dataSounds.GetSound(id);
+    if (sound.isOneShot)
+    {
+      sound.PlayOneShot(Vector3.zero);
+    }
+    else
+    {
+      Debug.LogError("Not one shot!");
+    }
+  }
+
   private void PlayLoop(AudioEmitter emitter, Sound sound)
   {
     if (sound.isMainLoop)
@@ -55,6 +68,7 @@ public class AudioManager : MonoBehaviour
     }
     else
     {
+      Debug.Log("Stop loop");
       sound.Stop();
     }
   }

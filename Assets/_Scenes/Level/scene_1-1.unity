@@ -266,12 +266,37 @@ MonoBehaviour:
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
   conflictJointList: []
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 1ef1897e5d4c002479ea469b92ee40ae, type: 3}
   onEnable:
     m_PersistentCalls:
       m_Calls: []
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &45712726
@@ -499,12 +524,37 @@ MonoBehaviour:
   rotateAngle: 15
   conflictJointList:
   - {fileID: 850182236}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
       m_Calls: []
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &66111246
@@ -935,12 +985,37 @@ MonoBehaviour:
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 30
   conflictJointList: []
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
       m_Calls: []
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!64 &123472933
@@ -1968,7 +2043,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 119.99983
+      value: 0.000076293945
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -2481,6 +2556,18 @@ Transform:
   m_Father: {fileID: 235326852}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &252614873 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+    type: 3}
+  m_PrefabInstance: {fileID: 525428037}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f285ba1c39087f43bd9d30dbc310277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &312634849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2730,6 +2817,7 @@ GameObject:
   - component: {fileID: 374341549}
   - component: {fileID: 374341550}
   - component: {fileID: 374341546}
+  - component: {fileID: 374341551}
   m_Layer: 0
   m_Name: Sub 1-1_A3
   m_TagString: Untagged
@@ -2833,12 +2921,60 @@ MonoBehaviour:
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 30
   conflictJointList: []
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 1ef1897e5d4c002479ea469b92ee40ae, type: 3}
   onEnable:
     m_PersistentCalls:
       m_Calls: []
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 252614873}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 374341551}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 374341551}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 374341551}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &374341550
@@ -2853,6 +2989,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &374341551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374341544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e199cb1038330f5428ddef007045e055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: sfx_wood_friction
 --- !u!1 &401786443
 GameObject:
   m_ObjectHideFlags: 0
@@ -3092,6 +3241,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 137355425}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &525428037
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 158679044235389258, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0f0218e4f27bcf74399095f636e6d423, type: 3}
 --- !u!1 &575152860
 GameObject:
   m_ObjectHideFlags: 0
@@ -3952,6 +4170,7 @@ GameObject:
   - component: {fileID: 687105569}
   - component: {fileID: 687105566}
   - component: {fileID: 687105567}
+  - component: {fileID: 687105568}
   m_Layer: 0
   m_Name: Sub 1-1_M4_R
   m_TagString: Untagged
@@ -3995,12 +4214,59 @@ MonoBehaviour:
   rotateAngle: 30
   conflictJointList:
   - {fileID: 1780739313}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
       m_Calls: []
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 687105568}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 252614873}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 687105568}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 252614873}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 687105568}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &687105567
@@ -4015,6 +4281,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &687105568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687105564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e199cb1038330f5428ddef007045e055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: sfx_wood_friction
 --- !u!64 &687105569
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4277,6 +4556,7 @@ GameObject:
   - component: {fileID: 735025055}
   - component: {fileID: 735025052}
   - component: {fileID: 735025053}
+  - component: {fileID: 735025054}
   m_Layer: 0
   m_Name: Sub 1-1_M4_D
   m_TagString: Untagged
@@ -4320,12 +4600,59 @@ MonoBehaviour:
   rotateAngle: 30
   conflictJointList:
   - {fileID: 937043288}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
       m_Calls: []
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 735025054}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 252614873}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 735025054}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 252614873}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 735025054}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &735025053
@@ -4340,6 +4667,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &735025054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735025050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e199cb1038330f5428ddef007045e055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: sfx_wood_friction
 --- !u!64 &735025055
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4601,7 +4941,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 119.99983
+      value: 0.000076293945
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -5404,12 +5744,37 @@ MonoBehaviour:
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 30
   conflictJointList: []
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
       m_Calls: []
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &891007834
@@ -5426,6 +5791,7 @@ GameObject:
   - component: {fileID: 891007839}
   - component: {fileID: 891007836}
   - component: {fileID: 891007837}
+  - component: {fileID: 891007838}
   m_Layer: 0
   m_Name: Sub 1-1_M4_L
   m_TagString: Untagged
@@ -5469,12 +5835,59 @@ MonoBehaviour:
   rotateAngle: 30
   conflictJointList:
   - {fileID: 1355613104}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
       m_Calls: []
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 891007838}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 252614873}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 891007838}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 252614873}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 891007838}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &891007837
@@ -5489,6 +5902,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &891007838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891007834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e199cb1038330f5428ddef007045e055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: sfx_wood_friction
 --- !u!64 &891007839
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6122,12 +6548,37 @@ MonoBehaviour:
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
   conflictJointList: []
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
       m_Calls: []
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!64 &1091199793
@@ -6883,6 +7334,7 @@ GameObject:
   - component: {fileID: 1248193793}
   - component: {fileID: 1248193790}
   - component: {fileID: 1248193791}
+  - component: {fileID: 1248193792}
   m_Layer: 0
   m_Name: Sub 1-1_M4_T
   m_TagString: Untagged
@@ -6926,12 +7378,59 @@ MonoBehaviour:
   rotateAngle: 30
   conflictJointList:
   - {fileID: 357191731}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
       m_Calls: []
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1248193792}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 252614873}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1248193792}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 252614873}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1248193792}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1248193791
@@ -6946,6 +7445,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81c329efa74a934dac64ed8a6a89bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1248193792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248193788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e199cb1038330f5428ddef007045e055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: sfx_wood_friction
 --- !u!64 &1248193793
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8270,7 +8782,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 119.99983
+      value: 0.000076293945
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -8769,7 +9281,7 @@ PrefabInstance:
     - target: {fileID: 4257100493766258295, guid: 73fbb2bb784194643a03ee1d36b44e49,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 119.99983
+      value: 0.000076293945
       objectReference: {fileID: 0}
     - target: {fileID: 4257100493838265109, guid: 73fbb2bb784194643a03ee1d36b44e49,
         type: 3}
@@ -9535,7 +10047,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 119.99983
+      value: 0.000076293945
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -9994,12 +10506,37 @@ MonoBehaviour:
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 30
   conflictJointList: []
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
       m_Calls: []
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1798774057
@@ -10211,12 +10748,37 @@ MonoBehaviour:
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
   conflictJointList: []
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
       m_Calls: []
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1816788975
@@ -10347,12 +10909,37 @@ MonoBehaviour:
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
   conflictJointList: []
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 1ef1897e5d4c002479ea469b92ee40ae, type: 3}
   onEnable:
     m_PersistentCalls:
       m_Calls: []
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1860436679 stripped
@@ -10532,12 +11119,37 @@ MonoBehaviour:
   rotateAngle: 15
   conflictJointList:
   - {fileID: 3438094}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
       m_Calls: []
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1920557732
@@ -11227,12 +11839,37 @@ MonoBehaviour:
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
   conflictJointList: []
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
       m_Calls: []
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &2007414311

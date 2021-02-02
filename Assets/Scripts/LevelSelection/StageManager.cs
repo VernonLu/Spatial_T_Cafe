@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class StageManager : MonoBehaviour
 		{
 			UpdateStageList();
 		}
+
 	}
 	public void ManualInit()
 	{

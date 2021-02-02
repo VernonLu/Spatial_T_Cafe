@@ -64,8 +64,7 @@ public class DraftImageManager : MonoBehaviour
 
 	public void LoadScene()
 	{
-		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
 		loadingCanvas?.Show();
-
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
 	}
 }
