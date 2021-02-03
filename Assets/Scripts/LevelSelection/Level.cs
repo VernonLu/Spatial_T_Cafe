@@ -95,6 +95,7 @@ public class Level : MonoBehaviour
 	{
 		// Debug.Log(gameObject.name + " Package " + visible);
 		packagingBox.SetActive(visible);
+		GetComponent<Collider>().enabled = visible;
 	}
 
 	public void ToggleCurrentStage(bool isCurrentStage)
@@ -108,7 +109,6 @@ public class Level : MonoBehaviour
 		this.isCurrentStage = isCurrentStage;
 		bool visible = !IsLocked && !IsFinished && isCurrentStage;
 		TogglePackageVisibility(visible);
-
 		// finishedObject.SetActive(IsFinished || !IsLocked);
 	}
 }

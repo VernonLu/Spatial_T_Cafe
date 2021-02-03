@@ -140,6 +140,7 @@ MonoBehaviour:
   rotateCamera: {fileID: 7456604663483525135}
   panCamera: {fileID: 7456604663483525128}
   zoomCamera: {fileID: 7456604663049222400}
+  fovZoomCamera: {fileID: 1782829580897262154}
   mainCamera: {fileID: 7456604663049222402}
   transitionCamera: {fileID: 7456604663852112985}
 --- !u!1 &7456604663049222413
@@ -155,6 +156,7 @@ GameObject:
   - component: {fileID: 7456604663049222401}
   - component: {fileID: 7456604663049222400}
   - component: {fileID: 7456604663049222403}
+  - component: {fileID: 1782829580897262154}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -235,7 +237,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7456604663049222413}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35961e6c7a16ecb46ac7b9f0c4ac48a7, type: 3}
   m_Name: 
@@ -290,6 +292,36 @@ MonoBehaviour:
   inertia: 0
   remainingDelta: {x: 0, y: 0, z: 0}
   panSpeedScale: 0.2
+--- !u!114 &1782829580897262154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7456604663049222413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4ad659014a4d24b9bf706aa19597af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Camera: {fileID: 7456604663049222402}
+  Zoom: 50
+  Dampening: -1
+  Clamp: 1
+  ClampMin: 10
+  ClampMax: 60
+  Relative: 0
+  IgnoreZ: 0
+  ScreenDepth:
+    Conversion: 0
+    Camera: {fileID: 0}
+    Object: {fileID: 0}
+    Layers:
+      serializedVersion: 2
+      m_Bits: 4294967291
+    Distance: 50
+  currentZoom: 0
+  remainingTranslation: {x: 0, y: 0, z: 0}
 --- !u!1 &7456604663174508738
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +470,7 @@ MonoBehaviour:
   Camera: {fileID: 7456604663049222402}
   screenDepth:
     Conversion: 0
-    Camera: {fileID: 0}
+    Camera: {fileID: 7456604663049222402}
     Object: {fileID: 0}
     Layers:
       serializedVersion: 2
@@ -476,7 +508,7 @@ MonoBehaviour:
   ignoreIfStatic: 0
   coordinate: 0
   multiplier: 1
-  Camera: {fileID: 0}
+  Camera: {fileID: 7456604663049222402}
   defaultRotation: {x: 45, y: 45}
   dampening: -1
   pitch: 45
@@ -492,6 +524,30 @@ MonoBehaviour:
   currentPitch: 0
   currentYaw: 0
   rotateSpeedScale: 0.5
+  rotateSpeedScaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &7456604663483525134
 MonoBehaviour:
   m_ObjectHideFlags: 0

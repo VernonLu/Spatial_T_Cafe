@@ -96,6 +96,7 @@ public class RotateCamera : MonoBehaviour
 	private float currentYaw;
 
 	public float rotateSpeedScale = 1.0f;
+	public AnimationCurve rotateSpeedScaleCurve;
 
 	/// <summary>This method resets the Pitch and Yaw values to the DefaultRotation value.</summary>
 	[ContextMenu("Reset Rotation")]
@@ -108,6 +109,8 @@ public class RotateCamera : MonoBehaviour
 	public void Rotate(Vector2 delta)
 	{
 		var sensitivity = GetSensitivity();
+
+		// rotateSpeedScale = rotateSpeedScaleCurve.Evaluate(Camera.fieldOfView);
 
 		yaw += delta.x * yawSensitivity * sensitivity * rotateSpeedScale;
 		pitch -= delta.y * pitchSensitivity * sensitivity * rotateSpeedScale;

@@ -171,6 +171,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 5089
+--- !u!114 &-3241585883028905932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Game/sfx_focus
+  m_EditorClassIdentifier: 
+  Path: event:/Game/sfx_focus
+  guid: 3ff222d8cf2e8041bcddb4e611663c97
+  Banks:
+  - {fileID: 3170966494443057660}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-2955582030232400119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,12 +318,13 @@ MonoBehaviour:
   - {fileID: 2248244259737546557}
   - {fileID: 1310140758038028606}
   - {fileID: 5160651027568548038}
+  - {fileID: -3241585883028905932}
   EditorParameters: []
   MasterBanks:
   - {fileID: -6517007641907976487}
   StringsBanks:
   - {fileID: 4804025972365156757}
-  stringsBankWriteTime: 637475751710153217
+  stringsBankWriteTime: 637478798057302600
   cacheVersion: 6
 --- !u!114 &347529531040927879
 MonoBehaviour:
@@ -478,7 +502,7 @@ MonoBehaviour:
   Path: Assets/FMOD/WoodJoints/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 637475751719143865
+  lastModified: 637478798062174680
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -564,11 +588,11 @@ MonoBehaviour:
   Path: Assets/FMOD/WoodJoints/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637475751710153217
+  lastModified: 637478798057302600
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1488
+    Value: 1536
   Exists: 1
 --- !u!114 &5160651027568548038
 MonoBehaviour:

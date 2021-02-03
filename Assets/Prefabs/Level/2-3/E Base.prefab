@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 901146638825729168}
   - component: {fileID: 7636771791159535964}
   - component: {fileID: 1362380866662617807}
-  - component: {fileID: 2730777770492257600}
+  - component: {fileID: 2042970190}
   m_Layer: 0
   m_Name: Sub 2-3_E3_Right
   m_TagString: Untagged
@@ -477,28 +477,65 @@ MonoBehaviour:
   conflictJointList:
   - {fileID: 2345983385906447575}
   - {fileID: 6574670396213291728}
-  enabledClip: {fileID: 0}
-  finishedClip: {fileID: 0}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
       m_Calls: []
---- !u!64 &2730777770492257600
-MeshCollider:
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!136 &2042970190
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2263184660105075514}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -6777841121717508371, guid: e4f27bee58467174eaef0a76f264f306, type: 3}
+  m_Radius: 0.25001952
+  m_Height: 0.8
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2330432781392743734
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,11 +826,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97afb5add06fc44d933d8f6735c4431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: A2/-
-  targetID: A2/+
+  ID: E3/-
+  targetID: E3/+
   toleranceDomin:
-    tolerancePositionStart: {x: 0.5, y: -1, z: -1}
-    tolerancePositionEnd: {x: 4, y: 1, z: 1}
+    tolerancePositionStart: {x: 0.5, y: -2, z: -2}
+    tolerancePositionEnd: {x: 7, y: 2, z: 2}
     toleranceEularAngleStart: {x: -5, y: -5, z: -5}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
   targetTenon: {fileID: 0}
@@ -817,7 +854,7 @@ GameObject:
   - component: {fileID: 2345983386065104994}
   - component: {fileID: 2345983386065104995}
   - component: {fileID: 2345983386065104992}
-  - component: {fileID: 2345983386065105023}
+  - component: {fileID: 645603556}
   m_Layer: 0
   m_Name: Sub 2-3_E3_Left
   m_TagString: Untagged
@@ -921,28 +958,65 @@ MonoBehaviour:
   conflictJointList:
   - {fileID: 2345983385906447575}
   - {fileID: 6574670396213291728}
-  enabledClip: {fileID: 0}
-  finishedClip: {fileID: 0}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
       m_Calls: []
---- !u!64 &2345983386065105023
-MeshCollider:
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!136 &645603556
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2345983386065104997}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -6777841121717508371, guid: e4f27bee58467174eaef0a76f264f306, type: 3}
+  m_Radius: 0.25001952
+  m_Height: 0.8
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2345983386190234301
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,6 +1031,7 @@ GameObject:
   - component: {fileID: 2345983386190234299}
   - component: {fileID: 2345983386190234296}
   - component: {fileID: 2345983386190234295}
+  - component: {fileID: 1609995508}
   m_Layer: 0
   m_Name: Sub 2-3_E2
   m_TagString: Untagged
@@ -1058,12 +1133,73 @@ MonoBehaviour:
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
   conflictJointList: []
-  enabledClip: {fileID: 0}
-  finishedClip: {fileID: 0}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1609995508}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1609995508}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1609995508}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!64 &2345983386190234295
@@ -1080,6 +1216,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2514704967120025074, guid: 17bff5ccef958a3449a6cbe7c1bc3894, type: 3}
+--- !u!114 &1609995508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2345983386190234301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e199cb1038330f5428ddef007045e055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: sfx_wood_friction
 --- !u!1 &2345983386475761206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,8 +1306,8 @@ MonoBehaviour:
   ID: E2/-
   targetID: E2/+
   toleranceDomin:
-    tolerancePositionStart: {x: -3, y: -1, z: -1}
-    tolerancePositionEnd: {x: 3, y: 1, z: 1}
+    tolerancePositionStart: {x: -3, y: -2, z: -2}
+    tolerancePositionEnd: {x: 3, y: 2, z: 2}
     toleranceEularAngleStart: {x: -5, y: -5, z: -5}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
   targetTenon: {fileID: 0}
@@ -1215,8 +1364,8 @@ MonoBehaviour:
   ID: E2/-
   targetID: E2/+
   toleranceDomin:
-    tolerancePositionStart: {x: -3, y: -1, z: -1}
-    tolerancePositionEnd: {x: 3, y: 1, z: 1}
+    tolerancePositionStart: {x: -3, y: -2, z: -2}
+    tolerancePositionEnd: {x: 3, y: 2, z: 2}
     toleranceEularAngleStart: {x: -5, y: -5, z: -5}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
   targetTenon: {fileID: 0}
@@ -1894,11 +2043,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97afb5add06fc44d933d8f6735c4431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: A2/-
-  targetID: A2/+
+  ID: E3/-
+  targetID: E3/+
   toleranceDomin:
-    tolerancePositionStart: {x: -4, y: -1, z: -1}
-    tolerancePositionEnd: {x: -0.5, y: 1, z: 1}
+    tolerancePositionStart: {x: -7, y: -2, z: -2}
+    tolerancePositionEnd: {x: -0.5, y: 2, z: 2}
     toleranceEularAngleStart: {x: -5, y: -5, z: -5}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
   targetTenon: {fileID: 0}

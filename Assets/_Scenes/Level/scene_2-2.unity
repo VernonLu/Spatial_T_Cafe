@@ -436,6 +436,80 @@ Transform:
   m_Father: {fileID: 172323399}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &87780397
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 87780398}
+  - component: {fileID: 87780399}
+  m_Layer: 0
+  m_Name: Transition Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &87780398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87780397}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1487262831}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &87780399
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87780397}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.01
+  far clip plane: 100
+  field of view: 40
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 791
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1001 &95572772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -597,11 +671,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 241912171}
     - target: {fileID: 8666254427932634327, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: HideHighlight
+      value: PlayOneShot2D
       objectReference: {fileID: 0}
     - target: {fileID: 8666254427932634327, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -616,7 +690,12 @@ PrefabInstance:
     - target: {fileID: 8666254427932634327, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8666254427932634327, guid: e132322d92a8263448b607230d605de5,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: sfx_tab_switch
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428099548634, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -636,7 +715,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 119.99997
+      value: -0.000045776367
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -1084,8 +1163,8 @@ MonoBehaviour:
   ID: D1/+
   targetID: D1/-
   toleranceDomin:
-    tolerancePositionStart: {x: -5, y: -3, z: -7.5}
-    tolerancePositionEnd: {x: 5, y: 3, z: 5}
+    tolerancePositionStart: {x: -6, y: -6, z: -7.5}
+    tolerancePositionEnd: {x: 6, y: 6, z: 5}
     toleranceEularAngleStart: {x: -5, y: -5, z: -5}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
   targetTenon: {fileID: 0}
@@ -1490,14 +1569,35 @@ MonoBehaviour:
   conflictJointList:
   - {fileID: 1021516517}
   - {fileID: 434758824}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 1ef1897e5d4c002479ea469b92ee40ae, type: 3}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 241912171}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1711464344}
         m_MethodName: Done
         m_Mode: 1
@@ -1509,6 +1609,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!64 &172323404
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1679,8 +1794,8 @@ MonoBehaviour:
   ID: A2/-
   targetID: A2/+
   toleranceDomin:
-    tolerancePositionStart: {x: -10, y: -5, z: -5}
-    tolerancePositionEnd: {x: 5, y: 5, z: 5}
+    tolerancePositionStart: {x: -10, y: -4.5, z: -2.5}
+    tolerancePositionEnd: {x: 2, y: 4.5, z: 2.5}
     toleranceEularAngleStart: {x: -5, y: -5, z: -5}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
   targetTenon: {fileID: 0}
@@ -1937,6 +2052,18 @@ Transform:
   m_Father: {fileID: 1524567940}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &241912171 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+    type: 3}
+  m_PrefabInstance: {fileID: 2064437632}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f285ba1c39087f43bd9d30dbc310277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &247860770
 GameObject:
   m_ObjectHideFlags: 0
@@ -2447,12 +2574,48 @@ MonoBehaviour:
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
   conflictJointList: []
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 241912171}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &337032665
@@ -3396,6 +3559,12 @@ Transform:
   m_Father: {fileID: 2076045018}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &409245676 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7456604663483525129, guid: 8eff08fc7910f964ea78d5add0b8e136,
+    type: 3}
+  m_PrefabInstance: {fileID: 572925098}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &412030176
 GameObject:
   m_ObjectHideFlags: 0
@@ -3747,7 +3916,7 @@ Transform:
   m_LocalPosition: {x: -8.5, y: 0, z: -1.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1016259326}
+  - {fileID: 1460498617}
   m_Father: {fileID: 1787218249}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3771,7 +3940,7 @@ MonoBehaviour:
     toleranceEularAngleStart: {x: -5, y: -5, z: -5}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
   targetTenon: {fileID: 0}
-  cameraFocusPivot: {fileID: 1016259326}
+  cameraFocusPivot: {fileID: 1460498617}
   subPart: {fileID: 172323398}
   requiredSubPartList: []
   isActive: 0
@@ -3824,7 +3993,7 @@ MonoBehaviour:
   ID: C3/-
   targetID: C3/+
   toleranceDomin:
-    tolerancePositionStart: {x: -5, y: -5, z: -53.5}
+    tolerancePositionStart: {x: -5, y: -5, z: -59}
     tolerancePositionEnd: {x: 5, y: 5, z: 10}
     toleranceEularAngleStart: {x: -5, y: -5, z: -5}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
@@ -3999,8 +4168,8 @@ MonoBehaviour:
   ID: M2/+
   targetID: M2/-
   toleranceDomin:
-    tolerancePositionStart: {x: -5, y: -5, z: -5}
-    tolerancePositionEnd: {x: 5, y: 5, z: 5}
+    tolerancePositionStart: {x: -5.5, y: -5, z: -5.5}
+    tolerancePositionEnd: {x: 5.5, y: 5, z: 5.5}
     toleranceEularAngleStart: {x: -5, y: -5, z: -5}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
   targetTenon: {fileID: 0}
@@ -4012,9 +4181,9 @@ MonoBehaviour:
   showAngleDebugInfo: 0
 --- !u!4 &469831963 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 9157251827022415527, guid: 31bbcbd997b07c04eb1205b673b9be00,
+  m_CorrespondingSourceObject: {fileID: 7246491563593907714, guid: 79ad0cb8f0eded1489e6b01deb3ace40,
     type: 3}
-  m_PrefabInstance: {fileID: 9157251826552592316}
+  m_PrefabInstance: {fileID: 7246491563258294041}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &470726144
 GameObject:
@@ -4065,7 +4234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &480047843
 Transform:
   m_ObjectHideFlags: 0
@@ -4106,12 +4275,48 @@ MonoBehaviour:
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
   conflictJointList: []
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 241912171}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &486496563
@@ -4270,8 +4475,8 @@ MonoBehaviour:
   ID: Joint A1/+
   targetID: Tenon A1/-
   toleranceDomin:
-    tolerancePositionStart: {x: -5, y: -5, z: -5}
-    tolerancePositionEnd: {x: 5, y: 5, z: 10}
+    tolerancePositionStart: {x: -5, y: -3, z: -4}
+    tolerancePositionEnd: {x: 5, y: 6, z: 3}
     toleranceEularAngleStart: {x: -5, y: -5, z: -5}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
   targetTenon: {fileID: 0}
@@ -5422,6 +5627,11 @@ PrefabInstance:
       propertyPath: onDisable.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7456604663852112985, guid: 8eff08fc7910f964ea78d5add0b8e136,
+        type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8eff08fc7910f964ea78d5add0b8e136, type: 3}
 --- !u!114 &572925099 stripped
@@ -5453,7 +5663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &610979271
 Transform:
   m_ObjectHideFlags: 0
@@ -5624,12 +5834,48 @@ MonoBehaviour:
   rotateAngle: 15
   conflictJointList:
   - {fileID: 1194471633}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 241912171}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!64 &623209281
@@ -6071,7 +6317,7 @@ MonoBehaviour:
   ID: C3/-
   targetID: C3/+
   toleranceDomin:
-    tolerancePositionStart: {x: -5, y: -5, z: -53.5}
+    tolerancePositionStart: {x: -5, y: -5, z: -59}
     tolerancePositionEnd: {x: 5, y: 5, z: 10}
     toleranceEularAngleStart: {x: -5, y: -5, z: -5}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
@@ -7055,12 +7301,48 @@ MonoBehaviour:
   rotateAngle: 15
   conflictJointList:
   - {fileID: 1702766756}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 241912171}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!64 &767088564
@@ -7263,8 +7545,8 @@ MonoBehaviour:
   ID: D1/+
   targetID: D1/-
   toleranceDomin:
-    tolerancePositionStart: {x: -5, y: -3, z: -7.5}
-    tolerancePositionEnd: {x: 5, y: 3, z: 5}
+    tolerancePositionStart: {x: -6, y: -6, z: -7.5}
+    tolerancePositionEnd: {x: 6, y: 6, z: 5}
     toleranceEularAngleStart: {x: -5, y: -5, z: -5}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
   targetTenon: {fileID: 0}
@@ -7423,12 +7705,48 @@ MonoBehaviour:
   rotateAngle: 15
   conflictJointList:
   - {fileID: 141779334}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 241912171}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!64 &838681674
@@ -7752,12 +8070,48 @@ MonoBehaviour:
   rotateAngle: 15
   conflictJointList:
   - {fileID: 2095592279}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 241912171}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!64 &917153761
@@ -8397,13 +8751,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016259325}
-  m_LocalRotation: {x: 0.23544435, y: -0, z: -0, w: 0.9718878}
-  m_LocalPosition: {x: 11.21, y: 9.22, z: -10.5}
+  m_LocalRotation: {x: 0.070302896, y: 0.5424601, z: -0.045623805, w: 0.8358906}
+  m_LocalPosition: {x: -7.93, y: 0.13, z: 1.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 434758823}
+  m_Children:
+  - {fileID: 1487262831}
+  m_Father: {fileID: 1021516518}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 9.615001, y: 65.964005, z: 0}
 --- !u!1 &1017980658
 GameObject:
   m_ObjectHideFlags: 0
@@ -8564,7 +8919,7 @@ PrefabInstance:
         type: 3}
       propertyPath: itemPrefab
       value: 
-      objectReference: {fileID: 9157251827022415526, guid: 31bbcbd997b07c04eb1205b673b9be00,
+      objectReference: {fileID: 7246491563593907715, guid: 79ad0cb8f0eded1489e6b01deb3ace40,
         type: 3}
     - target: {fileID: 7129949034783163226, guid: 10aea33ea0698b44e8afb397e10edc58,
         type: 3}
@@ -8691,7 +9046,7 @@ MonoBehaviour:
     toleranceEularAngleStart: {x: -5, y: -5, z: -5}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
   targetTenon: {fileID: 0}
-  cameraFocusPivot: {fileID: 1460498617}
+  cameraFocusPivot: {fileID: 1016259326}
   subPart: {fileID: 1711464343}
   requiredSubPartList: []
   isActive: 0
@@ -8708,7 +9063,7 @@ Transform:
   m_LocalPosition: {x: 8.5, y: 0, z: -1.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1460498617}
+  - {fileID: 1016259326}
   m_Father: {fileID: 1787218249}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10042,8 +10397,8 @@ MonoBehaviour:
   ID: D2/+
   targetID: D2/-
   toleranceDomin:
-    tolerancePositionStart: {x: -5, y: -3, z: -5}
-    tolerancePositionEnd: {x: 5, y: 3, z: 5}
+    tolerancePositionStart: {x: -5, y: -6, z: -7}
+    tolerancePositionEnd: {x: 5, y: 6, z: 7}
     toleranceEularAngleStart: {x: -5, y: -5, z: -5}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
   targetTenon: {fileID: 0}
@@ -10606,12 +10961,48 @@ MonoBehaviour:
   rotateAngle: 15
   conflictJointList:
   - {fileID: 823212287}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 241912171}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!64 &1238530152
@@ -11695,12 +12086,110 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460498616}
   m_LocalRotation: {x: 0.23544435, y: -0, z: -0, w: 0.9718878}
-  m_LocalPosition: {x: -15.79, y: 9.22, z: -10.5}
+  m_LocalPosition: {x: 1.21, y: 9.22, z: -10.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1021516518}
+  m_Father: {fileID: 434758823}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1487262830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1487262831}
+  - component: {fileID: 1487262832}
+  m_Layer: 0
+  m_Name: Transition Camera (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1487262831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487262830}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 87780398}
+  m_Father: {fileID: 1016259326}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1487262832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487262830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e4df303c1be4684ca0ecdd0d9e4e53b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
+  mainCameraPivot: {fileID: 409245676}
+  targetTransform: {fileID: 0}
+  onEnable:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 407206105}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 407206100}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDisable:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 407206105}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 407206100}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  speed: 2
 --- !u!1 &1488258884
 GameObject:
   m_ObjectHideFlags: 0
@@ -12086,6 +12575,7 @@ GameObject:
   - component: {fileID: 1513071017}
   - component: {fileID: 1513071012}
   - component: {fileID: 1513071013}
+  - component: {fileID: 1513071018}
   m_Layer: 0
   m_Name: Sub 2-2_C2 (4)
   m_TagString: Untagged
@@ -12115,11 +12605,21 @@ MonoBehaviour:
   conflictJointList:
   - {fileID: 1889481540}
   - {fileID: 534142745}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 1ef1897e5d4c002479ea469b92ee40ae, type: 3}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
@@ -12134,6 +12634,57 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1513071018}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1513071018}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1513071018}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1513071013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12222,6 +12773,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 9176260212918378787, guid: e86c599ca6ebb8645b1614a53f6b2610, type: 3}
+--- !u!114 &1513071018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513071011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e199cb1038330f5428ddef007045e055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: sfx_wood_friction
 --- !u!1 &1524567939
 GameObject:
   m_ObjectHideFlags: 0
@@ -12337,12 +12901,48 @@ MonoBehaviour:
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
   conflictJointList: []
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 241912171}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!64 &1524567945
@@ -12730,13 +13330,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1556552013}
-  m_LocalRotation: {x: 0.0341461, y: -0.7824383, z: 0.027109556, w: 0.6212}
-  m_LocalPosition: {x: 7.760979, y: 8.16, z: 0.50660133}
+  m_LocalRotation: {x: 0.04526275, y: -0.78136337, z: 0.057060316, w: 0.61981183}
+  m_LocalPosition: {x: 3.29, y: 4.16, z: 1.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1283433162}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 8.353001, y: -103.15401, z: 0}
 --- !u!1 &1561424811
 GameObject:
   m_ObjectHideFlags: 0
@@ -13305,7 +13905,7 @@ MonoBehaviour:
   targetID: C3/+
   toleranceDomin:
     tolerancePositionStart: {x: -5, y: -5, z: -10}
-    tolerancePositionEnd: {x: 5, y: 5, z: 53.5}
+    tolerancePositionEnd: {x: 5, y: 5, z: 58}
     toleranceEularAngleStart: {x: -5, y: -5, z: -5}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
   targetTenon: {fileID: 0}
@@ -13325,7 +13925,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639719169}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.5095, y: 0.0765, z: -2.73}
+  m_LocalPosition: {x: -1.5095, y: 0.0765, z: -2.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2145226098}
@@ -13447,12 +14047,48 @@ MonoBehaviour:
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
   conflictJointList: []
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 241912171}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!64 &1641690145
@@ -13707,11 +14343,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 241912171}
     - target: {fileID: 8666254427932634327, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: HideHighlight
+      value: PlayOneShot2D
       objectReference: {fileID: 0}
     - target: {fileID: 8666254427932634327, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -13726,7 +14362,12 @@ PrefabInstance:
     - target: {fileID: 8666254427932634327, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8666254427932634327, guid: e132322d92a8263448b607230d605de5,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: sfx_tab_switch
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428099548634, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -13746,7 +14387,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 119.99997
+      value: -0.000045776367
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -14127,8 +14768,8 @@ MonoBehaviour:
   ID: B2/-
   targetID: B2/+
   toleranceDomin:
-    tolerancePositionStart: {x: -13, y: -5, z: -5}
-    tolerancePositionEnd: {x: 5, y: 5, z: 5}
+    tolerancePositionStart: {x: -5, y: -4, z: -2}
+    tolerancePositionEnd: {x: 5, y: 4, z: 3.5}
     toleranceEularAngleStart: {x: -5, y: -5, z: -5}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
   targetTenon: {fileID: 0}
@@ -14152,6 +14793,7 @@ GameObject:
   - component: {fileID: 1711464349}
   - component: {fileID: 1711464344}
   - component: {fileID: 1711464345}
+  - component: {fileID: 1711464350}
   m_Layer: 0
   m_Name: Sub 2-2_C2 (3)
   m_TagString: Untagged
@@ -14172,7 +14814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canMove: 1
-  offset: {x: 8.5, y: 0, z: 0}
+  offset: {x: 3.5, y: 0, z: 0}
   canRotate: 0
   rotateAxis: 0
   rotateOffset: {x: -17, y: 0, z: 0}
@@ -14181,11 +14823,21 @@ MonoBehaviour:
   conflictJointList:
   - {fileID: 1021516517}
   - {fileID: 434758824}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 1ef1897e5d4c002479ea469b92ee40ae, type: 3}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
@@ -14200,6 +14852,57 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1711464350}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1711464350}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1711464350}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1711464345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14288,6 +14991,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 9176260212918378787, guid: e86c599ca6ebb8645b1614a53f6b2610, type: 3}
+--- !u!114 &1711464350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711464343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e199cb1038330f5428ddef007045e055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: sfx_wood_friction
 --- !u!1 &1714893522
 GameObject:
   m_ObjectHideFlags: 0
@@ -14579,14 +15295,35 @@ MonoBehaviour:
   conflictJointList:
   - {fileID: 448936605}
   - {fileID: 1942471957}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 1ef1897e5d4c002479ea469b92ee40ae, type: 3}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 241912171}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1833771382}
         m_MethodName: Done
         m_Mode: 1
@@ -14598,6 +15335,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1758306901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15105,7 +15857,7 @@ PrefabInstance:
     - target: {fileID: 4257100493766258295, guid: 73fbb2bb784194643a03ee1d36b44e49,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 120.00003
+      value: -0.000045776367
       objectReference: {fileID: 0}
     - target: {fileID: 4257100493838265109, guid: 73fbb2bb784194643a03ee1d36b44e49,
         type: 3}
@@ -15678,6 +16430,7 @@ GameObject:
   - component: {fileID: 1822705226}
   - component: {fileID: 1822705225}
   - component: {fileID: 1822705222}
+  - component: {fileID: 1822705227}
   m_Layer: 0
   m_Name: Sub 2-2_C3 (2)
   m_TagString: Untagged
@@ -15781,15 +16534,25 @@ MonoBehaviour:
   conflictJointList:
   - {fileID: 647586273}
   - {fileID: 1639719170}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 1ef1897e5d4c002479ea469b92ee40ae, type: 3}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2010862133}
+      - m_Target: {fileID: 1959854875}
         m_MethodName: Done
         m_Mode: 1
         m_Arguments:
@@ -15800,6 +16563,57 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1822705227}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1822705227}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1822705227}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!64 &1822705226
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15814,6 +16628,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3985396064732391721, guid: 43ce754739c736b45a712b92d67070c4, type: 3}
+--- !u!114 &1822705227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822705220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e199cb1038330f5428ddef007045e055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: sfx_wood_friction
 --- !u!1 &1833771377
 GameObject:
   m_ObjectHideFlags: 0
@@ -15828,6 +16655,7 @@ GameObject:
   - component: {fileID: 1833771383}
   - component: {fileID: 1833771382}
   - component: {fileID: 1833771379}
+  - component: {fileID: 1833771384}
   m_Layer: 0
   m_Name: Sub 2-2_C3 (1)
   m_TagString: Untagged
@@ -15931,15 +16759,25 @@ MonoBehaviour:
   conflictJointList:
   - {fileID: 448936605}
   - {fileID: 1942471957}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 1ef1897e5d4c002479ea469b92ee40ae, type: 3}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1758306900}
+      - m_Target: {fileID: 1959854875}
         m_MethodName: Done
         m_Mode: 1
         m_Arguments:
@@ -15950,6 +16788,57 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1833771384}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1833771384}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1833771384}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!64 &1833771383
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15964,6 +16853,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3985396064732391721, guid: 43ce754739c736b45a712b92d67070c4, type: 3}
+--- !u!114 &1833771384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833771377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e199cb1038330f5428ddef007045e055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: sfx_wood_friction
 --- !u!1 &1840069264
 GameObject:
   m_ObjectHideFlags: 0
@@ -16189,12 +17091,48 @@ MonoBehaviour:
   rotateAngle: 15
   conflictJointList:
   - {fileID: 2076045019}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 090c1bd87997bf147b550b2073e731a1, type: 3}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 241912171}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
     m_PersistentCalls:
       m_Calls: []
 --- !u!64 &1845549416
@@ -16640,11 +17578,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 241912171}
     - target: {fileID: 8666254427932634327, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: HideHighlight
+      value: PlayOneShot2D
       objectReference: {fileID: 0}
     - target: {fileID: 8666254427932634327, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -16659,7 +17597,12 @@ PrefabInstance:
     - target: {fileID: 8666254427932634327, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8666254427932634327, guid: e132322d92a8263448b607230d605de5,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: sfx_tab_switch
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428099548634, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -16689,7 +17632,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 120.00003
+      value: -0.000045776367
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -16944,7 +17887,7 @@ MonoBehaviour:
   targetID: C3/+
   toleranceDomin:
     tolerancePositionStart: {x: -5, y: -5, z: -10}
-    tolerancePositionEnd: {x: 5, y: 5, z: 53.5}
+    tolerancePositionEnd: {x: 5, y: 5, z: 58}
     toleranceEularAngleStart: {x: -5, y: -5, z: -5}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
   targetTenon: {fileID: 0}
@@ -17197,14 +18140,35 @@ MonoBehaviour:
   conflictJointList:
   - {fileID: 1889481540}
   - {fileID: 534142745}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 1ef1897e5d4c002479ea469b92ee40ae, type: 3}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 241912171}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1513071012}
         m_MethodName: Done
         m_Mode: 1
@@ -17216,6 +18180,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!64 &1959854876
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17496,14 +18475,35 @@ MonoBehaviour:
   conflictJointList:
   - {fileID: 647586273}
   - {fileID: 1639719170}
-  enabledClip: {fileID: 8300000, guid: a59bb6f198c2d1446b77e8e2bd9667e2, type: 3}
-  finishedClip: {fileID: 8300000, guid: 1ef1897e5d4c002479ea469b92ee40ae, type: 3}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 241912171}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1822705225}
         m_MethodName: Done
         m_Mode: 1
@@ -17515,6 +18515,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onMovePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onMoveRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotatePress:
+    m_PersistentCalls:
+      m_Calls: []
+  onRotateRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  onAngleChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2010862134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17624,11 +18639,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 241912171}
     - target: {fileID: 8666254427932634327, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: HideHighlight
+      value: PlayOneShot2D
       objectReference: {fileID: 0}
     - target: {fileID: 8666254427932634327, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -17643,7 +18658,12 @@ PrefabInstance:
     - target: {fileID: 8666254427932634327, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8666254427932634327, guid: e132322d92a8263448b607230d605de5,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: sfx_tab_switch
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428099548634, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -17663,7 +18683,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 119.99997
+      value: -0.000045776367
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -18026,6 +19046,75 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051465097}
   m_Mesh: {fileID: -8264766115119967290, guid: 95e429bb75211d4448c1240e00ed5545, type: 3}
+--- !u!1001 &2064437632
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 158679044235389258, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0f0218e4f27bcf74399095f636e6d423, type: 3}
 --- !u!1 &2064518625
 GameObject:
   m_ObjectHideFlags: 0
@@ -18180,8 +19269,8 @@ MonoBehaviour:
   ID: B2/-
   targetID: B2/+
   toleranceDomin:
-    tolerancePositionStart: {x: -13, y: -5, z: -5}
-    tolerancePositionEnd: {x: 5, y: 5, z: 5}
+    tolerancePositionStart: {x: -5, y: -4, z: -2}
+    tolerancePositionEnd: {x: 5, y: 4, z: 3.5}
     toleranceEularAngleStart: {x: -5, y: -5, z: -5}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
   targetTenon: {fileID: 0}
@@ -18439,8 +19528,8 @@ MonoBehaviour:
   ID: D2/+
   targetID: D2/-
   toleranceDomin:
-    tolerancePositionStart: {x: -5, y: -3, z: -5}
-    tolerancePositionEnd: {x: 5, y: 3, z: 5}
+    tolerancePositionStart: {x: -5, y: -6, z: -7}
+    tolerancePositionEnd: {x: 5, y: 6, z: 7}
     toleranceEularAngleStart: {x: -5, y: -5, z: -5}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
   targetTenon: {fileID: 0}
@@ -18720,12 +19809,12 @@ PrefabInstance:
     - target: {fileID: 3442360121450934940, guid: 1a278a53dbfe15e49a612907514f925b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.31
+      value: 0.97
       objectReference: {fileID: 0}
     - target: {fileID: 3442360121450934940, guid: 1a278a53dbfe15e49a612907514f925b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.16
+      value: 1.07
       objectReference: {fileID: 0}
     - target: {fileID: 3442360121450934940, guid: 1a278a53dbfe15e49a612907514f925b,
         type: 3}
@@ -18989,26 +20078,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6695609721608951877, guid: a82d2849daa7c644cb3bfc83e91b0870,
         type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6695609721608951877, guid: a82d2849daa7c644cb3bfc83e91b0870,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6695609721608951877, guid: a82d2849daa7c644cb3bfc83e91b0870,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6695609721608951877, guid: a82d2849daa7c644cb3bfc83e91b0870,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6695609721608951877, guid: a82d2849daa7c644cb3bfc83e91b0870,
-        type: 3}
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
@@ -19020,7 +20089,7 @@ PrefabInstance:
     - target: {fileID: 6695609721608951877, guid: a82d2849daa7c644cb3bfc83e91b0870,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 6695609721608951877, guid: a82d2849daa7c644cb3bfc83e91b0870,
         type: 3}
@@ -19189,6 +20258,85 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5787240921330067193}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7246491563258294041
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 312180501}
+    m_Modifications:
+    - target: {fileID: 7246491562536432296, guid: 79ad0cb8f0eded1489e6b01deb3ace40,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246491563593907714, guid: 79ad0cb8f0eded1489e6b01deb3ace40,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.483565
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246491563593907714, guid: 79ad0cb8f0eded1489e6b01deb3ace40,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.65999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246491563593907714, guid: 79ad0cb8f0eded1489e6b01deb3ace40,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.009999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246491563593907714, guid: 79ad0cb8f0eded1489e6b01deb3ace40,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246491563593907714, guid: 79ad0cb8f0eded1489e6b01deb3ace40,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246491563593907714, guid: 79ad0cb8f0eded1489e6b01deb3ace40,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246491563593907714, guid: 79ad0cb8f0eded1489e6b01deb3ace40,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246491563593907714, guid: 79ad0cb8f0eded1489e6b01deb3ace40,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246491563593907714, guid: 79ad0cb8f0eded1489e6b01deb3ace40,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246491563593907714, guid: 79ad0cb8f0eded1489e6b01deb3ace40,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246491563593907714, guid: 79ad0cb8f0eded1489e6b01deb3ace40,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246491563593907715, guid: 79ad0cb8f0eded1489e6b01deb3ace40,
+        type: 3}
+      propertyPath: m_Name
+      value: 2-2_B1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246491563593907715, guid: 79ad0cb8f0eded1489e6b01deb3ace40,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 79ad0cb8f0eded1489e6b01deb3ace40, type: 3}
 --- !u!4 &7427171431464319891 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6695609721608951877, guid: a82d2849daa7c644cb3bfc83e91b0870,
@@ -19210,7 +20358,7 @@ PrefabInstance:
     - target: {fileID: 8260130916041924172, guid: fb6ea5dcb2b5a81438fbff2da7bf5299,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.26
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8260130916041924172, guid: fb6ea5dcb2b5a81438fbff2da7bf5299,
         type: 3}
@@ -19220,7 +20368,7 @@ PrefabInstance:
     - target: {fileID: 8260130916041924172, guid: fb6ea5dcb2b5a81438fbff2da7bf5299,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8260130916041924172, guid: fb6ea5dcb2b5a81438fbff2da7bf5299,
         type: 3}
@@ -19235,7 +20383,7 @@ PrefabInstance:
     - target: {fileID: 8260130916041924172, guid: fb6ea5dcb2b5a81438fbff2da7bf5299,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8260130916041924172, guid: fb6ea5dcb2b5a81438fbff2da7bf5299,
         type: 3}
@@ -19245,7 +20393,7 @@ PrefabInstance:
     - target: {fileID: 8260130916041924172, guid: fb6ea5dcb2b5a81438fbff2da7bf5299,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8260130916041924172, guid: fb6ea5dcb2b5a81438fbff2da7bf5299,
         type: 3}
@@ -19279,17 +20427,17 @@ PrefabInstance:
     - target: {fileID: 7402664447035825563, guid: 00be4bf13a423db408010b7da58ec4c0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5.03
       objectReference: {fileID: 0}
     - target: {fileID: 7402664447035825563, guid: 00be4bf13a423db408010b7da58ec4c0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.35
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7402664447035825563, guid: 00be4bf13a423db408010b7da58ec4c0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -1.97
       objectReference: {fileID: 0}
     - target: {fileID: 7402664447035825563, guid: 00be4bf13a423db408010b7da58ec4c0,
         type: 3}
@@ -19348,77 +20496,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00be4bf13a423db408010b7da58ec4c0, type: 3}
---- !u!1001 &9157251826552592316
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 312180501}
-    m_Modifications:
-    - target: {fileID: 9157251827022415526, guid: 31bbcbd997b07c04eb1205b673b9be00,
-        type: 3}
-      propertyPath: m_Name
-      value: 2-2_B1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157251827022415526, guid: 31bbcbd997b07c04eb1205b673b9be00,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157251827022415527, guid: 31bbcbd997b07c04eb1205b673b9be00,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 11.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157251827022415527, guid: 31bbcbd997b07c04eb1205b673b9be00,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -7.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157251827022415527, guid: 31bbcbd997b07c04eb1205b673b9be00,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.0090219
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157251827022415527, guid: 31bbcbd997b07c04eb1205b673b9be00,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157251827022415527, guid: 31bbcbd997b07c04eb1205b673b9be00,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157251827022415527, guid: 31bbcbd997b07c04eb1205b673b9be00,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157251827022415527, guid: 31bbcbd997b07c04eb1205b673b9be00,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157251827022415527, guid: 31bbcbd997b07c04eb1205b673b9be00,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157251827022415527, guid: 31bbcbd997b07c04eb1205b673b9be00,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157251827022415527, guid: 31bbcbd997b07c04eb1205b673b9be00,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 270
-      objectReference: {fileID: 0}
-    - target: {fileID: 9157251827022415527, guid: 31bbcbd997b07c04eb1205b673b9be00,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 31bbcbd997b07c04eb1205b673b9be00, type: 3}

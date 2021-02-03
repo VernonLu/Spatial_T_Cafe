@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 45712727}
   - component: {fileID: 45712725}
   - component: {fileID: 45712726}
+  - component: {fileID: 45712730}
   m_Layer: 0
   m_Name: Sub 1-1_C3
   m_TagString: Untagged
@@ -268,9 +269,6 @@ MonoBehaviour:
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
-  onFinish:
-    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
           type: 3}
@@ -281,15 +279,52 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
+  onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 45712730}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
           m_StringArgument: sfx_wood_click
           m_BoolArgument: 0
         m_CallState: 2
   onMovePress:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 252614873}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 45712730}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onMoveRelease:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 252614873}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 45712730}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onRotatePress:
     m_PersistentCalls:
       m_Calls: []
@@ -372,6 +407,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 45712723}
   m_Mesh: {fileID: 483295911029073099, guid: 2e5af6c85ce1f8b4f829677b4089eefa, type: 3}
+--- !u!114 &45712730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45712723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e199cb1038330f5428ddef007045e055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: sfx_wood_friction
 --- !u!1 &65892625
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,7 +574,19 @@ MonoBehaviour:
   - {fileID: 850182236}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
@@ -987,7 +1047,19 @@ MonoBehaviour:
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
@@ -2043,7 +2115,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000076293945
+      value: 193.23158
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -2923,7 +2995,19 @@ MonoBehaviour:
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
@@ -3137,8 +3221,8 @@ MonoBehaviour:
   ID: Straight Joint/-
   targetID: Straight Joint/+
   toleranceDomin:
-    tolerancePositionStart: {x: -6, y: -8.5, z: -6.3}
-    tolerancePositionEnd: {x: 6, y: 5.7, z: 6}
+    tolerancePositionStart: {x: -4.5, y: -8.5, z: -10}
+    tolerancePositionEnd: {x: 4.5, y: 5.7, z: 20}
     toleranceEularAngleStart: {x: 0, y: 0, z: 0}
     toleranceEularAngleEnd: {x: 5, y: 14, z: 5}
   targetTenon: {fileID: 0}
@@ -4216,7 +4300,19 @@ MonoBehaviour:
   - {fileID: 1780739313}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
@@ -4602,7 +4698,19 @@ MonoBehaviour:
   - {fileID: 937043288}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
@@ -4941,7 +5049,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000076293945
+      value: 193.23158
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -5746,7 +5854,19 @@ MonoBehaviour:
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
@@ -5837,7 +5957,19 @@ MonoBehaviour:
   - {fileID: 1355613104}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
@@ -6550,7 +6682,19 @@ MonoBehaviour:
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
@@ -7380,7 +7524,19 @@ MonoBehaviour:
   - {fileID: 357191731}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
@@ -8138,8 +8294,8 @@ MonoBehaviour:
   ID: Bulge P+
   targetID: Bulge P0
   toleranceDomin:
-    tolerancePositionStart: {x: -2.78, y: -19.49, z: -2.87}
-    tolerancePositionEnd: {x: 0.77, y: 1, z: 1.47}
+    tolerancePositionStart: {x: -3, y: -19.49, z: -1}
+    tolerancePositionEnd: {x: 1, y: 3, z: 3}
     toleranceEularAngleStart: {x: 0, y: 0, z: 0}
     toleranceEularAngleEnd: {x: 4, y: 4, z: 4}
   targetTenon: {fileID: 0}
@@ -8782,7 +8938,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000076293945
+      value: 193.23158
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -9281,7 +9437,7 @@ PrefabInstance:
     - target: {fileID: 4257100493766258295, guid: 73fbb2bb784194643a03ee1d36b44e49,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000076293945
+      value: 193.23158
       objectReference: {fileID: 0}
     - target: {fileID: 4257100493838265109, guid: 73fbb2bb784194643a03ee1d36b44e49,
         type: 3}
@@ -9685,7 +9841,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1691511926
 Transform:
   m_ObjectHideFlags: 0
@@ -10047,7 +10203,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000076293945
+      value: 193.23158
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -10508,7 +10664,19 @@ MonoBehaviour:
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
@@ -10750,7 +10918,19 @@ MonoBehaviour:
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
@@ -10864,6 +11044,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1839432594}
   - component: {fileID: 1839432595}
+  - component: {fileID: 1839432596}
   m_Layer: 0
   m_Name: Sub 1-1_C4
   m_TagString: Untagged
@@ -10911,9 +11092,6 @@ MonoBehaviour:
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
-  onFinish:
-    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
           type: 3}
@@ -10924,15 +11102,54 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
+  onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1839432596}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
           m_StringArgument: sfx_wood_click
           m_BoolArgument: 0
         m_CallState: 2
   onMovePress:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1839432596}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onMoveRelease:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: StopLoop
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1839432596}
+          m_ObjectArgumentAssemblyTypeName: AudioEmitter, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onRotatePress:
     m_PersistentCalls:
       m_Calls: []
@@ -10942,6 +11159,19 @@ MonoBehaviour:
   onAngleChange:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1839432596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839432593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e199cb1038330f5428ddef007045e055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: sfx_wood_friction
 --- !u!1 &1860436679 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3281642563317557638, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
@@ -11121,7 +11351,19 @@ MonoBehaviour:
   - {fileID: 3438094}
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
@@ -11841,7 +12083,19 @@ MonoBehaviour:
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:

@@ -262,7 +262,7 @@ public class ControlManager : MonoBehaviour
 		{
 			panCam.transform.position = TabListManager.Instance.currentTab.baseObject.position;
 		}
-		CameraManager.Instance.Reset();
+		CameraManager.Instance.ResetCamera();
 	}
 
 	public GameObject highlightObject;

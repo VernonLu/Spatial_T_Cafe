@@ -28,6 +28,7 @@ public class CameraManager : MonoBehaviour
 	public RotateCamera rotateCamera;
 	public PanCamera panCamera;
 	public ZoomCamera zoomCamera;
+	public FOVZoomCamera fovZoomCamera;
 
 	public Camera mainCamera;
 
@@ -62,9 +63,9 @@ public class CameraManager : MonoBehaviour
 		rotateCamera.SetRotateCamera(canRotate);
 	}
 
-	public void Reset()
+	public void ResetCamera()
 	{
-
+		fovZoomCamera.ResetCamera();
 	}
 
 }

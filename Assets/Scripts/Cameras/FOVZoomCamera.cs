@@ -12,6 +12,7 @@ public class FOVZoomCamera : MonoBehaviour
 	/// None = MainCamera.</summary>
 	public Camera Camera;
 
+	public float defaultZoom;
 	/// <summary>The current FOV/Size.</summary>
 	public float Zoom = 50.0f;
 
@@ -77,6 +78,7 @@ public class FOVZoomCamera : MonoBehaviour
 	protected virtual void Start()
 	{
 		currentZoom = Zoom;
+		defaultZoom = currentZoom;
 	}
 
 	protected virtual void LateUpdate()
@@ -176,5 +178,11 @@ public class FOVZoomCamera : MonoBehaviour
 		}
 
 		return z;
+	}
+
+	public void ResetCamera()
+	{
+		Zoom = defaultZoom;
+		SetZoom(defaultZoom);
 	}
 }
