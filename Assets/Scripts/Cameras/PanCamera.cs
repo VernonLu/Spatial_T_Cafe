@@ -97,4 +97,12 @@ public class PanCamera : MonoBehaviour
 	{
 		panSpeedScale = speed;
 	}
+
+	public void ResetCamera()
+	{
+		Vector3 pos = transform.localPosition;
+		pos.x = 0;
+		pos.y = 0;
+		transform.localPosition = pos;
+	}
 }

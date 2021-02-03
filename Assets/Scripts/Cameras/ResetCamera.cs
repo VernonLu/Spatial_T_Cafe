@@ -55,13 +55,6 @@ public class ResetCamera : MonoBehaviour
 		}
 
 		ControlManager.Instance.ResetCamera();
-		if (null != panCamera)
-		{
-			Vector3 pos = panCamera.transform.localPosition;
-			pos.x = 0;
-			pos.y = 0;
-			panCamera.transform.localPosition = pos;
-		}
 
 	}
 }

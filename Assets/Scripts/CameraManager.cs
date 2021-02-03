@@ -66,6 +66,7 @@ public class CameraManager : MonoBehaviour
 	public void ResetCamera()
 	{
 		fovZoomCamera.ResetCamera();
+		panCamera.ResetCamera();
 	}
 
 }
