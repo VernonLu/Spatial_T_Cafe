@@ -41,6 +41,7 @@ public class TypeWriter : MonoBehaviour
 
 	private IEnumerator ShowText()
 	{
+		textComponent.text = "";
 		onStartType.Invoke();
 		WaitForSeconds interval = new WaitForSeconds(charInterval);
 		for (int i = 0; i < content.Length; ++i)

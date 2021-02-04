@@ -16755,7 +16755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1834194358}
-  charInterval: 0.1
+  charInterval: 0.01
   onStartType:
     m_PersistentCalls:
       m_Calls: []
@@ -18488,9 +18488,25 @@ MonoBehaviour:
   sceneName: 
   canvasGroup: {fileID: 2005565485}
   loadingCanvas: {fileID: 71598401}
+  animator: {fileID: 1468892387}
+  animTime: 1.5
   onShow:
     m_PersistentCalls:
       m_Calls: []
+  onLetterOpened:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1834194360}
+        m_MethodName: StartType
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2005565485
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -244,7 +244,6 @@ Shader "Wootopia/Outline"
 			Tags { "LightMode" = "Meta" }
 
 			Cull Off
-
 			Stencil
 			{
 				Ref 1

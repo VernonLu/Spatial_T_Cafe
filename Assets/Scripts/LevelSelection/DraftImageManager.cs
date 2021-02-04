@@ -33,7 +33,10 @@ public class DraftImageManager : MonoBehaviour
 
 	public LoadingCanvas loadingCanvas;
 
+	public Animator animator;
+	public float animTime = 1f;
 	public UnityEvent onShow;
+	public UnityEvent onLetterOpened;
 	void Start()
 	{
 		HideImage();
@@ -52,6 +55,14 @@ public class DraftImageManager : MonoBehaviour
 	{
 		canvasGroup?.Show();
 		onShow.Invoke();
+		animator.SetTrigger("Open");
+		StartCoroutine("LetterOpened");
+	}
+
+	private IEnumerator LetterOpened()
+	{
+		yield return new WaitForSeconds(animTime);
+		onLetterOpened.Invoke();
 	}
 
 	public void HideImage()
