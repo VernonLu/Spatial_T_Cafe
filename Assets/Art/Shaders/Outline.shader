@@ -80,6 +80,7 @@ Shader "Wootopia/Outline"
 			{
 				Ref 1
 				Comp Always
+				Pass Replace
 			}
 			CGPROGRAM
 			#pragma target 3.0

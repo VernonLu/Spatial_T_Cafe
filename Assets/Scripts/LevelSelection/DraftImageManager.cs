@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Wootopia;
@@ -32,6 +33,7 @@ public class DraftImageManager : MonoBehaviour
 
 	public LoadingCanvas loadingCanvas;
 
+	public UnityEvent onShow;
 	void Start()
 	{
 		HideImage();
@@ -48,18 +50,13 @@ public class DraftImageManager : MonoBehaviour
 
 	public void ShowImage()
 	{
-		if (canvasGroup)
-		{
-			canvasGroup.Show();
-		}
+		canvasGroup?.Show();
+		onShow.Invoke();
 	}
 
 	public void HideImage()
 	{
-		if (canvasGroup)
-		{
-			canvasGroup?.Hide();
-		}
+		canvasGroup?.Hide();
 	}
 
 	public void LoadScene()

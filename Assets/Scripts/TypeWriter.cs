@@ -13,6 +13,8 @@ public class TypeWriter : MonoBehaviour
 	public float charInterval = 0.1f;
 
 	public UnityEvent onStartType;
+
+	[Tooltip("This event is called every frame")]
 	public UnityEvent onTyping;
 	public UnityEvent onFinishType;
 
@@ -50,6 +52,12 @@ public class TypeWriter : MonoBehaviour
 		}
 		onFinishType.Invoke();
 
+	}
+
+	[ContextMenu("Get Text Component")]
+	private void GetTextComponent()
+	{
+		textComponent = GetComponent<Text>();
 	}
 
 }

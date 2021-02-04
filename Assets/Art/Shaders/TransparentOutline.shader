@@ -10,9 +10,9 @@ Shader "Wootopia/TransparentOutline"
 		_Color("Color", Color) = (1,1,1,1)
 		_MainTex("Albedo", 2D) = "white" {}
 
-	// Outline properties
-	_Outline("Outline Width", Range(0,1)) = 0.01
-	_OutlineColor("Outline Color", Color) = (1,1,1,1)
+		// Outline properties
+		_Outline("Outline Width", Range(0,1)) = 0.01
+		_OutlineColor("Outline Color", Color) = (1,1,1,1)
 		//
 
 		_Cutoff("Alpha Cutoff", Range(0.0, 1.0)) = 0.5
@@ -48,11 +48,11 @@ Shader "Wootopia/TransparentOutline"
 		[Enum(UV0,0,UV1,1)] _UVSec("UV Set for secondary textures", Float) = 0
 
 
-			// Blending state
-			[HideInInspector] _Mode("__mode", Float) = 0.0
-			[HideInInspector] _SrcBlend("__src", Float) = 1.0
-			[HideInInspector] _DstBlend("__dst", Float) = 0.0
-			[HideInInspector] _ZWrite("__zw", Float) = 1.0
+		// Blending state
+		[HideInInspector] _Mode("__mode", Float) = 0.0
+		[HideInInspector] _SrcBlend("__src", Float) = 1.0
+		[HideInInspector] _DstBlend("__dst", Float) = 0.0
+		[HideInInspector] _ZWrite("__zw", Float) = 1.0
 
 
 	}
@@ -74,37 +74,37 @@ Shader "Wootopia/TransparentOutline"
 			Blend[_SrcBlend][_DstBlend]
 			ZWrite Off
 
-			//Stencil
-			//{
-			//	Ref 1
-			//	Comp Always
-			//}
-		CGPROGRAM
-		#pragma target 3.0
+			Stencil
+			{
+				Ref 1
+				Comp Always
+			}
+			CGPROGRAM
+			#pragma target 3.0
 
-		// -------------------------------------
+			// -------------------------------------
 
-		#pragma shader_feature_local _NORMALMAP
-		#pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
-		#pragma shader_feature _EMISSION
-		#pragma shader_feature_local _METALLICGLOSSMAP
-		#pragma shader_feature_local _DETAIL_MULX2
-		#pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-		#pragma shader_feature_local _SPECULARHIGHLIGHTS_OFF
-		#pragma shader_feature_local _GLOSSYREFLECTIONS_OFF
-		#pragma shader_feature_local _PARALLAXMAP
+			#pragma shader_feature_local _NORMALMAP
+			#pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
+			#pragma shader_feature _EMISSION
+			#pragma shader_feature_local _METALLICGLOSSMAP
+			#pragma shader_feature_local _DETAIL_MULX2
+			#pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+			#pragma shader_feature_local _SPECULARHIGHLIGHTS_OFF
+			#pragma shader_feature_local _GLOSSYREFLECTIONS_OFF
+			#pragma shader_feature_local _PARALLAXMAP
 
-		#pragma multi_compile_fwdbase
-		#pragma multi_compile_fog
-		#pragma multi_compile_instancing
-		// Uncomment the following line to enable dithering LOD crossfade. Note: there are more in the file to uncomment for other passes.
-		//#pragma multi_compile _ LOD_FADE_CROSSFADE
+			#pragma multi_compile_fwdbase
+			#pragma multi_compile_fog
+			#pragma multi_compile_instancing
+			// Uncomment the following line to enable dithering LOD crossfade. Note: there are more in the file to uncomment for other passes.
+			//#pragma multi_compile _ LOD_FADE_CROSSFADE
 
-		#pragma vertex vertBase
-		#pragma fragment fragBase
-		#include "UnityStandardCoreForward.cginc"
+			#pragma vertex vertBase
+			#pragma fragment fragBase
+			#include "UnityStandardCoreForward.cginc"
 
-		ENDCG
+			ENDCG
 		}
 
 
@@ -128,28 +128,28 @@ Shader "Wootopia/TransparentOutline"
 			CGPROGRAM
 			#pragma target 3.0
 
-		// -------------------------------------
+			// -------------------------------------
 
 
-		#pragma shader_feature_local _NORMALMAP
-		#pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
-		#pragma shader_feature_local _METALLICGLOSSMAP
-		#pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
-		#pragma shader_feature_local _SPECULARHIGHLIGHTS_OFF
-		#pragma shader_feature_local _DETAIL_MULX2
-		#pragma shader_feature_local _PARALLAXMAP
+			#pragma shader_feature_local _NORMALMAP
+			#pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
+			#pragma shader_feature_local _METALLICGLOSSMAP
+			#pragma shader_feature_local _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+			#pragma shader_feature_local _SPECULARHIGHLIGHTS_OFF
+			#pragma shader_feature_local _DETAIL_MULX2
+			#pragma shader_feature_local _PARALLAXMAP
 
-		#pragma multi_compile_fwdadd_fullshadows
-		#pragma multi_compile_fog
-		// Uncomment the following line to enable dithering LOD crossfade. Note: there are more in the file to uncomment for other passes.
-		//#pragma multi_compile _ LOD_FADE_CROSSFADE
+			#pragma multi_compile_fwdadd_fullshadows
+			#pragma multi_compile_fog
+			// Uncomment the following line to enable dithering LOD crossfade. Note: there are more in the file to uncomment for other passes.
+			//#pragma multi_compile _ LOD_FADE_CROSSFADE
 
-		#pragma vertex vertAdd
-		#pragma fragment fragAdd
-		#include "UnityStandardCoreForward.cginc"
+			#pragma vertex vertAdd
+			#pragma fragment fragAdd
+			#include "UnityStandardCoreForward.cginc"
 
-		ENDCG
-	}
+			ENDCG
+		}
 
 
 		// ------------------
@@ -161,45 +161,45 @@ Shader "Wootopia/TransparentOutline"
 				Ref 1
 				Comp NotEqual
 			}
-		//剔除正面，只渲染背面，对于大多数模型适用，不过如果需要背面的，就有问题了
-		Cull Front
-		CGPROGRAM
+			//剔除正面，只渲染背面，对于大多数模型适用，不过如果需要背面的，就有问题了
+			Cull Front
+			CGPROGRAM
 
-		//include useful shader functions 
-		#include "UnityCG.cginc"
-		#pragma vertex vert
-		#pragma fragment frag
-		float _Outline;
-		fixed4 _OutlineColor;
+			//include useful shader functions 
+			#include "UnityCG.cginc"
+			#pragma vertex vert
+			#pragma fragment frag
+			float _Outline;
+			fixed4 _OutlineColor;
 
-		//the data that's used to generate fragments and can be read by the fragment shader
-		struct v2f 
-		{
-			float4 pos : SV_POSITION;
-		};
+			//the data that's used to generate fragments and can be read by the fragment shader
+			struct v2f 
+			{
+				float4 pos : SV_POSITION;
+			};
 
-		//the vertex shader
-		v2f vert(appdata_full v) 
-		{
-			v2f o;
+			//the vertex shader
+			v2f vert(appdata_full v) 
+			{
+				v2f o;
 
-			float3 viewUp = UNITY_MATRIX_IT_MV[1].xyz;
-			float3 viewDir = UNITY_MATRIX_IT_MV[2].xyz;
-			float3 viewRight = cross(viewDir, viewUp);
-			v.vertex.xyz += normalize((1) * viewRight + (1) * viewUp) * _Outline;
-			o.pos = UnityObjectToClipPos(v.vertex);
+				float3 viewUp = UNITY_MATRIX_IT_MV[1].xyz;
+				float3 viewDir = UNITY_MATRIX_IT_MV[2].xyz;
+				float3 viewRight = cross(viewDir, viewUp);
+				v.vertex.xyz += normalize((1) * viewRight + (1) * viewUp) * _Outline;
+				o.pos = UnityObjectToClipPos(v.vertex);
 
-			return o;
+				return o;
+			}
+
+			//the fragment shader
+			fixed4 frag(v2f i) : SV_TARGET
+			{
+				return _OutlineColor;
+			}
+
+			ENDCG
 		}
-
-		//the fragment shader
-		fixed4 frag(v2f i) : SV_TARGET
-		{
-			return _OutlineColor;
-		}
-
-		ENDCG
-	}
 
 
 		// Outline Top Left
