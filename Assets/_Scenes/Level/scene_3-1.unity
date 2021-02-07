@@ -290,6 +290,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 7456604662875607780, guid: 8eff08fc7910f964ea78d5add0b8e136,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7456604662875607781, guid: 8eff08fc7910f964ea78d5add0b8e136,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1014,13 +1019,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 407497014}
-  m_LocalRotation: {x: -0, y: 0.94479454, z: -0, w: 0.3276635}
-  m_LocalPosition: {x: 3.4159, y: 0.2920003, z: -4.0852003}
+  m_LocalRotation: {x: 0.27059805, y: 0.6532815, z: -0.6532815, w: 0.27059805}
+  m_LocalPosition: {x: 0.3, y: -2.96, z: 0.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1341292417}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 135, z: 0}
 --- !u!1 &436173621
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,7 +1658,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000015258789
+      value: 145.94597
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -3720,6 +3725,7 @@ MonoBehaviour:
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
+  screenDivision: 1000
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
@@ -4400,6 +4406,7 @@ MonoBehaviour:
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
+  screenDivision: 1000
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
@@ -4738,6 +4745,7 @@ MonoBehaviour:
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
+  screenDivision: 1000
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
@@ -5088,6 +5096,7 @@ MonoBehaviour:
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
+  screenDivision: 1000
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
@@ -5787,9 +5796,10 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   canRotate: 1
   rotateAxis: 0
-  rotateOffset: {x: 0, y: 90, z: 0}
+  rotateOffset: {x: 0, y: -90, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
-  rotateAngle: 15
+  rotateAngle: 30
+  screenDivision: 1000
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
@@ -6804,6 +6814,7 @@ MonoBehaviour:
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
+  screenDivision: 1000
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
@@ -7122,6 +7133,7 @@ MonoBehaviour:
   rotateOffset: {x: 0, y: 0, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 15
+  screenDivision: 1000
   conflictJointList: []
   onEnable:
     m_PersistentCalls:

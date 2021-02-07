@@ -1,8 +1,4 @@
-﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-// Unity built-in shader source. Copyright (c) 2016 Unity Technologies. MIT license (see license.txt)
-
-Shader "Wootopia/Outline"
+﻿Shader "Wootopia/Outline"
 {
 	Properties
 	{
@@ -266,13 +262,13 @@ Shader "Wootopia/Outline"
 		// ------------------
 		// Outline Top Right
 		Pass{
+			//Show backface
+			Cull Front
 			Stencil
 			{
 				Ref 1
 				Comp NotEqual
 			}
-			//剔除正面，只渲染背面，对于大多数模型适用，不过如果需要背面的，就有问题了
-			Cull Front
 			CGPROGRAM
 
 			//include useful shader functions 
@@ -311,7 +307,7 @@ Shader "Wootopia/Outline"
 		
 		// Outline Top Left
 		Pass{
-			//剔除正面，只渲染背面，对于大多数模型适用，不过如果需要背面的，就有问题了
+			//Show backface
 			Cull Front
 			Stencil
 			{
@@ -355,13 +351,14 @@ Shader "Wootopia/Outline"
 
 		// Outline Bottom Right
 		Pass{
+			
+			//Show backface
+			Cull Front
 			Stencil
 			{
 				Ref 1
 				Comp NotEqual
 			}
-			//剔除正面，只渲染背面，对于大多数模型适用，不过如果需要背面的，就有问题了
-			Cull Front
 			CGPROGRAM
 
 			//include useful shader functions 
@@ -399,7 +396,7 @@ Shader "Wootopia/Outline"
 		
 		// Outline Bottom Left
 		Pass{
-			//剔除正面，只渲染背面，对于大多数模型适用，不过如果需要背面的，就有问题了
+			//Show backface
 			Cull Front
 			Stencil
 			{
