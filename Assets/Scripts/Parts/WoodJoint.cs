@@ -192,6 +192,37 @@ public class WoodJoint : MonoBehaviour
 		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, toleranceDomin.toleranceEularAngleEnd.y, 0) * Vector3.forward);
 		Gizmos.color = Color.blue;
 		Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, toleranceDomin.toleranceEularAngleEnd.z) * Vector3.right);
+
+#if UNITY_EDITOR
+		/*Init variables*/
+		Vector3 arcCenter = transform.position;
+		Vector3 arcNormal = Vector3.zero;
+		Vector3 arcFrom = Vector3.zero;
+		float arcAngle = 0;
+		float arcRadius = 1f;
+
+		/* x */
+		UnityEditor.Handles.color = new Color(1, 0, 0, 0.3f);
+		arcNormal = transform.right;
+		arcFrom = Quaternion.AngleAxis(toleranceDomin.toleranceEularAngleStart.x, transform.right) * transform.up;
+		arcAngle = toleranceDomin.toleranceEularAngleEnd.x - toleranceDomin.toleranceEularAngleStart.x;
+		UnityEditor.Handles.DrawSolidArc(arcCenter, arcNormal, arcFrom, arcAngle, arcRadius);
+
+		/* y */
+		UnityEditor.Handles.color = new Color(0, 1, 0, 0.3f);
+		arcNormal = transform.up;
+		arcFrom = Quaternion.AngleAxis(toleranceDomin.toleranceEularAngleStart.y, transform.up) * transform.forward;
+		arcAngle = toleranceDomin.toleranceEularAngleEnd.y - toleranceDomin.toleranceEularAngleStart.y;
+		UnityEditor.Handles.DrawSolidArc(arcCenter, arcNormal, arcFrom, arcAngle, arcRadius);
+
+		/* z */
+		UnityEditor.Handles.color = new Color(0, 0, 1, 0.3f);
+		arcNormal = transform.forward;
+		arcFrom = Quaternion.AngleAxis(toleranceDomin.toleranceEularAngleStart.z, transform.forward) * transform.right;
+		arcAngle = toleranceDomin.toleranceEularAngleEnd.z - toleranceDomin.toleranceEularAngleStart.z;
+		UnityEditor.Handles.DrawSolidArc(arcCenter, arcNormal, arcFrom, arcAngle, arcRadius);
+#endif
+
 #endregion
 	}
 
