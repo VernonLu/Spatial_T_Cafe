@@ -51,7 +51,7 @@ public class ControlManager : MonoBehaviour
 	public Item currentItem;
 
 	public CtrlMode currentCtrlMode = CtrlMode.None;
-
+	
 	void Start()
 	{
 		HideControlHint();
@@ -61,7 +61,6 @@ public class ControlManager : MonoBehaviour
 	{
 		if (controller && controller.currentCtrlMode == CtrlMode.Move) UpdateMoveHintPos();
 	}
-
 	public void SetCurrentItem(Item item)
 	{
 		//
@@ -139,19 +138,9 @@ public class ControlManager : MonoBehaviour
 			// objectControlPanel.SetActive(false);
 			objectControlPanel.SetActive(true);
 			worldControlPanel.SetActive(false);
-			HideControlHint();
-			break;
-		}
-	}
-	public void ToggleCtrlPanelVisibility(bool visible)
-	{
-		if (visible)
-		{
+			//HideControlHint();
 			ShowControlHint();
-		}
-		else
-		{
-			HideControlHint();
+			break;
 		}
 	}
 
