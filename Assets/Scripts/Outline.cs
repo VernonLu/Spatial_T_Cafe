@@ -38,7 +38,7 @@ namespace Wootopia
 
 			foreach (var mat in materials)
 			{
-				if (mat.shader != shader)
+				if (mat.shader != Shader.Find("Wootopia/Outline") && mat.shader != Shader.Find("Wootopia/TransparentOutline"))
 				{
 					Debug.LogWarning(gameObject.name + " is assigned with wrong material!");
 

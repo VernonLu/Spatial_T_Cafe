@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using Wootopia;
@@ -54,6 +55,8 @@ public class SubPartRotate : MonoBehaviour
 	[Header("DEPENDENCY")]
 	public List<WoodJoint> conflictJointList = new List<WoodJoint>();
 
+	private List<Outline> outlines = new List<Outline>();
+
 	private int currentUnit;
 	[Header("EVENTS")]
 	public UnityEvent onEnable;
@@ -67,6 +70,13 @@ public class SubPartRotate : MonoBehaviour
 	private void OnEnable()
 	{
 		onEnable.Invoke();
+
+		// Show outline when sub part is enabled
+		outlines = GetComponentsInChildren<Outline>().ToList();
+		foreach (var outline in outlines)
+		{
+			outline.SetVisibility(!IsDone);
+		}
 	}
 	void Start()
 	{
@@ -235,6 +245,11 @@ public class SubPartRotate : MonoBehaviour
 
 		ControlManager.Instance.SetCurrentItem(null);
 		CameraManager.Instance.SetRotateCamera(true);
+		// Hide outlines when sub part is done
+		foreach (var outline in outlines)
+		{
+			outline.SetVisibility(false);
+		}
 		onFinish.Invoke();
 	}
 

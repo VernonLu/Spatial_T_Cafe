@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 6916353220429361997}
   - component: {fileID: 4078481429851921231}
   - component: {fileID: 8122110855985923530}
+  - component: {fileID: 6088503266835587755}
   m_Layer: 0
   m_Name: 3-2_C2
   m_TagString: Untagged
@@ -376,13 +377,36 @@ MonoBehaviour:
   ID: 
   isAssembled: 0
   isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: -0.816, y: 0.104, z: -0.229}
+  defaultRot: {x: 90, y: 90, z: 0}
   tenonList:
   - {fileID: 7734060677853248535}
   itemSlot: {fileID: 0}
   isCurrentItem: 0
   outlines: []
+--- !u!114 &6088503266835587755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7734060677486421764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5382f9219b02647970a12c1fc910e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveMethod: 0
+  lockedControlMode: 0
+  currentCtrlMode: 0
+  rotateAngle: 15
+  currentHintRing: {fileID: 0}
+  fingerFilter:
+    Filter: 0
+    IgnoreStartedOverGui: 0
+    RequiredFingerCount: 0
+    RequiredMouseButtons: 0
+    RequiredSelectable: {fileID: 0}
 --- !u!1 &7734060677853248537
 GameObject:
   m_ObjectHideFlags: 0

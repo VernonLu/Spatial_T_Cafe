@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 8755734839441562182}
   - component: {fileID: 3402322053987415716}
   - component: {fileID: 5943025502221127959}
+  - component: {fileID: 6319991881755071861}
   m_Layer: 0
   m_Name: 3-2_C4
   m_TagString: Untagged
@@ -234,12 +235,36 @@ MonoBehaviour:
   ID: 
   isAssembled: 0
   isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
-  tenonList: []
+  defaultPos: {x: 0.06, y: 0.39, z: -2.73}
+  defaultRot: {x: 270, y: 270, z: 0}
+  tenonList:
+  - {fileID: 4308840263805238598}
   itemSlot: {fileID: 0}
   isCurrentItem: 0
   outlines: []
+--- !u!114 &6319991881755071861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5524805388262287326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5382f9219b02647970a12c1fc910e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveMethod: 0
+  lockedControlMode: 0
+  currentCtrlMode: 0
+  rotateAngle: 15
+  currentHintRing: {fileID: 0}
+  fingerFilter:
+    Filter: 0
+    IgnoreStartedOverGui: 0
+    RequiredFingerCount: 0
+    RequiredMouseButtons: 0
+    RequiredSelectable: {fileID: 0}
 --- !u!1 &5524805389058884284
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,8 +553,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8833464704787844152}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.45, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4542987320754369803}
   - {fileID: 5617848915405222691}
