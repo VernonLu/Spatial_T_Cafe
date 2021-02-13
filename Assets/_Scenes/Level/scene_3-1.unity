@@ -449,8 +449,8 @@ MonoBehaviour:
   ID: Straight Joint/- 3
   targetID: Straight Joint/+ 3
   toleranceDomin:
-    tolerancePositionStart: {x: -1, y: -1, z: -1.5}
-    tolerancePositionEnd: {x: 1, y: 3, z: 1.5}
+    tolerancePositionStart: {x: -2, y: -2, z: -3}
+    tolerancePositionEnd: {x: 2, y: 6, z: 3}
     toleranceEularAngleStart: {x: 0, y: 0, z: 0}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
   targetTenon: {fileID: 0}
@@ -1025,7 +1025,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 407497014}
   m_LocalRotation: {x: 0.27059805, y: 0.6532815, z: -0.6532815, w: 0.27059805}
-  m_LocalPosition: {x: 0.3, y: -2.96, z: 0.24}
+  m_LocalPosition: {x: 0.5, y: -2.96, z: 0.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1341292417}
@@ -1078,8 +1078,8 @@ MonoBehaviour:
   ID: Straight Joint/- 1
   targetID: Straight Joint/+ 1
   toleranceDomin:
-    tolerancePositionStart: {x: -3, y: -3, z: -3}
-    tolerancePositionEnd: {x: 3, y: 3, z: 3}
+    tolerancePositionStart: {x: -3, y: -6, z: -3}
+    tolerancePositionEnd: {x: 3, y: 6, z: 3}
     toleranceEularAngleStart: {x: 0, y: 0, z: 0}
     toleranceEularAngleEnd: {x: 5, y: 5, z: 5}
   targetTenon: {fileID: 0}
@@ -3552,20 +3552,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3281642563087232919, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3281642563284289642, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3281642563284289642, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3281642563284289642, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3281642563465647728, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
@@ -3591,17 +3596,27 @@ PrefabInstance:
     - target: {fileID: 3281642564185445122, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3281642564185445122, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3281642564185445122, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096384236559880433, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096384236559880433, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 7533393277372496509, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
@@ -5206,7 +5221,7 @@ Transform:
   m_GameObject: {fileID: 7274818093786178476}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7711967995397586046}
   m_RootOrder: 0
@@ -5810,7 +5825,7 @@ MonoBehaviour:
   rotateOffset: {x: 0, y: -90, z: 0}
   localAngle: {x: 0, y: 0, z: 0}
   rotateAngle: 30
-  screenDivision: 1000
+  screenDivision: 2000
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
@@ -6765,7 +6780,7 @@ Transform:
   m_GameObject: {fileID: 4803230922502525756}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.422, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 3689155444739916350}
   - {fileID: 6179051754543979827}

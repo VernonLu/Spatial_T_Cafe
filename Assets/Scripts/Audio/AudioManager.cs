@@ -140,4 +140,9 @@ public class AudioManager : MonoBehaviour
     float val = (9999f / 60000f) * volume + 0.0001f;
     sfxBus.setVolume(Mathf.Log10(val) * 20);
   }
+
+  void OnDestroy()
+  {
+    StopMainLoops();
+  }
 }
