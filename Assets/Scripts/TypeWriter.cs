@@ -22,22 +22,29 @@ public class TypeWriter : MonoBehaviour
 	{
 		Init();
 	}
-
-	private void OnEnable()
-	{
-		// StartType();
-	}
-
+	
 	public void Init()
 	{
-		content = textComponent.text;
-		textComponent.text = "";
+		SetText(textComponent.text);
+		ClearContent();
+	}
+
+	public void SetText(string text)
+	{
+		content = text;
 	}
 
 	public void StartType()
 	{
+		ClearContent();
 		StartCoroutine("ShowText");
 	}
+
+	public void ClearContent()
+	{
+		textComponent.text = "";
+	}
+
 
 	private IEnumerator ShowText()
 	{
@@ -46,13 +53,11 @@ public class TypeWriter : MonoBehaviour
 		WaitForSeconds interval = new WaitForSeconds(charInterval);
 		for (int i = 0; i < content.Length; ++i)
 		{
-
 			onTyping.Invoke();
 			textComponent.text += content[i];
 			yield return interval;
 		}
 		onFinishType.Invoke();
-
 	}
 
 	[ContextMenu("Get Text Component")]

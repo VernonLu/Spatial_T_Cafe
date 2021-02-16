@@ -36,10 +36,11 @@ public class Level : MonoBehaviour
 	public List<Level> preLevels = new List<Level>();
 	public GameObject packagingBox;
 	public GameObject finishedObject;
-
+	public new Collider collider;
 	private List<Outline> outlines;
 
-	void Start() { }
+	void Start() {
+	}
 
 	/// <summary>
 	/// Load saved data from PlayerPrefs
@@ -75,7 +76,7 @@ public class Level : MonoBehaviour
 
 		finishedObject.SetActive(IsFinished && !IsLocked);
 
-		GetComponent<Collider>().enabled = !IsLocked && !IsFinished;
+		collider.enabled = !IsLocked && !IsFinished;
 
 	}
 
@@ -95,7 +96,7 @@ public class Level : MonoBehaviour
 	{
 		// Debug.Log(gameObject.name + " Package " + visible);
 		packagingBox.SetActive(visible);
-		GetComponent<Collider>().enabled = visible;
+		collider.enabled = visible;
 	}
 
 	public void ToggleCurrentStage(bool isCurrentStage)

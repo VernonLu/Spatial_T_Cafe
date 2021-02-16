@@ -8,23 +8,6 @@ using Wootopia;
 
 public class DraftImageManager : MonoBehaviour
 {
-	private static DraftImageManager instance;
-	public static DraftImageManager Instance
-	{
-		get { return instance; }
-	}
-	private void Awake()
-	{
-		if (instance != null && instance != this)
-		{
-			Destroy(this.gameObject);
-		}
-		else
-		{
-			instance = this;
-		}
-	}
-
 	public Image draftImage;
 
 	[SerializeField]
