@@ -28,6 +28,8 @@ public class LevelManager : MonoBehaviour
 	public UnityEvent onFinished;
 
 	public WoCanvasGroup endGamePanel;
+
+	private AsyncOperation loadMenu;
 	void Start()
 	{
 		endGamePanel.Hide();
@@ -37,11 +39,14 @@ public class LevelManager : MonoBehaviour
 	public void ShowEndGame()
 	{
 		endGamePanel.Show();
+		loadMenu = SceneManager.LoadSceneAsync("Level Selection");
+		loadMenu.allowSceneActivation = false;
 	}
 
 	public void Back2Menu()
 	{
-		SceneManager.LoadScene("Level Selection");
+		loadMenu.allowSceneActivation = true;
+		// SceneManager.LoadScene("Level Selection");
 	}
 
 	/// <summary>
@@ -53,13 +58,4 @@ public class LevelManager : MonoBehaviour
 		PlayerPrefs.SetInt(scene.name, 1);
 	}
 
-	public void TestFunc(int value)
-	{
-		Debug.Log(value);
-	}
-
-	public void Flip(GameObject go)
-	{
-		go.transform.rotation = Quaternion.Euler(0, 180, 0);
-	}
 }

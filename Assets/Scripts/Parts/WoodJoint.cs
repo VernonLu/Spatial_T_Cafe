@@ -34,9 +34,9 @@ public class WoodJoint : MonoBehaviour
 	[SerializeField]
 	protected bool isActive = false;
 	[SerializeField]
-	private bool showPositionDebugInfo;
+	private bool showPositionDebugInfo = false;
 	[SerializeField]
-	private bool showAngleDebugInfo;
+	private bool showAngleDebugInfo = false;
 
 	void Start() { }
 
