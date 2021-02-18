@@ -3909,8 +3909,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7230950892839008573}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.74, z: 0.59}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children:
   - {fileID: 7230950893050856483}
   - {fileID: 7230950893625652569}
@@ -11636,6 +11636,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7230950893771572779}
   - component: {fileID: 1714044562612513775}
+  - component: {fileID: 3288477954605529055}
   m_Layer: 0
   m_Name: 3-3_M2
   m_TagString: Untagged
@@ -11675,13 +11676,36 @@ MonoBehaviour:
   ID: 
   isAssembled: 0
   isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 0, y: 7.01, z: 0}
+  defaultRot: {x: -0, y: 0, z: 0}
   tenonList:
   - {fileID: 4397198796305263801}
   itemSlot: {fileID: 0}
   isCurrentItem: 0
   outlines: []
+--- !u!114 &3288477954605529055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7230950893771572776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5382f9219b02647970a12c1fc910e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveMethod: 0
+  lockedControlMode: 0
+  currentCtrlMode: 0
+  rotateAngle: 30
+  currentHintRing: {fileID: 0}
+  fingerFilter:
+    Filter: 0
+    IgnoreStartedOverGui: 0
+    RequiredFingerCount: 0
+    RequiredMouseButtons: 0
+    RequiredSelectable: {fileID: 0}
 --- !u!1 &7230950893788058736
 GameObject:
   m_ObjectHideFlags: 0

@@ -178,7 +178,7 @@ PlayerSettings:
     iPhone: com.WootopiaStudio.WoodJoints
   buildNumber: {}
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 21
+  AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -251,7 +251,7 @@ PlayerSettings:
   clonedFromGUID: c0afd0d1d80e3634a9dac47e8a0426ea
   templatePackageId: com.unity.template.3d@4.2.8
   templateDefaultScene: Assets/Scenes/SampleScene.unity
-  AndroidTargetArchitectures: 3
+  AndroidTargetArchitectures: 1
   AndroidSplashScreenScale: 1
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: '{dedicated}: Desktop/uploadkeystore.keystore'
@@ -679,18 +679,19 @@ PlayerSettings:
   platformArchitecture:
     iPhone: 1
   scriptingBackend:
-    Android: 1
+    Android: 0
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}
   allowUnsafeCode: 0
-  additionalIl2CppArgs: --additional-cpp="C:/Users/lht13/Desktop/Spatial T Cafe/Assets/../Temp/fmod_register_static_plugins.cpp"
-    --additional-cpp="C:/Users/lht13/Desktop/Spatial T Cafe/Assets/Plugins/FMOD/src/Runtime/fmod_static_plugin_support.h"
+  additionalIl2CppArgs: "--additional-cpp=\"C:/Users/ycai53/Documents/Visual Studio
+    2019/Spatial T Caf\xE9/Assets/../Temp/fmod_register_static_plugins.cpp\" --additional-cpp=\"C:/Users/ycai53/Documents/Visual
+    Studio 2019/Spatial T Caf\xE9/Assets/Plugins/FMOD/src/Runtime/fmod_static_plugin_support.h\""
   scriptingRuntimeVersion: 1
   gcIncremental: 0
   gcWBarrierValidation: 0
   apiCompatibilityLevelPerPlatform:
-    Android: 3
+    Android: 6
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: Template_3D

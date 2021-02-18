@@ -233,7 +233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1022232060389151870
 Transform:
   m_ObjectHideFlags: 0
@@ -868,6 +868,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1022232061243259921}
   - component: {fileID: 1022232061243259922}
+  - component: {fileID: 1395643601529420107}
   m_Layer: 0
   m_Name: 3-3_M4
   m_TagString: Untagged
@@ -907,13 +908,36 @@ MonoBehaviour:
   ID: 
   isAssembled: 0
   isOnScreen: 0
-  defaultPos: {x: 0, y: 0, z: 0}
-  defaultRot: {x: 0, y: 0, z: 0}
+  defaultPos: {x: -0.05, y: 16.52, z: -1.83}
+  defaultRot: {x: -0, y: 0, z: 0}
   tenonList:
   - {fileID: 6524111673226698028}
   itemSlot: {fileID: 0}
   isCurrentItem: 0
   outlines: []
+--- !u!114 &1395643601529420107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022232061243259920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5382f9219b02647970a12c1fc910e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveMethod: 0
+  lockedControlMode: 0
+  currentCtrlMode: 0
+  rotateAngle: 30
+  currentHintRing: {fileID: 0}
+  fingerFilter:
+    Filter: 0
+    IgnoreStartedOverGui: 0
+    RequiredFingerCount: 0
+    RequiredMouseButtons: 0
+    RequiredSelectable: {fileID: 0}
 --- !u!1 &1022232061312776140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,8 +1283,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022232061490708812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.97, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 1022232061912643577}
   - {fileID: 1022232060389151870}
@@ -1653,7 +1677,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1022232061912643577
 Transform:
   m_ObjectHideFlags: 0
