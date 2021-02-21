@@ -22,6 +22,10 @@ public class LevelSelectionManager : MonoBehaviour
 		{
 			levelSelectionCamera.SetTargetStage(StageManager.Instance.GetStageByIndex(1));
 		}
+		else
+		{
+			GameObject.Find("Story Canvas").SetActive(false);
+		}
 	}
 
 	public void ShowPopUp()
