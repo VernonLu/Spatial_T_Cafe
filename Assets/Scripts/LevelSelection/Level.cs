@@ -74,7 +74,8 @@ public class Level : MonoBehaviour
 
 		ToggleOutline(!IsLocked && !isFinished);
 
-		finishedObject.SetActive(IsFinished && !IsLocked);
+		// finishedObject.SetActive(IsFinished && !IsLocked);
+		finishedObject.transform.localScale = IsFinished && !IsLocked ? Vector3.one : Vector3.zero;
 
 		collider.enabled = !IsLocked && !IsFinished;
 
@@ -95,7 +96,8 @@ public class Level : MonoBehaviour
 	private void TogglePackageVisibility(bool visible)
 	{
 		// Debug.Log(gameObject.name + " Package " + visible);
-		packagingBox.SetActive(visible);
+		// packagingBox.SetActive(visible);
+		packagingBox.transform.localScale = visible ?  Vector3.one : Vector3.zero;
 		collider.enabled = visible;
 	}
 

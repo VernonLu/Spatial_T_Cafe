@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Linq;
 namespace Wootopia
 {
 
@@ -27,7 +27,7 @@ namespace Wootopia
 			if (imagePlayer)
 			{
 				// Debug.Log(scaler);
-				if (Mathf.RoundToInt(scaler) == 1)
+				if (Mathf.FloorToInt(scaler) == 1)
 				{
 					imagePlayer.Play();
 				}
@@ -36,7 +36,6 @@ namespace Wootopia
 					imagePlayer.Stop();
 				}
 			}
-			
 
 			// Change Text alpha
 			foreach (var textContainer in textContainerList)
@@ -47,11 +46,10 @@ namespace Wootopia
 			}
 		}
 
-
 		[ContextMenu("Get RectTransform")]
 		private void GetRectTransform()
 		{
-			rect = GetComponent<RectTransform>(); 
+			rect = GetComponent<RectTransform>();
 		}
 
 		[ContextMenu("Get Text")]

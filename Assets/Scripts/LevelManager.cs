@@ -45,8 +45,14 @@ public class LevelManager : MonoBehaviour
 
 	public void Back2Menu()
 	{
-		loadMenu.allowSceneActivation = true;
-		// SceneManager.LoadScene("Level Selection");
+		if (loadMenu != null)
+		{
+			loadMenu.allowSceneActivation = true;
+		}
+		else
+		{
+			SceneManager.LoadScene("Level Selection");
+		}
 	}
 
 	/// <summary>
