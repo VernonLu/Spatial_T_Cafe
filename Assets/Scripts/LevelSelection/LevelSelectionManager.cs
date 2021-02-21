@@ -13,10 +13,15 @@ public class LevelSelectionManager : MonoBehaviour
 	{
 		canvasGroup.Hide();
 		StageManager.Instance.ManualInit();
-		int stageIndex = PlayerPrefs.GetInt("CurStage", 1);
+		int stageIndex = PlayerPrefs.GetInt("CurStage", 0);
+		
 		Stage stage = StageManager.Instance.GetStageByIndex(stageIndex);
 		levelSelectionCamera.transform.position = stage.transform.position;
 		levelSelectionCamera.SetCurrentStage(stage);
+		if (stageIndex == 0)
+		{
+			levelSelectionCamera.SetTargetStage(StageManager.Instance.GetStageByIndex(1));
+		}
 	}
 
 	public void ShowPopUp()
