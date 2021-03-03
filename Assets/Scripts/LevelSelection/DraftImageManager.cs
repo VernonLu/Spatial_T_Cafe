@@ -8,7 +8,6 @@ using Wootopia;
 
 public class DraftImageManager : MonoBehaviour
 {
-	public Image draftImage;
 
 	[SerializeField]
 	private string sceneName;
@@ -25,10 +24,6 @@ public class DraftImageManager : MonoBehaviour
 		HideImage();
 	}
 
-	public void SetImage(Sprite sprite)
-	{
-		draftImage.sprite = sprite;
-	}
 	public void SetSceneName(string sceneName)
 	{
 		this.sceneName = sceneName;
@@ -38,13 +33,17 @@ public class DraftImageManager : MonoBehaviour
 	{
 		canvasGroup?.Show();
 		onShow.Invoke();
-		animator.SetTrigger("Open");
-		StartCoroutine("LetterOpened");
+		if (animator)
+		{
+			animator.SetTrigger("Open");
+			//StartCoroutine("LetterOpened");
+			Invoke("LetterOpened", animTime);
+		}
 	}
 
-	private IEnumerator LetterOpened()
+	private void LetterOpened()
 	{
-		yield return new WaitForSeconds(animTime);
+		// yield return new WaitForSeconds(animTime);
 		onLetterOpened.Invoke();
 	}
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.3
   m_CustomReflection: {fileID: 8900000, guid: 4372435a2993d5f4da7648c2720b91ae, type: 3}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.052569512, g: 0.021386726, b: 0.02051697, a: 0.3}
+  m_IndirectSpecularColor: {r: 0.052569505, g: 0.021386728, b: 0.020516973, a: 0.3}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -52,7 +52,7 @@ LightmapSettings:
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 1
-    m_EnableRealtimeLightmaps: 0
+    m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 12
     m_Resolution: 2
@@ -284,6 +284,11 @@ PrefabInstance:
         type: 3}
       propertyPath: defaultZoom
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4523794467598006962, guid: 8eff08fc7910f964ea78d5add0b8e136,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 7456604662875607780, guid: 8eff08fc7910f964ea78d5add0b8e136,
         type: 3}
@@ -942,8 +947,18 @@ PrefabInstance:
     - target: {fileID: 3320432314735957751, guid: 0f0218e4f27bcf74399095f636e6d423,
         type: 3}
       propertyPath: id
-      value: music_stage2
+      value: music_stage3
       objectReference: {fileID: 0}
+    - target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: sliderBGM
+      value: 
+      objectReference: {fileID: 2026227447}
+    - target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+        type: 3}
+      propertyPath: sliderSFX
+      value: 
+      objectReference: {fileID: 2026227446}
     - target: {fileID: 7244241202015587397, guid: 0f0218e4f27bcf74399095f636e6d423,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1600,6 +1615,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2026227445}
     m_Modifications:
+    - target: {fileID: 3737167346686000788, guid: e132322d92a8263448b607230d605de5,
+        type: 3}
+      propertyPath: m_Text
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5744276370538775780, guid: e132322d92a8263448b607230d605de5,
+        type: 3}
+      propertyPath: m_Text
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878579315317765642, guid: e132322d92a8263448b607230d605de5,
+        type: 3}
+      propertyPath: m_Text
+      value: Part 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554227565166706136, guid: e132322d92a8263448b607230d605de5,
+        type: 3}
+      propertyPath: m_Group
+      value: 
+      objectReference: {fileID: 2026227448}
     - target: {fileID: 8666254427932634326, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1663,7 +1698,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00009870529
+      value: 120.00009
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -2796,7 +2831,7 @@ PrefabInstance:
     - target: {fileID: 3005820446104056730, guid: 98adfdd1cc8db5f4f8137151e38a3812,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3005820446104056730, guid: 98adfdd1cc8db5f4f8137151e38a3812,
         type: 3}
@@ -2806,7 +2841,7 @@ PrefabInstance:
     - target: {fileID: 3005820446104056730, guid: 98adfdd1cc8db5f4f8137151e38a3812,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3005820446104056730, guid: 98adfdd1cc8db5f4f8137151e38a3812,
         type: 3}
@@ -2821,12 +2856,57 @@ PrefabInstance:
     - target: {fileID: 3005820446104056730, guid: 98adfdd1cc8db5f4f8137151e38a3812,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 3005820446104056730, guid: 98adfdd1cc8db5f4f8137151e38a3812,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005820446599311536, guid: 98adfdd1cc8db5f4f8137151e38a3812,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005820446599311538, guid: 98adfdd1cc8db5f4f8137151e38a3812,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005820446599311538, guid: 98adfdd1cc8db5f4f8137151e38a3812,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 6.73e-43
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005820446599311538, guid: 98adfdd1cc8db5f4f8137151e38a3812,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 7.1e-44
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005820446599311538, guid: 98adfdd1cc8db5f4f8137151e38a3812,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: -2.3434963
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005820446635601540, guid: 98adfdd1cc8db5f4f8137151e38a3812,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 2.5565e-41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005820446635601540, guid: 98adfdd1cc8db5f4f8137151e38a3812,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: -3.15625
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098828426398601020, guid: 98adfdd1cc8db5f4f8137151e38a3812,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8089976045994738696, guid: 98adfdd1cc8db5f4f8137151e38a3812,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98adfdd1cc8db5f4f8137151e38a3812, type: 3}
@@ -3411,6 +3491,11 @@ PrefabInstance:
       propertyPath: sceneName
       value: scene_3-2
       objectReference: {fileID: 0}
+    - target: {fileID: 305683475572921110, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
+        type: 3}
+      propertyPath: m_Text
+      value: Walnut
+      objectReference: {fileID: 0}
     - target: {fileID: 337859052135675031, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -3435,6 +3520,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930793167887295636, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
+        type: 3}
+      propertyPath: m_Text
+      value: Table Lamp
       objectReference: {fileID: 0}
     - target: {fileID: 2955130668052860510, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
@@ -3669,6 +3759,21 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4111355194467130859, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613892164069473817, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613892164069473817, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 700
+      objectReference: {fileID: 0}
     - target: {fileID: 5129626917889691759, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -3702,7 +3807,17 @@ PrefabInstance:
     - target: {fileID: 7096384236559880433, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 700
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096384236559880433, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096384236559880433, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 7533393277372496509, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
@@ -3713,7 +3828,24 @@ PrefabInstance:
     - target: {fileID: 8004105181051978188, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
       propertyPath: m_Text
-      value: (The story is to be continuted. Stay tuned!)
+      value: 'Dear Dad,
+
+
+        Like what you said, the process of solving burr puzzles still makes me feel
+        satisfied. The burr puzzle and table lamp... I can''t find a good word to
+        express the feeling but they are amazing! When the last piece of wood was
+        screwed to the locked position, I felt my life is completed!
+
+
+
+        As always proudly,
+
+        Daughter'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8004105181051978188, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 9105332160134704660, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
@@ -3748,6 +3880,42 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2026227444}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2026227446 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3281642564219904922, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
+    type: 3}
+  m_PrefabInstance: {fileID: 2026227444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2026227447 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3281642563785876477, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
+    type: 3}
+  m_PrefabInstance: {fileID: 2026227444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2026227448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3281642562652284413, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
+    type: 3}
+  m_PrefabInstance: {fileID: 2026227444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &3220185975536573
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3871,10 +4039,18 @@ MonoBehaviour:
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls: [{m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+            type: 3}, m_MethodName: PlayOneShot2D, m_Mode: 5, m_Arguments: {m_ObjectArgument: {
+              fileID: 0}, m_ObjectArgumentAssemblyTypeName: 'UnityEngine.Object, UnityEngine',
+            m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: sfx_focus, m_BoolArgument: 0},
+          m_CallState: 2}]
   onFinish:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls: [{m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+            type: 3}, m_MethodName: PlayOneShot2D, m_Mode: 5, m_Arguments: {m_ObjectArgument: {
+              fileID: 0}, m_ObjectArgumentAssemblyTypeName: 'UnityEngine.Object, UnityEngine',
+            m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: sfx_wood_click,
+            m_BoolArgument: 0}, m_CallState: 2}]
   onMovePress:
     m_PersistentCalls:
       m_Calls: []
@@ -4522,6 +4698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1656815453263708764}
   - component: {fileID: 1656815453263708766}
+  - component: {fileID: 1656815453263708767}
   m_Layer: 0
   m_Name: Sub 3-1_M4
   m_TagString: Untagged
@@ -4552,16 +4729,32 @@ MonoBehaviour:
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls: [{m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+            type: 3}, m_MethodName: PlayOneShot2D, m_Mode: 5, m_Arguments: {m_ObjectArgument: {
+              fileID: 0}, m_ObjectArgumentAssemblyTypeName: 'UnityEngine.Object, UnityEngine',
+            m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: sfx_focus, m_BoolArgument: 0},
+          m_CallState: 2}]
   onFinish:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls: [{m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+            type: 3}, m_MethodName: StopLoop, m_Mode: 2, m_Arguments: {m_ObjectArgument: {
+              fileID: 1656815453263708767}, m_ObjectArgumentAssemblyTypeName: 'AudioEmitter,
+              Assembly-CSharp', m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: sfx_wood_click,
+            m_BoolArgument: 0}, m_CallState: 2}]
   onMovePress:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls: [{m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+            type: 3}, m_MethodName: PlaySound, m_Mode: 2, m_Arguments: {m_ObjectArgument: {
+              fileID: 1656815453263708767}, m_ObjectArgumentAssemblyTypeName: 'AudioEmitter,
+              Assembly-CSharp', m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: '',
+            m_BoolArgument: 0}, m_CallState: 2}]
   onMoveRelease:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls: [{m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+            type: 3}, m_MethodName: StopLoop, m_Mode: 2, m_Arguments: {m_ObjectArgument: {
+              fileID: 1656815453263708767}, m_ObjectArgumentAssemblyTypeName: 'AudioEmitter,
+              Assembly-CSharp', m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: '',
+            m_BoolArgument: 0}, m_CallState: 2}]
   onRotatePress:
     m_PersistentCalls:
       m_Calls: []
@@ -4571,6 +4764,19 @@ MonoBehaviour:
   onAngleChange:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1656815453263708767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656815453263708765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e199cb1038330f5428ddef007045e055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: sfx_wood_friction
 --- !u!65 &1779044122383312540
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4891,10 +5097,18 @@ MonoBehaviour:
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls: [{m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+            type: 3}, m_MethodName: PlayOneShot2D, m_Mode: 5, m_Arguments: {m_ObjectArgument: {
+              fileID: 0}, m_ObjectArgumentAssemblyTypeName: 'UnityEngine.Object, UnityEngine',
+            m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: sfx_focus, m_BoolArgument: 0},
+          m_CallState: 2}]
   onFinish:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls: [{m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+            type: 3}, m_MethodName: PlayOneShot2D, m_Mode: 5, m_Arguments: {m_ObjectArgument: {
+              fileID: 0}, m_ObjectArgumentAssemblyTypeName: 'UnityEngine.Object, UnityEngine',
+            m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: sfx_wood_click,
+            m_BoolArgument: 0}, m_CallState: 2}]
   onMovePress:
     m_PersistentCalls:
       m_Calls: []
@@ -5242,7 +5456,11 @@ MonoBehaviour:
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls: [{m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+            type: 3}, m_MethodName: PlayOneShot2D, m_Mode: 5, m_Arguments: {m_ObjectArgument: {
+              fileID: 0}, m_ObjectArgumentAssemblyTypeName: 'UnityEngine.Object, UnityEngine',
+            m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: sfx_focus, m_BoolArgument: 0},
+          m_CallState: 2}]
   onFinish:
     m_PersistentCalls:
       m_Calls:
@@ -5255,6 +5473,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
           m_BoolArgument: 0
         m_CallState: 2
   onMovePress:
@@ -5957,6 +6187,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
       m_Calls:
@@ -5969,6 +6211,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_wood_click
           m_BoolArgument: 0
         m_CallState: 2
   onMovePress:
@@ -6960,10 +7214,18 @@ MonoBehaviour:
   conflictJointList: []
   onEnable:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls: [{m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+            type: 3}, m_MethodName: PlayOneShot2D, m_Mode: 5, m_Arguments: {m_ObjectArgument: {
+              fileID: 0}, m_ObjectArgumentAssemblyTypeName: 'UnityEngine.Object, UnityEngine',
+            m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: sfx_focus, m_BoolArgument: 0},
+          m_CallState: 2}]
   onFinish:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls: [{m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+            type: 3}, m_MethodName: PlayOneShot2D, m_Mode: 5, m_Arguments: {m_ObjectArgument: {
+              fileID: 0}, m_ObjectArgumentAssemblyTypeName: 'UnityEngine.Object, UnityEngine',
+            m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: sfx_wood_click,
+            m_BoolArgument: 0}, m_CallState: 2}]
   onMovePress:
     m_PersistentCalls:
       m_Calls: []
@@ -7291,9 +7553,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: PlayOneShot2D
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sfx_focus
+          m_BoolArgument: 0
+        m_CallState: 2
   onFinish:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls: [{m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+            type: 3}, m_MethodName: PlayOneShot2D, m_Mode: 5, m_Arguments: {m_ObjectArgument: {
+              fileID: 0}, m_ObjectArgumentAssemblyTypeName: 'UnityEngine.Object, UnityEngine',
+            m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: sfx_wood_click,
+            m_BoolArgument: 0}, m_CallState: 2}]
   onMovePress:
     m_PersistentCalls:
       m_Calls: []

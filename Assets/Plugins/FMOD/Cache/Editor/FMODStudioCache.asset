@@ -418,12 +418,13 @@ MonoBehaviour:
   - {fileID: -6974628907777694617}
   - {fileID: -4825871312141125789}
   - {fileID: 4442789382641688259}
+  - {fileID: 1469419318510905527}
   EditorParameters: []
   MasterBanks:
   - {fileID: -6517007641907976487}
   StringsBanks:
   - {fileID: 4804025972365156757}
-  stringsBankWriteTime: 637485994829635643
+  stringsBankWriteTime: 637501273866185770
   cacheVersion: 6
 --- !u!114 &347529531040927879
 MonoBehaviour:
@@ -462,6 +463,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/UI/sfx_place
   guid: 6ad7705b1e74a94094629a586f699c67
+  Banks:
+  - {fileID: 3170966494443057660}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &1469419318510905527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/sfx_museum_switch
+  m_EditorClassIdentifier: 
+  Path: event:/UI/sfx_museum_switch
+  guid: d6ebd209c6ff62499c57dc99474ec17f
   Banks:
   - {fileID: 3170966494443057660}
   IsStream: 0
@@ -601,7 +625,7 @@ MonoBehaviour:
   Path: Assets/FMOD/WoodJoints/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 637485994831765817
+  lastModified: 637501273866504840
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -710,11 +734,11 @@ MonoBehaviour:
   Path: Assets/FMOD/WoodJoints/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637485994829635643
+  lastModified: 637501273866185770
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1868
+    Value: 1912
   Exists: 1
 --- !u!114 &5160651027568548038
 MonoBehaviour:

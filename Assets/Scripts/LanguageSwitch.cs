@@ -17,26 +17,30 @@ public class LanguageSwitch : MonoBehaviour
 
 	public Text titleText;
 
-	[SerializeField]
-	private List<LanguageProfile> languages = new List<LanguageProfile>();
+	public List<LanguageProfile> languages = new List<LanguageProfile>();
 	private void Start()
 	{
 		// Load Language Selection on Start if not exist, the default is 0
 		currentIndex = PlayerPrefs.GetInt("Language", 0);
+		SetLanguageDisplay(currentIndex);
 
 	}
 
 	public void ToggleNext()
 	{
 		currentIndex = (currentIndex + 1) % languages.Count;
-		titleText.text = languages[currentIndex].Title;
-		titleText.font = languages[currentIndex].Font;
+		SetLanguageDisplay(currentIndex);
 		Save();
 	}
 
 	private void Save()
 	{
 		PlayerPrefs.SetInt("Language", currentIndex);
+	}
+	private void SetLanguageDisplay(int index)
+	{
+		titleText.text = languages[index].Title;
+		titleText.font = languages[index].Font;
 	}
 
 }

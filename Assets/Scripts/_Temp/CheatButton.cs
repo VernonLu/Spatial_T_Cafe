@@ -14,10 +14,14 @@ public class CheatButton : MonoBehaviour
 
 	public void NextStage()
 	{
+		int index = SceneManager.GetActiveScene().buildIndex;
 		count--;
 		if (count == 0)
 		{
-			SceneManager.LoadScene(sceneName);
+			if (Application.CanStreamedLevelBeLoaded(index + 1))
+			{
+				SceneManager.LoadScene(index+1);
+			}
 		}
 	}
 }

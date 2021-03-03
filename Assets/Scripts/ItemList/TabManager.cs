@@ -20,7 +20,6 @@ public class TabManager : MonoBehaviour
 
 	[Space]
 	public bool isFinished = false;
-	public Toggle finishToggle;
 
 	public Text tagText;
 	public string activeText;
@@ -34,16 +33,17 @@ public class TabManager : MonoBehaviour
 
 	public Transform baseObject;
 
-	protected Animator statusAnimator;
+	public Animator statusAnimator;
 
 	void Start()
 	{
-		statusAnimator = GetComponent<Animator>();
+		statusAnimator = statusAnimator ?? GetComponentInChildren<Animator>();
 		UpdateContentHeight();
 		Toggle(isOn);
 		tabToggle.isOn = isOn;
 		UpdateIsLocked();
-		tagText.text = deactiveText;
+		if(tagText)
+			tagText.text = deactiveText;
 	}
 	private void LateUpdate()
 	{
@@ -53,7 +53,8 @@ public class TabManager : MonoBehaviour
 	public void Toggle(bool isOn)
 	{
 		transform.SetParent(isOn ? activePanel : deactivePanel);
-		tagText.text = isOn ? activeText : deactiveText;
+		if(tagText) 
+			tagText.text = isOn ? activeText : deactiveText;
 		baseObject.gameObject.SetActive(isOn);
 		if (statusAnimator) { statusAnimator.SetBool("isActive", isOn); }
 		if (isOn)

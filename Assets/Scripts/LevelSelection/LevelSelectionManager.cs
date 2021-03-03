@@ -24,7 +24,7 @@ public class LevelSelectionManager : MonoBehaviour
 		}
 		else
 		{
-			GameObject.Find("Story Canvas").SetActive(false);
+			GameObject.Find("Story Canvas")?.SetActive(false);
 		}
 	}
 

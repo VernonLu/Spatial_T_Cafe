@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 namespace Wootopia
 {
 
@@ -11,19 +12,22 @@ namespace Wootopia
 		public RectTransform rect;
 		public List<Text> textContainerList;
 		public SequenceImagePlayer imagePlayer;
+		public UnityEvent onStartPlay;
+		public UnityEvent onStopPlay;
+		private bool hasSwitchSoundPlayed = false;
 
+		private LayoutElement layoutElement;
 		void Start()
 		{
-
+			layoutElement = GetComponent<LayoutElement>();
 		}
 
-		public void UpdateScaler(float scaler)
+		public void Init(float scaler)
 		{
-
 			float scale = MuseumManager.Instance.GetItemScaler(scaler);
 			rect.localScale = new Vector3(scale, scale, 1);
-			GetComponent<LayoutElement>().flexibleHeight = scale;
-			GetComponent<LayoutElement>().flexibleWidth = scale;
+			layoutElement.flexibleHeight = scale;
+			layoutElement.flexibleWidth = scale;
 			if (imagePlayer)
 			{
 				// Debug.Log(scaler);
@@ -34,6 +38,33 @@ namespace Wootopia
 				else
 				{
 					imagePlayer.Stop();
+				}
+			}
+		}
+		public void UpdateScaler(float scaler)
+		{
+
+			float scale = MuseumManager.Instance.GetItemScaler(scaler);
+			rect.localScale = new Vector3(scale, scale, 1);
+			layoutElement.flexibleHeight = scale;
+			layoutElement.flexibleWidth = scale;
+			if (imagePlayer)
+			{
+				// Debug.Log(scaler);
+				if (Mathf.FloorToInt(scaler) == 1)
+				{
+					imagePlayer.Play();
+					if (!hasSwitchSoundPlayed)
+					{
+						onStartPlay.Invoke();
+						hasSwitchSoundPlayed = true;
+					}
+				}
+				else
+				{
+					imagePlayer.Stop();
+					hasSwitchSoundPlayed = false;
+					onStopPlay.Invoke();
 				}
 			}
 

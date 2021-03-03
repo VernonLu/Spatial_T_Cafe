@@ -50,7 +50,7 @@ namespace Wootopia
 		{
 			exhibitList = GetComponentsInChildren<Exhibit>().ToList();
 			InitContentWidth();
-			exhibitList[0].UpdateScaler(1);
+			exhibitList[0].Init(1);
 		}
 
 		private void Update()

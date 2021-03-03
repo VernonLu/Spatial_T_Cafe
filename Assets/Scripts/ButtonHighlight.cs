@@ -5,7 +5,7 @@ using UnityEngine;
 public class ButtonHighlight : MonoBehaviour
 {
 	public CanvasGroup canvasGroup;
-
+	public float delayedTime = 0;
 	public float interival = 0.1f;
 
 	private float time;
@@ -20,7 +20,9 @@ public class ButtonHighlight : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+
 		time += Time.deltaTime;
-		canvasGroup.alpha = 1 - Mathf.Cos(2 * Mathf.PI * time / interival);
+		if (time <= delayedTime) { return; }
+		canvasGroup.alpha = 1 - Mathf.Cos(2 * Mathf.PI * (time - delayedTime) / interival);
 	}
 }
