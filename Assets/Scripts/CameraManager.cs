@@ -32,6 +32,7 @@ public class CameraManager : MonoBehaviour
 
 	public Camera mainCamera;
 
+	public OrbitCamera orbitCamera;
 	[Header("Transition Camera")]
 	public TransitionCamera transitionCamera;
 
@@ -74,4 +75,5 @@ public enum CameraType
 {
 	MainCamera,
 	TransitionCamera,
+	OrbitCamera,
 }

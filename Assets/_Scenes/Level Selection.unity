@@ -3514,6 +3514,11 @@ PrefabInstance:
       propertyPath: sceneName
       value: scene_1-1
       objectReference: {fileID: 0}
+    - target: {fileID: 144521712872546280, guid: 4a3b0cc789802a4458ede5450637717f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 144521712872546282, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
       propertyPath: m_Enabled
@@ -3522,7 +3527,7 @@ PrefabInstance:
     - target: {fileID: 144521712989118738, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
       propertyPath: m_Text
-      value: "Dear Daughter,\n\nCongratulation on the opening of your coffee shop.
+      value: "Dear Daughter,\n\nCongratulations on the opening of your coffee shop.
         Your mom and I are so proud of you.\n\nI sent you a gift. I believe you will
         like it. We\u2019re looking forward to the housewarming party. See you then.\n\nBest
         wishes as always,\nLove, \nDad"
@@ -3530,7 +3535,12 @@ PrefabInstance:
     - target: {fileID: 144521712989118738, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 40
+      value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 144521712989118738, guid: 4a3b0cc789802a4458ede5450637717f,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 144521713126485672, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
@@ -16545,7 +16555,7 @@ PrefabInstance:
     - target: {fileID: 144521712989118738, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 33
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 144521712989118738, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
@@ -17467,16 +17477,15 @@ PrefabInstance:
     - target: {fileID: 144521712989118738, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
       propertyPath: m_Text
-      value: "Dear Daughter, \n\nYour mom is currently learning how to make lattes
-        at a coffee shop near our home, saying that it was her favourite hobby after
-        her retirement. When mom and I are having breakfast she cannot stop teaching
-        what she learned, like what raw bean processing is or how to distinguish
-        between dark roast and light roast. Your brother laughs at her and my misery
-        as I'm trying to eat in peace...Tomorrow is the opening day of your coffee
-        shop and hopefully you could hide me when your mother shows off her knowledge
-        of coffee in front of you, the expert.\n\nRemember the cabinet where we put
-        tableware in our house? I remember you liking it a lot. Made of Albizia wood,
-        as it represents longing. \n\nSee you tomorrow,\nDad"
+      value: "Dear Daughter, \n\nYour mom is currently learning how to make lattes,
+        saying that it was her favourite hobby after her retirement. When mom and
+        I are having breakfast she cannot stop teaching what she learned, like what
+        raw bean processing is or how to distinguish between dark roast and light
+        roast. Your brother laughs at her and my misery as I'm trying to eat in peace...Tomorrow
+        is the opening day of your coffee shop and hopefully you could hide me when
+        your mother shows off her knowledge of coffee in front of you, the expert.\n\nRemember
+        the cabinet where we put tableware in our house? I remember you liking it
+        a lot. Made of Albizia wood, as it represents longing. \n\nSee you tomorrow,\nDad"
       objectReference: {fileID: 0}
     - target: {fileID: 144521712989118738, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
@@ -18486,7 +18495,7 @@ PrefabInstance:
     - target: {fileID: 144521712989118738, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 36
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 144521712989118738, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
@@ -21979,7 +21988,7 @@ PrefabInstance:
     - target: {fileID: 144521713126485679, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.5
+      value: 23.4
       objectReference: {fileID: 0}
     - target: {fileID: 144521713126485679, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
@@ -27300,10 +27309,18 @@ PrefabInstance:
     - target: {fileID: 144521712989118738, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
       propertyPath: m_Text
-      value: "Dear Daughter,\n\nYou should have received the table I mentioned before.
-        I saw the coffee shop decor picture that you sent to mom, so I made some
-        adjustments based on the traditional table and it should fit your coffee
-        shop. \n\nLove,\nDad"
+      value: 'Dear Daughter,
+
+
+        You should have received the table I mentioned
+        before. I saw the coffee shop decor picture that you sent to mom, so I made
+        some adjustments to the blueprints based on traditional ornate tables. It
+        should fit in your coffee shop well.
+
+
+        Love,
+
+        Dad'
       objectReference: {fileID: 0}
     - target: {fileID: 144521712989118738, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
@@ -27409,7 +27426,7 @@ PrefabInstance:
     - target: {fileID: 144521713126485679, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.390007
+      value: 12.290009
       objectReference: {fileID: 0}
     - target: {fileID: 144521713126485679, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
@@ -32633,7 +32650,12 @@ PrefabInstance:
     - target: {fileID: 144521712989118738, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
       propertyPath: m_FontData.m_MinSize
-      value: 2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 144521712989118738, guid: 4a3b0cc789802a4458ede5450637717f,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 295
       objectReference: {fileID: 0}
     - target: {fileID: 144521713126485672, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}

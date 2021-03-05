@@ -24,9 +24,7 @@ public class LevelManager : MonoBehaviour
 	}
 #endregion
 	public UnityEvent onStart;
-
-	public UnityEvent onFinished;
-
+	
 	public WoCanvasGroup endGamePanel;
 
 	private AsyncOperation loadMenu;

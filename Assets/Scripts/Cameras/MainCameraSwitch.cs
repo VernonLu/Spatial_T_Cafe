@@ -27,6 +27,7 @@ public class MainCameraSwitch : MonoBehaviour
 
 	public Camera mainCamera;
 	public Camera transitionCamera;
+	public OrbitCamera orbitCamera;
 
 	private void Start()
 	{
@@ -50,5 +51,11 @@ public class MainCameraSwitch : MonoBehaviour
 		TabListManager.Instance.HideListPanel();
 		ControlManager.Instance.HideControlHint();
 
+	}
+	public void SwitchToOrbitCam()
+	{
+		mainCamera.enabled = false;
+		transitionCamera.enabled = false;
+		orbitCamera.SetActive(true);
 	}
 }
