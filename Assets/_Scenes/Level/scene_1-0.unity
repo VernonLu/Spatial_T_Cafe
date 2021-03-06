@@ -268,7 +268,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 120.00008
+      value: 192.85707
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -775,6 +775,11 @@ PrefabInstance:
       propertyPath: m_Group
       value: 
       objectReference: {fileID: 1015141740}
+    - target: {fileID: 8554227565166706136, guid: e132322d92a8263448b607230d605de5,
+        type: 3}
+      propertyPath: m_IsOn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8666254427932634326, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -848,7 +853,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 120.00008
+      value: 192.85707
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -4007,6 +4012,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3281642562535975357, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281642562535975359, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3281642562576971392, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
       propertyPath: highlightObject
@@ -4367,6 +4382,11 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3281642563556252438, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
+        type: 3}
+      propertyPath: m_IsOn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3281642563629406210, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
       propertyPath: m_IsActive
@@ -4462,6 +4482,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613892164069473817, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 5129626917889691759, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
@@ -4562,9 +4587,9 @@ PrefabInstance:
     - target: {fileID: 8004105181051978188, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
       propertyPath: m_Text
-      value: "Dear Dad,\n\nThis is the address of my coffee shop: 19 River View,
-        Bear's Coffee, Wootopia City, CA, 92019. I just can't wait to see what you'll
-        send me. \n\nLove,\nDaughter"
+      value: "Dear Dad,\n\nThis is the address of my coffee shop: 19 River View, Bear's
+        Coffee, Wootopia City, CA, 92019. I just can't wait to see what you'll send
+        me. \n\nLove,\nDaughter"
       objectReference: {fileID: 0}
     - target: {fileID: 8074923772330380129, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
@@ -6895,8 +6920,7 @@ MonoBehaviour:
   m_Text: 'Press the object and drag to Move.
 
 
-    Put the selected piece where
-    it belongs.'
+    Put the selected piece where it belongs.'
 --- !u!222 &1613457131
 CanvasRenderer:
   m_ObjectHideFlags: 0

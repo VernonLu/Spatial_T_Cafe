@@ -168,6 +168,8 @@ public class OrbitCamera : MonoBehaviour
 
 		Gizmos.color = new Color(1, 1, 1, 0.01f);
 		// Gizmos.DrawWireSphere(center, defaultRadius);
+#if UNITY_EDITOR
 		UnityEditor.Handles.DrawSolidArc(center,Vector3.up,Vector3.forward,360, defaultRadius);
+#endif
 	}
 }

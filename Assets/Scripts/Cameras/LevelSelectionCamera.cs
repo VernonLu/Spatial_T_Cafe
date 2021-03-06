@@ -112,6 +112,7 @@ public class LevelSelectionCamera : MonoBehaviour
 		currentPitch = pitch;
 		currentYaw = yaw;
 		// SetCurrentStage(currentStage);
+		Init();
 	}
 
 	protected virtual void LateUpdate()
@@ -260,4 +261,29 @@ public class LevelSelectionCamera : MonoBehaviour
 		StageManager.Instance.UpdateCurrentStage(currentStage);
 	}
 
+	public void Init()
+	{
+
+		int stageIndex = PlayerPrefs.GetInt("CurStage", 0);
+		Stage stage = StageManager.Instance.GetStageByIndex(stageIndex);
+
+		transform.position = stage.transform.position;
+		SetCurrentStage(stage);
+		if (stageIndex == 0)
+		{
+			SetTargetStage(StageManager.Instance.GetStageByIndex(1));
+		}
+		else
+		{
+			// PlayerPrefs.SetInt("PrevStageIndex", 3);
+			GameObject.Find("Story Canvas")?.SetActive(false);
+			int levelIndex = PlayerPrefs.GetInt("PrevStageIndex", 0) - (stageIndex == 1 ? 0 : 1);
+			Debug.Log(stageIndex + "  " + levelIndex);
+			Vector3 levelPos = stage.levels[levelIndex].transform.position;
+			levelPos.y = transform.position.y;
+			Vector3 rotation = Quaternion.LookRotation(levelPos - transform.position).eulerAngles;	
+			SetYaw(rotation.y);
+			Debug.Log(rotation.y);
+		}
+	}
 }

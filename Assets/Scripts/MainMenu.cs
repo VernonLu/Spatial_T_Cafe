@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using Wootopia;
 public class MainMenu : MonoBehaviour
 {
 	private delegate void VoidDelegate();
@@ -30,6 +30,8 @@ public class MainMenu : MonoBehaviour
 
 	[Header("Exit")]
 	public CanvasGroup exitConfirm;
+	[Header("Loading Canvas")]
+	public LoadingCanvas loadingCanvas;
 
 	void Start()
 	{
@@ -65,6 +67,7 @@ public class MainMenu : MonoBehaviour
 
 	private void Load(string sceneName)
 	{
+		loadingCanvas.Show();
 		SceneManager.LoadSceneAsync(sceneName);
 	}
 

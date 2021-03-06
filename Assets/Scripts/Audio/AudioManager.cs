@@ -107,6 +107,14 @@ public class AudioManager : MonoBehaviour
     }
   }
 
+  public void StopAllLoops()
+  {
+    foreach (Sound loopSound in dataSounds.LoopSounds)
+    {
+      loopSound.Stop();
+    }
+  }
+
   public void PauseLoops()
   {
     foreach (Sound loopSound in dataSounds.LoopSounds)
@@ -125,14 +133,14 @@ public class AudioManager : MonoBehaviour
 
   public void UpdateBGMVolume()
   {
-    bgmVolume = (float)sliderBGM.value / 6;
+    if(sliderBGM) { bgmVolume = (float)sliderBGM.value / 6; }
 
     bgmBus.setVolume(bgmVolume);
   }
 
   public void UpdateSFXVolume()
   {
-    sfxVolume = (float)sliderSFX.value / 6;
+    if(sliderSFX) { sfxVolume = (float)sliderSFX.value / 6; }
 
     sfxBus.setVolume(sfxVolume);
   }
@@ -160,6 +168,6 @@ public class AudioManager : MonoBehaviour
 
   void OnDestroy()
   {
-    StopMainLoops();
+    StopAllLoops();
   }
 }

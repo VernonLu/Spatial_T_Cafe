@@ -14,18 +14,19 @@ public class LevelSelectionManager : MonoBehaviour
 		canvasGroup.Hide();
 		StageManager.Instance.ManualInit();
 		int stageIndex = PlayerPrefs.GetInt("CurStage", 0);
+		// levelSelectionCamera.Init();
 		
-		Stage stage = StageManager.Instance.GetStageByIndex(stageIndex);
-		levelSelectionCamera.transform.position = stage.transform.position;
-		levelSelectionCamera.SetCurrentStage(stage);
-		if (stageIndex == 0)
-		{
-			levelSelectionCamera.SetTargetStage(StageManager.Instance.GetStageByIndex(1));
-		}
-		else
-		{
-			GameObject.Find("Story Canvas")?.SetActive(false);
-		}
+		// Stage stage = StageManager.Instance.GetStageByIndex(stageIndex);
+		// levelSelectionCamera.transform.position = stage.transform.position;
+		// levelSelectionCamera.SetCurrentStage(stage);
+		//if (stageIndex == 0)
+		//{
+		//	levelSelectionCamera.SetTargetStage(StageManager.Instance.GetStageByIndex(1));
+		//}
+		//else
+		//{
+		//	GameObject.Find("Story Canvas")?.SetActive(false);
+		//}
 	}
 
 	public void ShowPopUp()

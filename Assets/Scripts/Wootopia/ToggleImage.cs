@@ -23,6 +23,7 @@ namespace Wootopia
 		private void Start()
 		{
 			toggle.onValueChanged.AddListener(OnValueChanged);
+			toggle.image.sprite = toggle.isOn ? activeSprite : normalSprite;
 		}
 
 		private void OnValueChanged(bool isOn)

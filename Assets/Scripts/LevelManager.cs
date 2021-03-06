@@ -39,6 +39,7 @@ public class LevelManager : MonoBehaviour
 		endGamePanel.Show();
 		loadMenu = SceneManager.LoadSceneAsync("Level Selection");
 		loadMenu.allowSceneActivation = false;
+
 	}
 
 	public void Back2Menu()
@@ -60,6 +61,7 @@ public class LevelManager : MonoBehaviour
 	{
 		Scene scene = SceneManager.GetActiveScene();
 		PlayerPrefs.SetInt(scene.name, 1);
+		PlayerPrefs.SetInt("PrevStageIndex", (int)scene.name[scene.name.Length - 1] - 48);
 	}
 
 }

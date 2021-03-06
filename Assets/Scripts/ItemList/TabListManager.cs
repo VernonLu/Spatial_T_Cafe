@@ -35,9 +35,12 @@ public class TabListManager : MonoBehaviour
 
 	public UnityEvent onFinish;
 
+	public AudioManager audioManager;
+
 	void Start()
 	{
 		tabList = GetComponentsInChildren<TabManager>().ToList();
+		audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 	}
 
 	// Update is called once per frame
@@ -89,6 +92,8 @@ public class TabListManager : MonoBehaviour
 		if (isFinished)
 		{
 			// LevelManager.Instance.ShowEndGame();
+			audioManager.StopMainLoops();
+			audioManager.PlayOneShot2D("sfx_finish");
 			onFinish.Invoke();
 		}
 	}

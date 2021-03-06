@@ -235,7 +235,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 19db327f9286e7a46ab78a658852bacc, type: 3}
     m_FontSize: 70
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 4
     m_MaxSize: 80
     m_Alignment: 3
@@ -3626,7 +3626,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 4fec680e00fbf0c4ba2ae8cd0f371625,
+      objectReference: {fileID: 21300000, guid: 101419281131b734aaeb3ddc77f50665,
         type: 3}
     - target: {fileID: 144521713126485674, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
@@ -3917,11 +3917,11 @@ RectTransform:
   m_Father: {fileID: 811646417}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.1, y: 0.05}
+  m_AnchorMax: {x: 0.9, y: 0.35}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -600, y: -400}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &300710235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5740,8 +5740,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1045678762}
-        m_MethodName: Back2Menu
+      - m_Target: {fileID: 1877839775}
+        m_MethodName: Hide
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6010,7 +6010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7294118, g: 0.454902, b: 0.23529413, a: 0.19215687}
+  m_Color: {r: 0.9716981, g: 0.73488486, b: 0.5454343, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -7182,10 +7182,11 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: -307, y: 10.440001, z: 33.8}
-  - {x: -84.7, y: 10.440001, z: 33.8}
-  - {x: -72.57702, y: 10.440001, z: 1.0199986}
-  - {x: -78.051765, y: 10.440001, z: -25.425575}
-  - {x: -86.03461, y: 10.440001, z: -31.753222}
+  - {x: -97.01311, y: 10.440001, z: 33.8}
+  - {x: -81.60896, y: 10.440001, z: 24.2917}
+  - {x: -78.051765, y: 10.440001, z: -4.113352}
+  - {x: -86.03461, y: 10.440001, z: -23.451424}
+  - {x: -86.13163, y: 10.440001, z: -31.75661}
   - {x: -85, y: 10.440001, z: -31.760002}
   m_Parameters:
     serializedVersion: 3
@@ -12093,12 +12094,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 37f1a66edc1d1cd4ba25315120510319,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.02
+      value: 1.61
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37f1a66edc1d1cd4ba25315120510319,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.33
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37f1a66edc1d1cd4ba25315120510319,
         type: 3}
@@ -12143,7 +12144,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 37f1a66edc1d1cd4ba25315120510319,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 25
+      value: 40.5625
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37f1a66edc1d1cd4ba25315120510319,
         type: 3}
@@ -12153,7 +12154,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 37f1a66edc1d1cd4ba25315120510319,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 20
+      value: 27.722
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 37f1a66edc1d1cd4ba25315120510319,
         type: 3}
@@ -12233,9 +12234,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 19db327f9286e7a46ab78a658852bacc, type: 3}
     m_FontSize: 70
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 4
-    m_MaxSize: 80
+    m_MaxSize: 70
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -14778,7 +14779,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 19db327f9286e7a46ab78a658852bacc, type: 3}
     m_FontSize: 70
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 4
     m_MaxSize: 80
     m_Alignment: 3
@@ -14787,8 +14788,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Yesterday Dad called me saying that he will send out something to the
-    shop and hopefully it can be helpful. '
+  m_Text: 'Yesterday Dad called me saying that he will send out something to the shop
+    and hopefully it can be helpful. '
 --- !u!222 &1068863402
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15749,8 +15750,8 @@ PrefabInstance:
     - target: {fileID: 144521712989118738, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
       propertyPath: m_Text
-      value: Woops, it seems there's something wrong with the menu board, let me
-        fix it! Shouldn't be hard!
+      value: Woops, it seems there's something wrong with the menu board, let me fix
+        it! Shouldn't be hard!
       objectReference: {fileID: 0}
     - target: {fileID: 144521712989118738, guid: 4a3b0cc789802a4458ede5450637717f,
         type: 3}
@@ -16537,15 +16538,13 @@ PrefabInstance:
       value: 'Dear Daughter,
 
 
-        I bet that you can still remember the burr
-        puzzle toy that I made for you when you were young. It was your favourite
-        toy and I recall the memories of you bringing it to your school and showed
-        off to your classmates. You are such a smart girl and you can always solve
-        the puzzles easily.
+        I bet that you can still remember the burr puzzle toy that I made for you
+        when you were young. It was your favourite toy and I recall the memories of
+        you bringing it to your school and showed off to your classmates. You are
+        such a smart girl and you can always solve the puzzles easily.
 
 
-        Time flies, and I miss your little arrogant
-        face.
+        Time flies, and I miss your little arrogant face.
 
 
         Love,
@@ -17168,12 +17167,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 37f1a66edc1d1cd4ba25315120510319,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.56
+      value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37f1a66edc1d1cd4ba25315120510319,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.99
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37f1a66edc1d1cd4ba25315120510319,
         type: 3}
@@ -17218,17 +17217,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 37f1a66edc1d1cd4ba25315120510319,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 18.532482
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37f1a66edc1d1cd4ba25315120510319,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 8
+      value: 13.04616
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37f1a66edc1d1cd4ba25315120510319,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 8
+      value: 13.4024
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 37f1a66edc1d1cd4ba25315120510319,
         type: 3}
@@ -17243,7 +17242,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 37f1a66edc1d1cd4ba25315120510319,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37f1a66edc1d1cd4ba25315120510319, type: 3}
@@ -27312,10 +27311,9 @@ PrefabInstance:
       value: 'Dear Daughter,
 
 
-        You should have received the table I mentioned
-        before. I saw the coffee shop decor picture that you sent to mom, so I made
-        some adjustments to the blueprints based on traditional ornate tables. It
-        should fit in your coffee shop well.
+        You should have received the table I mentioned before. I saw the coffee shop
+        decor picture that you sent to mom, so I made some adjustments to the blueprints
+        based on traditional ornate tables. It should fit in your coffee shop well.
 
 
         Love,
@@ -28345,9 +28343,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Dear Daughter,\r\n\r\nCongratulation on the   opening of coffee shop.
-    Your mom and I are so proud of you.\r\n\r\nI sent you a gift. I believe you will
-    like it. We\u2019re looking forward to the housewarming party. See you then.\r\n\r\nLove,
+  m_Text: "Dear Daughter,\r\n\r\nCongratulation on the   opening of coffee shop. Your
+    mom and I are so proud of you.\r\n\r\nI sent you a gift. I believe you will like
+    it. We\u2019re looking forward to the housewarming party. See you then.\r\n\r\nLove,
     Dad"
 --- !u!222 &1834194359
 CanvasRenderer:
@@ -40878,6 +40876,7 @@ MonoBehaviour:
   - {fileID: 5786299829253426179, guid: 5399945e9148c78418ad0f16406e8674, type: 3}
   - {fileID: 1235839222581477796, guid: 5399945e9148c78418ad0f16406e8674, type: 3}
   - {fileID: -1946129799668092715, guid: 5399945e9148c78418ad0f16406e8674, type: 3}
+  - {fileID: 6389329195802396456, guid: 5399945e9148c78418ad0f16406e8674, type: 3}
   PlaybackInterval: 0.25
   BackAndForth: 1
 --- !u!1 &1809560274519228100
