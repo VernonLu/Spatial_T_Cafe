@@ -4,6 +4,7 @@ using UnityEngine;
 using Wootopia;
 public class StageSwitchButton : MonoBehaviour
 {
+	public Stage currentStage;
 	public Stage targetStage;
 
 	public WoCanvasGroup button;
@@ -26,5 +27,9 @@ public class StageSwitchButton : MonoBehaviour
 		{
 			button.Hide();
 		}
+	}
+	public void UpdateState()
+	{
+		
 	}
 }
