@@ -277,7 +277,7 @@ public class LevelSelectionCamera : MonoBehaviour
 		{
 			// PlayerPrefs.SetInt("PrevStageIndex", 3);
 			GameObject.Find("Story Canvas")?.SetActive(false);
-			int levelIndex = PlayerPrefs.GetInt("PrevStageIndex", 0) - (stageIndex == 1 ? 0 : 1);
+			int levelIndex = PlayerPrefs.GetInt("PrevLevelIndex", 0) - (stageIndex == 1 ? 0 : 1);
 			Debug.Log(stageIndex + "  " + levelIndex);
 			Vector3 levelPos = stage.levels[levelIndex].transform.position;
 			levelPos.y = transform.position.y;

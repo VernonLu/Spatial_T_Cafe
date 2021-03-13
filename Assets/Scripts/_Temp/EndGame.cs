@@ -10,7 +10,8 @@ public class EndGame : MonoBehaviour
 	void Start()
 	{
 		canvasGroup.Hide();
-		bool isFinished = PlayerPrefs.GetInt(sceneName, 0) == 1;
+		// bool isFinished = PlayerPrefs.GetInt(sceneName, 0) == 1;
+		bool isFinished = PlayerPrefs.GetInt("CurStage", 0) == 3 && PlayerPrefs.GetInt("PrevLevelIndex", 0) == 3;
 		if (isFinished)
 		{
 			canvasGroup.Show();

@@ -61,7 +61,7 @@ public class LevelManager : MonoBehaviour
 	{
 		Scene scene = SceneManager.GetActiveScene();
 		PlayerPrefs.SetInt(scene.name, 1);
-		PlayerPrefs.SetInt("PrevStageIndex", (int)scene.name[scene.name.Length - 1] - 48);
+		PlayerPrefs.SetInt("PrevLevelIndex", (int)scene.name[scene.name.Length - 1] - 48);
 	}
 
 }

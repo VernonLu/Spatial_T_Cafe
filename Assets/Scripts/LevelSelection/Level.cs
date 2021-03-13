@@ -39,6 +39,8 @@ public class Level : MonoBehaviour
 	public new Collider collider;
 	private List<Outline> outlines;
 
+	private List<Collider> finishedObjColliders = new List<Collider>();
+
 	void Start() {
 	}
 
@@ -52,32 +54,19 @@ public class Level : MonoBehaviour
 		isFinished = PlayerPrefs.GetInt(levelName, 0) == 1;
 		isLocked = preLevels.Any((Level level) => !level.IsFinished);
 		isLoaded = true;
-
+		finishedObjColliders = finishedObject.GetComponentsInChildren<Collider>().ToList();
 	}
 
 	public void UpdateStatus()
 	{
-		// Debug.Log(this.name);
-		// isActive = true;
-		// foreach (var level in preLevels)
-		// {
-		// 	if (!level.isFinished)
-		// 	{
-		// 		// Debug.Log(level.name + " " + isFinished);
-		// 		isActive = false;
-		// 	}
-		// }
-
 		TogglePackageVisibility(!IsLocked && !isFinished);
 
 		outlines = GetComponentsInChildren<Outline>().ToList();
 
 		ToggleOutline(!IsLocked && !isFinished);
 
-		// finishedObject.SetActive(IsFinished && !IsLocked);
 		finishedObject.transform.localScale = IsFinished && !IsLocked ? Vector3.one : Vector3.zero;
 
-		collider.enabled = !IsLocked && !IsFinished;
 
 	}
 
@@ -98,20 +87,29 @@ public class Level : MonoBehaviour
 		// Debug.Log(gameObject.name + " Package " + visible);
 		// packagingBox.SetActive(visible);
 		packagingBox.transform.localScale = visible ?  Vector3.one : Vector3.zero;
-		collider.enabled = visible;
+
+		collider.enabled = !IsLocked;
+		Debug.Log(this.gameObject.name + " Collider " + collider.enabled);
 	}
 
 	public void ToggleCurrentStage(bool isCurrentStage)
 	{
-		Debug.Log(gameObject.name);
-		// Debug.Log("IsLocked" + IsLocked);
-		// Debug.Log("IsFinished" + IsFinished); 
-		Debug.Log("isCurrentStage" + isCurrentStage);
 
-		// Lock this stage if 
 		this.isCurrentStage = isCurrentStage;
 		bool visible = !IsLocked && !IsFinished && isCurrentStage;
 		TogglePackageVisibility(visible);
 		// finishedObject.SetActive(IsFinished || !IsLocked);
+		collider.enabled = isCurrentStage && !IsLocked;
+
+		foreach (var colllide in finishedObjColliders)
+		{
+			colllide.enabled = isCurrentStage;
+		}
+
+#if UNITY_EDITOR
+		Debug.Log(gameObject.name);
+		Debug.Log("isCurrentStage" + isCurrentStage);
+		Debug.Log(this.gameObject.name + "  Collider " + collider.enabled);
+#endif
 	}
 }

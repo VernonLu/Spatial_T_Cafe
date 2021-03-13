@@ -41,6 +41,7 @@ public class StageManager : MonoBehaviour
 	}
 	public void ManualInit()
 	{
+		Debug.Log("Stage Manager Init");
 		if (null == stageList)
 		{
 			UpdateStageList();

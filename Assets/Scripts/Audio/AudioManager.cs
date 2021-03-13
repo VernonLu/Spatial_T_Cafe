@@ -29,6 +29,8 @@ public class AudioManager : MonoBehaviour
     sfxBus = FMODUnity.RuntimeManager.GetBus("bus:/SFX");
     dataSounds.InitLoopSounds();
 
+    InitVolume();
+
     if (levelBGM) PlaySound(levelBGM);
   }
 
@@ -36,6 +38,17 @@ public class AudioManager : MonoBehaviour
   {
     UpdateBGMVolume();
     UpdateSFXVolume();
+  }
+
+  private void InitVolume()
+  {
+    int bgmSetting = PlayerPrefs.GetInt("BGMVolume", 6);
+    if (sliderBGM) sliderBGM.value = bgmSetting;
+    bgmVolume = (float)bgmSetting / 6;
+
+    int sfxSetting = PlayerPrefs.GetInt("SFXVolume", 6);
+    if (sliderSFX) sliderSFX.value = sfxSetting;
+    sfxVolume = (float)sfxSetting / 6;
   }
 
   public void PlaySound(AudioEmitter emitter)
@@ -133,14 +146,14 @@ public class AudioManager : MonoBehaviour
 
   public void UpdateBGMVolume()
   {
-    if(sliderBGM) { bgmVolume = (float)sliderBGM.value / 6; }
+    if (sliderBGM) { bgmVolume = (float)sliderBGM.value / 6; }
 
     bgmBus.setVolume(bgmVolume);
   }
 
   public void UpdateSFXVolume()
   {
-    if(sliderSFX) { sfxVolume = (float)sliderSFX.value / 6; }
+    if (sliderSFX) { sfxVolume = (float)sliderSFX.value / 6; }
 
     sfxBus.setVolume(sfxVolume);
   }
@@ -150,21 +163,23 @@ public class AudioManager : MonoBehaviour
   //   masterBus.setVolume(volume);
   // }
 
-  // public void SetBGMVolume(float volume)
-  // {
-  //   bgmVolume = (float)volume / 6;
-  //   Debug.Log(bgmVolume);
-  //   var result = bgmBus.setVolume(val);
-  //   Debug.Log("Set BGM Volume: " + result);
-  //   FMODUnity.RuntimeManager.GetBus("bus:/BGM").getVolume(out float bgmVol, out float finalVol);
-  //   Debug.Log(bgmVol + " " + finalVol);
-  // }
+  public void SetBGMVolume(float volume)
+  {
+    // bgmVolume = (float)volume / 6;
+    // Debug.Log(bgmVolume);
+    // var result = bgmBus.setVolume(val);
+    // Debug.Log("Set BGM Volume: " + result);
+    // FMODUnity.RuntimeManager.GetBus("bus:/BGM").getVolume(out float bgmVol, out float finalVol);
+    // Debug.Log(bgmVol + " " + finalVol);
+    PlayerPrefs.SetInt("BGMVolume", (int)volume);
+  }
 
-  // public void SetSFXVolume(float volume)
-  // {
-  //   float val = (9999f / 60000f) * volume + 0.0001f;
-  //   sfxBus.setVolume(Mathf.Log10(val) * 20);
-  // }
+  public void SetSFXVolume(float volume)
+  {
+    // float val = (9999f / 60000f) * volume + 0.0001f;
+    // sfxBus.setVolume(Mathf.Log10(val) * 20);
+    PlayerPrefs.SetInt("SFXVolume", (int)volume);
+  }
 
   void OnDestroy()
   {

@@ -1769,7 +1769,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 39, y: 0}
+  m_AnchoredPosition: {x: 30.5, y: 0}
   m_SizeDelta: {x: 87, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3386616519677613697
@@ -1801,7 +1801,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 128894d5eae87fe47b65c1086a540245, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1887,8 +1887,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
-  m_Text: "To  Dad\n  21 Mountain St,\n  Carpenter Studio,\n  Wootopia City, CA\n 
-    32021"
+  m_Text: "To  Dad\n  21 Mountain St,\n  Carpenter Studio,\n  Wootopia City, CA\n32021"
 --- !u!1 &2913808409970271380
 GameObject:
   m_ObjectHideFlags: 0
@@ -6805,7 +6804,19 @@ MonoBehaviour:
   m_Value: 6
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: SetBGMVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3281642563861879397
 GameObject:
   m_ObjectHideFlags: 0
@@ -7781,6 +7792,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: sfx_wood_click
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5053380819432652323, guid: 0f0218e4f27bcf74399095f636e6d423,
+          type: 3}
+        m_MethodName: SetSFXVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &3345744446789909858
@@ -9426,6 +9449,7 @@ GameObject:
   - component: {fileID: 1815587187928973178}
   - component: {fileID: 9213759202833531151}
   - component: {fileID: 2400167452092385960}
+  - component: {fileID: 5568158516880375585}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -9450,10 +9474,10 @@ RectTransform:
   m_Father: {fileID: 2678175743120887395}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 155, y: 62.5}
-  m_SizeDelta: {x: -410, y: -225}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 185, y: 62.5}
+  m_SizeDelta: {x: 0, y: 770}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9213759202833531151
 MonoBehaviour:
@@ -9524,6 +9548,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5568158516880375585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5050044517640181367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 2
+  m_AspectRatio: 1.99
 --- !u!1 &5107225244947392717
 GameObject:
   m_ObjectHideFlags: 0
@@ -11202,7 +11240,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9065195077432137053
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12901,7 +12939,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: e5a8dfb5a073aee48a63e1a9d6b77ee5, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -15138,10 +15176,6 @@ MonoBehaviour:
   languages:
   - Title: English
     Font: {fileID: 12800000, guid: 19db327f9286e7a46ab78a658852bacc, type: 3}
-  - Title: "\u7B80\u4F53\u4E2D\u6587"
-    Font: {fileID: 12800000, guid: 3307f502cd2306040aac1d9cdc303ada, type: 3}
-  - Title: "\u65E5\u672C\u8A9E"
-    Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!95 &3031462861937291281
 Animator:
   serializedVersion: 3

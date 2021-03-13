@@ -170,6 +170,16 @@ PrefabInstance:
       propertyPath: m_Group
       value: 
       objectReference: {fileID: 1015141740}
+    - target: {fileID: 8554227565166706136, guid: e132322d92a8263448b607230d605de5,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1158059872}
+    - target: {fileID: 8554227565166706136, guid: e132322d92a8263448b607230d605de5,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: HideHighlight
+      objectReference: {fileID: 0}
     - target: {fileID: 8666254427932634326, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -268,7 +278,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 192.85707
+      value: 0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -853,7 +863,7 @@ PrefabInstance:
     - target: {fileID: 8666254428391629065, guid: e132322d92a8263448b607230d605de5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 192.85707
+      value: 0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 8666254428455380075, guid: e132322d92a8263448b607230d605de5,
         type: 3}
@@ -1783,11 +1793,11 @@ RectTransform:
   m_Father: {fileID: 761201165}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 520, y: 90}
-  m_SizeDelta: {x: 135, y: 135}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -372.5, y: 0}
+  m_SizeDelta: {x: 135, y: 134}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &312137398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2056,11 +2066,11 @@ RectTransform:
   m_Father: {fileID: 1094094483}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 830, y: 70}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 169.99994, y: -25}
   m_SizeDelta: {x: 600, y: 180}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!225 &401520436
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3367,11 +3377,11 @@ RectTransform:
   m_Father: {fileID: 725196937}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 440, y: 80}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -452.5, y: -50}
   m_SizeDelta: {x: 135, y: 135}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &908024423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3772,11 +3782,11 @@ RectTransform:
   m_Father: {fileID: 761201165}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 410, y: 90}
-  m_SizeDelta: {x: 135, y: 135}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -482.5, y: 0}
+  m_SizeDelta: {x: 135, y: 134}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &985855973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3848,11 +3858,11 @@ RectTransform:
   m_Father: {fileID: 761201165}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 905, y: 45}
-  m_SizeDelta: {x: 600, y: 140}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 244.99951, y: 0}
+  m_SizeDelta: {x: 600, y: 139}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!225 &1013149957
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3912,9 +3922,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Zoom Camera
-
-'
+  m_Text: Zoom Camera
 --- !u!222 &1013149960
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3961,6 +3969,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 337859052135675031, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815587187928973178, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -4587,9 +4600,9 @@ PrefabInstance:
     - target: {fileID: 8004105181051978188, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
       propertyPath: m_Text
-      value: "Dear Dad,\n\nThis is the address of my coffee shop: 19 River View, Bear's
-        Coffee, Wootopia City, CA, 92019. I just can't wait to see what you'll send
-        me. \n\nLove,\nDaughter"
+      value: "Dear Dad,\n\nThis is the address of my coffee shop: 19 River View,
+        Bear's Coffee, Wootopia City, CA, 92019. I just can't wait to see what you'll
+        send me. \n\nLove,\nDaughter"
       objectReference: {fileID: 0}
     - target: {fileID: 8074923772330380129, guid: 1ffbd9da9efb5484e8fc1069d08b1e29,
         type: 3}
@@ -5301,11 +5314,11 @@ RectTransform:
   m_Father: {fileID: 1827487471}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 440, y: 80}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -452.5, y: 0}
   m_SizeDelta: {x: 135, y: 135}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1209563401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6920,7 +6933,8 @@ MonoBehaviour:
   m_Text: 'Press the object and drag to Move.
 
 
-    Put the selected piece where it belongs.'
+    Put the selected piece where
+    it belongs.'
 --- !u!222 &1613457131
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7130,11 +7144,11 @@ RectTransform:
   m_Father: {fileID: 725196937}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 830, y: 70}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 169.99994, y: -50}
   m_SizeDelta: {x: 600, y: 180}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!225 &1694365471
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -7510,11 +7524,11 @@ RectTransform:
   m_Father: {fileID: 1827487471}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 830, y: 70}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 169.99988, y: 0}
   m_SizeDelta: {x: 600, y: 140}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!225 &1751535486
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -7938,11 +7952,11 @@ RectTransform:
   m_Father: {fileID: 1094094483}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 440, y: 80}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -452.5, y: -25}
   m_SizeDelta: {x: 135, y: 135}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1833562647
 MonoBehaviour:
   m_ObjectHideFlags: 0
