@@ -66,7 +66,7 @@ public class PanCamera : MonoBehaviour
 		var oldPosition = transform.localPosition;
 
 		// Pan the camera based on the world delta
-		transform.position -= worldDelta * panSpeedScale;
+		transform.position -= worldDelta * panSpeedScale * CameraSpeedController.panSensitivity;
 
 		// Add to remainingDelta
 		remainingDelta += transform.localPosition - oldPosition;

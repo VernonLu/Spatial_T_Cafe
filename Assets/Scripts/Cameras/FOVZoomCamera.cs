@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Lean.Touch;
 using UnityEngine;
@@ -89,6 +89,10 @@ public class FOVZoomCamera : MonoBehaviour
 		// Get the pinch ratio of these fingers
 		var pinchRatio = LeanGesture.GetPinchRatio(fingers);
 
+		pinchRatio = (pinchRatio - 1) * CameraSpeedController.zoomSensitivity + 1;
+		
+		Debug.Log(pinchRatio);
+
 		// Store
 		var oldPosition = transform.localPosition;
 
@@ -111,6 +115,8 @@ public class FOVZoomCamera : MonoBehaviour
 				{
 					// Derive actual pinchRatio from the zoom delta (it may differ with clamping)
 					pinchRatio = Zoom / oldZoom;
+
+					zoomSpeedScale = CameraSpeedController.zoomSensitivity;
 
 					pinchRatio *= zoomSpeedScale;
 

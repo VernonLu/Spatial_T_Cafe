@@ -111,6 +111,7 @@ public class RotateCamera : MonoBehaviour
 		var sensitivity = GetSensitivity();
 
 		// rotateSpeedScale = rotateSpeedScaleCurve.Evaluate(Camera.fieldOfView);
+		rotateSpeedScale = CameraSpeedController.rotateSensitivity;
 
 		yaw += delta.x * yawSensitivity * sensitivity * rotateSpeedScale;
 		pitch -= delta.y * pitchSensitivity * sensitivity * rotateSpeedScale;
